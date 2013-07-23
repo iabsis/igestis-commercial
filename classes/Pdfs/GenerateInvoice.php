@@ -202,7 +202,7 @@ class GenerateInvoice extends GenerateCommercialDocument {
             // Create quotation root folder if not exist
             if(!is_dir(ConfigModuleVars::invoicesFolder)) {
                 if(!mkdir(ConfigModuleVars::invoicesFolder)) {
-                    throw new \Exception(sprintf(\Igestis\I18n\Translate::_("Unable to create the quotation folder '%s'"), ConfigModuleVars::invoicesFolder));
+                    throw new \Exception(sprintf(\Igestis\I18n\Translate::_("Unable to create the estimate folder '%s'"), ConfigModuleVars::invoicesFolder));
                 }
             }
             
@@ -210,7 +210,7 @@ class GenerateInvoice extends GenerateCommercialDocument {
             $companyQuotationFolder = ConfigModuleVars::invoicesFolder . "/" . $this->document->getCompany()->getId();
             if(!is_dir($companyQuotationFolder)) {
                 if(!mkdir($companyQuotationFolder)) {
-                    throw new \Exception(sprintf(\Igestis\I18n\Translate::_("Unable to create the quotation folder '%s'"), $companyQuotationFolder));
+                    throw new \Exception(sprintf(\Igestis\I18n\Translate::_("Unable to create the estimate folder '%s'"), $companyQuotationFolder));
                 }
             }
             

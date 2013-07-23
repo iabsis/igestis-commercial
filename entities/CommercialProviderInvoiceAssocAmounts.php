@@ -247,7 +247,7 @@ class CommercialProviderInvoiceAssocAmounts
      */
     public function prePersistOrRemove() {   
         if($this->getAmountTi() != $this->getAmountDf() + $this->getTaxes()) {
-            throw new Exception(sprintf(\Igestis\I18n\Translate::_("The Amount df (%s), amount ti (%s) and taxes (%s) does not match"),
+            throw new Exception(sprintf(\Igestis\I18n\Translate::_("The amount tax free (%s), amount taxes included (%s) and taxes (%s) does not match"),
                 $this->getAmountDf(),
                 $this->getAmountTi(),
                 $this->getTaxes()

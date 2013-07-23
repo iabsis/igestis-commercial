@@ -11,7 +11,7 @@
 			</td>
 			<td width="20%">&nbsp;</td>
 			<td width="40%">
-				<h1>{% trans %}Estimation quote{% endtrans %}</h1><br>
+				<h1>{% trans %}Estimate{% endtrans %}</h1><br>
 				<strong>{% trans %}Date{% endtrans %}: </strong>{{ commercialEstimate.dateEstimate ? commercialEstimate.dateEstimate|date("d/m/Y") }}<br>
 				<strong>{% trans %}Number{% endtrans %}: </strong>{{ commercialEstimate.estimationNumber }}<br>
 				<strong>{% trans %}Valid until{% endtrans %}: </strong>{{ commercialEstimate.validUntil ? commercialEstimate.validUntil|date("d/m/Y") }}<br>
@@ -30,7 +30,7 @@
 			</td>
 			<td width="20%">&nbsp;</td>
 			<td width="40%">
-				<h2>{% trans %}Quotation to{% endtrans %}</h2>
+				<h2>{% trans %}Estimate to{% endtrans %}</h2>
 				{% if commercialEstimate.commercialDocument.customerName %}
 					<strong>{{ commercialEstimate.commercialDocument.customerName }}</strong><br />
 					{% spaceless %}

@@ -137,7 +137,7 @@
             {% if not sellingDocument.estimates|length and not sellingDocument.invoices|length %}
 
             	<a href="javascript:igestisCommercial.sellingDocument.generateQuote()" class="btn">
-                	<i class="icon-file"></i> {% trans %}Generate the quotation{% endtrans %}
+                	<i class="icon-file"></i> {% trans %}Generate the estimate{% endtrans %}
                 </a>
 
                 <a href="javascript:igestisCommercial.sellingDocument.generateInvoice()" class="btn">
@@ -147,23 +147,23 @@
             {% elseif sellingDocument.estimates|length and not sellingDocument.invoices|length %}
                <div class="btn-group">
                   <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                    {% trans %}Quotation action{% endtrans %}
+                    {% trans %}Estimate action{% endtrans %}
                     <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu">
                     <li>
                       <a href="javascript:igestisCommercial.sellingDocument.generateQuote()">
-                        <i class="icon-file"></i> {% trans %}Generate again the quotation{% endtrans %}
+                        <i class="icon-file"></i> {% trans %}Generate again the estimate{% endtrans %}
                       </a>
                     </li>
                     <li>
                       <a href="#SendQuotation" data-toggle="modal">
-                        <i class="icon-envelope"></i> {% trans %}Send the quotation by email{% endtrans %}
+                        <i class="icon-envelope"></i> {% trans %}Send the estimate by email{% endtrans %}
                       </a>
                     </li>
                     <li>
                       <a href="{{ url('commercial_estimate_dl_doc', {"Id":sellingDocument.estimates.last.Id, "ForceDl" : 1}) }}">
-                        <i class="icon-download-alt"></i> {% trans %}Download the quotation{% endtrans %}
+                        <i class="icon-download-alt"></i> {% trans %}Download the estimate{% endtrans %}
                       </a>
                     </li>
                   </ul>
@@ -204,7 +204,7 @@
             {% else %}
             
                 <a href="{{ url('commercial_estimate_dl_doc', {"Id":sellingDocument.estimates.last.Id, "ForceDl" : 1}) }}" class="btn">
-                    <i class="icon-download-alt"></i> {% trans %}Download the quotation{% endtrans %}
+                    <i class="icon-download-alt"></i> {% trans %}Download the estimate{% endtrans %}
                 </a>
           
                 <div class="btn-group">

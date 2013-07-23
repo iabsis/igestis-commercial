@@ -35,11 +35,11 @@
         <fieldset>
             <div class="row-fluid">
                 <div class="span5">                    
-                    {{ forms.input('estimateExpirationDays', 'Estimation expiration delay'|trans, form_data.estimateExpirationDays) }}
+                    {{ forms.input('estimateExpirationDays', 'Default estimate validity duration (in days)'|trans, form_data.estimateExpirationDays) }}
                     
                 </div>
                 <div class="span5 offset1">                    
-                    {{ forms.input('invoicePaymentLimit', 'Invoices payment due date'|trans, form_data.invoicePaymentLimit) }}
+                    {{ forms.input('invoicePaymentLimit', 'Default payment limit duration (in days)'|trans, form_data.invoicePaymentLimit) }}
                 </div>
             </div>
             

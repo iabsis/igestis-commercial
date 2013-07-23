@@ -85,7 +85,7 @@ class estimatesController extends \IgestisController {
             
             $message
                 // Give the message a subject
-                ->setSubject(\Igestis\I18n\Translate::_("Your quotation"))
+                ->setSubject(\Igestis\I18n\Translate::_("Your estimate"))
                 // Set the From address with an associative array
                 ->setFrom(array($company->getEmail() => $company->getName()))
                 // Set the To addresses with an associative array

@@ -15,8 +15,8 @@
               <fieldset>
                   <legend>{% trans %}Document information{% endtrans %}</legend>
                   {{ forms.select('providerUser', 'Creditor'|trans, usersList, providerInvoice.providerUser.id, 'id', 'userLabel') }}
-                  {{ forms.select('soldType', 'Sold type'|trans, soldTypeList, providerInvoice.invoicePaymentType.code, 'code', 'label') }}
-                  {{ forms.input('invoiceNum', 'Invoice num'|trans, providerInvoice.invoiceNum) }}
+                  {{ forms.select('soldType', 'Payment mode'|trans, soldTypeList, providerInvoice.invoicePaymentType.code, 'code', 'label') }}
+                  {{ forms.input('invoiceNum', 'Invoice number'|trans, providerInvoice.invoiceNum) }}
                   {{ forms.date('invoiceDate', 'Invoice date'|trans, providerInvoice.invoiceDate) }}
  
                   <legend>{% trans %}Document amounts{% endtrans %}</legend>
