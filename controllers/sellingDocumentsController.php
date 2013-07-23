@@ -116,7 +116,6 @@ class sellingDocumentsController extends \IgestisController {
             }         
         }
         
-        $customersList = $this->_em->find("CoreUsers", $Id);
         
         $companyConfig = $this->_em->getRepository("CommercialCompanyConfig")->getCompanyConfig();        
         $estimationValidUntil = new \DateTime;
@@ -127,7 +126,6 @@ class sellingDocumentsController extends \IgestisController {
         $this->context->render("Commercial/pages/sellingDocumentsEdit.twig", array(
             "sellingDocument" => $document,
             "taxeRatesList" => $this->_em->getRepository("CommercialTaxeRate")->findAll(),
-            "customersList" => $customersList,
             "sellingAccount" => $this->_em->getRepository("CommercialSellingAccount")->findAll(),
             "countriesList" => $this->_em->getRepository("CoreCountries")->findAll(),
             "soldTypeList" => $this->_em->getRepository("CommercialSoldType")->findAll(),
