@@ -1,7 +1,7 @@
 <?php
 
 $igestisPath = '../../igestis/trunk/';
-$modulePrefix = '';
+$modulePrefix = './';
 
 require_once $igestisPath . 'includes/Twig/Autoloader.php';
 require_once $igestisPath . 'config/igestis/ConfigIgestisGlobalVars-template.php';
