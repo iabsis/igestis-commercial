@@ -103,7 +103,6 @@ igestisCommercial.bank.startImport = function() {
 	var accountsData = igestisCommercial.bank.pageValues.oBankTable.$('input').serialize();
 	
 	var dataToSend = '';
-	console.log(operationsData);
 	if(operationsData) dataToSend += operationsData;
 	if(accountsData) dataToSend += "&" + accountsData;
 
@@ -181,7 +180,6 @@ igestisCommercial.sellingDocument.deleteItem = function(itemId) {
                 url: igestisCommercial.sellingDocument.options.deleteLink + itemId,
                 dataType:'json', //type json
                 success: function(result) {
-                    console.log(result);
                     igestisParseJsonAjaxResult(result);
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
@@ -236,7 +234,6 @@ igestisCommercial.sellingDocument.calculateTotalPrice = function() {
     var earningPrice = totalPrice - ($("#id-purchasingDfUnitPrice").val() * $("#id-quantityArticle").val());
     if(isNaN(earningPrice)) {
         earningPrice = 0;
-        console.log(earningPrice);
     }
     
     $("#id-totSellPriceArticleTi").val(totalPrice.toFixed(2));
@@ -295,7 +292,6 @@ igestisCommercial.projects.init = function(options) {
               cache: false,
               type: "POST",
               success: function(result) {
-                  console.log(result);
                   igestisParseJsonAjaxResult(result);
 
               },

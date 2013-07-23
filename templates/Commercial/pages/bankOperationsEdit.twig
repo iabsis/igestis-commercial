@@ -200,7 +200,6 @@
                         cache: false,
                         type: "POST",
                         success: function(result) {
-                            console.log(result);
                             igestisParseJsonAjaxResult(result);
                         },
                         error: function(jqXHR, textStatus, errorThrown) {
@@ -226,8 +225,7 @@
                        var val = parseFloat($(this).val());
                        assocs += (isNaN(val) ? 0 : val);
                    });
-                   console.log("balance", balance);
-                   console.log("assocs", assocs);
+                   
                    if(balance - assocs !== 0) {
                        bootbox.confirm("{% trans %}The assigned amounts does not match the operation amount. Do you want to validate anyway ?{% endtrans %}", "{% trans %}No{% endtrans %}", "{% trans %}Yes{% endtrans %}", function(result) {
                            if(result) action();

@@ -91,7 +91,6 @@
            var currentForm = this;
            
            var checkedFields = $('input[type=checkbox]:checked', $('#table_data').dataTable().fnGetNodes()); 
-           console.log(checkedFields);
            if(checkedFields.length === 0) {
                bootbox.alert('{{ 'Thank to select at least one invoice before to click the "export" button'|trans|e('js') }}');
            }
