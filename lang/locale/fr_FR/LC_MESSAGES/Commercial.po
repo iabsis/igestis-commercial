@@ -1,0 +1,2438 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: igestis-commercial 2.0\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Olivier Bitsch <olivier.b@iabsis.com>\n"
+"Language-Team: Iabsis SARL <info@iabsis.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: Français\n"
+
+#: config/ConfigInitModule.php:36
+msgid "None"
+msgstr "Aucun"
+
+#: config/ConfigInitModule.php:37
+msgid "Doesn't allow the access to sales projects"
+msgstr "Ne permet pas l'accès aux projets de ventes"
+
+#: config/ConfigInitModule.php:41
+msgid "Administrator"
+msgstr "Administateur"
+
+#: config/ConfigInitModule.php:42
+msgid ""
+"Allow to create and delete projects, create assets, invoices and "
+"estimations, and export invoices and assets"
+msgstr ""
+"Permet de créer et supprimer des projets, créer des devis, des factures, des "
+"factures d'avoir et esporter les informations."
+
+#: config/ConfigInitModule.php:46
+msgid "Employee"
+msgstr "Employé"
+
+#: config/ConfigInitModule.php:47
+msgid ""
+"Allow to create and delete projects, create assets, invoices and estimations"
+msgstr ""
+"Permet de créer et supprimer des projets, créer des devis, des factures et "
+"des factures d'avoir."
+
+#: config/ConfigInitModule.php:51
+msgid "Accountant"
+msgstr "Comptable"
+
+#: config/ConfigInitModule.php:52
+msgid "Allow to export invoices and assets"
+msgstr "Permet d'exporter les factures et des factures d'avoir."
+
+#: config/ConfigInitModule.php:71 config/ConfigInitModule.php:77
+#: config/ConfigInitModule.php:83 config/ConfigInitModule.php:89
+#: config/ConfigInitModule.php:95 config/ConfigInitModule.php:101
+#: config/ConfigInitModule.php:107 config/ConfigInitModule.php:113
+msgid "Commercial"
+msgstr "Commercial"
+
+#: config/ConfigInitModule.php:72
+msgid "Projects"
+msgstr "Projets"
+
+#: config/ConfigInitModule.php:78 config/ConfigInitModule.php:155
+msgid "Sales documents"
+msgstr "Documents de vente"
+
+#: config/ConfigInitModule.php:84 config/ConfigInitModule.php:160
+msgid "Purchases invoices"
+msgstr "Factures d'achats"
+
+#: config/ConfigInitModule.php:90 config/ConfigInitModule.php:165
+msgid "Articles database"
+msgstr "Base d'articles"
+
+#: config/ConfigInitModule.php:96 config/ConfigInitModule.php:170
+msgid "Interventions"
+msgstr "Interventions"
+
+#: config/ConfigInitModule.php:102 config/ConfigInitModule.php:175
+msgid "Balances"
+msgstr "Balances"
+
+#: config/ConfigInitModule.php:108 config/ConfigInitModule.php:180
+msgid "Bank accounts"
+msgstr "Comptes bancaires"
+
+#: config/ConfigInitModule.php:114 config/ConfigInitModule.php:185
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:198
+msgid "Export"
+msgstr "Exportation"
+
+#: config/ConfigInitModule.php:128 config/ConfigInitModule.php:133
+#: config/ConfigInitModule.php:141
+msgid "Quick links"
+msgstr "Navigation rapide"
+
+#: config/ConfigInitModule.php:129
+msgid "New intervention"
+msgstr "Nouvelle intervention"
+
+#: config/ConfigInitModule.php:134
+msgid "New commercial element"
+msgstr "Nouvel élément commercial"
+
+#: config/ConfigInitModule.php:142
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:99
+#: tmp/cd/e0/b0097b1d329c2c2c287f3f9e28a7.php:28
+msgid "New project"
+msgstr "Nouveau projet"
+
+#: config/ConfigInitModule.php:149 config/ConfigInitModule.php:154
+#: config/ConfigInitModule.php:159 config/ConfigInitModule.php:164
+#: config/ConfigInitModule.php:169 config/ConfigInitModule.php:174
+#: config/ConfigInitModule.php:179 config/ConfigInitModule.php:184
+msgid "Navigation"
+msgstr "Navigation"
+
+#: config/ConfigInitModule.php:150
+msgid "Projets"
+msgstr "Projets"
+
+#: config/ConfigInitModule.php:189 config/ConfigInitModule.php:194
+#: config/ConfigInitModule.php:199
+msgid "Administration"
+msgstr ""
+
+#: config/ConfigInitModule.php:190
+msgid "Taxe rates"
+msgstr ""
+
+#: config/ConfigInitModule.php:195
+msgid "Accounting"
+msgstr ""
+
+#: config/ConfigInitModule.php:200
+msgid "Commercial parameters"
+msgstr ""
+
+#: controllers/invoicesController.php:24
+#: controllers/estimatesController.php:21
+msgid "This commercial document has already an invoice, it is locked"
+msgstr ""
+
+#: controllers/invoicesController.php:35
+msgid "Invoice has been generated"
+msgstr ""
+
+#: controllers/invoicesController.php:74 controllers/invoicesController.php:75
+#: controllers/estimatesController.php:67
+#: controllers/estimatesController.php:68
+msgid "Please rensign a well formed recipient"
+msgstr ""
+
+#: controllers/invoicesController.php:81 controllers/invoicesController.php:82
+msgid "Invoice not found"
+msgstr ""
+
+#: controllers/invoicesController.php:94
+msgid "Your invoice"
+msgstr ""
+
+#: controllers/invoicesController.php:108
+#: controllers/estimatesController.php:102
+#, php-format
+msgid "Mail has been sent to %s"
+msgstr ""
+
+#: controllers/invoicesController.php:115
+#: controllers/estimatesController.php:109
+msgid "Error during the mail delivrery"
+msgstr ""
+
+#: controllers/exportController.php:34
+msgid "No invoice selected"
+msgstr ""
+
+#: controllers/exportController.php:42
+msgid "Malformed request"
+msgstr ""
+
+#: controllers/exportController.php:58
+msgid "At least one of the selected invoice has not been found."
+msgstr ""
+
+#: controllers/bankAccountController.php:44
+msgid "The purchasing article has been successfully deleted"
+msgstr ""
+
+#: controllers/bankAccountController.php:59
+#, php-format
+msgid "An error occurred while parsing the file : %s"
+msgstr ""
+
+#: controllers/bankAccountController.php:78
+msgid "There is not operations to import."
+msgstr ""
+
+#: controllers/bankAccountController.php:115
+msgid "The selected data has been successfully imported"
+msgstr ""
+
+#: controllers/bankAccountController.php:121
+#, php-format
+msgid "An error occurred during the import process : %s"
+msgstr ""
+
+#: controllers/bankAccountController.php:153
+#: controllers/ArticlesController.php:89
+#: controllers/ArticlesController.php:148
+msgid "The article data has been successfully saved"
+msgstr ""
+
+#: controllers/bankAccountController.php:160
+msgid "No data received."
+msgstr ""
+
+#: controllers/bankAccountController.php:187
+msgid "The bank account data has been successfully saved"
+msgstr ""
+
+#: controllers/bankAccountController.php:191
+#: controllers/bankOperationController.php:50
+#: controllers/bankOperationController.php:84
+#, php-format
+msgid "An error occurred during the database update : %s"
+msgstr ""
+
+#: controllers/sellingDocumentsController.php:42
+msgid "The commercial document has been successfully deleted"
+msgstr ""
+
+#: controllers/sellingDocumentsController.php:69
+#: controllers/interventionsController.php:114
+msgid "Unknown project"
+msgstr ""
+
+#: controllers/sellingDocumentsController.php:75
+msgid "The document has been successfully created"
+msgstr ""
+
+#: controllers/sellingDocumentsController.php:81
+#: controllers/sellingDocumentsController.php:82
+#, php-format
+msgid "An error occurred during the project creation : %s"
+msgstr ""
+
+#: controllers/sellingDocumentsController.php:86
+msgid "No datas has been received for the selling document creation"
+msgstr ""
+
+#: controllers/sellingDocumentsController.php:110
+#: controllers/providerInvoicesController.php:95
+#: controllers/providerInvoicesController.php:96
+msgid "The document has been successfully updated"
+msgstr ""
+
+#: controllers/sellingDocumentsController.php:114
+#: controllers/projectsController.php:104
+msgid "An error occurred during the selling document update"
+msgstr ""
+
+#: controllers/sellingDocumentsController.php:149
+msgid "Unable to find document"
+msgstr ""
+
+#: controllers/sellingDocumentsController.php:154
+msgid "Unable to find article"
+msgstr ""
+
+#: controllers/sellingDocumentsController.php:181
+#: controllers/sellingDocumentsController.php:230
+msgid "Article successfully saved"
+msgstr ""
+
+#: controllers/sellingDocumentsController.php:201
+msgid "Selling document not found"
+msgstr ""
+
+#: controllers/sellingDocumentsController.php:262
+#: controllers/sellingDocumentsController.php:263
+msgid "Article not found"
+msgstr ""
+
+#: controllers/sellingDocumentsController.php:268
+#: controllers/sellingDocumentsController.php:269
+msgid "Not access to this article"
+msgstr ""
+
+#: controllers/sellingDocumentsController.php:283
+msgid "Article successfully removed"
+msgstr ""
+
+#: controllers/sellingDocumentsController.php:284
+msgid "ok"
+msgstr ""
+
+#: controllers/AccountingController.php:34
+msgid "The vat accouting values has been successfuly updated"
+msgstr ""
+
+#: controllers/AccountingController.php:38
+msgid "An error occurred during the record of the vat accounting"
+msgstr ""
+
+#: controllers/AccountingController.php:61
+msgid "The purchasing account has been successfully deleted"
+msgstr ""
+
+#: controllers/AccountingController.php:74
+#: controllers/AccountingController.php:110
+#: controllers/AccountingController.php:168
+#: controllers/AccountingController.php:204
+msgid "The account name is a required field"
+msgstr ""
+
+#: controllers/AccountingController.php:77
+#: controllers/AccountingController.php:111
+#: controllers/AccountingController.php:171
+#: controllers/AccountingController.php:205
+msgid "The account number is a required field"
+msgstr ""
+
+#: controllers/AccountingController.php:91
+#: controllers/AccountingController.php:125
+#: controllers/AccountingController.php:185
+#: controllers/AccountingController.php:219
+msgid "The account data has been successfully saved"
+msgstr ""
+
+#: controllers/AccountingController.php:155
+msgid "The selling account has been successfully deleted"
+msgstr ""
+
+#: controllers/bankOperationController.php:47
+msgid "The operation has been successfully deleted"
+msgstr ""
+
+#: controllers/bankOperationController.php:79
+#: controllers/projectsController.php:67
+msgid "The project has been successfully created"
+msgstr ""
+
+#: controllers/bankOperationController.php:89
+msgid "No datas has been received for the operation creation"
+msgstr ""
+
+#: controllers/bankOperationController.php:152
+msgid "Error during the operation association process"
+msgstr ""
+
+#: controllers/bankOperationController.php:163
+msgid "There is no more unassigned operation"
+msgstr ""
+
+#: controllers/bankOperationController.php:172
+msgid "The association has been successfully saved"
+msgstr ""
+
+#: controllers/balanceController.php:47
+msgid "Document not found"
+msgstr ""
+
+#: controllers/balanceController.php:61
+msgid "The paid status has been updated"
+msgstr ""
+
+#: controllers/balanceController.php:65
+#, php-format
+msgid "An error occurred during the paid status change : %s"
+msgstr ""
+
+#: controllers/ArticlesController.php:39
+msgid "The article has been successfully deleted"
+msgstr ""
+
+#: controllers/parametersController.php:43
+msgid "Company configuration has been savec successfully"
+msgstr ""
+
+#: controllers/parametersController.php:48
+#, php-format
+msgid "Error during the configuration save. Error message : %s"
+msgstr ""
+
+#: controllers/parametersController.php:49
+msgid "Error during the configuration save"
+msgstr ""
+
+#: controllers/projectsController.php:39
+msgid ""
+"Unable to delete this project. Check if it has any free documents linked"
+msgstr ""
+
+#: controllers/projectsController.php:44
+msgid "The project has been successfully deleted"
+msgstr ""
+
+#: controllers/projectsController.php:72
+msgid "An error occurred during the project creation"
+msgstr ""
+
+#: controllers/projectsController.php:77
+msgid "No datas has been received for the project creation"
+msgstr ""
+
+#: controllers/projectsController.php:100
+msgid "The project has been successfully updated"
+msgstr ""
+
+#: controllers/projectsController.php:125
+#: controllers/projectsController.php:170
+#: controllers/projectsController.php:202
+#: controllers/projectsController.php:245
+#: controllers/projectsController.php:277
+#: controllers/projectsController.php:319
+#: controllers/projectsController.php:369
+msgid "Project not found"
+msgstr ""
+
+#: controllers/projectsController.php:138
+#: controllers/projectsController.php:215
+#: controllers/projectsController.php:290
+msgid "Error during the project association"
+msgstr ""
+
+#: controllers/projectsController.php:173
+#: controllers/projectsController.php:248
+msgid "Wrong project and intervention association"
+msgstr ""
+
+#: controllers/projectsController.php:180
+msgid "Error during the document unlink"
+msgstr ""
+
+#: controllers/projectsController.php:255
+msgid "Error during the intervention unlink"
+msgstr ""
+
+#: controllers/projectsController.php:322
+msgid "Wrong project and provider invoice association"
+msgstr ""
+
+#: controllers/projectsController.php:329
+msgid "Error during the provider invoice unlink"
+msgstr ""
+
+#: controllers/projectsController.php:372
+msgid "Wrong project and free document association"
+msgstr ""
+
+#: controllers/projectsController.php:380
+#: controllers/projectsController.php:451
+msgid "Error during the free document unlink"
+msgstr ""
+
+#: controllers/projectsController.php:429
+msgid "Free document not found"
+msgstr ""
+
+#: controllers/estimatesController.php:28
+msgid "Estimate has been generated"
+msgstr ""
+
+#: controllers/estimatesController.php:74
+#: controllers/estimatesController.php:75
+msgid "Estimate not found"
+msgstr ""
+
+#: controllers/estimatesController.php:88
+msgid "Your quotation"
+msgstr ""
+
+#: controllers/taxeRatesController.php:39
+msgid "The taxe rate has been successfully deleted"
+msgstr ""
+
+#: controllers/taxeRatesController.php:70
+#: controllers/taxeRatesController.php:108
+msgid "The taxe rate data has been successfully saved"
+msgstr ""
+
+#: controllers/providerInvoicesController.php:61
+msgid "The provider invoice has been successfully deleted"
+msgstr ""
+
+#: controllers/providerInvoicesController.php:136
+#: controllers/providerInvoicesController.php:185
+#: controllers/providerInvoicesController.php:233
+msgid "Invoice unknown"
+msgstr ""
+
+#: controllers/providerInvoicesController.php:164
+#: controllers/providerInvoicesController.php:211
+msgid "Error during the amount adding process"
+msgstr ""
+
+#: controllers/providerInvoicesController.php:231
+msgid "Invoice amount unknown"
+msgstr ""
+
+#: controllers/providerInvoicesController.php:250
+msgid "Error during the amount remove process"
+msgstr ""
+
+#: controllers/interventionsController.php:41
+#: controllers/interventionsController.php:102
+#: controllers/interventionsController.php:232
+msgid "Failed to delete the old file."
+msgstr ""
+
+#: controllers/interventionsController.php:53
+msgid "The intervention has been successfully deleted"
+msgstr ""
+
+#: controllers/interventionsController.php:73
+#: controllers/interventionsController.php:203
+msgid "The date format is invalid"
+msgstr ""
+
+#: controllers/interventionsController.php:74
+#: controllers/interventionsController.php:204
+msgid "The start time format is invalid"
+msgstr ""
+
+#: controllers/interventionsController.php:75
+#: controllers/interventionsController.php:205
+msgid "The end time format is invalid"
+msgstr ""
+
+#: controllers/interventionsController.php:76
+#: controllers/interventionsController.php:206
+msgid "The pause time format is invalid"
+msgstr ""
+
+#: controllers/interventionsController.php:77
+#: controllers/interventionsController.php:207
+msgid "The elapsed time format is invalid"
+msgstr ""
+
+#: controllers/interventionsController.php:91
+#: controllers/interventionsController.php:221
+#, php-format
+msgid "Unable to find the file '%s'."
+msgstr ""
+
+#: controllers/interventionsController.php:153
+#: controllers/interventionsController.php:273
+msgid "An error occured during the intervention save."
+msgstr ""
+
+#: controllers/interventionsController.php:157
+#: controllers/interventionsController.php:277
+msgid "The intervention data has been successfully saved"
+msgstr ""
+
+#: classes/Pdfs/GenerateInvoice.php:205 classes/Pdfs/GenerateInvoice.php:213
+#: classes/Pdfs/GenerateEstimate.php:144 classes/Pdfs/GenerateEstimate.php:152
+#, php-format
+msgid "Unable to create the quotation folder '%s'"
+msgstr ""
+
+#: classes/Pdfs/GenerateCommercialDocument.php:149
+#, php-format
+msgid ""
+"The html render must implement the interface of the same name or to be type "
+"of 'Twig_Environment', now '%s'"
+msgstr ""
+
+#: classes/EntityLogic/invoicesExportLogic.php:60
+msgid "The invoice is not a known invoice format"
+msgstr ""
+
+#: tmp/8f/a3/2b5e33015fbbcb83881939e6a204.php:28
+msgid "New estimate"
+msgstr ""
+
+#: tmp/8f/a3/2b5e33015fbbcb83881939e6a204.php:42
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:78
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:78
+msgid "Valid until"
+msgstr ""
+
+#: tmp/8f/a3/2b5e33015fbbcb83881939e6a204.php:51
+#: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:70
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:368
+#: tmp/2d/77/c6405f1255bde67df8f7fa410dc7.php:55
+#: tmp/98/5a/53d1005b6dac7a9d264d7d42a707.php:53
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:109
+#: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:50
+#: tmp/eb/c0/7ad350433cc56e751191fe920821.php:53
+#: tmp/cd/e0/b0097b1d329c2c2c287f3f9e28a7.php:49
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:108
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:311
+#: tmp/01/4f/0ad7e54d0e73595aa365540bcfc7.php:55
+#: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:70
+#: tmp/2f/fb/405430ed4e7cba3d009789944224.php:70
+#: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:88
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:526
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:122
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:79
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:88
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:232
+#: tmp/18/35/a9f53c49d46b6e5b96a5d21f9ce7.php:48
+#: tmp/bd/08/1c0aa487614e37b9222a4f52c87f.php:55
+#: tmp/1d/bd/38c47de6b748d82ee7a64931796b.php:55
+#: tmp/0d/3a/5d147d803dc62386a694204456fa.php:53
+msgid "Save changes"
+msgstr ""
+
+#: tmp/61/3c/83125653435d706aa728a5c0155d.php:25
+#: tmp/40/c9/333f506017e60d16e7effac65e95.php:25
+#: tmp/af/5f/2b49dad23f1f08770ccdb691e172.php:29
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:89
+#: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:25
+msgid "Sel"
+msgstr ""
+
+#: tmp/61/3c/83125653435d706aa728a5c0155d.php:29
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:51
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:116
+#: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:46
+#: tmp/13/27/0e69aa4363d53ff6b504a73401dc.php:24
+#: tmp/cd/e0/b0097b1d329c2c2c287f3f9e28a7.php:34
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:59
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:154
+msgid "Title"
+msgstr ""
+
+#: tmp/61/3c/83125653435d706aa728a5c0155d.php:33
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:118
+#: tmp/40/c9/333f506017e60d16e7effac65e95.php:33
+#: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:46
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:79
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:91
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:93
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:136
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:129
+#: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:50
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:66
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:87
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:146
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:66
+#: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:37
+msgid "Date"
+msgstr ""
+
+#: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:25
+msgid "Edit a bank account"
+msgstr ""
+
+#: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:25
+#: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:25
+msgid "Fill all information about the article"
+msgstr ""
+
+#: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:40
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:40
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:40
+msgid "Intervention informations"
+msgstr ""
+
+#: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:46
+#: tmp/2d/77/c6405f1255bde67df8f7fa410dc7.php:43
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:58
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:49
+#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:90
+#: tmp/eb/c0/7ad350433cc56e751191fe920821.php:34
+#: tmp/01/4f/0ad7e54d0e73595aa365540bcfc7.php:43
+#: tmp/bd/08/1c0aa487614e37b9222a4f52c87f.php:43
+#: tmp/1d/bd/38c47de6b748d82ee7a64931796b.php:43
+msgid "Account name"
+msgstr ""
+
+#: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:50
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:61
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:94
+#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:94
+#: tmp/eb/c0/7ad350433cc56e751191fe920821.php:46
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:429
+msgid "Bank name"
+msgstr ""
+
+#: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:57
+#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:98
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:72
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:72
+msgid "Number"
+msgstr ""
+
+#: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:61
+#: tmp/eb/c0/7ad350433cc56e751191fe920821.php:42
+msgid "Balance"
+msgstr ""
+
+#: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:61
+msgid "Account reference"
+msgstr ""
+
+#: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:61
+msgid ""
+"This reference is used by the ofx import to associate the operations to the "
+"good account"
+msgstr ""
+
+#: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:74
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:376
+#: tmp/2d/77/c6405f1255bde67df8f7fa410dc7.php:59
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:117
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:221
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:112
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:315
+#: tmp/01/4f/0ad7e54d0e73595aa365540bcfc7.php:59
+#: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:74
+#: tmp/2f/fb/405430ed4e7cba3d009789944224.php:74
+#: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:92
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:530
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:126
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:83
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:92
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:236
+#: tmp/bd/08/1c0aa487614e37b9222a4f52c87f.php:59
+#: tmp/1d/bd/38c47de6b748d82ee7a64931796b.php:59
+msgid "Cancel"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:25
+msgid "Edit a bank operation"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:25
+msgid "Fill all information about the operation"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:47
+#: tmp/98/5a/53d1005b6dac7a9d264d7d42a707.php:38
+msgid "Operation name"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:51
+#: tmp/98/5a/53d1005b6dac7a9d264d7d42a707.php:42
+msgid "Operation date"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:55
+#: tmp/98/5a/53d1005b6dac7a9d264d7d42a707.php:46
+msgid "Operation amount"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:68
+msgid "Import reference"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:72
+msgid "Import date"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:76
+msgid "Operation status"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:76
+msgid "Not assignable"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:76
+msgid "Assignable"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:102
+msgid "Founded invoices with same amount"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:110
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:45
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:121
+msgid "Sel."
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:114
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:300
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:120
+#: tmp/90/58/69fa5ccf6279332c99d0ea399725.php:33
+msgid "Contact"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:122
+msgid "Invoice Number"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:126
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:304
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:320
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:340
+#: tmp/40/c9/333f506017e60d16e7effac65e95.php:37
+#: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:50
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:148
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:137
+#: tmp/90/58/69fa5ccf6279332c99d0ea399725.php:29
+#: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:41
+msgid "Amount"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:130
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:308
+#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:51
+msgid "Action"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:199
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:249
+#: tmp/7a/53/04aa49f586317677741397999ce2.php:71
+msgid "Download"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:270
+msgid "OR"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:284
+msgid "Amount details"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:290
+msgid "Assign this operation manually"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:316
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:336
+msgid "Associated user"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:346
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:549
+msgid "Remove"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:372
+msgid "Save and next operation"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:438
+msgid ""
+"Are you sure that you want not to assign this operation ? Every assigned row "
+"will be reseted"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:440
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:466
+#: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:52
+#: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:77
+#: tmp/e0/bf/047222b830c544b90a003a8e2a64.php:35
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:58
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:225
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:41
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:92
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:52
+#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:52
+#: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:52
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:326
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:355
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:384
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:413
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:52
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:68
+#: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:52
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:52
+#: tmp/53/f6/33a958759155030696f1added942.php:52
+#: tmp/53/f6/33a958759155030696f1added942.php:76
+msgid "No"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:442
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:468
+#: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:54
+#: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:77
+#: tmp/e0/bf/047222b830c544b90a003a8e2a64.php:31
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:58
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:227
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:43
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:92
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:54
+#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:54
+#: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:54
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:328
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:357
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:386
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:415
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:54
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:70
+#: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:54
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:54
+#: tmp/53/f6/33a958759155030696f1added942.php:54
+#: tmp/53/f6/33a958759155030696f1added942.php:76
+msgid "Yes"
+msgstr ""
+
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:464
+msgid ""
+"The assigned amounts does not match the operation amount. Do you want to "
+"validate anyway ?"
+msgstr ""
+
+#: tmp/40/c9/333f506017e60d16e7effac65e95.php:29
+#: tmp/1f/a3/f3b6f22dfd5e211f484b06e4c67c.php:37
+#: tmp/0d/3a/5d147d803dc62386a694204456fa.php:34
+msgid "Provider"
+msgstr ""
+
+#: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:26
+msgid "Providers invoices list"
+msgstr ""
+
+#: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:26
+msgid "Add and remove providers invoices."
+msgstr ""
+
+#: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:50
+msgid "Are you sure that you want to delete this provider's invoice ?"
+msgstr ""
+
+#: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:71
+msgid "Filter the provider invoices"
+msgstr ""
+
+#: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:77
+msgid "Filled"
+msgstr ""
+
+#: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:77
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:58
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:92
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:76
+#: tmp/53/f6/33a958759155030696f1added942.php:76
+#: tmp/53/f6/33a958759155030696f1added942.php:79
+msgid "All"
+msgstr ""
+
+#: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:86
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:67
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:105
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:85
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:112
+#: tmp/53/f6/33a958759155030696f1added942.php:106
+msgid "Search"
+msgstr ""
+
+#: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:102
+msgid "Drag and drop your invoices to import them."
+msgstr ""
+
+#: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:111
+msgid "Add an invoice"
+msgstr ""
+
+#: tmp/e0/bf/047222b830c544b90a003a8e2a64.php:23
+msgid "Thanks to fill the bank name of each selected account"
+msgstr ""
+
+#: tmp/e0/bf/047222b830c544b90a003a8e2a64.php:27
+msgid "Are you sure you want to delete this article ?"
+msgstr ""
+
+#: tmp/e0/bf/047222b830c544b90a003a8e2a64.php:39
+msgid "Are you sure that you to remove this amount ?"
+msgstr ""
+
+#: tmp/e8/8a/72322d5c378823eda45034849138.php:19
+#: tmp/16/30/076414dae8dd4d1f7b9b2c003918.php:19
+msgid "Dear Customer"
+msgstr ""
+
+#: tmp/e8/8a/72322d5c378823eda45034849138.php:23
+msgid "Following our conversation, please find enclosed the requested quote."
+msgstr ""
+
+#: tmp/e8/8a/72322d5c378823eda45034849138.php:28
+#: tmp/16/30/076414dae8dd4d1f7b9b2c003918.php:28
+msgid "Thank you for your confidence."
+msgstr ""
+
+#: tmp/e8/8a/72322d5c378823eda45034849138.php:33
+#: tmp/16/30/076414dae8dd4d1f7b9b2c003918.php:33
+msgid "Best regards"
+msgstr ""
+
+#: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:22
+msgid "Commercial documents"
+msgstr ""
+
+#: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:29
+msgid "Link a commercial documents"
+msgstr ""
+
+#: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:35
+#: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:37
+msgid "Add new"
+msgstr ""
+
+#: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:42
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:55
+#: tmp/13/27/0e69aa4363d53ff6b504a73401dc.php:28
+#: tmp/cd/e0/b0097b1d329c2c2c287f3f9e28a7.php:38
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:49
+#: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:58
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:63
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:76
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:58
+#: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:33
+msgid "Description"
+msgstr ""
+
+#: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:54
+#: tmp/c7/d8/f3dc2941b3f2e3c5d0b86f342a30.php:65
+#: tmp/1f/a3/f3b6f22dfd5e211f484b06e4c67c.php:49
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:111
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:117
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:156
+#: tmp/5b/8a/d0a7c91c37b7f0af8411991cdcfa.php:44
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:124
+#: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:58
+#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:106
+#: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:105
+#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:42
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:140
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:230
+#: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:97
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:170
+#: tmp/7a/53/04aa49f586317677741397999ce2.php:29
+#: tmp/53/f6/33a958759155030696f1added942.php:161
+msgid "Actions"
+msgstr ""
+
+#: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:78
+#: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:60
+#: tmp/53/f6/33a958759155030696f1added942.php:79
+#: tmp/53/f6/33a958759155030696f1added942.php:177
+msgid "Draft"
+msgstr ""
+
+#: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:84
+#: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:64
+#: tmp/53/f6/33a958759155030696f1added942.php:79
+#: tmp/53/f6/33a958759155030696f1added942.php:181
+msgid "Estimate"
+msgstr ""
+
+#: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:90
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:142
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:150
+#: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:43
+#: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:68
+#: tmp/53/f6/33a958759155030696f1added942.php:79
+#: tmp/53/f6/33a958759155030696f1added942.php:185
+msgid "Invoice"
+msgstr ""
+
+#: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:96
+#: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:72
+#: tmp/53/f6/33a958759155030696f1added942.php:79
+#: tmp/53/f6/33a958759155030696f1added942.php:189
+msgid "Credit"
+msgstr ""
+
+#: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:117
+#: tmp/1f/a3/f3b6f22dfd5e211f484b06e4c67c.php:80
+msgid "Details"
+msgstr ""
+
+#: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:126
+#: tmp/1f/a3/f3b6f22dfd5e211f484b06e4c67c.php:89
+#: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:98
+msgid "Unlink"
+msgstr ""
+
+#: tmp/2d/77/c6405f1255bde67df8f7fa410dc7.php:25
+msgid "Create a new purchasing account"
+msgstr ""
+
+#: tmp/2d/77/c6405f1255bde67df8f7fa410dc7.php:25
+#: tmp/01/4f/0ad7e54d0e73595aa365540bcfc7.php:25
+msgid "Fill all information about the new new purchasing account"
+msgstr ""
+
+#: tmp/2d/77/c6405f1255bde67df8f7fa410dc7.php:47
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:136
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:226
+#: tmp/01/4f/0ad7e54d0e73595aa365540bcfc7.php:47
+#: tmp/bd/08/1c0aa487614e37b9222a4f52c87f.php:47
+#: tmp/1d/bd/38c47de6b748d82ee7a64931796b.php:47
+msgid "Account number"
+msgstr ""
+
+#: tmp/98/5a/53d1005b6dac7a9d264d7d42a707.php:28
+msgid "New account operation"
+msgstr ""
+
+#: tmp/c7/d8/f3dc2941b3f2e3c5d0b86f342a30.php:26
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:26
+msgid "User balance"
+msgstr ""
+
+#: tmp/c7/d8/f3dc2941b3f2e3c5d0b86f342a30.php:26
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:26
+msgid ""
+"Here you can see the user balance. Click on the 'see details' button to see "
+"the balance history for an user."
+msgstr ""
+
+#: tmp/c7/d8/f3dc2941b3f2e3c5d0b86f342a30.php:57
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:58
+msgid "User"
+msgstr ""
+
+#: tmp/c7/d8/f3dc2941b3f2e3c5d0b86f342a30.php:61
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:57
+#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:102
+msgid "Sold"
+msgstr ""
+
+#: tmp/c7/d8/f3dc2941b3f2e3c5d0b86f342a30.php:94
+msgid "See details"
+msgstr ""
+
+#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:27
+#: tmp/af/5f/2b49dad23f1f08770ccdb691e172.php:33
+#: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:89
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:38
+msgid "Ref"
+msgstr ""
+
+#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:31
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:144
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:133
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:225
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:132
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:222
+#: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:57
+#: tmp/2f/fb/405430ed4e7cba3d009789944224.php:57
+#: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:89
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:70
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:250
+#: tmp/53/f6/33a958759155030696f1added942.php:149
+msgid "Label"
+msgstr ""
+
+#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:35
+#: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:101
+#: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:68
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:84
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:68
+msgid "Selling price"
+msgstr ""
+
+#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:39
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:233
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:90
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:258
+msgid "Quantity"
+msgstr ""
+
+#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:43
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:237
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:53
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:59
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:262
+msgid "Tax rate"
+msgstr ""
+
+#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:47
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:241
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:350
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:266
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:375
+msgid "Total"
+msgstr ""
+
+#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:122
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:213
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:214
+#: tmp/5b/8a/d0a7c91c37b7f0af8411991cdcfa.php:83
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:151
+#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:150
+#: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:140
+#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:73
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:167
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:257
+#: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:124
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:214
+#: tmp/7a/53/04aa49f586317677741397999ce2.php:61
+#: tmp/53/f6/33a958759155030696f1added942.php:231
+msgid "Edit"
+msgstr ""
+
+#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:131
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:223
+#: tmp/5b/8a/d0a7c91c37b7f0af8411991cdcfa.php:92
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:160
+#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:159
+#: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:149
+#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:83
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:176
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:266
+#: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:133
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:223
+#: tmp/7a/53/04aa49f586317677741397999ce2.php:80
+#: tmp/53/f6/33a958759155030696f1added942.php:243
+msgid "Delete"
+msgstr ""
+
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:25
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:129
+msgid "Create a new intervention"
+msgstr ""
+
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:25
+msgid "Log the time and the information about the work done to your customer."
+msgstr ""
+
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:62
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:70
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:83
+msgid "Worker"
+msgstr ""
+
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:68
+#: tmp/cd/e0/b0097b1d329c2c2c287f3f9e28a7.php:42
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:76
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:77
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:162
+#: tmp/18/35/a9f53c49d46b6e5b96a5d21f9ce7.php:41
+#: tmp/53/f6/33a958759155030696f1added942.php:145
+msgid "Customer"
+msgstr ""
+
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:72
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:95
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:105
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:140
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:141
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:80
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:89
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:150
+#: tmp/53/f6/33a958759155030696f1added942.php:137
+msgid "Type"
+msgstr ""
+
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:83
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:91
+msgid "Start time"
+msgstr ""
+
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:87
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:95
+msgid "End time"
+msgstr ""
+
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:91
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:99
+msgid "Pause duration"
+msgstr ""
+
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:95
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:103
+msgid "Elapsed time"
+msgstr ""
+
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:113
+msgid "Save changes and new"
+msgstr ""
+
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:174
+msgid "Please wait while scanning your document."
+msgstr ""
+
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:178
+msgid "Please wait while uploading your document."
+msgstr ""
+
+#: tmp/1f/a3/f3b6f22dfd5e211f484b06e4c67c.php:22
+msgid "Purchase invoices"
+msgstr ""
+
+#: tmp/1f/a3/f3b6f22dfd5e211f484b06e4c67c.php:29
+msgid "Link a purchase invoice"
+msgstr ""
+
+#: tmp/1f/a3/f3b6f22dfd5e211f484b06e4c67c.php:41
+#: tmp/5b/8a/d0a7c91c37b7f0af8411991cdcfa.php:32
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:60
+#: tmp/0d/3a/5d147d803dc62386a694204456fa.php:38
+msgid "Invoice date"
+msgstr ""
+
+#: tmp/1f/a3/f3b6f22dfd5e211f484b06e4c67c.php:45
+msgid "Invoice amount"
+msgstr ""
+
+#: tmp/65/52/6e47fdc3f019148ae5012b258239.php:107
+msgid "Warning!"
+msgstr ""
+
+#: tmp/65/52/6e47fdc3f019148ae5012b258239.php:111
+msgid ""
+"You are using the root account, which is a system account. Thus, some "
+"fonctions will be disabled by default. Please create a new employee whose "
+"account will allow you to enjoy all the fonctions."
+msgstr ""
+
+#: tmp/65/52/6e47fdc3f019148ae5012b258239.php:117
+msgid "Create an employee"
+msgstr ""
+
+#: tmp/65/52/6e47fdc3f019148ae5012b258239.php:222
+msgid ""
+"Don't call this template directly, but extend this template from an other "
+"twig"
+msgstr ""
+
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:64
+msgid "Balance amount"
+msgstr ""
+
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:74
+msgid "Return to balance page"
+msgstr ""
+
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:87
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:97
+#: tmp/53/f6/33a958759155030696f1added942.php:91
+msgid "Paid"
+msgstr ""
+
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:99
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:109
+#: tmp/53/f6/33a958759155030696f1added942.php:141
+msgid "Document number"
+msgstr ""
+
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:103
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:113
+msgid "Document amount"
+msgstr ""
+
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:107
+msgid "Transaction amount"
+msgstr ""
+
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:142
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:150
+#: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:43
+msgid "Credit note"
+msgstr ""
+
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:146
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:154
+msgid "Sales"
+msgstr ""
+
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:146
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:154
+msgid "Order"
+msgstr ""
+
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:167
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:174
+#: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:89
+msgid "View"
+msgstr ""
+
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:193
+msgid "Bank transaction"
+msgstr ""
+
+#: tmp/af/5f/2b49dad23f1f08770ccdb691e172.php:37
+#: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:93
+#: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:54
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:54
+msgid "Designation"
+msgstr ""
+
+#: tmp/af/5f/2b49dad23f1f08770ccdb691e172.php:41
+msgid "Price df"
+msgstr ""
+
+#: tmp/af/5f/2b49dad23f1f08770ccdb691e172.php:55
+#: tmp/90/58/69fa5ccf6279332c99d0ea399725.php:47
+msgid "0"
+msgstr ""
+
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:26
+msgid "Invoices export"
+msgstr ""
+
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:26
+msgid "Select the invoices that you want to export and click \"Eport\""
+msgstr ""
+
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:52
+msgid "Filter the invoices"
+msgstr ""
+
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:58
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:101
+#: tmp/53/f6/33a958759155030696f1added942.php:85
+msgid "Exported"
+msgstr ""
+
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:217
+msgid ""
+"Thank to select at least one invoice before to click the \"export\" button"
+msgstr ""
+
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:223
+msgid "Are you sure that you want to export these invoices ?"
+msgstr ""
+
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:25
+#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:26
+msgid "Bank accounts list"
+msgstr ""
+
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:25
+#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:26
+msgid "Add or edit bank accounts. You can also import ofx files"
+msgstr ""
+
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:39
+msgid "Are you sure that you want to delete this operation ?"
+msgstr ""
+
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:64
+msgid "Account balance"
+msgstr ""
+
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:74
+msgid "Return to account list"
+msgstr ""
+
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:86
+msgid "Filter the operations"
+msgstr ""
+
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:92
+msgid "Assigned to a contact"
+msgstr ""
+
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:119
+msgid "Add new operation"
+msgstr ""
+
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:152
+msgid "Assigned to"
+msgstr ""
+
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:201
+msgid "%assocNb% associations"
+msgstr ""
+
+#: tmp/5b/8a/d0a7c91c37b7f0af8411991cdcfa.php:24
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:180
+#: tmp/0d/3a/5d147d803dc62386a694204456fa.php:42
+msgid "Invoice number"
+msgstr ""
+
+#: tmp/5b/8a/d0a7c91c37b7f0af8411991cdcfa.php:28
+msgid "Provider name"
+msgstr ""
+
+#: tmp/5b/8a/d0a7c91c37b7f0af8411991cdcfa.php:36
+msgid "Buying price"
+msgstr ""
+
+#: tmp/5b/8a/d0a7c91c37b7f0af8411991cdcfa.php:40
+msgid "Total with taxes"
+msgstr ""
+
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:25
+msgid "Import report"
+msgstr ""
+
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:25
+msgid "Select the rows you want to import into your database"
+msgstr ""
+
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:38
+msgid "List of accounts fetched from the ofx file"
+msgstr ""
+
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:53
+#: tmp/eb/c0/7ad350433cc56e751191fe920821.php:38
+msgid "Reference"
+msgstr ""
+
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:114
+msgid "List of operations fetched from the ofx file"
+msgstr ""
+
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:125
+#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:30
+msgid "Account"
+msgstr ""
+
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:215
+msgid "Import"
+msgstr ""
+
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:26
+msgid "Commercial projects"
+msgstr ""
+
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:26
+msgid ""
+"A commercial project permit to group the sales documents, purchases invoices "
+"and intervention in one place."
+msgstr ""
+
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:50
+msgid "Are you sure that you want to delete this project ?"
+msgstr ""
+
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:70
+msgid "Filter the projects"
+msgstr ""
+
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:76
+msgid "Status"
+msgstr ""
+
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:76
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:53
+msgid "Opened"
+msgstr ""
+
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:76
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:53
+msgid "Closed"
+msgstr ""
+
+#: tmp/c1/f7/ae7ddf2a067f06cc7d0e7a2f082e.php:28
+msgid "Import the operations of the bank account"
+msgstr ""
+
+#: tmp/c1/f7/ae7ddf2a067f06cc7d0e7a2f082e.php:35
+msgid "Source file information"
+msgstr ""
+
+#: tmp/c1/f7/ae7ddf2a067f06cc7d0e7a2f082e.php:41
+msgid "OFX file"
+msgstr ""
+
+#: tmp/c1/f7/ae7ddf2a067f06cc7d0e7a2f082e.php:54
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:119
+msgid "Close"
+msgstr ""
+
+#: tmp/c1/f7/ae7ddf2a067f06cc7d0e7a2f082e.php:58
+msgid "Next step"
+msgstr ""
+
+#: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:22
+msgid "Support intervention"
+msgstr ""
+
+#: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:29
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:219
+msgid "Link an intervention"
+msgstr ""
+
+#: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:54
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:166
+msgid "Duration"
+msgstr ""
+
+#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:21
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:21
+msgid "Purchasing account"
+msgstr ""
+
+#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:27
+msgid "Amount taxes included"
+msgstr ""
+
+#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:35
+msgid "Amount without taxes"
+msgstr ""
+
+#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:41
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:41
+msgid "Or"
+msgstr ""
+
+#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:47
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:47
+msgid "Taxes"
+msgstr ""
+
+#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:104
+#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:108
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:104
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:108
+msgid "Set only one of the two fields"
+msgstr ""
+
+#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:120
+#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:124
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:120
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:124
+msgid "Set taxes or amount duty free"
+msgstr ""
+
+#: tmp/b9/55/5557e2e49d75df989d379f23add5.php:24
+msgid "Total purchasing price"
+msgstr ""
+
+#: tmp/b9/55/5557e2e49d75df989d379f23add5.php:28
+msgid "Total selling price"
+msgstr ""
+
+#: tmp/b9/55/5557e2e49d75df989d379f23add5.php:32
+msgid "Total benefits"
+msgstr ""
+
+#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:50
+msgid "Are you sure that you want to delete this account ?"
+msgstr ""
+
+#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:69
+msgid "Add new account"
+msgstr ""
+
+#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:73
+msgid "Import ofx file"
+msgstr ""
+
+#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:141
+msgid "Operations list"
+msgstr ""
+
+#: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:28
+msgid "New invoice"
+msgstr ""
+
+#: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:35
+msgid "Payment deadline"
+msgstr ""
+
+#: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:39
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:94
+msgid "Method of payment"
+msgstr ""
+
+#: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:43
+msgid "Invoice type"
+msgstr ""
+
+#: tmp/16/30/076414dae8dd4d1f7b9b2c003918.php:23
+msgid ""
+"Please find enclosed the invoice for your project. The settlement "
+"information are also included."
+msgstr ""
+
+#: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:26
+msgid "Articles list"
+msgstr ""
+
+#: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:26
+msgid "Add and remove articles."
+msgstr ""
+
+#: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:50
+msgid "Are you sure that you want to delete this article ?"
+msgstr ""
+
+#: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:72
+msgid "Add new article"
+msgstr ""
+
+#: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:97
+#: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:64
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:104
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:64
+msgid "Purchasing price"
+msgstr ""
+
+#: tmp/eb/c0/7ad350433cc56e751191fe920821.php:28
+msgid "New bank account"
+msgstr ""
+
+#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:22
+msgid "Add an amount"
+msgstr ""
+
+#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:34
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:35
+msgid "Amount Df"
+msgstr ""
+
+#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:38
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:27
+msgid "Amount Ti"
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:25
+msgid "Project details"
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:25
+msgid "Link and create all informations about your project."
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:39
+msgid "Project informations"
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:45
+msgid "title"
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:53
+msgid "Project status"
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:78
+msgid "Phone"
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:148
+msgid "External documents"
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:154
+msgid "Drag and drop any files here to import them."
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:162
+msgid "Add an external document"
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:193
+msgid "Link commercial document"
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:204
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:230
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:255
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:280
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:604
+msgid "Add"
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:244
+msgid "Link an external document"
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:269
+msgid "Link buying invoice"
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:293
+msgid "Edit the free document"
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:304
+msgid "Update"
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:324
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:411
+msgid ""
+"Are you sure that you to remove this commercial document from this project ?"
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:353
+msgid "Are you sure that you to remove this intervention from this project ?"
+msgstr ""
+
+#: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:382
+msgid ""
+"Are you sure that you to remove this intervention from this buying invoice ?"
+msgstr ""
+
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:62
+msgid "Estimation quote"
+msgstr ""
+
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:84
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:84
+msgid "Page"
+msgstr ""
+
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:88
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:88
+msgid "of"
+msgstr ""
+
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:129
+msgid "Quotation to"
+msgstr ""
+
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:221
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:246
+msgid "Ref."
+msgstr ""
+
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:229
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:254
+msgid "Unit Price"
+msgstr ""
+
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:330
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:355
+msgid "Sub total"
+msgstr ""
+
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:340
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:134
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:212
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:365
+msgid "VAT"
+msgstr ""
+
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:373
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:296
+msgid "Information"
+msgstr ""
+
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:424
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:495
+msgid "RCS"
+msgstr ""
+
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:26
+msgid "Accounting management"
+msgstr ""
+
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:26
+msgid "Add and remove the accounts."
+msgstr ""
+
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:50
+msgid "Are you sure that you want to delete this purchasing account ?"
+msgstr ""
+
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:66
+msgid "Are you sure that you want to delete this selling account ?"
+msgstr ""
+
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:86
+msgid "Purchasing accounts"
+msgstr ""
+
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:91
+msgid "Selling accounts"
+msgstr ""
+
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:95
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:292
+msgid "Vat accounts"
+msgstr ""
+
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:114
+msgid "Add new purchasing account"
+msgstr ""
+
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:204
+msgid "Add new selling account"
+msgstr ""
+
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:298
+msgid "Selling vat acount"
+msgstr ""
+
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:304
+msgid "Buying vat acount"
+msgstr ""
+
+#: tmp/01/4f/0ad7e54d0e73595aa365540bcfc7.php:25
+msgid "Edit the purchasing account"
+msgstr ""
+
+#: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:26
+msgid "Create a new taxe rate"
+msgstr ""
+
+#: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:26
+#: tmp/2f/fb/405430ed4e7cba3d009789944224.php:26
+msgid "Fill all information about the taxe rate"
+msgstr ""
+
+#: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:51
+#: tmp/2f/fb/405430ed4e7cba3d009789944224.php:51
+msgid "taxe rate informations"
+msgstr ""
+
+#: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:63
+#: tmp/2f/fb/405430ed4e7cba3d009789944224.php:63
+msgid "Percentage"
+msgstr ""
+
+#: tmp/2f/fb/405430ed4e7cba3d009789944224.php:26
+msgid "Edit a taxe rate"
+msgstr ""
+
+#: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:25
+msgid "Edit an article"
+msgstr ""
+
+#: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:40
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:40
+msgid "Article informations"
+msgstr ""
+
+#: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:46
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:46
+msgid "Our reference"
+msgstr ""
+
+#: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:50
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:50
+msgid "Manufacturer reference"
+msgstr ""
+
+#: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:72
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:72
+msgid "Taxe rate"
+msgstr ""
+
+#: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:77
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:77
+msgid "Selling account"
+msgstr ""
+
+#: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:81
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:81
+msgid "Category"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:25
+msgid "Edit a commercial document"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:25
+msgid "Fill all information about the commercial document"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:74
+msgid "This document is not editable as it has been exported or paid."
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:90
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:245
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:145
+msgid "Billed to"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:221
+msgid "Change billed contact"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:232
+msgid "Revert to main contact"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:253
+msgid "User label"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:261
+msgid "Address"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:267
+msgid "Address complement"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:275
+msgid "Postal code"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:281
+msgid "City"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:288
+msgid "Revert"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:303
+msgid "Small description"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:307
+msgid "Full description"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:326
+msgid "Documents"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:344
+msgid "Generate the quotation"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:351
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:400
+msgid "Convert to invoice"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:362
+msgid "Quotation action"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:371
+msgid "Generate again the quotation"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:379
+msgid "Send the quotation by email"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:390
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:464
+msgid "Download the quotation"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:412
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:472
+msgid "Invoice action"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:425
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:485
+msgid "Generate again the invoice"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:436
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:496
+msgid "Send the invoice by email"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:447
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:507
+msgid "Download the invoice"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:545
+msgid "Items"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:557
+msgid "New item"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:565
+msgid "Search an item"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:593
+msgid "Search article database"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:618
+msgid "Send invoice by mail"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:624
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:656
+msgid "Customer email"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:635
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:667
+msgid "Send"
+msgstr ""
+
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:650
+msgid "Send estimate by mail"
+msgstr ""
+
+#: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:26
+msgid "Taxe rates list"
+msgstr ""
+
+#: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:26
+msgid "Add and remove taxe rates."
+msgstr ""
+
+#: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:50
+msgid "Are you sure that you want to delete this taxe rate ?"
+msgstr ""
+
+#: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:72
+msgid "Add new taxe rate"
+msgstr ""
+
+#: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:93
+msgid "Value"
+msgstr ""
+
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:25
+msgid "Edit an intervention"
+msgstr ""
+
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:25
+msgid ""
+"Review the time and the information about the work done to your customer."
+msgstr ""
+
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:39
+msgid "This intervention is linked to the project"
+msgstr ""
+
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:53
+msgid "Intervention details"
+msgstr ""
+
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:173
+msgid "Please wait while the scanner is scanning your document."
+msgstr ""
+
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:177
+msgid "Please wait while your document is uploading."
+msgstr ""
+
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:25
+msgid "Edit a buying invoice"
+msgstr ""
+
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:25
+msgid "Fill all information about the invoice"
+msgstr ""
+
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:44
+msgid "Document information"
+msgstr ""
+
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:48
+msgid "Creditor"
+msgstr ""
+
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:52
+msgid "Sold type"
+msgstr ""
+
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:56
+msgid "Invoice num"
+msgstr ""
+
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:65
+msgid "Document amounts"
+msgstr ""
+
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:108
+msgid "Add or edit an amount"
+msgstr ""
+
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:119
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:123
+msgid "Save"
+msgstr ""
+
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:139
+#: entities/CommercialProviderInvoiceAssocAmounts.php:257
+#: entities/CommercialProviderInvoice.php:400
+#: entities/CommercialProviderInvoice.php:418
+msgid "This invoice is in read only mode. It has already been exported"
+msgstr ""
+
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:29
+msgid "New article"
+msgstr ""
+
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:44
+msgid "Item type"
+msgstr ""
+
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:96
+msgid "Total sold"
+msgstr ""
+
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:110
+msgid "Earning"
+msgstr ""
+
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:25
+msgid "Create a new article"
+msgstr ""
+
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:25
+msgid "Fill all information about the new article"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:26
+msgid "emblem-personal"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:26
+msgid "Commercial module configuration"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:26
+msgid "Update the default values for the commercial module"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:72
+msgid "Documents duration"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:77
+msgid "Mails"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:81
+msgid "Export format"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:97
+msgid "Estimation expiration delay"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:104
+msgid "Invoices payment due date"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:119
+msgid "Estimate mail format"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:126
+msgid "Invoice mail format"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:139
+msgid "Format"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:145
+msgid "Export header (delete to restore default content)"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:149
+msgid "Export format (delete to restore default content)"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:160
+msgid "Available variables"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:164
+msgid "'Selling' or 'buying'"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:168
+msgid "The user account filled in the Customers > Customer ID field"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:172
+msgid "Tax account"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:176
+msgid "The account where to export the current invoice line"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:184
+msgid ""
+"Invoice date (Datetime format). See the formatting section to see how to use "
+"this field."
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:188
+msgid ""
+"Duty free amount amount of the row in decimal format (Precision two "
+"characters after float)"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:192
+msgid ""
+"Tax included amount of the row in decimal format (Precision two characters "
+"after float)"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:196
+msgid ""
+"Tax amount of the row in decimal format (Precision two characters after "
+"float)"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:202
+msgid "Formatting"
+msgstr ""
+
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:26
+msgid "Interventions list"
+msgstr ""
+
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:26
+msgid "Add and remove interventions."
+msgstr ""
+
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:50
+msgid "Are you sure that you want to delete this intervention ?"
+msgstr ""
+
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:71
+msgid "Search for interventions"
+msgstr ""
+
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:97
+msgid "From"
+msgstr ""
+
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:103
+msgid "To"
+msgstr ""
+
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:158
+msgid "Project"
+msgstr ""
+
+#: tmp/18/35/a9f53c49d46b6e5b96a5d21f9ce7.php:30
+msgid "New selling document"
+msgstr ""
+
+#: tmp/18/35/a9f53c49d46b6e5b96a5d21f9ce7.php:37
+msgid "Little description"
+msgstr ""
+
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:398
+msgid "Commercial information"
+msgstr ""
+
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:424
+msgid "Payments information"
+msgstr ""
+
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:437
+msgid "RIB"
+msgstr ""
+
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:445
+msgid "IBAN"
+msgstr ""
+
+#: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:29
+#: tmp/53/f6/33a958759155030696f1added942.php:97
+msgid "State"
+msgstr ""
+
+#: tmp/7a/53/04aa49f586317677741397999ce2.php:24
+msgid "File"
+msgstr ""
+
+#: tmp/bd/08/1c0aa487614e37b9222a4f52c87f.php:25
+msgid "Edit the selling account"
+msgstr ""
+
+#: tmp/bd/08/1c0aa487614e37b9222a4f52c87f.php:25
+#: tmp/1d/bd/38c47de6b748d82ee7a64931796b.php:25
+msgid "Fill all information about the new new selling account"
+msgstr ""
+
+#: tmp/53/f6/33a958759155030696f1added942.php:26
+msgid "Documents list"
+msgstr ""
+
+#: tmp/53/f6/33a958759155030696f1added942.php:26
+msgid "Add and remove documents."
+msgstr ""
+
+#: tmp/53/f6/33a958759155030696f1added942.php:50
+msgid "Are you sure that you want to delete this document ?"
+msgstr ""
+
+#: tmp/53/f6/33a958759155030696f1added942.php:72
+msgid "Search for commercial document"
+msgstr ""
+
+#: tmp/53/f6/33a958759155030696f1added942.php:120
+msgid "New document"
+msgstr ""
+
+#: tmp/53/f6/33a958759155030696f1added942.php:153
+msgid "Document date"
+msgstr ""
+
+#: tmp/53/f6/33a958759155030696f1added942.php:157
+msgid "Amout DF"
+msgstr ""
+
+#: tmp/53/f6/33a958759155030696f1added942.php:222
+msgid "Duplicate"
+msgstr ""
+
+#: tmp/1d/bd/38c47de6b748d82ee7a64931796b.php:25
+msgid "Create a new selling account"
+msgstr ""
+
+#: tmp/0d/3a/5d147d803dc62386a694204456fa.php:28
+msgid "New provider invoice"
+msgstr ""
+
+#: tmp/0d/3a/5d147d803dc62386a694204456fa.php:46
+msgid "Payment type"
+msgstr ""
+
+#: tmp/6a/d2/434195b44da6387dc5924d3b0381.php:20
+msgid "Total commercial docs"
+msgstr ""
+
+#: tmp/6a/d2/434195b44da6387dc5924d3b0381.php:26
+msgid "Total support intervention"
+msgstr ""
+
+#: tmp/6a/d2/434195b44da6387dc5924d3b0381.php:32
+msgid "Total buying invoices"
+msgstr ""
+
+#: entities/CommercialProviderInvoiceAssocAmounts.php:250
+#, php-format
+msgid "The Amount df (%s), amount ti (%s) and taxes (%s) does not match"
+msgstr ""
+
+#: entities/CommercialInvoice.php:545
+#: entities/CommercialProviderInvoice.php:408
+msgid ""
+"This document is associated to one or more bank operation. You cannont set "
+"it as not paid"
+msgstr ""
+
+#: entities/CommercialProviderInvoice.php:397
+msgid "This provider invoice number does already exist"
+msgstr ""
+
+#: entities/CommercialProviderInvoice.php:417
+msgid "This invoice is already linked to a bank operation"
+msgstr ""
