@@ -54,15 +54,8 @@ install: build
 	dh_installdirs
 	dh_installdebconf
 	dh_install
-	find debian/igestis-keytours -name .svn | xargs -r rm -r
 	# Add here commands to install the package into debian/igestis.
 	#$(MAKE) DESTDIR=$(CURDIR)/debian/igestis install
-	#cp -dpRf etc usr $(CURDIR)/debian/igestis
-	#TAR_TMP=/tmp/tar$(RANDOM).tar
-	#tar cf $(TAR_TMP) --exclude etc usr ".svn"
-	#tar xf $(TAR_TMP) -C $(CURDIR)/debian/igestis
-	#tar --exclude-from debian/excludes -cp * | ( cd debian/boost-build/usr/share/boost-build && tar xp )
-	#tar --exclude ".svn" -cp usr/ | ( cd $(CURDIR)/debian/igestis-notifier && tar xp )
 
 
 # Build architecture-independent files here.
