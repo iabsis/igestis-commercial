@@ -1,0 +1,41 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "User balance"|trans,
+                'help': "Here you can see the user balance. Click on the 'see details' button to see the balance history for an user."|trans} %}
+
+{% set sidebarActivated = true %}
+{% block sidebar %}
+  {% include 'sidebar.twig' %}
+{% endblock %}
+
+{% block content %}{{ parent() }}
+{% import "table.twig" as table_data %}
+{{ table_data.datatable() }}    
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="table_data">
+    <thead>
+        <tr>
+            <th>{% trans %}User{% endtrans %}</th>
+            <th>{% trans %}Sold{% endtrans %}</th>
+            <th>{% trans %}Actions{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tbody>
+       {% for row in customersList %}
+            <tr>
+                <td>{{ row.userLabel }}</td>
+                <td  class="{{ row.sold < 0 ? 'negative' : 'positive' }}">{{ row.sold }}</td>
+                <td>
+                    <a href="{{ url('commercial_balance_details', {'UserId':row.id}) }}" class="btn btn-mini a-visible-line-on-over">
+                        <i class="icon-list"></i> {% trans %}See details{% endtrans %}
+                    </a>
+                </td>
+            </tr>
+      {% endfor %}
+    </tbody>
+</table>
+{# End #}
+
+        
+{% endblock %}

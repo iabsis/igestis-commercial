@@ -1,0 +1,396 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Edit a commercial document"|trans,
+                'help': "Fill all information about the commercial document"|trans} %}
+
+{#
+{% set sidebarActivated = true %}
+{% block sidebar %}
+  {% include 'sidebar.twig' %}
+{% endblock %}
+#}
+
+
+{% block content %}{{ parent() }}
+
+<link href="{{ TEMPLATE_URL }}/css/bootstrap-wysihtml5.css" rel="stylesheet">
+<link href="{{ TEMPLATE_URL }}/css/prettify.css" rel="stylesheet">
+
+<script src="{{ TEMPLATE_URL }}/js/wysihtml5-0.3.0.js"></script>
+<script src="{{ TEMPLATE_URL }}/js/prettify.js"></script>
+<script src="{{ TEMPLATE_URL }}/js/bootstrap-wysihtml5.js"></script>
+
+{% include 'Commercial/modals/sellingDocumentNewItem.twig' %}
+{% include 'Commercial/modals/newEstimate.twig' %}
+{% include 'Commercial/modals/newInvoice.twig' %}
+
+
+{% if sellingDocument.invoices[0].exported or sellingDocument.invoices[0].paid %}
+<div class="alert">
+	{% trans %}This document is not editable as it has been exported or paid.{% endtrans %}
+</div>
+{% endif %}
+
+<form id="form_data" method='post' action='' class="form-condensed">
+  <fieldset>
+    <div class="well">
+      <div class="row-fluid">
+        <div class="span4">
+            <div id="contactShow">
+                <legend>
+                	{% trans %}Billed to{% endtrans %} {{ sellingDocument.customerUser.userLabel }}
+                	{% if sellingDocument.customerUser.userType == "client" %}
+                		<a class="btn btn-small" href="{{ url('customers_edit', {'Id':sellingDocument.customerUser.id}) }}">Edit</a>
+                	{% elseif sellingDocument.customerUser.userType == "employee" %}
+                		<a class="btn btn-small" href="{{ url('employees_edit', {'Id':sellingDocument.customerUser.id}) }}">Edit</a>
+                	{% else %}
+                		<a class="btn btn-small" href="{{ url('suppliers_edit', {'Id':sellingDocument.customerUser.id}) }}">Edit</a>
+                	{% endif %}
+                </legend>
+                {% if sellingDocument.customerName %}
+                	<div id="customerName">
+	                    <p>{{ sellingDocument.customerName }}</p>
+	                    {% spaceless %}
+	                        <p>{{ sellingDocument.address1 ? sellingDocument.address1 }}
+	                        {% if sellingDocument.address1 and sellingDocument.address2 %} - {% endif %}
+	                        {{ sellingDocument.address2 ? sellingDocument.address2 }}</p>
+	                    {% endspaceless %}
+	                    <p>{{ sellingDocument.postalCode ? sellingDocument.postalCode }} {{ sellingDocument.city ? sellingDocument.city }}</p>
+                    </div>
+                    <div id="mainContact" style="display:none">
+	                    <p>{{ sellingDocument.customerUser.userLabel }}</p>
+	                    {% spaceless %}
+	                        <p>{{ sellingDocument.customerUser.mainContact.address1 ? sellingDocument.customerUser.mainContact.address1 }}
+	                        {% if sellingDocument.customerUser.mainContact.address1 and sellingDocument.customerUser.mainContact.address2 %} - {% endif %}
+	                        {{ sellingDocument.customerUser.mainContact.address2 ? sellingDocument.customerUser.mainContact.address2 }}</p>
+	                    {% endspaceless %}
+	                    <p>{{ sellingDocument.customerUser.mainContact.postalCode ? sellingDocument.customerUser.mainContact.postalCode }} {{ sellingDocument.customerUser.mainContact.city ? sellingDocument.customerUser.mainContact.city }}</p>                 	
+                    </div>
+                {% else %}
+                    <p>{{ sellingDocument.customerUser.userLabel }}</p>
+                    {% spaceless %}
+                        <p>{{ sellingDocument.customerUser.mainContact.address1 ? sellingDocument.customerUser.mainContact.address1 }}
+                        {% if sellingDocument.customerUser.mainContact.address1 and sellingDocument.customerUser.mainContact.address2 %} - {% endif %}
+                        {{ sellingDocument.customerUser.mainContact.address2 ? sellingDocument.customerUser.mainContact.address2 }}</p>
+                    {% endspaceless %}
+                    <p>{{ sellingDocument.customerUser.mainContact.postalCode ? sellingDocument.customerUser.mainContact.postalCode }} {{ sellingDocument.customerUser.mainContact.city ? sellingDocument.customerUser.mainContact.city }}</p>
+                {% endif %}
+                {% if not (sellingDocument.invoices[0].exported or sellingDocument.invoices[0].paid) %}
+	                <p>
+	                    <a href="javascript:igestisCommercial.sellingDocument.editContact()" class="btn btn-small">
+	                      <i class="icon-edit"></i> {% trans %}Change billed contact{% endtrans %}
+	                    </a>
+	                </p>
+	                {% if sellingDocument.customerName %}
+	                    <a href="javascript:igestisCommercial.sellingDocument.clearContact()" class="btn btn-small">
+	                      <i class="icon-reply"></i> {% trans %}Revert to main contact{% endtrans %}
+	                    </a>
+	                {% endif %}
+                {% endif %}
+            </div>
+            <div id="contactEdit" style="display:none">
+                <legend>{% trans %}Billed to{% endtrans %} {{ sellingDocument.customerUser.userLabel }}</legend>
+                <div class="row-fluid">
+                    <div class="span12">
+                        {{ forms.input('customerName', 'User label'|trans, sellingDocument.customerName) }}
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        {{ forms.input('address1', 'Address'|trans, sellingDocument.address1) }}
+                    </div>
+                    <div class="span6">
+                        {{ forms.input('address2', 'Address complement'|trans, sellingDocument.address2) }}
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span4">
+                        {{ forms.input('postalCode', 'Postal code'|trans, sellingDocument.postalCode) }}
+                    </div>
+                    <div class="span8">
+                        {{ forms.input('city', 'City'|trans, sellingDocument.city) }}
+                    </div>
+                </div>
+                <a class="btn" type="button" href="javascript:igestisCommercial.sellingDocument.revertContact();">
+                    <i class="icon-reply"></i> {% trans %}Revert{% endtrans %}
+                </a>
+            </div>
+        </div>
+        <div class="span4">
+          <legend>{% trans %}Information{% endtrans %}</legend>
+          {% if not (sellingDocument.invoices[0].exported or sellingDocument.invoices[0].paid) %}
+	          {{ forms.input('description', 'Small description'|trans, sellingDocument.description) }}
+	          {{ forms.textarea('freeComment', 'Full description'|trans, sellingDocument.freeComment) }}
+          {% else %}
+          	<p>{{ sellingDocument.description }}</p>
+          	<p>{{ sellingDocument.freeComment }}</p>
+          	{% endif %}
+        </div>	
+        <div class="span4">
+          <legend>{% trans %}Documents{% endtrans %}</legend>
+          <div id="amounts-ajax-content">
+              {% include("Commercial/ajax/sellingDocumentEditAmountsBlock.twig") %}
+          </div>
+            
+          
+            {% if not sellingDocument.estimates|length and not sellingDocument.invoices|length %}
+
+            	<a href="javascript:igestisCommercial.sellingDocument.generateQuote()" class="btn">
+                	<i class="icon-file"></i> {% trans %}Generate the quotation{% endtrans %}
+                </a>
+
+                <a href="javascript:igestisCommercial.sellingDocument.generateInvoice()" class="btn">
+                  <i class="icon-download-alt"></i> {% trans %}Convert to invoice{% endtrans %}
+                </a>
+              
+            {% elseif sellingDocument.estimates|length and not sellingDocument.invoices|length %}
+               <div class="btn-group">
+                  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    {% trans %}Quotation action{% endtrans %}
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="javascript:igestisCommercial.sellingDocument.generateQuote()">
+                        <i class="icon-file"></i> {% trans %}Generate again the quotation{% endtrans %}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#SendQuotation" data-toggle="modal">
+                        <i class="icon-envelope"></i> {% trans %}Send the quotation by email{% endtrans %}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ url('commercial_estimate_dl_doc', {"Id":sellingDocument.estimates.last.Id, "ForceDl" : 1}) }}">
+                        <i class="icon-download-alt"></i> {% trans %}Download the quotation{% endtrans %}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <a href="javascript:igestisCommercial.sellingDocument.generateInvoice()" class="btn">
+                  <i class="icon-download-alt"></i> {% trans %}Convert to invoice{% endtrans %}
+                </a>
+                
+            {% elseif not sellingDocument.estimates|length and sellingDocument.invoices|length %}
+            
+               <div class="btn-group">
+                   <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                     {% trans %}Invoice action{% endtrans %}
+                     <span class="caret"></span>
+                   </a>
+                   <ul class="dropdown-menu">
+                   	 {% if not (sellingDocument.invoices[0].exported or sellingDocument.invoices[0].paid) %}
+                     <li>
+                       <a href="javascript:igestisCommercial.sellingDocument.generateInvoice()">
+                         <i class="icon-file"></i> {% trans %}Generate again the invoice{% endtrans %}
+                       </a>
+                     </li>
+                     {% endif %}
+                     <li>
+                       <a href="#SendInvoice" data-toggle="modal">
+                         <i class="icon-envelope"></i> {% trans %}Send the invoice by email{% endtrans %}
+                       </a>
+                     </li>
+                     <li>
+                       <a href="{{ url('commercial_invoice_dl_doc', {"Id":sellingDocument.invoices.last.Id, "ForceDl" : 1}) }}">
+                         <i class="icon-download-alt"></i> {% trans %}Download the invoice{% endtrans %}
+                       </a>
+                     </li>
+                   </ul>
+                 </div>
+                 
+            {% else %}
+            
+                <a href="{{ url('commercial_estimate_dl_doc', {"Id":sellingDocument.estimates.last.Id, "ForceDl" : 1}) }}" class="btn">
+                    <i class="icon-download-alt"></i> {% trans %}Download the quotation{% endtrans %}
+                </a>
+          
+                <div class="btn-group">
+                   <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                     {% trans %}Invoice action{% endtrans %}
+                     <span class="caret"></span>
+                   </a>
+                   <ul class="dropdown-menu">
+                   	 {% if not (sellingDocument.invoices[0].exported or sellingDocument.invoices[0].paid) %}
+                     <li>
+                       <a href="javascript:igestisCommercial.sellingDocument.generateInvoice()">
+                         <i class="icon-file"></i> {% trans %}Generate again the invoice{% endtrans %}
+                       </a>
+                     </li>
+                     {% endif %}
+                     <li>
+                       <a href="#SendInvoice" data-toggle="modal">
+                         <i class="icon-envelope"></i> {% trans %}Send the invoice by email{% endtrans %}
+                       </a>
+                     </li>
+                     <li>
+                       <a href="{{ url('commercial_invoice_dl_doc', {"Id":sellingDocument.invoices.last.Id, "ForceDl" : 1}) }}">
+                         <i class="icon-download-alt"></i> {% trans %}Download the invoice{% endtrans %}
+                       </a>
+                     </li>
+                   </ul>
+                 </div>
+
+            {% endif %}
+          </div>
+        </div>
+        {% if not (sellingDocument.invoices[0].exported or sellingDocument.invoices[0].paid) %}
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
+            <input class="btn" type="button" value="{% trans %}Cancel{% endtrans %}" onclick="javascript:history.go(-1);return true;">
+        </div>
+        {% endif %}
+      </div>
+    </fieldset>
+</form>
+
+
+<div class="well" >
+  <div class="row-fluid">
+    <legend>{% trans %}Items{% endtrans %}</legend>
+    
+    <div id="wizz-articles"></div>
+    {% if not (sellingDocument.invoices[0].exported or sellingDocument.invoices[0].paid) %}
+    <div class="pull-right">
+      <a href="javascript:igestisCommercial.sellingDocument.newArticle()" class="btn" >
+          <i class="icon-plus icon-white"></i> {% trans %}New item{% endtrans %}
+      </a>
+            
+      <a data-toggle="modal" href="{{ url('commercial_document_search_article', {SellingDocumentId : sellingDocument.id }) }}" data-target="#commercial-document-search-article-modal" class="btn btn-inverse pull-right">{% trans %}Search an item{% endtrans %}</a><br><br>
+
+    </div>
+    {% endif %}
+    
+    <br /><br />
+    <div id="articles-list-div">
+        {% include 'Commercial/ajax/TableSellingDocumentArticles.twig' %}  
+    </div>
+
+  </div>
+</div>
+
+{# Modal container for the article selection #}
+<div id="commercial-document-search-article-modal" class="modal hide fade" data-ajax-url="{{ url('commercial_document_search_article', {SellingDocumentId : sellingDocument.id }) }}">
+    <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+       <h3>{% trans %}Search article database{% endtrans %}</h3>
+    </div>
+    <div class="modal-body">
+        {# Ajax content will be loaded there #}
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal" >Close</a>
+        <button type="submit" class="btn btn-primary">{% trans %}Add{% endtrans %}</button>
+    </div>
+</div>
+
+<div id="SendInvoice" class="modal hide fade">
+    <form class="modal-form ajax-emulation-validation" action="{{ url('commercial_invoice_mail', {invoiceId : sellingDocument.invoices.last.id } ) }}" method="post">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3>{% trans %}Send invoice by mail{% endtrans %}</h3>
+        </div>
+        <div class="modal-body">
+            {{ forms.input('email', 'Customer email'|trans, sellingDocument.customerUser.mainContact.email) }}
+            <textarea name="content" class="textarea" placeholder="Enter text ..." style="width: 510px; height: 200px">{{ companyConfig.mailInvoice }}</textarea>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal" >Close</a>
+            <button type="submit" class="btn btn-primary">{% trans %}Send{% endtrans %}</button>
+        </div>
+    </form>
+</div>
+
+<div id="SendQuotation" class="modal hide fade">
+    <form class="modal-form ajax-emulation-validation" action="{{ url('commercial_estimate_mail', {estimateId : sellingDocument.estimates.last.Id } ) }}" method="post">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3>{% trans %}Send estimate by mail{% endtrans %}</h3>
+        </div>
+        <div class="modal-body">
+            {{ forms.input('email', 'Customer email'|trans, sellingDocument.customerUser.mainContact.email) }}
+            <textarea name="content" class="textarea" placeholder="Enter text ..." style="width: 510px; height: 200px">{{ companyConfig.mailEstimate }}</textarea>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal" >Close</a>
+            <button type="submit" class="btn btn-primary">{% trans %}Send{% endtrans %}</button>
+        </div>
+    </form>
+</div>
+
+
+<script>
+{% if not (sellingDocument.invoices[0].exported or sellingDocument.invoices[0].paid) %}
+igestisCommercial.sellingDocument.init({
+    deleteLink : '{{ url('commercial_selling_delete_article', {"articleId":''}) }}',
+    reorderingLink: '{{ url('commercial_reorder_article', {documentId : sellingDocument.id}) }}'
+});
+
+$("#commercial-document-search-article-modal button[type=submit]").unbind("click").bind("click", function() {
+    var $modal = $(this).parents(".modal");
+    var $form = $modal.find("form");
+    var validationUrl = $modal.data("ajaxUrl");
+    var dataToSend = $("#articlesListTable").dataTable().$("input[value!='']").serialize();
+    dataToSend += "&validForm=1";
+    
+
+
+    $.ajax({
+        url: validationUrl,
+        dataType:'json', //type json
+        data: dataToSend,
+        cache: false,
+        type: "POST",
+        success: function(result) {
+            console.log(result);
+            igestisParseJsonAjaxResult(result);
+
+        }, 
+       error: function(jqXHR, textStatus, errorThrown) {
+            bootbox.alert(jqXHR.responseText);   
+        },
+        complete: function() {
+           $modal.modal("hide");
+           igestisInitTableHover();
+        }
+   });
+});
+
+$(function(){
+    $('body').on('hidden', '.modal', function () {
+        $(this).removeData('modal');
+    });
+
+    $("#form_data").validate({
+        ignore: "input[type='text']:hidden",
+        rules:{
+
+            designation:{
+                required:true
+            },
+            companyRef:{
+                required:true
+            }
+        },
+        errorClass: "help-inline",
+        errorElement: "span",
+        errorPlacement: function(error, element) {
+            element.parent().after(error);
+        },
+        highlight:function(element, errorClass, validClass) {
+            $(element).parents('.control-group').removeClass('success');
+            $(element).parents('.control-group').addClass('error');
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).parents('.control-group').removeClass('error');
+            $(element).parents('.control-group').addClass('success');
+        }
+    });
+});
+{% endif %}
+
+</script>
+
+{% endblock %}

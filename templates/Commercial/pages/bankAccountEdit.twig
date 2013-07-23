@@ -1,0 +1,68 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Edit a bank account"|trans,
+                'help': "Fill all information about the article"|trans} %}
+
+{% block content %}{{ parent() }}
+
+<div class="well">
+    <form id="form_data" method='post' action='' class="form-horizontal form-condensed">
+        <fieldset>
+            <legend>{% trans %}Intervention informations{% endtrans %}</legend>
+            <div class="row-fluid">
+                <div class="span6">      
+                     {{ forms.input('accountName', 'Account name'|trans, form_data.accountName) }}                      
+                     {{ forms.input('bankName', 'Bank name'|trans, form_data.bankName) }}
+                </div>
+                    
+                <div class="span6">            
+                     {{ forms.input('accountRef', 'Number'|trans, form_data.accountRef) }}        
+                     {{ forms.input('accountBalance', 'Balance'|trans, form_data.accountBalance, "Account reference"|trans, "This reference is used by the ofx import to associate the operations to the good account"|trans) }}
+                </div>
+            </div>
+        </fieldset>
+            
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
+            <input class="btn" type="button" value="{% trans %}Cancel{% endtrans %}" onclick="javascript:history.go(-1);return true;">
+        </div>
+            
+    </form>
+</div>
+<script>
+$(document).ready(function(){
+        $("#new-project-form").validate({
+                ignore: "input[type='text']:hidden",
+                rules:{
+
+                        accountName:{
+                                required:true
+                        },
+                        accountRef:{
+                                required:true
+                        },
+                        accountBalance:{
+                                required:true
+                        },
+                        bankName:{
+                                required:true
+                        }
+                },
+                errorClass: "help-inline",
+                errorElement: "span",
+                errorPlacement: function(error, element) {
+                    element.parent().after(error);
+                },
+                highlight:function(element, errorClass, validClass) {
+                        $(element).parents('.control-group').removeClass('success');
+                        $(element).parents('.control-group').addClass('error');
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                        $(element).parents('.control-group').removeClass('error');
+                        $(element).parents('.control-group').addClass('success');
+                }
+        });
+});
+</script>
+{% endblock %}

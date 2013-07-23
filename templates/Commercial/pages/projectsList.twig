@@ -1,0 +1,82 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Commercial projects"|trans,
+                'help': "A commercial project permit to group the sales documents, purchases invoices and intervention in one place."|trans} %}
+
+{% set sidebarActivated = true %}
+{% block sidebar %}
+  {% include 'sidebar.twig' %}
+{% endblock %}
+
+
+{% block content %}{{ parent() }}
+
+<script type="text/javascript">
+    function delete_project(id) {
+        bootbox.confirm("{% trans %}Are you sure that you want to delete this project ?{% endtrans %}", "{% trans %}No{% endtrans %}", "{% trans %}Yes{% endtrans %}", function(result) {
+            if(result) window.location.href="{{ url('commercial_project_del', {"Id":''}) }}" + id;
+        });
+    }
+</script>
+
+
+<div class="well">
+    <form class="form-search allow-to-quit" action="" method="get">
+        <fieldset>
+            <legend>{% trans %}Filter the projects{% endtrans %}</legend>
+            <div class="row-fluid">
+                <div class="span6">
+                    {{ forms.select('status', 'Status'|trans, { 0 : {'value': 0, 'label' : "Opened"|trans},  1 : {'value': 1, 'label' : "Closed"|trans},  2 : {'value': -1, 'label' : "All"|trans} }, searchForm.status, 'value', 'label') }}
+                </div>                
+            </div>
+            <div class="form-actions">
+                <input type="hidden" name="Module" value="Commercial" />
+                <input type="hidden" name="Action" value="projects_index" />  
+                <button type="submit" class="btn btn-primary"><i class="icon-search"></i> {% trans %}Search{% endtrans %}</button>
+            </div>
+        </fieldset>
+
+    </form>
+</div>
+<br />
+
+{# start #}
+<div class="row-fluid" align="right">
+    <a href="javascript:;" onclick="javascript:create_or_duplicate_project(null);" class="btn btn-success btn-small"><i class="icon-plus-sign icon-white"></i> {% trans %}New project{% endtrans %}</a>
+</div>
+<br />
+
+{% import "table.twig" as table_data %}
+{{ table_data.datatable() }}    
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="table_data">
+    <thead>
+        <tr>
+            <th>{% trans %}Title{% endtrans %}</th>
+            <th>{% trans %}Contact{% endtrans %}</th>
+            <th>{% trans %}Actions{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tbody>
+       {% for row in data_table %}
+            <tr>
+                <td>{{ row.name }}</td>
+                <td class="hidden-phone">{{ row.customerUser.userLabel }}</td>
+                <td>
+                    <a href="{{ url('commercial_project_edit', {'Id':row.id}) }}" class="btn btn-mini a-visible-line-on-over">
+                        <i class="icon-edit"></i> {% trans %}Edit{% endtrans %}
+                    </a>
+                    <a href="javascript:delete_project('{{ row.id }}')" class="btn btn-danger btn-mini a-visible-line-on-over">
+                        <i class="icon-trash icon-white"></i> {% trans %}Delete{% endtrans %}
+                    </a>
+                </td>
+            </tr>
+      {% endfor %}
+    </tbody>
+</table>
+{# End #}
+
+
+        
+{% endblock %}

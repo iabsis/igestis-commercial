@@ -1,0 +1,50 @@
+
+<table id="listArticles" class="table table-striped" width="100%">
+    <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>{% trans %}Ref{% endtrans %}</th>
+          <th>{% trans %}Label{% endtrans %}</th>
+          <th>{% trans %}Selling price{% endtrans %}</th>
+          <th>{% trans %}Quantity{% endtrans %}</th>
+          <th>{% trans %}Tax rate{% endtrans %}</th>
+          <th>{% trans %}Total{% endtrans %}</th>
+          <th>{% trans %}Action{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+    {% for row in sellingDocument.articles %}
+    <tr id="tr-article-{{ row.id }}" data-article="{{ row.getJsonData(false) }}">
+      <td>{{ row.articleOrder }}</td>
+      <td>
+      		{% if not (sellingDocument.invoices[0].exported or sellingDocument.invoices[0].paid) %}
+      		<i style="color: grey;" class="icon-move a-visible-line-on-over"></i>
+      		{% else %}
+          	&nbsp;
+          	{% endif %}
+      </td>
+      <td>{{ row.itemRef }}</td>
+      <td>{{ row.itemLabel }}<br /><small class="muted">{{ row.comment }}</small></td>
+      <td>{{ row.sellingDfUnitPrice|number_format(2) }}</td>
+      <td>{{ row.quantityArticle|number_format(3) }}</td>
+      <td>{{ row.taxRate|number_format(3) }}</td>
+      <td>{{ row.totSellPriceArticleTi|number_format(2) }}</td>
+      <td>
+      	  {% if not (sellingDocument.invoices[0].exported or sellingDocument.invoices[0].paid) %}
+          <a href="javascript:igestisCommercial.sellingDocument.editArticle('{{ row.id }}')" class="btn btn-mini a-visible-line-on-over">
+              <i class="icon-edit"></i> {% trans %}Edit{% endtrans %}
+          </a>
+          <a href="javascript:igestisCommercial.sellingDocument.deleteItem('{{ row.id }}')" class="btn btn-danger btn-mini a-visible-line-on-over">
+              <i class="icon-trash icon-white"></i> {% trans %}Delete{% endtrans %}
+          </a>
+          {% else %}
+          &nbsp;
+          {% endif %}
+        </td>
+    </tr>
+  {% endfor %}
+    
+  </tbody>
+</table>

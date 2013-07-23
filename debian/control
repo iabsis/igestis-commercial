@@ -1,0 +1,14 @@
+Source: igestis-commercial
+Section: web
+Priority: extra
+Maintainer: Gilles Hemmerlé <gilles.h@iabsis.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: igestis-keytours
+Architecture: all
+Depends: igestis (>= 2.3.10)
+Suggests: sane-utils
+Description: iGestis module : Manage your commercial projects.
+ This module permit to manage your commercial projects. It's able to create
+ selling invoices and estimation quote, import purchase document, create projects.

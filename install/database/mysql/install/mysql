@@ -1,0 +1,893 @@
+-- phpMyAdmin SQL Dump
+-- version 3.4.11.1deb2
+-- http://www.phpmyadmin.net
+--
+-- Client: localhost
+-- Généré le: Mar 23 Juillet 2013 à 14:31
+-- Version du serveur: 5.5.28
+-- Version de PHP: 5.4.4-14+deb7u2
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Base de données: `temp`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_ACCOUNTING`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_ACCOUNTING` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `company_id` mediumint(9) NOT NULL,
+  `label` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `account_no` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMMERCIAL_ACCOUNTING_CORE_COMPANIES1_idx` (`company_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_ARTICLE`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_ARTICLE` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `company_ref` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `manufacturer_ref` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `designation` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `purchasing_price_df` decimal(9,2) DEFAULT '0.00',
+  `selling_price_df` decimal(9,2) DEFAULT '0.00',
+  `selling_account_id` int(11) NOT NULL,
+  `company_id` mediumint(9) NOT NULL,
+  `is_group` tinyint(1) DEFAULT NULL,
+  `parent_id` mediumint(9) DEFAULT NULL,
+  `taxe_rate_id` mediumint(9) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMMERCIAL_ARTICLE_COMMERCIAL_SELLING_ACCOUNT1_idx` (`selling_account_id`),
+  KEY `fk_COMMERCIAL_ARTICLE_CORE_COMPANIES1_idx` (`company_id`),
+  KEY `fk_COMMERCIAL_ARTICLE_COMMERCIAL_ARTICLE1_idx` (`parent_id`),
+  KEY `taxe_rate_id` (`taxe_rate_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_ARTICLE_CATEGORY`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_ARTICLE_CATEGORY` (
+  `label` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`label`),
+  UNIQUE KEY `label_UNIQUE` (`label`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_ASSOC_ARTICLES_CATEGORIES`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_ASSOC_ARTICLES_CATEGORIES` (
+  `article_id` mediumint(9) NOT NULL,
+  `category_label` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`article_id`,`category_label`),
+  KEY `fk_COMMERCIAL_ARTICLE_has_COMMERCIAL_ARTICLE_CATEGORY_COMME_idx` (`category_label`),
+  KEY `fk_COMMERCIAL_ARTICLE_has_COMMERCIAL_ARTICLE_CATEGORY_COMME_idx1` (`article_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_AUTO_INCREMENT`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_AUTO_INCREMENT` (
+  `company_id` mediumint(9) NOT NULL,
+  `next_invoice_id` mediumint(9) NOT NULL DEFAULT '1',
+  `next_estimate_id` mediumint(9) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`company_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_BANK_ACCOUNT`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_BANK_ACCOUNT` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `account_name` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
+  `account_ref` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `account_balance` decimal(12,2) NOT NULL,
+  `bank_name` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
+  `CORE_COMPANIES_id` mediumint(9) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMMERCIAL_BANK_ACCOUNTS_CORE_COMPANIES1_idx` (`CORE_COMPANIES_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_BANK_ASSOC_OPERATIONS`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_BANK_ASSOC_OPERATIONS` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `operation_id` mediumint(9) NOT NULL,
+  `concerned_user_id` mediumint(9) NOT NULL,
+  `amount` decimal(10,2) DEFAULT NULL,
+  `invoice_id` mediumint(9) DEFAULT NULL,
+  `provider_invoice_id` mediumint(9) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMMERCIAL_BANK_ASSOC_OPERATIONS_COMMERCIAL_BANK_OPERATI_idx` (`operation_id`),
+  KEY `fk_COMMERCIAL_BANK_ASSOC_OPERATIONS_CORE_USERS1_idx` (`concerned_user_id`),
+  KEY `fk_COMMERCIAL_BANK_ASSOC_OPERATIONS_COMMERCIAL_INVOICES1_idx` (`invoice_id`),
+  KEY `provider_invoice_id` (`provider_invoice_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_BANK_OPERATION`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_BANK_OPERATION` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `not_assign` tinyint(1) NOT NULL DEFAULT '0',
+  `label` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
+  `import_date` datetime NOT NULL,
+  `operation_date` date NOT NULL,
+  `operation_type` enum('debit','credit') COLLATE utf8_unicode_ci NOT NULL,
+  `operation_ref` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `operation_amount` decimal(10,2) NOT NULL,
+  `account_id` mediumint(9) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMMERCIAL_BANK_OPERATIONS_COMMERCIAL_BANK_ACCOUNTS1_idx` (`account_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_BANK_TMP_ACCOUNT`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_BANK_TMP_ACCOUNT` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `account_name` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
+  `account_ref` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `account_balance` decimal(12,2) NOT NULL,
+  `bank_name` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `import_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tokenring` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `linked_bank_account_id` mediumint(9) DEFAULT NULL,
+  `importer_contact_id` mediumint(9) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMMERCIAL_BANK_TMP_ACCOUNTS_COMMERCIAL_BANK_ACCOUNT1_idx` (`linked_bank_account_id`),
+  KEY `fk_COMMERCIAL_BANK_TMP_ACCOUNT_CORE_CONTACTS1_idx` (`importer_contact_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_BANK_TMP_OPERATION`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_BANK_TMP_OPERATION` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `label` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
+  `operation_date` date NOT NULL,
+  `operation_type` enum('debit','credit') COLLATE utf8_unicode_ci NOT NULL,
+  `tokenring` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `import_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `operation_ref` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `operation_amount` decimal(10,2) NOT NULL,
+  `tmp_account_id` mediumint(9) NOT NULL,
+  `already_exists` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMMERCIAL_BANK_TMP_OPERATIONS_COMMERCIAL_BANK_TMP_ACCOU_idx` (`tmp_account_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=136 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_COMMERCIAL_DOCUMENT`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_COMMERCIAL_DOCUMENT` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `company_id` mediumint(9) NOT NULL,
+  `project_id` mediumint(9) DEFAULT NULL,
+  `customer_name` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address1` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address2` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `postal_code` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `city` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `country_code` varchar(8) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `free_comment` text COLLATE utf8_unicode_ci,
+  `customer_user_id` mediumint(9) NOT NULL,
+  `creator_contact_id` mediumint(9) NOT NULL,
+  `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMMERCIAL_COMMERCIAL_DOCUMENT_CORE_COUNTRIES1_idx` (`country_code`),
+  KEY `fk_COMMERCIAL_COMMERCIAL_DOCUMENT_COMMERCIAL_PROJECTS1_idx` (`project_id`),
+  KEY `customer_user_id` (`customer_user_id`),
+  KEY `creator_contact_id` (`creator_contact_id`),
+  KEY `company_id` (`company_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_COMMERCIAL_DOCUMENT_ARTICLE`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_COMMERCIAL_DOCUMENT_ARTICLE` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `is_group` tinyint(1) NOT NULL,
+  `item_label` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `item_ref` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `purchasing_DF_unit_price` decimal(10,2) DEFAULT NULL,
+  `selling_DF_unit_price` decimal(10,2) DEFAULT NULL,
+  `tax_rate` decimal(10,3) DEFAULT NULL,
+  `amount_tax` decimal(10,2) DEFAULT NULL,
+  `quantity_article` decimal(10,3) DEFAULT NULL,
+  `tot_sell_price_article_DF` decimal(10,2) DEFAULT NULL,
+  `tot_sell_price_article_TI` decimal(10,2) DEFAULT NULL,
+  `comment` text COLLATE utf8_unicode_ci,
+  `parent_id` mediumint(9) DEFAULT NULL,
+  `document_id` mediumint(9) NOT NULL,
+  `selling_account_id` int(11) NOT NULL,
+  `article_order` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_IPROJECTIS_INVOICE_ITEMS_IPROJECTIS_INVOICE_ITEMS1_idx` (`parent_id`),
+  KEY `fk_COMMERCIAL_COMMERCIAL_DOCUMENT_ARTICLE_COMMERCIAL_COMMER_idx` (`document_id`),
+  KEY `selling_account_id` (`selling_account_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_COMPANY_CONFIG`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_COMPANY_CONFIG` (
+  `company_id` mediumint(9) NOT NULL,
+  `estimate_expiration_days` mediumint(9) NOT NULL DEFAULT '7',
+  `invoice_payment_limit` mediumint(9) NOT NULL DEFAULT '30',
+  `mail_invoice` text COLLATE utf8_unicode_ci NOT NULL,
+  `mail_estimate` text COLLATE utf8_unicode_ci NOT NULL,
+  `export_header` text COLLATE utf8_unicode_ci,
+  `export_format` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`company_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_ESTIMATE`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_ESTIMATE` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `estimation_number` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `date_estimate` date NOT NULL,
+  `valid_until` date NOT NULL,
+  `path_pdf_file` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+  `commercial_document_id` mediumint(9) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMMERCIAL_ESTIMATE_COMMERCIAL_COMMERCIAL_DOCUMENT1_idx` (`commercial_document_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_ESTIMATE_ARTICLE`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_ESTIMATE_ARTICLE` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `is_group` tinyint(1) NOT NULL,
+  `item_label` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `item_ref` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `purchasing_DF_unit_price` decimal(10,2) DEFAULT NULL,
+  `selling_DF_unit_price` decimal(10,2) DEFAULT NULL,
+  `tax_rate` decimal(10,3) DEFAULT NULL,
+  `amount_tax` decimal(10,2) DEFAULT NULL,
+  `quantity_article` decimal(10,3) DEFAULT NULL,
+  `tot_sell_price_article_DF` decimal(10,2) DEFAULT NULL,
+  `tot_sell_price_article_TI` decimal(10,2) DEFAULT NULL,
+  `comment` text COLLATE utf8_unicode_ci,
+  `parent_id` mediumint(9) DEFAULT NULL,
+  `estimate_id` mediumint(9) NOT NULL,
+  `selling_account_id` int(11) NOT NULL,
+  `article_order` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMMERCIAL_INVOICE_ITEMS_COMMERCIAL_INVOICE_ITEMS1_idx` (`parent_id`),
+  KEY `fk_COMMERCIAL_INVOICE_ITEMS_copy1_COMMERCIAL_ESTIMATE1_idx` (`estimate_id`),
+  KEY `selling_account_id` (`selling_account_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_FREE_DOCUMENT`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_FREE_DOCUMENT` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `project_id` mediumint(9) NOT NULL,
+  `title` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `filename` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMMERCIAL_FREE_DOCUMENT_COMMERCIAL_PROJECTS1_idx` (`project_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_INVOICE`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_INVOICE` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `commercial_document_id` mediumint(9) NOT NULL,
+  `invoice_number` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  `invoices_date` date NOT NULL,
+  `payment_date_limit` date NOT NULL,
+  `tax_num_customer` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `path_pdf_file` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+  `exported` tinyint(1) NOT NULL,
+  `invoices_type` enum('invoices','credits') COLLATE utf8_unicode_ci NOT NULL,
+  `invoice_total_DF` decimal(10,2) NOT NULL,
+  `invoice_total_TI` decimal(10,2) NOT NULL,
+  `paid` tinyint(1) NOT NULL,
+  `estimate_id` mediumint(9) DEFAULT NULL,
+  `project_id` mediumint(9) DEFAULT NULL,
+  `payment_mode` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMMERCIAL_INVOICES_COMMERCIAL_ESTIMATE1_idx` (`estimate_id`),
+  KEY `fk_COMMERCIAL_INVOICES_COMMERCIAL_SOLD_TYPE1_idx` (`payment_mode`),
+  KEY `commercial_document_id` (`commercial_document_id`),
+  KEY `project_id` (`project_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_INVOICE_ARTICLE`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_INVOICE_ARTICLE` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `is_group` tinyint(1) NOT NULL,
+  `item_label` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `item_ref` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `purchasing_DF_unit_price` decimal(10,2) DEFAULT NULL,
+  `selling_DF_unit_price` decimal(10,2) NOT NULL,
+  `tax_rate` decimal(10,3) DEFAULT NULL,
+  `amount_tax` decimal(10,2) DEFAULT NULL,
+  `quantity_article` decimal(10,3) DEFAULT NULL,
+  `tot_sell_price_article_DF` decimal(10,2) DEFAULT NULL,
+  `tot_sell_price_article_TI` decimal(10,2) DEFAULT NULL,
+  `comment` text COLLATE utf8_unicode_ci,
+  `accounting_label` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `accounting_number` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `invoice_id` mediumint(9) NOT NULL,
+  `parent_id` mediumint(9) DEFAULT NULL,
+  `article_order` tinyint(4) NOT NULL,
+  `tax_accounting_number` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMMERCIAL_INVOICE_ITEMS_COMMERCIAL_INVOICES1_idx` (`invoice_id`),
+  KEY `fk_COMMERCIAL_INVOICE_ITEMS_COMMERCIAL_INVOICE_ITEMS1_idx` (`parent_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_PROJECT`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_PROJECT` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `creator_contact_id` mediumint(9) NOT NULL,
+  `company_id` mediumint(9) NOT NULL,
+  `name` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `customer_user_id` mediumint(9) NOT NULL,
+  `closed` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMMERCIAL_PROJECTS_CORE_CONTACTS1_idx` (`creator_contact_id`),
+  KEY `fk_COMMERCIAL_PROJECTS_CORE_COMPANIES1_idx` (`company_id`),
+  KEY `customer_user_id` (`customer_user_id`),
+  KEY `closed` (`closed`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_PROVIDER_INVOICE`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_PROVIDER_INVOICE` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `provider_user_id` mediumint(9) DEFAULT NULL,
+  `company_id` mediumint(9) DEFAULT NULL,
+  `invoice_date` date DEFAULT NULL,
+  `invoice_num` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `invoice_payment_type` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `exported` tinyint(1) NOT NULL,
+  `paid` tinyint(1) NOT NULL,
+  `invoice_path` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `project_id` mediumint(9) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMMERCIAL_PROVIDER_INVOICE_CORE_USERS1_idx` (`provider_user_id`),
+  KEY `fk_COMMERCIAL_PROVIDER_INVOICE_CORE_COMPANIES1_idx` (`company_id`),
+  KEY `fk_COMMERCIAL_PROVIDER_INVOICE_COMMERCIAL_PROJECT1_idx` (`project_id`),
+  KEY `invoice_payment_type` (`invoice_payment_type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_PROVIDER_INVOICE_ASSOC_AMOUNTS`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_PROVIDER_INVOICE_ASSOC_AMOUNTS` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `amount_df` decimal(8,2) NOT NULL,
+  `amount_ti` decimal(8,2) NOT NULL,
+  `taxes` decimal(8,2) NOT NULL,
+  `purchase_invoice_id` mediumint(9) NOT NULL,
+  `purchasing_account_id` mediumint(9) NOT NULL,
+  `account_number` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tax_accounting_number` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMMERCIAL_PROVIDER_INVOICE_ASSOC_AMOUNTS_COMMERCIAL_PRO_idx` (`purchase_invoice_id`),
+  KEY `fk_COMMERCIAL_PROVIDER_INVOICE_ASSOC_AMOUNTS_COMMERCIAL_PUR_idx` (`purchasing_account_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_PURCHASING_ACCOUNT`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_PURCHASING_ACCOUNT` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `label` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `account_number` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `company_id` mediumint(9) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `company_id` (`company_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_SELLING_ACCOUNT`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_SELLING_ACCOUNT` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `label` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `account_number` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `company_id` mediumint(9) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `company_id` (`company_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_SOLD_TYPE`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_SOLD_TYPE` (
+  `code` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `label` varchar(70) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `COMMERCIAL_SOLD_TYPE`
+--
+
+INSERT INTO `COMMERCIAL_SOLD_TYPE` (`code`, `label`) VALUES
+('CASH', 'Cash'),
+('CC', 'Credit card'),
+('CHECK', 'Check'),
+('LEVY', 'Levy'),
+('OTHER', 'Other'),
+('TRANSFER', 'Transfer');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_SUPPORT_INTERVENTION`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_SUPPORT_INTERVENTION` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `company_id` mediumint(9) NOT NULL,
+  `date` datetime DEFAULT NULL,
+  `end` datetime DEFAULT NULL,
+  `pause` mediumint(9) NOT NULL,
+  `title` varchar(120) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `period` mediumint(9) NOT NULL DEFAULT '0',
+  `file_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `reported_by_contact_id` mediumint(9) NOT NULL,
+  `customer_user_id` mediumint(9) NOT NULL,
+  `project_id` mediumint(9) DEFAULT NULL,
+  `type` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_COMEMRCIAL_SUPPORT_REPORT_CORE_CONTACTS1_idx` (`reported_by_contact_id`),
+  KEY `fk_COMEMRCIAL_SUPPORT_REPORT_CORE_USERS1_idx` (`customer_user_id`),
+  KEY `fk_COMMMERCIAL_SUPPORT_INTERVENTION_COMMERCIAL_PROJECTS1_idx` (`project_id`),
+  KEY `type` (`type`),
+  KEY `company_id` (`company_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_TAXE_RATE`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_TAXE_RATE` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `label` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `value` decimal(5,3) NOT NULL,
+  `company_id` mediumint(9) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `company_id` (`company_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_USER_CONFIG`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_USER_CONFIG` (
+  `contact_id` mediumint(9) NOT NULL,
+  `FILE_UPLOAD_TYPE` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `SOLD_TYPE` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`contact_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `COMMERCIAL_VAT_ACCOUNTING`
+--
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_VAT_ACCOUNTING` (
+  `company_id` mediumint(9) NOT NULL,
+  `selling_vat_account` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `buying_vat_account` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`company_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Doublure de structure pour la vue `COMMERCIAL_VIEW_BANK_ASSOC_DOCS`
+--
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_VIEW_BANK_ASSOC_DOCS` (
+`operation_id` mediumint(9)
+,`transaction_type` varchar(16)
+,`company_id` mediumint(9)
+,`document_id` mediumint(9)
+,`user_id` mediumint(9)
+,`transaction_date` date
+,`path` varchar(256)
+,`exported` tinyint(4)
+,`paid` tinyint(4)
+,`total_ti` decimal(31,2)
+);
+-- --------------------------------------------------------
+
+--
+-- Doublure de structure pour la vue `COMMERCIAL_VIEW_COMMERCIAL_DOCS`
+--
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_VIEW_COMMERCIAL_DOCS` (
+`transaction_type` varchar(16)
+,`company_id` mediumint(9)
+,`document_id` mediumint(9)
+,`document_number` varchar(50)
+,`user_id` mediumint(9)
+,`transaction_date` date
+,`path` varchar(256)
+,`exported` tinyint(4)
+,`paid` tinyint(4)
+,`associated` bigint(20)
+,`total_ti` decimal(31,2)
+);
+-- --------------------------------------------------------
+
+--
+-- Doublure de structure pour la vue `COMMERCIAL_VIEW_TOTAL_ASSOC`
+--
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_VIEW_TOTAL_ASSOC` (
+`uid` mediumint(9)
+,`total_ti` decimal(53,2)
+);
+-- --------------------------------------------------------
+
+--
+-- Doublure de structure pour la vue `COMMERCIAL_VIEW_TOTAL_DOCS`
+--
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_VIEW_TOTAL_DOCS` (
+`uid` mediumint(9)
+,`total_ti` decimal(53,2)
+);
+-- --------------------------------------------------------
+
+--
+-- Doublure de structure pour la vue `COMMERCIAL_VIEW_USER_SOLD`
+--
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_VIEW_USER_SOLD` (
+`id` mediumint(9)
+,`company_id` mediumint(9)
+,`client_type_code` varchar(12)
+,`user_label` varchar(150)
+,`user_type` enum('client','employee','supplier')
+,`tva_number` varchar(20)
+,`tva_invoice` tinyint(4)
+,`rib` varchar(60)
+,`account_code` varchar(30)
+,`is_active` tinyint(1)
+,`sold` decimal(65,2)
+);
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `COMMERCIAL_VIEW_BANK_ASSOC_DOCS`
+--
+DROP TABLE IF EXISTS `COMMERCIAL_VIEW_BANK_ASSOC_DOCS`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `COMMERCIAL_VIEW_BANK_ASSOC_DOCS` AS select `ao`.`operation_id` AS `operation_id`,'selling_document' AS `transaction_type`,`d`.`company_id` AS `company_id`,`i`.`id` AS `document_id`,`d`.`customer_user_id` AS `user_id`,`i`.`invoices_date` AS `transaction_date`,`i`.`path_pdf_file` AS `path`,`i`.`exported` AS `exported`,`i`.`paid` AS `paid`,if((`i`.`invoices_type` = 'credits'),(-(1) * `i`.`invoice_total_TI`),`i`.`invoice_total_TI`) AS `total_ti` from ((`COMMERCIAL_INVOICE` `i` left join `COMMERCIAL_COMMERCIAL_DOCUMENT` `d` on((`d`.`id` = `i`.`commercial_document_id`))) left join `COMMERCIAL_BANK_ASSOC_OPERATIONS` `ao` on((`ao`.`invoice_id` = `i`.`id`))) where (`ao`.`operation_id` is not null) union select `ao`.`operation_id` AS `operation_id`,'buying_document' AS `transaction_type`,`pi`.`company_id` AS `company_id`,`pi`.`id` AS `document_id`,`pi`.`provider_user_id` AS `user_id`,`pi`.`invoice_date` AS `transaction_date`,`pi`.`invoice_path` AS `path`,`pi`.`exported` AS `exported`,`pi`.`paid` AS `paid`,(-(1) * sum(`ia`.`amount_ti`)) AS `total_ti` from ((`COMMERCIAL_PROVIDER_INVOICE` `pi` left join `COMMERCIAL_PROVIDER_INVOICE_ASSOC_AMOUNTS` `ia` on((`ia`.`purchase_invoice_id` = `pi`.`id`))) left join `COMMERCIAL_BANK_ASSOC_OPERATIONS` `ao` on((`ao`.`provider_invoice_id` = `pi`.`id`))) where (`ao`.`operation_id` is not null) group by `pi`.`id` union select `ao`.`operation_id` AS `operation_id`,'manual_amounts' AS `transaction_type`,`a`.`CORE_COMPANIES_id` AS `company_id`,NULL AS `document_id`,`ao`.`concerned_user_id` AS `user_id`,`o`.`operation_date` AS `transaction_date`,NULL AS `path`,NULL AS `exported`,NULL AS `paid`,`ao`.`amount` AS `amountTi` from ((`COMMERCIAL_BANK_ASSOC_OPERATIONS` `ao` left join `COMMERCIAL_BANK_OPERATION` `o` on((`o`.`id` = `ao`.`operation_id`))) left join `COMMERCIAL_BANK_ACCOUNT` `a` on((`a`.`id` = `o`.`account_id`))) where (`ao`.`concerned_user_id` is not null);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `COMMERCIAL_VIEW_COMMERCIAL_DOCS`
+--
+DROP TABLE IF EXISTS `COMMERCIAL_VIEW_COMMERCIAL_DOCS`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `COMMERCIAL_VIEW_COMMERCIAL_DOCS` AS select 'selling_document' AS `transaction_type`,`d`.`company_id` AS `company_id`,`i`.`id` AS `document_id`,`i`.`invoice_number` AS `document_number`,`d`.`customer_user_id` AS `user_id`,`i`.`invoices_date` AS `transaction_date`,`i`.`path_pdf_file` AS `path`,`i`.`exported` AS `exported`,`i`.`paid` AS `paid`,if(isnull(`ao`.`id`),0,1) AS `associated`,if((`i`.`invoices_type` = 'credits'),(-(1) * `i`.`invoice_total_TI`),`i`.`invoice_total_TI`) AS `total_ti` from ((`COMMERCIAL_INVOICE` `i` left join `COMMERCIAL_COMMERCIAL_DOCUMENT` `d` on((`d`.`id` = `i`.`commercial_document_id`))) left join `COMMERCIAL_BANK_ASSOC_OPERATIONS` `ao` on((`ao`.`invoice_id` = `i`.`id`))) group by `i`.`id` union select 'buying_document' AS `transaction_type`,`pi`.`company_id` AS `company_id`,`pi`.`id` AS `document_id`,`pi`.`invoice_num` AS `document_number`,`pi`.`provider_user_id` AS `user_id`,`pi`.`invoice_date` AS `transaction_date`,`pi`.`invoice_path` AS `path`,`pi`.`exported` AS `exported`,`pi`.`paid` AS `paid`,if(isnull(`ao`.`id`),0,1) AS `associated`,(-(1) * sum(`ia`.`amount_ti`)) AS `total_ti` from ((`COMMERCIAL_PROVIDER_INVOICE` `pi` left join `COMMERCIAL_PROVIDER_INVOICE_ASSOC_AMOUNTS` `ia` on((`ia`.`purchase_invoice_id` = `pi`.`id`))) left join `COMMERCIAL_BANK_ASSOC_OPERATIONS` `ao` on((`ao`.`provider_invoice_id` = `pi`.`id`))) group by `pi`.`id`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `COMMERCIAL_VIEW_TOTAL_ASSOC`
+--
+DROP TABLE IF EXISTS `COMMERCIAL_VIEW_TOTAL_ASSOC`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `COMMERCIAL_VIEW_TOTAL_ASSOC` AS select `ad`.`user_id` AS `uid`,sum(`ad`.`total_ti`) AS `total_ti` from `COMMERCIAL_VIEW_BANK_ASSOC_DOCS` `ad` group by `ad`.`user_id`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `COMMERCIAL_VIEW_TOTAL_DOCS`
+--
+DROP TABLE IF EXISTS `COMMERCIAL_VIEW_TOTAL_DOCS`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `COMMERCIAL_VIEW_TOTAL_DOCS` AS select `cd`.`user_id` AS `uid`,sum(`cd`.`total_ti`) AS `total_ti` from `COMMERCIAL_VIEW_COMMERCIAL_DOCS` `cd` group by `cd`.`user_id`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `COMMERCIAL_VIEW_USER_SOLD`
+--
+DROP TABLE IF EXISTS `COMMERCIAL_VIEW_USER_SOLD`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `COMMERCIAL_VIEW_USER_SOLD` AS select `u`.`id` AS `id`,`u`.`company_id` AS `company_id`,`u`.`client_type_code` AS `client_type_code`,`u`.`user_label` AS `user_label`,`u`.`user_type` AS `user_type`,`u`.`tva_number` AS `tva_number`,`u`.`tva_invoice` AS `tva_invoice`,`u`.`rib` AS `rib`,`u`.`account_code` AS `account_code`,`u`.`is_active` AS `is_active`,ifnull((ifnull(sum(`docs`.`total_ti`),0) - ifnull(sum(`assoc`.`total_ti`),0)),0) AS `sold` from ((`CORE_USERS` `u` left join `COMMERCIAL_VIEW_TOTAL_ASSOC` `assoc` on((`assoc`.`uid` = `u`.`id`))) left join `COMMERCIAL_VIEW_TOTAL_DOCS` `docs` on((`docs`.`uid` = `u`.`id`))) group by `u`.`id`;
+
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `COMMERCIAL_ACCOUNTING`
+--
+ALTER TABLE `COMMERCIAL_ACCOUNTING`
+  ADD CONSTRAINT `fk_COMMERCIAL_ACCOUNTING_CORE_COMPANIES1` FOREIGN KEY (`company_id`) REFERENCES `CORE_COMPANIES` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_ARTICLE`
+--
+ALTER TABLE `COMMERCIAL_ARTICLE`
+  ADD CONSTRAINT `COMMERCIAL_ARTICLE_ibfk_1` FOREIGN KEY (`taxe_rate_id`) REFERENCES `COMMERCIAL_TAXE_RATE` (`id`),
+  ADD CONSTRAINT `fk_COMMERCIAL_ARTICLE_COMMERCIAL_ARTICLE1` FOREIGN KEY (`parent_id`) REFERENCES `COMMERCIAL_ARTICLE` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_COMMERCIAL_ARTICLE_COMMERCIAL_SELLING_ACCOUNT1` FOREIGN KEY (`selling_account_id`) REFERENCES `COMMERCIAL_SELLING_ACCOUNT` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_COMMERCIAL_ARTICLE_CORE_COMPANIES1` FOREIGN KEY (`company_id`) REFERENCES `CORE_COMPANIES` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_ASSOC_ARTICLES_CATEGORIES`
+--
+ALTER TABLE `COMMERCIAL_ASSOC_ARTICLES_CATEGORIES`
+  ADD CONSTRAINT `fk_COMMERCIAL_ARTICLE_has_COMMERCIAL_ARTICLE_CATEGORY_COMMERC1` FOREIGN KEY (`article_id`) REFERENCES `COMMERCIAL_ARTICLE` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_COMMERCIAL_ARTICLE_has_COMMERCIAL_ARTICLE_CATEGORY_COMMERC2` FOREIGN KEY (`category_label`) REFERENCES `COMMERCIAL_ARTICLE_CATEGORY` (`label`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_AUTO_INCREMENT`
+--
+ALTER TABLE `COMMERCIAL_AUTO_INCREMENT`
+  ADD CONSTRAINT `fk_COMMERCIAL_AUTO_INCREMENT_CORE_COMPANIES1` FOREIGN KEY (`company_id`) REFERENCES `CORE_COMPANIES` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_BANK_ACCOUNT`
+--
+ALTER TABLE `COMMERCIAL_BANK_ACCOUNT`
+  ADD CONSTRAINT `fk_COMMERCIAL_BANK_ACCOUNTS_CORE_COMPANIES1` FOREIGN KEY (`CORE_COMPANIES_id`) REFERENCES `CORE_COMPANIES` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_BANK_ASSOC_OPERATIONS`
+--
+ALTER TABLE `COMMERCIAL_BANK_ASSOC_OPERATIONS`
+  ADD CONSTRAINT `COMMERCIAL_BANK_ASSOC_OPERATIONS_ibfk_1` FOREIGN KEY (`provider_invoice_id`) REFERENCES `COMMERCIAL_PROVIDER_INVOICE` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_COMMERCIAL_BANK_ASSOC_OPERATIONS_COMMERCIAL_BANK_OPERATIONS1` FOREIGN KEY (`operation_id`) REFERENCES `COMMERCIAL_BANK_OPERATION` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_COMMERCIAL_BANK_ASSOC_OPERATIONS_COMMERCIAL_INVOICES1` FOREIGN KEY (`invoice_id`) REFERENCES `COMMERCIAL_INVOICE` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_COMMERCIAL_BANK_ASSOC_OPERATIONS_CORE_USERS1` FOREIGN KEY (`concerned_user_id`) REFERENCES `CORE_USERS` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_BANK_OPERATION`
+--
+ALTER TABLE `COMMERCIAL_BANK_OPERATION`
+  ADD CONSTRAINT `fk_COMMERCIAL_BANK_OPERATIONS_COMMERCIAL_BANK_ACCOUNTS1` FOREIGN KEY (`account_id`) REFERENCES `COMMERCIAL_BANK_ACCOUNT` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_BANK_TMP_ACCOUNT`
+--
+ALTER TABLE `COMMERCIAL_BANK_TMP_ACCOUNT`
+  ADD CONSTRAINT `fk_COMMERCIAL_BANK_TMP_ACCOUNTS_COMMERCIAL_BANK_ACCOUNT1` FOREIGN KEY (`linked_bank_account_id`) REFERENCES `COMMERCIAL_BANK_ACCOUNT` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_COMMERCIAL_BANK_TMP_ACCOUNT_CORE_CONTACTS1` FOREIGN KEY (`importer_contact_id`) REFERENCES `CORE_CONTACTS` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_BANK_TMP_OPERATION`
+--
+ALTER TABLE `COMMERCIAL_BANK_TMP_OPERATION`
+  ADD CONSTRAINT `COMMERCIAL_BANK_TMP_OPERATION_ibfk_1` FOREIGN KEY (`tmp_account_id`) REFERENCES `COMMERCIAL_BANK_TMP_ACCOUNT` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `COMMERCIAL_COMMERCIAL_DOCUMENT`
+--
+ALTER TABLE `COMMERCIAL_COMMERCIAL_DOCUMENT`
+  ADD CONSTRAINT `COMMERCIAL_COMMERCIAL_DOCUMENT_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `COMMERCIAL_PROJECT` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_commercial_commercial_document_core_company_id` FOREIGN KEY (`company_id`) REFERENCES `CORE_COMPANIES` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_commercial_commercial_document_core_contact_id` FOREIGN KEY (`creator_contact_id`) REFERENCES `CORE_CONTACTS` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_COMMERCIAL_COMMERCIAL_DOCUMENT_CORE_COUNTRIES1` FOREIGN KEY (`country_code`) REFERENCES `CORE_COUNTRIES` (`code`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_commercial_commercial_document_core_user_id` FOREIGN KEY (`customer_user_id`) REFERENCES `CORE_USERS` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_COMMERCIAL_DOCUMENT_ARTICLE`
+--
+ALTER TABLE `COMMERCIAL_COMMERCIAL_DOCUMENT_ARTICLE`
+  ADD CONSTRAINT `fk_COMMERCIAL_COMMERCIAL_DOCUMENT_ARTICLE_COMMERCIAL_COMMERCI1` FOREIGN KEY (`document_id`) REFERENCES `COMMERCIAL_COMMERCIAL_DOCUMENT` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_document_article_selling_account` FOREIGN KEY (`selling_account_id`) REFERENCES `COMMERCIAL_SELLING_ACCOUNT` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_IPROJECTIS_INVOICE_ITEMS_IPROJECTIS_INVOICE_ITEMS11` FOREIGN KEY (`parent_id`) REFERENCES `COMMERCIAL_COMMERCIAL_DOCUMENT_ARTICLE` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_COMPANY_CONFIG`
+--
+ALTER TABLE `COMMERCIAL_COMPANY_CONFIG`
+  ADD CONSTRAINT `fk_COMMERCIAL_COMPANY_CONFIG_CORE_COMPANIES1` FOREIGN KEY (`company_id`) REFERENCES `CORE_COMPANIES` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_ESTIMATE`
+--
+ALTER TABLE `COMMERCIAL_ESTIMATE`
+  ADD CONSTRAINT `fk_COMMERCIAL_ESTIMATE_COMMERCIAL_COMMERCIAL_DOCUMENT1` FOREIGN KEY (`commercial_document_id`) REFERENCES `COMMERCIAL_COMMERCIAL_DOCUMENT` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_ESTIMATE_ARTICLE`
+--
+ALTER TABLE `COMMERCIAL_ESTIMATE_ARTICLE`
+  ADD CONSTRAINT `fk_COMMERCIAL_INVOICE_ITEMS_COMMERCIAL_INVOICE_ITEMS10` FOREIGN KEY (`parent_id`) REFERENCES `COMMERCIAL_ESTIMATE_ARTICLE` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_COMMERCIAL_INVOICE_ITEMS_copy1_COMMERCIAL_ESTIMATE1` FOREIGN KEY (`estimate_id`) REFERENCES `COMMERCIAL_ESTIMATE` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_estimate_article_selling_account` FOREIGN KEY (`selling_account_id`) REFERENCES `COMMERCIAL_SELLING_ACCOUNT` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_FREE_DOCUMENT`
+--
+ALTER TABLE `COMMERCIAL_FREE_DOCUMENT`
+  ADD CONSTRAINT `fk_COMMERCIAL_FREE_DOCUMENT_COMMERCIAL_PROJECTS1` FOREIGN KEY (`project_id`) REFERENCES `COMMERCIAL_PROJECT` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_INVOICE`
+--
+ALTER TABLE `COMMERCIAL_INVOICE`
+  ADD CONSTRAINT `fk_COMMERCIAL_INVOICES_COMMERCIAL_ESTIMATE1` FOREIGN KEY (`estimate_id`) REFERENCES `COMMERCIAL_ESTIMATE` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_COMMERCIAL_INVOICES_COMMERCIAL_SOLD_TYPE1` FOREIGN KEY (`payment_mode`) REFERENCES `COMMERCIAL_SOLD_TYPE` (`code`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_commercial_invoice_commercial_document_id` FOREIGN KEY (`commercial_document_id`) REFERENCES `COMMERCIAL_COMMERCIAL_DOCUMENT` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_commercial_invoice_project_id` FOREIGN KEY (`project_id`) REFERENCES `COMMERCIAL_PROJECT` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_INVOICE_ARTICLE`
+--
+ALTER TABLE `COMMERCIAL_INVOICE_ARTICLE`
+  ADD CONSTRAINT `fk_COMMERCIAL_INVOICE_ITEMS_COMMERCIAL_INVOICES1` FOREIGN KEY (`invoice_id`) REFERENCES `COMMERCIAL_INVOICE` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_COMMERCIAL_INVOICE_ITEMS_COMMERCIAL_INVOICE_ITEMS1` FOREIGN KEY (`parent_id`) REFERENCES `COMMERCIAL_INVOICE_ARTICLE` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_PROJECT`
+--
+ALTER TABLE `COMMERCIAL_PROJECT`
+  ADD CONSTRAINT `fk_COMMERCIAL_PROJECTS_CORE_COMPANIES1` FOREIGN KEY (`company_id`) REFERENCES `CORE_COMPANIES` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_COMMERCIAL_PROJECTS_CORE_CONTACTS1` FOREIGN KEY (`creator_contact_id`) REFERENCES `CORE_CONTACTS` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_commercial_project_core_user_id` FOREIGN KEY (`customer_user_id`) REFERENCES `CORE_USERS` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_PROVIDER_INVOICE`
+--
+ALTER TABLE `COMMERCIAL_PROVIDER_INVOICE`
+  ADD CONSTRAINT `COMMERCIAL_PROVIDER_INVOICE_ibfk_2` FOREIGN KEY (`project_id`) REFERENCES `COMMERCIAL_PROJECT` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION,
+  ADD CONSTRAINT `COMMERCIAL_PROVIDER_INVOICE_ibfk_1` FOREIGN KEY (`invoice_payment_type`) REFERENCES `COMMERCIAL_SOLD_TYPE` (`code`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_COMMERCIAL_PROVIDER_INVOICE_CORE_COMPANIES1` FOREIGN KEY (`company_id`) REFERENCES `CORE_COMPANIES` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_COMMERCIAL_PROVIDER_INVOICE_CORE_USERS1` FOREIGN KEY (`provider_user_id`) REFERENCES `CORE_USERS` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_PROVIDER_INVOICE_ASSOC_AMOUNTS`
+--
+ALTER TABLE `COMMERCIAL_PROVIDER_INVOICE_ASSOC_AMOUNTS`
+  ADD CONSTRAINT `fk_COMMERCIAL_PROVIDER_INVOICE_ASSOC_AMOUNTS_COMMERCIAL_PROVI1` FOREIGN KEY (`purchase_invoice_id`) REFERENCES `COMMERCIAL_PROVIDER_INVOICE` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_COMMERCIAL_PROVIDER_INVOICE_ASSOC_AMOUNTS_COMMERCIAL_PURCH1` FOREIGN KEY (`purchasing_account_id`) REFERENCES `COMMERCIAL_PURCHASING_ACCOUNT` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_PURCHASING_ACCOUNT`
+--
+ALTER TABLE `COMMERCIAL_PURCHASING_ACCOUNT`
+  ADD CONSTRAINT `COMMERCIAL_PURCHASING_ACCOUNT_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `CORE_COMPANIES` (`id`);
+
+--
+-- Contraintes pour la table `COMMERCIAL_SELLING_ACCOUNT`
+--
+ALTER TABLE `COMMERCIAL_SELLING_ACCOUNT`
+  ADD CONSTRAINT `COMMERCIAL_SELLING_ACCOUNT_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `CORE_COMPANIES` (`id`);
+
+--
+-- Contraintes pour la table `COMMERCIAL_SUPPORT_INTERVENTION`
+--
+ALTER TABLE `COMMERCIAL_SUPPORT_INTERVENTION`
+  ADD CONSTRAINT `COMMERCIAL_SUPPORT_INTERVENTION_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `COMMERCIAL_PROJECT` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_COMEMRCIAL_SUPPORT_REPORT_CORE_CONTACTS1` FOREIGN KEY (`reported_by_contact_id`) REFERENCES `CORE_CONTACTS` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_COMEMRCIAL_SUPPORT_REPORT_CORE_USERS1` FOREIGN KEY (`customer_user_id`) REFERENCES `CORE_USERS` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_commercial_support_intervention_core_company_id` FOREIGN KEY (`company_id`) REFERENCES `CORE_COMPANIES` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_TAXE_RATE`
+--
+ALTER TABLE `COMMERCIAL_TAXE_RATE`
+  ADD CONSTRAINT `COMMERCIAL_TAXE_RATE_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `CORE_COMPANIES` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_USER_CONFIG`
+--
+ALTER TABLE `COMMERCIAL_USER_CONFIG`
+  ADD CONSTRAINT `fk_ESUPPORT_CONFIG_CORE_CONTACTS1` FOREIGN KEY (`contact_id`) REFERENCES `CORE_CONTACTS` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `COMMERCIAL_VAT_ACCOUNTING`
+--
+ALTER TABLE `COMMERCIAL_VAT_ACCOUNTING`
+  ADD CONSTRAINT `COMMERCIAL_VAT_ACCOUNTING_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `CORE_COMPANIES` (`id`) ON DELETE CASCADE;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

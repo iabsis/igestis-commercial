@@ -1,0 +1,86 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Import report"|trans,
+                'help': "Select the rows you want to import into your database"|trans} %}
+
+{% block content %}{{ parent() }}
+
+
+<legend>{%  trans %}List of accounts fetched from the ofx file{%  endtrans %}</legend>
+<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover auto-check" id="banks-table">
+    <thead>
+        <tr>
+            <th>{% trans %}Sel.{% endtrans %}</th>
+            <th>{% trans %}Account name{% endtrans %}</th>
+            <th>{% trans %}Reference{% endtrans %}</th>
+            <th>{% trans %}Sold{% endtrans %}</th>
+            <th>{% trans %}Bank name{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tbody>
+       {% for bankAccount in importedAccounts %}
+           {% if bankAccount.linkedBankAccount == null %}
+            <tr>
+                <td><input type="checkbox" checked="checked" name="selectedAccounts[]" value="{{ bankAccount.id }}"></td>
+                <td>{{ bankAccount.accountName }}</td>
+                <td>{{ bankAccount.accountRef }}</td>
+                <td>{{ bankAccount.accountBalance }}</td>
+                <td>{{ forms.input('bankName-' ~ bankAccount.id, 'Bank name'|trans, bankAccount.bankName) }}</td>                
+            </tr>
+            {%  endif %}
+      {% endfor %}
+    </tbody>
+</table>
+{# End #}
+
+
+<legend>{%  trans %}List of operations fetched from the ofx file{%  endtrans %}</legend>
+<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover auto-check" id="operations-table">
+    <thead>
+        <tr>
+            <th>{% trans %}Sel.{% endtrans %}</th>
+            <th>{% trans %}Account{% endtrans %}</th>
+            <th>{% trans %}Date{% endtrans %}</th>
+            <th>{% trans %}Label{% endtrans %}</th>
+            <th>{% trans %}Amount{% endtrans %}</th>
+            <th>{% trans %}Type{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tbody>
+       {% for account in importedAccounts %}
+           {% for operation in account.operations %}
+                <tr>
+                    <td><input {% if operation.doesAlreadyExist %}disabled="disabled"{% else %}checked="checked"{% endif %} type="checkbox" name="selectedOperations[]" value="{{ operation.id }}"></td>
+                    <td>{{ operation.tmpAccount.accountName }}</td>
+                    <td>{{ operation.operationDate|date("d/m/Y") }}</td>
+                    <td>{{ operation.label }}</td>
+                    <td>{{ operation.operationAmount }}</td>
+                    <td>{{ operation.operationType }}</td>                              
+                </tr>
+          {% endfor %}
+       {% endfor %}
+    </tbody>
+</table>
+{# End #}
+
+<form style="display: none" action="{{ url("commercial_bank_account_import_result_validation") }}" method="post" id="hiddenPostForm">
+    <input type="hidden" name="formValues" id="formValues" />
+</form>
+
+<a href="javascript:;" onclick="javascript:igestisCommercial.bank.startImport()" class="btn btn-success" >{% trans %}Import{% endtrans %}</a>
+<a href="{{ url("commercial_bank_index") }}" class="btn">{% trans %}Cancel{% endtrans %}</a>
+
+<script>
+$(function() {
+	var oOperationTable = IgestisInitTable('#operations-table');
+	var oBankTable = IgestisInitTable('#banks-table');
+	igestisCommercial.bank.init({
+		"oOperationTable" : oOperationTable,
+		"oBankTable" : oBankTable
+	});
+});
+</script>
+
+
+{% endblock %}

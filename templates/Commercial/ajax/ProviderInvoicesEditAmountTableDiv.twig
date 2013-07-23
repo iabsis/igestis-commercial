@@ -1,0 +1,30 @@
+<a data-toggle="modal" href="{{ url('commercial_provider_invoices_add_amount', {ProviderInvoiceId : providerInvoice.id }) }}" data-target="#provider-invoice-edit-amount-modal" class="btn btn-primary pull-right">{% trans %}Add an amount{% endtrans %}</a><br><br>
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="buyingInvoicesTable">
+    <thead>
+        <tr>
+            <th>{% trans %}Account{% endtrans %}</th>
+            <th>{% trans %}Amount Df{% endtrans %}</th>
+            <th>{% trans %}Amount Ti{% endtrans %}</th>
+            <th>{% trans %}Actions{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tbody>
+       {% for row in providerInvoice.amounts %}
+            <tr>
+                <td>{{ row.purchasingAccount.label }}</td>
+                <td>{{ row.amountDf|number_format(2) }}</td>
+                <td>{{ row.amountTi|number_format(2) }}</td>
+                <td>       
+                    <a data-toggle="modal" href="{{ url('commercial_provider_invoices_edit_amount', {Id : row.id }) }}" data-target="#provider-invoice-edit-amount-modal" class="btn btn-mini a-visible-line-on-over">
+                        <i class="icon-edit">{% trans %}Edit{% endtrans %}</i>
+                    </a>
+                        
+                    <a href="javascript:igestisCommercial.providerInvoices.deleteAmount('{{ row.id }}')" class="btn btn-danger btn-mini a-visible-line-on-over">
+                        <i class="icon-fire icon-white"></i> {% trans %}Delete{% endtrans %}
+                    </a>
+                </td>
+            </tr>
+      {% endfor %}
+    </tbody>
+</table>

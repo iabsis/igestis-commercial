@@ -1,0 +1,488 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>igestis-iprojectis-v2 » \CommercialProviderInvoice</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">igestis-iprojectis-v2</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Igestis.html"><i class="icon-th"></i> Igestis</a></li>
+<li><a href="../namespaces/global.html"><i class="icon-th"></i> global</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">215</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method_getCompany" title="getCompany :: Get company"><span class="description">Get company</span><pre>getCompany()</pre></a></li>
+<li class="method public "><a href="#method_getExported" title="getExported :: Get exported"><span class="description">Get exported</span><pre>getExported()</pre></a></li>
+<li class="method public "><a href="#method_getId" title="getId :: Get id"><span class="description">Get id</span><pre>getId()</pre></a></li>
+<li class="method public "><a href="#method_getInvoiceDate" title="getInvoiceDate :: Get invoiceDate"><span class="description">Get invoiceDate</span><pre>getInvoiceDate()</pre></a></li>
+<li class="method public "><a href="#method_getInvoiceNum" title="getInvoiceNum :: Get invoiceNum"><span class="description">Get invoiceNum</span><pre>getInvoiceNum()</pre></a></li>
+<li class="method public "><a href="#method_getInvoicePath" title="getInvoicePath :: Get invoicePath"><span class="description">Get invoicePath</span><pre>getInvoicePath()</pre></a></li>
+<li class="method public "><a href="#method_getInvoicePaymentType" title="getInvoicePaymentType :: Get invoicePaymentType"><span class="description">Get invoicePaymentType</span><pre>getInvoicePaymentType()</pre></a></li>
+<li class="method public "><a href="#method_getProject" title="getProject :: Get project"><span class="description">Get project</span><pre>getProject()</pre></a></li>
+<li class="method public "><a href="#method_getProviderUser" title="getProviderUser :: Get providerUser"><span class="description">Get providerUser</span><pre>getProviderUser()</pre></a></li>
+<li class="method public "><a href="#method_setCompany" title="setCompany :: Set company"><span class="description">Set company</span><pre>setCompany()</pre></a></li>
+<li class="method public "><a href="#method_setExported" title="setExported :: Set exported"><span class="description">Set exported</span><pre>setExported()</pre></a></li>
+<li class="method public "><a href="#method_setInvoiceDate" title="setInvoiceDate :: Set invoiceDate"><span class="description">Set invoiceDate</span><pre>setInvoiceDate()</pre></a></li>
+<li class="method public "><a href="#method_setInvoiceNum" title="setInvoiceNum :: Set invoiceNum"><span class="description">Set invoiceNum</span><pre>setInvoiceNum()</pre></a></li>
+<li class="method public "><a href="#method_setInvoicePath" title="setInvoicePath :: Set invoicePath"><span class="description">Set invoicePath</span><pre>setInvoicePath()</pre></a></li>
+<li class="method public "><a href="#method_setInvoicePaymentType" title="setInvoicePaymentType :: Set invoicePaymentType"><span class="description">Set invoicePaymentType</span><pre>setInvoicePaymentType()</pre></a></li>
+<li class="method public "><a href="#method_setProject" title="setProject :: Set project"><span class="description">Set project</span><pre>setProject()</pre></a></li>
+<li class="method public "><a href="#method_setProviderUser" title="setProviderUser :: Set providerUser"><span class="description">Set providerUser</span><pre>setProviderUser()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_company" title="$company :: "><span class="description"></span><pre>$company</pre></a></li>
+<li class="property private "><a href="#property_exported" title="$exported :: "><span class="description"></span><pre>$exported</pre></a></li>
+<li class="property private "><a href="#property_id" title="$id :: "><span class="description"></span><pre>$id</pre></a></li>
+<li class="property private "><a href="#property_invoiceDate" title="$invoiceDate :: "><span class="description"></span><pre>$invoiceDate</pre></a></li>
+<li class="property private "><a href="#property_invoiceNum" title="$invoiceNum :: "><span class="description"></span><pre>$invoiceNum</pre></a></li>
+<li class="property private "><a href="#property_invoicePath" title="$invoicePath :: "><span class="description"></span><pre>$invoicePath</pre></a></li>
+<li class="property private "><a href="#property_invoicePaymentType" title="$invoicePaymentType :: "><span class="description"></span><pre>$invoicePaymentType</pre></a></li>
+<li class="property private "><a href="#property_project" title="$project :: "><span class="description"></span><pre>$project</pre></a></li>
+<li class="property private "><a href="#property_providerUser" title="$providerUser :: "><span class="description"></span><pre>$providerUser</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\CommercialProviderInvoice"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/CommercialProviderInvoice.html">CommercialProviderInvoice</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">CommercialProviderInvoice</p>
+<div class="details">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>Table</th>
+<td>name="COMMERCIAL_PROVIDER_INVOICE"</td>
+</tr>
+<tr>
+<th>Entity</th>
+<td>Entity</td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method_getCompany"></a><div class="element clickable method public method_getCompany" data-toggle="collapse" data-target=".method_getCompany .collapse">
+<h2>Get company</h2>
+<pre>getCompany() : \CoreCompanies</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\CoreCompanies</code></div>
+</div></div>
+</div>
+<a id="method_getExported"></a><div class="element clickable method public method_getExported" data-toggle="collapse" data-target=".method_getExported .collapse">
+<h2>Get exported</h2>
+<pre>getExported() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a id="method_getId"></a><div class="element clickable method public method_getId" data-toggle="collapse" data-target=".method_getId .collapse">
+<h2>Get id</h2>
+<pre>getId() : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>integer</code></div>
+</div></div>
+</div>
+<a id="method_getInvoiceDate"></a><div class="element clickable method public method_getInvoiceDate" data-toggle="collapse" data-target=".method_getInvoiceDate .collapse">
+<h2>Get invoiceDate</h2>
+<pre>getInvoiceDate() : \date</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\date</code></div>
+</div></div>
+</div>
+<a id="method_getInvoiceNum"></a><div class="element clickable method public method_getInvoiceNum" data-toggle="collapse" data-target=".method_getInvoiceNum .collapse">
+<h2>Get invoiceNum</h2>
+<pre>getInvoiceNum() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getInvoicePath"></a><div class="element clickable method public method_getInvoicePath" data-toggle="collapse" data-target=".method_getInvoicePath .collapse">
+<h2>Get invoicePath</h2>
+<pre>getInvoicePath() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getInvoicePaymentType"></a><div class="element clickable method public method_getInvoicePaymentType" data-toggle="collapse" data-target=".method_getInvoicePaymentType .collapse">
+<h2>Get invoicePaymentType</h2>
+<pre>getInvoicePaymentType() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getProject"></a><div class="element clickable method public method_getProject" data-toggle="collapse" data-target=".method_getProject .collapse">
+<h2>Get project</h2>
+<pre>getProject() : <a href="../classes/CommercialProject.html">\CommercialProject</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialProject.html">\CommercialProject</a></code></div>
+</div></div>
+</div>
+<a id="method_getProviderUser"></a><div class="element clickable method public method_getProviderUser" data-toggle="collapse" data-target=".method_getProviderUser .collapse">
+<h2>Get providerUser</h2>
+<pre>getProviderUser() : \CoreUsers</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\CoreUsers</code></div>
+</div></div>
+</div>
+<a id="method_setCompany"></a><div class="element clickable method public method_setCompany" data-toggle="collapse" data-target=".method_setCompany .collapse">
+<h2>Set company</h2>
+<pre>setCompany(\CoreCompanies $company) : <a href="../classes/CommercialProviderInvoice.html">\CommercialProviderInvoice</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$company</h4>
+<code>\CoreCompanies</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialProviderInvoice.html">\CommercialProviderInvoice</a></code></div>
+</div></div>
+</div>
+<a id="method_setExported"></a><div class="element clickable method public method_setExported" data-toggle="collapse" data-target=".method_setExported .collapse">
+<h2>Set exported</h2>
+<pre>setExported(boolean $exported) : <a href="../classes/CommercialProviderInvoice.html">\CommercialProviderInvoice</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$exported</h4>
+<code>boolean</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialProviderInvoice.html">\CommercialProviderInvoice</a></code></div>
+</div></div>
+</div>
+<a id="method_setInvoiceDate"></a><div class="element clickable method public method_setInvoiceDate" data-toggle="collapse" data-target=".method_setInvoiceDate .collapse">
+<h2>Set invoiceDate</h2>
+<pre>setInvoiceDate(\date $invoiceDate) : <a href="../classes/CommercialProviderInvoice.html">\CommercialProviderInvoice</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$invoiceDate</h4>
+<code>\date</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialProviderInvoice.html">\CommercialProviderInvoice</a></code></div>
+</div></div>
+</div>
+<a id="method_setInvoiceNum"></a><div class="element clickable method public method_setInvoiceNum" data-toggle="collapse" data-target=".method_setInvoiceNum .collapse">
+<h2>Set invoiceNum</h2>
+<pre>setInvoiceNum(string $invoiceNum) : <a href="../classes/CommercialProviderInvoice.html">\CommercialProviderInvoice</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$invoiceNum</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialProviderInvoice.html">\CommercialProviderInvoice</a></code></div>
+</div></div>
+</div>
+<a id="method_setInvoicePath"></a><div class="element clickable method public method_setInvoicePath" data-toggle="collapse" data-target=".method_setInvoicePath .collapse">
+<h2>Set invoicePath</h2>
+<pre>setInvoicePath(string $invoicePath) : <a href="../classes/CommercialProviderInvoice.html">\CommercialProviderInvoice</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$invoicePath</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialProviderInvoice.html">\CommercialProviderInvoice</a></code></div>
+</div></div>
+</div>
+<a id="method_setInvoicePaymentType"></a><div class="element clickable method public method_setInvoicePaymentType" data-toggle="collapse" data-target=".method_setInvoicePaymentType .collapse">
+<h2>Set invoicePaymentType</h2>
+<pre>setInvoicePaymentType(string $invoicePaymentType) : <a href="../classes/CommercialProviderInvoice.html">\CommercialProviderInvoice</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$invoicePaymentType</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialProviderInvoice.html">\CommercialProviderInvoice</a></code></div>
+</div></div>
+</div>
+<a id="method_setProject"></a><div class="element clickable method public method_setProject" data-toggle="collapse" data-target=".method_setProject .collapse">
+<h2>Set project</h2>
+<pre>setProject(\CommercialProject $project) : <a href="../classes/CommercialProviderInvoice.html">\CommercialProviderInvoice</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$project</h4>
+<code><a href="../classes/CommercialProject.html">\CommercialProject</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialProviderInvoice.html">\CommercialProviderInvoice</a></code></div>
+</div></div>
+</div>
+<a id="method_setProviderUser"></a><div class="element clickable method public method_setProviderUser" data-toggle="collapse" data-target=".method_setProviderUser .collapse">
+<h2>Set providerUser</h2>
+<pre>setProviderUser(\CoreUsers $providerUser) : <a href="../classes/CommercialProviderInvoice.html">\CommercialProviderInvoice</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$providerUser</h4>
+<code>\CoreUsers</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialProviderInvoice.html">\CommercialProviderInvoice</a></code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_company"> </a><div class="element clickable property private property_company" data-toggle="collapse" data-target=".property_company .collapse">
+<h2></h2>
+<pre>$company : \CoreCompanies</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>ManyToOne</th>
+<td>targetEntity="CoreCompanies"</td>
+</tr>
+<tr>
+<th>JoinColumns</th>
+<td>({
+  @JoinColumn(name="company_id", referencedColumnName="id")
+})</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_exported"> </a><div class="element clickable property private property_exported" data-toggle="collapse" data-target=".property_exported .collapse">
+<h2></h2>
+<pre>$exported : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="exported", type="boolean"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_id"> </a><div class="element clickable property private property_id" data-toggle="collapse" data-target=".property_id .collapse">
+<h2></h2>
+<pre>$id : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>Column</th>
+<td>name="id", type="integer"</td>
+</tr>
+<tr>
+<th>Id</th>
+<td>Id</td>
+</tr>
+<tr>
+<th>GeneratedValue</th>
+<td>strategy="IDENTITY"</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_invoiceDate"> </a><div class="element clickable property private property_invoiceDate" data-toggle="collapse" data-target=".property_invoiceDate .collapse">
+<h2></h2>
+<pre>$invoiceDate : \date</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="invoice_date", type="date"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_invoiceNum"> </a><div class="element clickable property private property_invoiceNum" data-toggle="collapse" data-target=".property_invoiceNum .collapse">
+<h2></h2>
+<pre>$invoiceNum : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="invoice_num", type="string", length=50</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_invoicePath"> </a><div class="element clickable property private property_invoicePath" data-toggle="collapse" data-target=".property_invoicePath .collapse">
+<h2></h2>
+<pre>$invoicePath : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="invoice_path", type="string", length=100</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_invoicePaymentType"> </a><div class="element clickable property private property_invoicePaymentType" data-toggle="collapse" data-target=".property_invoicePaymentType .collapse">
+<h2></h2>
+<pre>$invoicePaymentType : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="invoice_payment_type", type="string", length=10</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_project"> </a><div class="element clickable property private property_project" data-toggle="collapse" data-target=".property_project .collapse">
+<h2></h2>
+<pre>$project : <a href="../classes/CommercialProject.html">\CommercialProject</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>ManyToOne</th>
+<td>targetEntity="CommercialProject"</td>
+</tr>
+<tr>
+<th>JoinColumns</th>
+<td>({
+  @JoinColumn(name="project_id", referencedColumnName="id")
+})</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_providerUser"> </a><div class="element clickable property private property_providerUser" data-toggle="collapse" data-target=".property_providerUser .collapse">
+<h2></h2>
+<pre>$providerUser : \CoreUsers</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>ManyToOne</th>
+<td>targetEntity="CoreUsers"</td>
+</tr>
+<tr>
+<th>JoinColumns</th>
+<td>({
+  @JoinColumn(name="provider_user_id", referencedColumnName="id")
+})</td>
+</tr>
+</table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-04-18T11:09:27+02:00.<br></footer></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<form>
+<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="commercialDocumentTable">
+   <thead>
+       <tr>
+           <th>{% trans %}Sel{% endtrans %}</th>
+           <th>{% trans %}State{% endtrans %}</th>
+           <th>{% trans %}Description{% endtrans %}</th>
+           <th>{% trans %}Date{% endtrans %}</th>
+           <th>{% trans %}Amount{% endtrans %}</th>
+       </tr>
+   </thead>
+   <tbody>
+      {% for row in availableCommercialDocuments %}
+           <tr>
+               <td><input type="checkbox" name="selected[]" value="{{ row.id }}"></td>
+               <td>{% if row.status == 1 %}{% trans %}Draft{% endtrans %}
+                    {% elseif row.status == 2 %}{% trans %}Estimate{% endtrans %}
+                    {% elseif row.status == 4 %}{% trans %}Invoice{% endtrans %}
+                    {% elseif row.status == 8 %}{% trans %}Credit{% endtrans %}
+                    {% endif %}</td>
+               <td>{{ row.description }}</td>
+               <td>{{ row.date|date("d/m/Y") }}</td>
+               <td>{{ row.amountDf|number_format(2) }}</td>                            
+           </tr>
+     {% endfor %}
+   </tbody>
+</table>
+</form>

@@ -1,0 +1,107 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Edit a buying invoice"|trans,
+                'help': "Fill all information about the invoice"|trans} %}
+
+{% block content %}{{ parent() }}
+
+
+
+<div class="row-fluid">
+  <div class="span5">
+      <div class="well" >
+          <form id="form_data" class="ajax-emulation-validation" method='post' action=''>
+              <fieldset>
+                  <legend>{% trans %}Document information{% endtrans %}</legend>
+                  {{ forms.select('providerUser', 'Creditor'|trans, usersList, providerInvoice.providerUser.id, 'id', 'userLabel') }}
+                  {{ forms.select('soldType', 'Sold type'|trans, soldTypeList, providerInvoice.invoicePaymentType.code, 'code', 'label') }}
+                  {{ forms.input('invoiceNum', 'Invoice num'|trans, providerInvoice.invoiceNum) }}
+                  {{ forms.date('invoiceDate', 'Invoice date'|trans, providerInvoice.invoiceDate) }}
+ 
+                  <legend>{% trans %}Document amounts{% endtrans %}</legend>
+                  
+                  <div id="ProviderInvoicesEditAmountTableDiv">
+                    {% include 'Commercial/ajax/ProviderInvoicesEditAmountTableDiv.twig' %}
+                  </div>
+                  
+                  
+                  <div class="form-actions">
+                      <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
+                      <input class="btn cancel" type="button" value="{% trans %}Cancel{% endtrans %}" onclick="javascript:history.go(-1);return true;">
+                  </div>
+              </fieldset>
+          </form>
+      </div>
+  </div>
+
+  <div class="span7" style="height: 700px;">
+      <iframe src="{{ url("commercial_provider_invoices_download", {"Id" : providerInvoice.id, "ForceDl" : 0 }) }}" width="100%"></iframe>
+  </div>
+</div>
+
+
+{# Modal to add / edit an amount #}
+<div id="provider-invoice-edit-amount-modal" class="modal hide fade">
+    <form action="" method="post" class="modal-form ajax-emulation-validation">
+        <div class="modal-header">
+           <button type="button" class="close" data-dismiss="modal">&times;</button>
+           <h3>{% trans %}Add or edit an amount{% endtrans %}</h3>
+        </div>
+        <div class="modal-body">
+            {# Ajax content will be loaded there #}
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal" >Close</a>
+            <button type="submit" class="btn btn-primary">{% trans %}Save{% endtrans %}</button>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    $(function() {
+        igestisCommercial.providerInvoices.init({        
+            amountDeleteLink : '{{ url('commercial_provider_invoices_del_amount', {Id:''} ) }}'
+        });
+        
+        {% if providerInvoice.isLocked %}igestisLockPage('{{ 'This invoice is in read only mode. It has already been exported'|trans|escape('js') }}');{% endif %}
+    });
+    
+    $(document).ready(function(){
+                $("#form_data").validate({
+                        ignore: "input[type='text']:hidden",
+                        rules:{
+
+                                providerUser:{
+                                        required:true
+                                },
+                                soldType:{
+                                        required:true
+                                },
+                                invoiceNum:{
+                                        required:true
+                                },
+                                invoiceDate:{
+                                        required:true
+                                }
+                        },
+                        errorClass: "help-inline",
+                        errorElement: "span",
+                        errorPlacement: function(error, element) {
+                            element.parent().after(error);
+                        },
+                        highlight:function(element, errorClass, validClass) {
+                                $(element).parents('.control-group').removeClass('success');
+                                $(element).parents('.control-group').addClass('error');
+                        },
+                        unhighlight: function(element, errorClass, validClass) {
+                                $(element).parents('.control-group').removeClass('error');
+                                $(element).parents('.control-group').addClass('success');
+                        }
+                });
+        });
+</script>
+
+
+{% endblock %}

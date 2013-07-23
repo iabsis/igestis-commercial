@@ -1,0 +1,76 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Providers invoices list"|trans,
+                'help': "Add and remove providers invoices."|trans} %}
+
+{% set sidebarActivated = true %}
+{% block sidebar %}
+  {% include 'sidebar.twig' %}
+{% endblock %}
+
+
+{% block content %}{{ parent() }}
+
+<script type="text/javascript">
+    function delete_provider_invoice(id) {
+        bootbox.confirm("{% trans %}Are you sure that you want to delete this provider's invoice ?{% endtrans %}", "{% trans %}No{% endtrans %}", "{% trans %}Yes{% endtrans %}", function(result) {
+            if(result) window.location.href="{{ url('commercial_provider_invoices_del', {"Id":''}) }}" + id;
+        });
+    }
+
+</script>
+
+
+<div class="well">
+    <form class="form-search allow-to-quit" action="" method="get">
+        <fieldset>
+            <legend>{% trans %}Filter the provider invoices{% endtrans %}</legend>
+            <div class="row-fluid">
+                <div class="span6">
+                    {{ forms.select('assigned', 'Filled'|trans, { 0 : {'value': 0, 'label' : "No"|trans},  1 : {'value': 1, 'label' : "Yes"|trans},  2 : {'value': -1, 'label' : "All"|trans} }, searchForm.assigned, 'value', 'label') }}
+                </div>                
+            </div>
+            <div class="form-actions">
+                <input type="hidden" name="Module" value="Commercial" />
+                <input type="hidden" name="Action" value="provider_invoices_index" />  
+                <button type="submit" class="btn btn-primary"><i class="icon-search"></i> {% trans %}Search{% endtrans %}</button>
+            </div>
+        </fieldset>
+
+    </form>
+</div>
+<br />
+
+
+{# start #}
+<div class="well">
+	<div class="span8">
+		<i class="icon-upload-alt"></i> {% trans %}Drag and drop your invoices to import them.{% endtrans %}
+	</div>
+	<div class="span4">
+		<div class="row-fluid" align="right">
+		    <a data-upload-url="{{ url('commercial_provider_invoices_new') }}" data-upload-callback="igestisCommercial.providerInvoices.refreshInvoicesList" class="btn btn-success btn-small"><i class="icon-plus-sign icon-white"></i> {% trans %}Add an invoice{% endtrans %}</a>
+		</div>
+	</div>
+</div>
+
+<br />
+
+
+{% import "table.twig" as table_data %}
+{{ table_data.datatable() }}    
+<div id="BuyingInvoiceTableDiv">
+    {% include 'Commercial/ajax/ProviderInvoicesListTableDiv.twig' %}
+</div>
+
+{% include 'Commercial/modals/providerInvoicesNew.twig' %}
+
+<script>
+igestisCommercial.providerInvoices.init({        
+    amountDeleteLink : '{{ url('commercial_provider_invoices_del_amount', {Id:''} ) }}',
+    refreshInvoicesListLink : '{{ url ( 'commercial_provider_invoices_refresh' ) }}'
+});
+</script>
+        
+{% endblock %}

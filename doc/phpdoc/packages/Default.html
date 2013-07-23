@@ -1,0 +1,371 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>igestis-iprojectis-v2 » Default</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">igestis-iprojectis-v2</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Igestis.html"><i class="icon-th"></i> Igestis</a></li>
+<li><a href="../namespaces/global.html"><i class="icon-th"></i> global</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">215</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-map-marker"></i> Packages</li>
+<li>
+<a href="../packages/Default.html" title="Default"><i class="icon-folder-open"></i>Default</a><ul class="nav nav-list nav-packages"></ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-class"></i> Classes</li>
+<li><a href="#ConfigControllers" title="">ConfigControllers</a></li>
+<li><a href="#ConfigHookListener" title="">ConfigHookListener</a></li>
+<li><a href="#ConfigInitModule" title="">ConfigInitModule</a></li>
+<li><a href="#ConfigModuleVars" title="Configuration of the module">ConfigModuleVars</a></li>
+<li><a href="#AccountingController" title="Accounting management">AccountingController</a></li>
+<li><a href="#CommercialParametersController" title="Controller for the commercial parameters  pages">CommercialParametersController</a></li>
+<li><a href="#indexController" title="Contrôleur permettant de lancer les différentes actions sur les tickets">indexController</a></li>
+<li><a href="#CommercialAccounting" title="CommercialAccounting">CommercialAccounting</a></li>
+<li><a href="#CommercialArticle" title="CommercialArticle">CommercialArticle</a></li>
+<li><a href="#CommercialArticleCategory" title="CommercialArticleCategory">CommercialArticleCategory</a></li>
+<li><a href="#CommercialAutoIncrement" title="CommercialAutoIncrement">CommercialAutoIncrement</a></li>
+<li><a href="#CommercialBankAccount" title="CommercialBankAccount">CommercialBankAccount</a></li>
+<li><a href="#CommercialBankAssocOperations" title="CommercialBankAssocOperations">CommercialBankAssocOperations</a></li>
+<li><a href="#CommercialBankOperation" title="CommercialBankOperation">CommercialBankOperation</a></li>
+<li><a href="#CommercialCommercialDocument" title="CommercialCommercialDocument">CommercialCommercialDocument</a></li>
+<li><a href="#CommercialCompanyConfig" title="CommercialCompanyConfig">CommercialCompanyConfig</a></li>
+<li><a href="#CommercialEstimate" title="CommercialEstimate">CommercialEstimate</a></li>
+<li><a href="#CommercialEstimateArticle" title="CommercialEstimateArticle">CommercialEstimateArticle</a></li>
+<li><a href="#CommercialFreeDocument" title="CommercialFreeDocument">CommercialFreeDocument</a></li>
+<li><a href="#CommercialInvoice" title="CommercialInvoice">CommercialInvoice</a></li>
+<li><a href="#CommercialInvoiceItem" title="CommercialInvoiceItem">CommercialInvoiceItem</a></li>
+<li><a href="#CommercialProject" title="CommercialProject">CommercialProject</a></li>
+<li><a href="#CommercialProviderInvoice" title="CommercialProviderInvoice">CommercialProviderInvoice</a></li>
+<li><a href="#CommercialProviderInvoiceAssocAmounts" title="CommercialProviderInvoiceAssocAmounts">CommercialProviderInvoiceAssocAmounts</a></li>
+<li><a href="#CommercialPurchasingAccount" title="CommercialPurchasingAccount">CommercialPurchasingAccount</a></li>
+<li><a href="#CommercialPurchasingAccountRepository" title="">CommercialPurchasingAccountRepository</a></li>
+<li><a href="#CommercialSellingAccount" title="CommercialSellingAccount">CommercialSellingAccount</a></li>
+<li><a href="#CommercialSellingAccountRepository" title="">CommercialSellingAccountRepository</a></li>
+<li><a href="#CommercialSoldType" title="CommercialSoldType">CommercialSoldType</a></li>
+<li><a href="#CommercialSupportCredit" title="CommercialSupportCredit">CommercialSupportCredit</a></li>
+<li><a href="#CommercialSupportInitialSold" title="CommercialSupportInitialSold">CommercialSupportInitialSold</a></li>
+<li><a href="#CommercialSupportIntervention" title="CommercialSupportIntervention">CommercialSupportIntervention</a></li>
+<li><a href="#CommercialUserConfig" title="CommercialUserConfig">CommercialUserConfig</a></li>
+<li class="nav-header">
+<i class="icon-custom icon-constant"></i> Constants</li>
+<li class="constant  "><a href="#constant_COMMERCIAL_MODULE_NAME" title="COMMERCIAL_MODULE_NAME :: "><span class="description">COMMERCIAL_MODULE_NAME</span><pre>COMMERCIAL_MODULE_NAME</pre></a></li>
+<li class="constant  "><a href="#constant_COMMERCIAL_TEXTDOMAIN" title="COMMERCIAL_TEXTDOMAIN :: "><span class="description">COMMERCIAL_TEXTDOMAIN</span><pre>COMMERCIAL_TEXTDOMAIN</pre></a></li>
+<li class="constant  "><a href="#constant_COMMERCIAL_VERSION" title="COMMERCIAL_VERSION :: "><span class="description">COMMERCIAL_VERSION</span><pre>COMMERCIAL_VERSION</pre></a></li>
+</ul>
+</div>
+<div class="span8 package-contents">
+<ul class="breadcrumb"><li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span><li class="active"><a href="../packages/Default.html">Default</a></li>
+</li></ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="CommercialAccounting" class="element ajax clickable class">
+<h1>CommercialAccounting<a href="../classes/CommercialAccounting.html">¶</a>
+</h1>
+<p class="short_description">CommercialAccounting</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialAccounting.html" class="more">« More »</a>
+</div>
+<div id="CommercialArticle" class="element ajax clickable class">
+<h1>CommercialArticle<a href="../classes/CommercialArticle.html">¶</a>
+</h1>
+<p class="short_description">CommercialArticle</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialArticle.html" class="more">« More »</a>
+</div>
+<div id="CommercialArticleCategory" class="element ajax clickable class">
+<h1>CommercialArticleCategory<a href="../classes/CommercialArticleCategory.html">¶</a>
+</h1>
+<p class="short_description">CommercialArticleCategory</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialArticleCategory.html" class="more">« More »</a>
+</div>
+<div id="CommercialAutoIncrement" class="element ajax clickable class">
+<h1>CommercialAutoIncrement<a href="../classes/CommercialAutoIncrement.html">¶</a>
+</h1>
+<p class="short_description">CommercialAutoIncrement</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialAutoIncrement.html" class="more">« More »</a>
+</div>
+<div id="CommercialBankAccount" class="element ajax clickable class">
+<h1>CommercialBankAccount<a href="../classes/CommercialBankAccount.html">¶</a>
+</h1>
+<p class="short_description">CommercialBankAccount</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialBankAccount.html" class="more">« More »</a>
+</div>
+<div id="CommercialBankAssocOperations" class="element ajax clickable class">
+<h1>CommercialBankAssocOperations<a href="../classes/CommercialBankAssocOperations.html">¶</a>
+</h1>
+<p class="short_description">CommercialBankAssocOperations</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialBankAssocOperations.html" class="more">« More »</a>
+</div>
+<div id="CommercialBankOperation" class="element ajax clickable class">
+<h1>CommercialBankOperation<a href="../classes/CommercialBankOperation.html">¶</a>
+</h1>
+<p class="short_description">CommercialBankOperation</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialBankOperation.html" class="more">« More »</a>
+</div>
+<div id="CommercialCommercialDocument" class="element ajax clickable class">
+<h1>CommercialCommercialDocument<a href="../classes/CommercialCommercialDocument.html">¶</a>
+</h1>
+<p class="short_description">CommercialCommercialDocument</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialCommercialDocument.html" class="more">« More »</a>
+</div>
+<div id="CommercialCompanyConfig" class="element ajax clickable class">
+<h1>CommercialCompanyConfig<a href="../classes/CommercialCompanyConfig.html">¶</a>
+</h1>
+<p class="short_description">CommercialCompanyConfig</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialCompanyConfig.html" class="more">« More »</a>
+</div>
+<div id="CommercialEstimate" class="element ajax clickable class">
+<h1>CommercialEstimate<a href="../classes/CommercialEstimate.html">¶</a>
+</h1>
+<p class="short_description">CommercialEstimate</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialEstimate.html" class="more">« More »</a>
+</div>
+<div id="CommercialEstimateArticle" class="element ajax clickable class">
+<h1>CommercialEstimateArticle<a href="../classes/CommercialEstimateArticle.html">¶</a>
+</h1>
+<p class="short_description">CommercialEstimateArticle</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialEstimateArticle.html" class="more">« More »</a>
+</div>
+<div id="CommercialFreeDocument" class="element ajax clickable class">
+<h1>CommercialFreeDocument<a href="../classes/CommercialFreeDocument.html">¶</a>
+</h1>
+<p class="short_description">CommercialFreeDocument</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialFreeDocument.html" class="more">« More »</a>
+</div>
+<div id="CommercialInvoice" class="element ajax clickable class">
+<h1>CommercialInvoice<a href="../classes/CommercialInvoice.html">¶</a>
+</h1>
+<p class="short_description">CommercialInvoice</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialInvoice.html" class="more">« More »</a>
+</div>
+<div id="CommercialInvoiceItem" class="element ajax clickable class">
+<h1>CommercialInvoiceItem<a href="../classes/CommercialInvoiceItem.html">¶</a>
+</h1>
+<p class="short_description">CommercialInvoiceItem</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialInvoiceItem.html" class="more">« More »</a>
+</div>
+<div id="CommercialParametersController" class="element ajax clickable class">
+<h1>CommercialParametersController<a href="../classes/CommercialParametersController.html">¶</a>
+</h1>
+<p class="short_description">Controller for the commercial parameters  pages</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialParametersController.html" class="more">« More »</a>
+</div>
+<div id="CommercialProject" class="element ajax clickable class">
+<h1>CommercialProject<a href="../classes/CommercialProject.html">¶</a>
+</h1>
+<p class="short_description">CommercialProject</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialProject.html" class="more">« More »</a>
+</div>
+<div id="CommercialProviderInvoice" class="element ajax clickable class">
+<h1>CommercialProviderInvoice<a href="../classes/CommercialProviderInvoice.html">¶</a>
+</h1>
+<p class="short_description">CommercialProviderInvoice</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialProviderInvoice.html" class="more">« More »</a>
+</div>
+<div id="CommercialProviderInvoiceAssocAmounts" class="element ajax clickable class">
+<h1>CommercialProviderInvoiceAssocAmounts<a href="../classes/CommercialProviderInvoiceAssocAmounts.html">¶</a>
+</h1>
+<p class="short_description">CommercialProviderInvoiceAssocAmounts</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialProviderInvoiceAssocAmounts.html" class="more">« More »</a>
+</div>
+<div id="CommercialPurchasingAccount" class="element ajax clickable class">
+<h1>CommercialPurchasingAccount<a href="../classes/CommercialPurchasingAccount.html">¶</a>
+</h1>
+<p class="short_description">CommercialPurchasingAccount</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialPurchasingAccount.html" class="more">« More »</a>
+</div>
+<div id="CommercialPurchasingAccountRepository" class="element ajax clickable class">
+<h1>CommercialPurchasingAccountRepository<a href="../classes/CommercialPurchasingAccountRepository.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialPurchasingAccountRepository.html" class="more">« More »</a>
+</div>
+<div id="CommercialSellingAccount" class="element ajax clickable class">
+<h1>CommercialSellingAccount<a href="../classes/CommercialSellingAccount.html">¶</a>
+</h1>
+<p class="short_description">CommercialSellingAccount</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialSellingAccount.html" class="more">« More »</a>
+</div>
+<div id="CommercialSellingAccountRepository" class="element ajax clickable class">
+<h1>CommercialSellingAccountRepository<a href="../classes/CommercialSellingAccountRepository.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialSellingAccountRepository.html" class="more">« More »</a>
+</div>
+<div id="CommercialSoldType" class="element ajax clickable class">
+<h1>CommercialSoldType<a href="../classes/CommercialSoldType.html">¶</a>
+</h1>
+<p class="short_description">CommercialSoldType</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialSoldType.html" class="more">« More »</a>
+</div>
+<div id="CommercialSupportCredit" class="element ajax clickable class">
+<h1>CommercialSupportCredit<a href="../classes/CommercialSupportCredit.html">¶</a>
+</h1>
+<p class="short_description">CommercialSupportCredit</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialSupportCredit.html" class="more">« More »</a>
+</div>
+<div id="CommercialSupportInitialSold" class="element ajax clickable class">
+<h1>CommercialSupportInitialSold<a href="../classes/CommercialSupportInitialSold.html">¶</a>
+</h1>
+<p class="short_description">CommercialSupportInitialSold</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialSupportInitialSold.html" class="more">« More »</a>
+</div>
+<div id="CommercialSupportIntervention" class="element ajax clickable class">
+<h1>CommercialSupportIntervention<a href="../classes/CommercialSupportIntervention.html">¶</a>
+</h1>
+<p class="short_description">CommercialSupportIntervention</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialSupportIntervention.html" class="more">« More »</a>
+</div>
+<div id="CommercialUserConfig" class="element ajax clickable class">
+<h1>CommercialUserConfig<a href="../classes/CommercialUserConfig.html">¶</a>
+</h1>
+<p class="short_description">CommercialUserConfig</p>
+<div class="details collapse"></div>
+<a href="../classes/CommercialUserConfig.html" class="more">« More »</a>
+</div>
+<div id="AccountingController" class="element ajax clickable class">
+<h1>AccountingController<a href="../classes/Igestis.Modules.Commercial.AccountingController.html">¶</a>
+</h1>
+<p class="short_description">Accounting management</p>
+<div class="details collapse"></div>
+<a href="../classes/Igestis.Modules.Commercial.AccountingController.html" class="more">« More »</a>
+</div>
+<div id="ConfigControllers" class="element ajax clickable class">
+<h1>ConfigControllers<a href="../classes/Igestis.Modules.Commercial.ConfigControllers.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/Igestis.Modules.Commercial.ConfigControllers.html" class="more">« More »</a>
+</div>
+<div id="ConfigHookListener" class="element ajax clickable class">
+<h1>ConfigHookListener<a href="../classes/Igestis.Modules.Commercial.ConfigHookListener.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/Igestis.Modules.Commercial.ConfigHookListener.html" class="more">« More »</a>
+</div>
+<div id="ConfigInitModule" class="element ajax clickable class">
+<h1>ConfigInitModule<a href="../classes/Igestis.Modules.Commercial.ConfigInitModule.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/Igestis.Modules.Commercial.ConfigInitModule.html" class="more">« More »</a>
+</div>
+<div id="ConfigModuleVars" class="element ajax clickable class">
+<h1>ConfigModuleVars<a href="../classes/Igestis.Modules.Commercial.ConfigModuleVars.html">¶</a>
+</h1>
+<p class="short_description">Configuration of the module</p>
+<div class="details collapse"></div>
+<a href="../classes/Igestis.Modules.Commercial.ConfigModuleVars.html" class="more">« More »</a>
+</div>
+<div id="indexController" class="element ajax clickable class">
+<h1>indexController<a href="../classes/Igestis.Modules.Commercial.indexController.html">¶</a>
+</h1>
+<p class="short_description">Contrôleur permettant de lancer les différentes actions sur les tickets</p>
+<div class="details collapse"></div>
+<a href="../classes/Igestis.Modules.Commercial.indexController.html" class="more">« More »</a>
+</div>
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a id="constant_COMMERCIAL_MODULE_NAME"> </a><div class="element clickable constant  constant_COMMERCIAL_MODULE_NAME" data-toggle="collapse" data-target=".constant_COMMERCIAL_MODULE_NAME .collapse">
+<h2>COMMERCIAL_MODULE_NAME</h2>
+<pre>COMMERCIAL_MODULE_NAME </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_COMMERCIAL_TEXTDOMAIN"> </a><div class="element clickable constant  constant_COMMERCIAL_TEXTDOMAIN" data-toggle="collapse" data-target=".constant_COMMERCIAL_TEXTDOMAIN .collapse">
+<h2>COMMERCIAL_TEXTDOMAIN</h2>
+<pre>COMMERCIAL_TEXTDOMAIN </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_COMMERCIAL_VERSION"> </a><div class="element clickable constant  constant_COMMERCIAL_VERSION" data-toggle="collapse" data-target=".constant_COMMERCIAL_VERSION .collapse">
+<h2>COMMERCIAL_VERSION</h2>
+<pre>COMMERCIAL_VERSION </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-04-18T11:09:27+02:00.<br></footer></div>
+</div>
+</body>
+</html>

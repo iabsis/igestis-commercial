@@ -1,0 +1,52 @@
+<div id="new-estimatte-modal" class="modal hide fade">
+    <form class="modal-form form-horizontal" action="{{ url('commercial_estimate_new', {documentId:sellingDocument.id}) }}" id="new-estimate-form" method="post">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3>{% trans %}New estimate{% endtrans %}</h3>
+        </div>
+        <div class="modal-body">
+             <input type="hidden" name="accountId" value="{{ account.id }}" />
+             <input type="hidden" name="estimateDate" value="{{ today|date("d/m/Y") }}" />
+             {{ forms.date('validUntil', 'Valid until'|trans, estimationValidUntil) }}
+             {# {{ forms.select('soldType', 'Sold type'|trans, soldTypeList, null, 'code', 'label') }} #}
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal" >Close</a>
+            <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
+        </div>
+    </form>
+</div>
+
+
+
+<script>
+$(document).ready(function(){
+        $("#new-estimate-form").validate({
+                ignore: "input[type='text']:hidden",
+                rules:{
+                	estimateDate:{
+                        required:true
+                    },
+                    validUntil:{
+                        required:true
+                    }/*,
+                    soldType:{
+                        required:true
+                    }*/
+                },
+                errorClass: "help-inline",
+                errorElement: "span",
+                errorPlacement: function(error, element) {
+                    element.parent().after(error);
+                },
+                highlight:function(element, errorClass, validClass) {
+                        $(element).parents('.control-group').removeClass('success');
+                        $(element).parents('.control-group').addClass('error');
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                        $(element).parents('.control-group').removeClass('error');
+                        $(element).parents('.control-group').addClass('success');
+                }
+        });
+});
+</script>

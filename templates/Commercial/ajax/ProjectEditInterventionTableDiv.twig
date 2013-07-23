@@ -1,0 +1,34 @@
+
+<legend>{% trans %}Support intervention{% endtrans %}</legend>
+
+<a data-toggle="modal" href="{{ url('commercial_project_link_intervention', {projectId : project.id }) }}" data-target="#project-link-intervention-modal" class="btn btn-primary pull-right">{% trans %}Link an intervention{% endtrans %}</a>
+<a href="{{ url('commercial_interventions_new') }}&projectId={{ project.id }}" class="btn">{% trans %}Add new{% endtrans %}</a><br><br>
+
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="commercialInterventionstTable">
+    <thead>
+        <tr>
+            <th>{% trans %}Title{% endtrans %}</th>
+            <th>{% trans %}Date{% endtrans %}</th>
+            <th>{% trans %}Duration{% endtrans %}</th>
+            <th>{% trans %}Actions{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tbody>
+       {% for row in interventions %}
+            <tr>
+                <td>{{ row.title }}</td>
+                <td>{{ row.date|date("d/m/Y") }}</td>
+                <td>{{ row.period }}</td>
+                <td>
+                    <a href="{{ url('commercial_interventions_edit', {'Id':row.id}) }}" class="btn btn-mini a-visible-line-on-over">
+                        <i class="icon-eye"></i> {% trans %}View{% endtrans %}
+                    </a>
+                    <a href="javascript:unlink_intervention('{{ row.id }}')" class="btn btn-danger btn-mini a-visible-line-on-over">
+                        <i class="icon-fire icon-white"></i> {% trans %}Unlink{% endtrans %}
+                    </a>
+                </td>
+            </tr>
+      {% endfor %}
+    </tbody>
+</table>

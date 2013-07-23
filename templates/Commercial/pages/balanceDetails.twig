@@ -1,0 +1,140 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "User balance"|trans,
+                'help': "Here you can see the user balance. Click on the 'see details' button to see the balance history for an user."|trans} %}
+
+{% set sidebarActivated = true %}
+{% block sidebar %}
+  {% include 'sidebar.twig' %}
+{% endblock %}
+
+{% block content %}{{ parent() }}
+{% import "table.twig" as table_data %}
+{{ table_data.datatable('#table_data', 1, 'desc') }}    
+
+
+<div class="well">
+    <div class="row-fluid">
+        <div class="span6">
+            <div><strong>{% trans %}User{% endtrans %}</strong> : {{ userSold.userLabel }}</div>
+            <div><strong>{% trans %}Balance amount{% endtrans %}</strong> : {{ userSold.sold }}</div>
+        </div>
+        <div class="span6">
+            <a class="btn pull-right" href="{{ url('commercial_balance_index') }}">{% trans %}Return to balance page{% endtrans %}</a>
+        </div>
+    </div>
+
+</div>
+
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="table_data">
+    <thead>
+        <tr>
+            <th>{% trans %}Paid{% endtrans %}</th>
+            <th>{% trans %}Date{% endtrans %}</th>
+            <th>{% trans %}Type{% endtrans %}</th>
+            <th>{% trans %}Document number{% endtrans %}</th>
+            <th>{% trans %}Document amount{% endtrans %}</th>
+            <th>{% trans %}Transaction amount{% endtrans %}</th>
+            <th>{% trans %}Actions{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tbody>        
+        
+      {% for row in commercialDocs %}
+            <tr {{ row.paid ? 'class="success"' : "" }}>
+                <td><input type="checkbox" name="paid" value="" {{ row.paid ? 'checked="checked"' : "" }} {{ row.associated ? 'disabled="disabled"' : "" }} data-type="{{ row.transactionType }}" data-document-id="{{ row.documentId }}" /></td>
+                <td>{{ row.transactionDate|date("d/m/Y") }}</td>
+                <td>{{ row.totalTi < 0 ? 'Credit note'|trans : 'Invoice'|trans }} 
+	                ({{ row.transactionType == "selling_document" ? 'Sales'|trans : 'Order'|trans }})
+                </td>
+                <td>{{ row.documentNumber }}</td>
+                <td  class="{{ row.totalTi < 0 ? 'negative' : 'positive' }}">{{ row.totalTi }}</td>
+                <td>&nbsp;</td>
+                <td>
+                    <a class="btn btn-mini a-visible-line-on-over" href="{{ url('commercial_invoice_dl_doc', {"Id":row.documentId, "ForceDl" : 0}) }}">
+                    	<i class="icon-eye-open"></i> {% trans %}View{% endtrans %}
+                    </a>
+                </td>
+            </tr>
+      {% endfor %}
+        
+       {% for row in bankAssocs %}
+            <tr>
+                <td>&nbsp;</td>
+                <td>{{ row.transactionDate|date("d/m/Y") }}</td>                
+                <td>{% trans %}Bank transaction{% endtrans %}</td>
+                <td>{{ row.documentNumber }}</td>
+                <td>&nbsp;</td>
+                <td  class="{{ row.totalTi < 0 ? 'negative' : 'positive' }}">{{ row.totalTi }}</td>
+                <td>
+                    <a href="{{ url('commercial_bank_operation_edit', {'Id':row.operationId}) }}" class="btn btn-mini a-visible-line-on-over">
+                        <i class="icon-edit"></i> {% trans %}Edit{% endtrans %}
+                    </a>
+                </td>
+            </tr>
+      {% endfor %}
+    </tbody>
+</table>
+{# End #}
+
+<script>
+    $(function() {
+        $('input[type=checkbox]', $('#table_data').dataTable().fnGetNodes()).on("change", function(e) {
+            e.preventDefault();
+            
+            var $self = $(this);
+            var selfCheckedBefore = !$self.is(":checked");
+            
+            if($self.is(":disabled")) return;
+
+            if($self.is(":checked")) {
+                $self.parents("tr").addClass("success");
+            }
+            else {
+                $self.parents("tr").removeClass("success");
+            }
+            
+            var dataToSend = "type=" + $self.data('type') + "&documentId=" + $self.data('documentId');
+            dataToSend += "&paid=" + ($self.is(":checked") ? '1' : '0');
+            
+            $.ajax({
+                url: '{{ url("commercial_balance_set_document_paid") }}',
+                dataType:'json', //type json
+                data: dataToSend,
+                cache: false,
+                type: "POST",
+                success: function(result) {
+                    console.log(result);
+                    igestisParseJsonAjaxResult(result);
+                    if(result.error) {
+                        if(selfCheckedBefore) {
+                            $self.attr("checked", true);
+                            $self.parents("tr").addClass("success");
+                        }
+                        else {
+                            $self.attr("checked", false);
+                            $self.parents("tr").removeClass("success");
+                        }
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    bootbox.alert(jqXHR.responseText); 
+                    if(selfCheckedBefore) {
+                        $self.attr("checked", true);
+                        $self.parents("tr").addClass("success");
+                    }
+                    else {
+                        $self.attr("checked", false);
+                        $self.parents("tr").removeClass("success");
+                    }
+                }
+            });
+        });
+    });
+    
+</script>
+
+        
+{% endblock %}

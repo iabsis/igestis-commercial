@@ -1,0 +1,53 @@
+<div id="new-selling-document-modal" class="modal hide fade">
+    <form class="modal-form ajax-emulation-validation" action="{{ url('commercial_selling_document_new') }}" id="new-selling-document-form" method="post">
+        <input type="hidden" name="copyFrom" value="" />
+        <input type="hidden" name="projectId" value="" />
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3>{% trans %}New selling document{% endtrans %}</h3>
+        </div>
+        <div class="modal-body">
+             <div id="selling-document-wizz"></div>
+             {{ forms.input('description', 'Little description'|trans) }}
+             {{ forms.select('customerUser', 'Customer'|trans, customersList, null, 'id', 'userLabel') }}
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal" >Close</a>
+            <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
+        </div>
+    </form>
+</div>
+
+<script>
+$(document).ready(function(){
+        $("#new-selling-document-form").validate({
+                ignore: "input[type='text']:hidden",
+                rules:{
+
+                        label:{
+                                required:true
+                        },
+                        customerUser:{
+                                required: {
+                                    depends : function() {
+                                        return !($("#new-selling-document-modal #id-customerUser").parents(".control-group").is(":hidden"));
+                                    }
+                                }
+                        }
+                },
+                errorClass: "help-inline",
+                errorElement: "span",
+                errorPlacement: function(error, element) {
+                    element.parent().after(error);
+                },
+                highlight:function(element, errorClass, validClass) {
+                        $(element).parents('.control-group').removeClass('success');
+                        $(element).parents('.control-group').addClass('error');
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                        $(element).parents('.control-group').removeClass('error');
+                        $(element).parents('.control-group').addClass('success');
+                }
+        });
+});
+</script>

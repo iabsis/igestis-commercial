@@ -1,0 +1,257 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Project details"|trans,
+                'help': "Link and create all informations about your project."|trans} %}
+
+{#
+{% set sidebarActivated = true %}
+{% block sidebar %}
+  {% include 'sidebar.twig' %}
+{% endblock %}
+#}
+
+{% block content %}{{ parent() }}
+<div class="well">
+    <form id="form_data" method='post' action=''>
+        <fieldset>
+            <legend>{% trans %}Project informations{% endtrans %}</legend>
+            <div class="row-fluid">
+                <div class="span5">
+                    {{ forms.input('name', 'title'|trans, project.name) }}
+                    {{ forms.textarea('description', 'Description'|trans, project.description) }}
+                    {{ forms.switchbox('closed', "Project status"|trans, project.closed, null, null, null, "Closed"|trans, "Opened"|trans) }}
+                </div>
+                <div class="span4">                    
+                    <div id="customer-informations">
+                        <div class="customer-name"><strong>{{ project.customerUser.userLabel }}</strong></div>
+                        <div class="customer-address1">{{ project.customerUser.mainContact.address1 }}</div>
+                        <div class="customer-address2">{{ project.customerUser.mainContact.address2 }}</div>
+                        <div class="customer-city">{{ project.customerUser.mainContact.postalCode }} {{ project.customerUser.mainContact.city }}</div>
+                        <div class="customer-tel">{% trans %}Phone{% endtrans %} : {{ project.customerUser.mainContact.phone1 }}</div>                        
+                    </div>
+                    <div id="project-informations">
+                    	<div class="hidden" id="commercial-document-total">
+                    	{{ forms.input('commercial-document-total', 'Total sales', null, null, null, null, null, "disabled") }}
+                    	</div>
+                    	<div class="hidden" id="buyed-invoices-total">
+                    	{{ forms.input('buyed-invoices-total', 'Total sales', null, null, null, null, null, "disabled") }}
+                    	</div>
+                    </div>
+                </div>
+                <div class="span3" id="totals-section">
+                    {% include 'Commercial/ajax/ProjectEditTotals.twig' %}
+                </div>
+            </div>
+            <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
+                    <input class="btn" type="button" value="{% trans %}Cancel{% endtrans %}" onclick="javascript:history.go(-1);return true;">
+            </div>
+        </fieldset>
+    </form>        
+</div>
+
+<div class="row-fluid">
+    
+    {# First column, first line #}
+    <div class="span6" id="CommercialTableDiv">
+        {% include 'Commercial/ajax/ProjectEditCommercialDocumentTableDiv.twig' %}
+    </div>
+    
+    {# Second column, first line #}
+    <div class="span6" id="InterventionTableDiv">
+        {% include 'Commercial/ajax/ProjectEditInterventionTableDiv.twig' %}
+    </div>
+</div>
+
+
+<div class="row-fluid">
+    
+    {# First column, second line #}
+    <div class="span6">
+        <legend>{% trans %}External documents{% endtrans %}</legend>
+        <div class="well">
+        	<div class="span8">
+				<i class="icon-upload-alt"></i> {% trans %}Drag and drop any files here to import them.{% endtrans %}
+			</div>
+			<div class="span4">
+				<a data-upload-url="{{ url('commercial_project_link_free_document', {projectId : project.id }) }}" data-upload-callback="igestisCommercial.projects.refreshFreeDocuments" class="btn btn-primary pull-right"><i class="icon-plus-sign icon-white"></i> {% trans %}Add an external document{% endtrans %}</a><br><br>
+			</div>
+		</div>
+        <div id="free-documents-errors"></div>
+        <div id="FreeDocumentTableDiv">{% include 'Commercial/ajax/ProjectEditFreeDocumentTableDiv.twig' %}</div>
+    </div>
+    
+    {# Second column, second line #}
+    <div class="span6" id="BuyingInvoiceTableDiv">        
+        {% include 'Commercial/ajax/ProjectEditBuyingInvoiceTableDiv.twig' %}
+    </div>
+    
+</div>
+
+{# Modal contenair for the commercial document selection #}
+<div id="project-link-commercial-document-modal" class="modal hide fade" data-ajax-url="{{ url('commercial_project_link_commercial_document', {projectId : project.id }) }}">
+    <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+       <h3>{% trans %}Link commercial document{% endtrans %}</h3>
+    </div>
+    <div class="modal-body">
+        {# Ajax content will be loaded there #}
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal" >Close</a>
+        <button type="submit" class="btn btn-primary">{% trans %}Add{% endtrans %}</button>
+    </div>
+</div>
+
+
+{# Modal contenair for the interventions selection #}
+<div id="project-link-intervention-modal" class="modal hide fade" data-ajax-url="{{ url('commercial_project_link_intervention', {projectId : project.id }) }}">
+    <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+       <h3>{% trans %}Link an intervention{% endtrans %}</h3>
+    </div>
+    <div class="modal-body">
+        {# Ajax content will be loaded there #}
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal" >Close</a>
+        <button type="submit" class="btn btn-primary">{% trans %}Add{% endtrans %}</button>
+    </div>
+</div>
+
+{# Modal contenair for the free documents selection #}
+<div id="project-link-free-document-modal" class="modal hide fade" data-ajax-url="{{ url('commercial_project_link_free_document', {projectId : project.id }) }}">
+    <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+       <h3>{% trans %}Link an external document{% endtrans %}</h3>
+    </div>
+    <div class="modal-body">
+        {# Ajax content will be loaded there #}
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal" >Close</a>
+        <button type="submit" class="btn btn-primary">{% trans %}Add{% endtrans %}</button>
+    </div>
+</div>
+
+{# Modal contenair for the interventions selection #}
+<div id="project-link-buying-invoice-modal" class="modal hide fade" data-ajax-url="{{ url('commercial_project_link_buying_invoice', {projectId : project.id }) }}">
+    <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+       <h3>{% trans %}Link buying invoice{% endtrans %}</h3>
+    </div>
+    <div class="modal-body">
+        {# Ajax content will be loaded there #}
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal" >Close</a>
+        <button type="submit" class="btn btn-primary">{% trans %}Add{% endtrans %}</button>
+    </div>
+</div>
+
+{# Modal contenair for the interventions selection #}
+<div id="project-edit-free-document-modal" class="modal hide fade">
+    <form action="" method="post" class="modal-form ajax-emulation-validation">
+        <div class="modal-header">
+           <button type="button" class="close" data-dismiss="modal">&times;</button>
+           <h3>{% trans %}Edit the free document{% endtrans %}</h3>
+        </div>
+        <div class="modal-body">
+            {# Ajax content will be loaded there #}
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal" >Close</a>
+            <button type="submit" class="btn btn-primary">{% trans %}Update{% endtrans %}</button>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    $(function() {
+       igestisCommercial.projects.init({
+           freeDocumentRefreshLink : '{{ url ( 'commercial_project_refresh_free_documents', { projectId : project.id } ) }}'
+       });
+    });
+    
+    var unlink_commercial_document = function(documentId) {
+        bootbox.confirm("{% trans %}Are you sure that you to remove this commercial document from this project ?{% endtrans %}", "{% trans %}No{% endtrans %}", "{% trans %}Yes{% endtrans %}", function(result) {
+            
+            if(result) {
+            $.ajax({
+                url: "{{ url('commercial_project_unlink_commercial_document', {"ProjectId" : project.id, "CommercialDocumentId":''}) }}" + documentId,
+                dataType:'json', //type json
+                success: function(result) {
+                    igestisParseJsonAjaxResult(result);
+                    igestisInitTableHover();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    bootbox.alert(jqXHR.responseText);   
+                }
+            });
+        }
+        });
+    };
+    
+    var unlink_intervention = function(InterventionId) {
+        bootbox.confirm("{% trans %}Are you sure that you to remove this intervention from this project ?{% endtrans %}", "{% trans %}No{% endtrans %}", "{% trans %}Yes{% endtrans %}", function(result) {
+            
+            if(result) {
+            $.ajax({
+                url: "{{ url('commercial_project_unlink_intervention', {"ProjectId" : project.id, "InterventionId":''}) }}" + InterventionId,
+                dataType:'json', //type json
+                success: function(result) {
+                    igestisParseJsonAjaxResult(result);
+                    igestisInitTableHover();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    bootbox.alert(jqXHR.responseText);   
+                }
+            });
+        }
+        });
+    };
+    
+    var unlink_buying_invoice = function(BuyingInvoiceId) {
+        bootbox.confirm("{% trans %}Are you sure that you to remove this intervention from this buying invoice ?{% endtrans %}", "{% trans %}No{% endtrans %}", "{% trans %}Yes{% endtrans %}", function(result) {
+            
+            if(result) {
+            $.ajax({
+                url: "{{ url('commercial_project_unlink_buying_invoice', {"ProjectId" : project.id, "BuyingInvoiceId":''}) }}" + BuyingInvoiceId,
+                dataType:'json', //type json
+                success: function(result) {
+                    igestisParseJsonAjaxResult(result);
+                    igestisInitTableHover();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    bootbox.alert(jqXHR.responseText);   
+                }
+            });
+        }
+        });
+    };
+    
+    var unlink_free_document = function(documentId) {
+        bootbox.confirm("{% trans %}Are you sure that you to remove this commercial document from this project ?{% endtrans %}", "{% trans %}No{% endtrans %}", "{% trans %}Yes{% endtrans %}", function(result) {
+            
+            if(result) {
+            $.ajax({
+                url: "{{ url('commercial_project_unlink_free_document', {"ProjectId" : project.id, "FreeDocumentId":''}) }}" + documentId,
+                dataType:'json', //type json
+                success: function(result) {
+                    igestisParseJsonAjaxResult(result);
+                    igestisInitTableHover();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    bootbox.alert(jqXHR.responseText);   
+                }
+            });
+        }
+        });
+    };
+
+</script>
+
+
+{% endblock %}

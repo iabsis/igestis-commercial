@@ -1,0 +1,67 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Edit a taxe rate"|trans,
+                'help': "Fill all information about the taxe rate"|trans} %}
+
+{% set sidebarActivated = true %}
+{% block sidebar %}
+  {% include 'sidebar.twig' %}
+{% endblock %}
+
+
+{% block content %}{{ parent() }}
+
+<div class="well">
+    <form id="form_data" method='post' action=''>
+        <fieldset>
+            <legend>{% trans %}taxe rate informations{% endtrans %}</legend>
+            <div class="row-fluid">
+                <div class="span6">                    
+                    {{ forms.input('label', 'Label'|trans, form_data.label) }}
+                </div>
+                <div class="span6">                    
+                    {{ forms.symbol('value', 'Percentage'|trans, form_data.value, '%') }}                    
+                </div>
+            </div>
+            <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
+                    <input class="btn cancel" type="button" value="{% trans %}Cancel{% endtrans %}" onclick="javascript:history.go(-1);return true;">
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+
+<script>
+$(document).ready(function(){
+                $("#form_data").validate({
+                        ignore: "input[type='text']:hidden",
+                        rules:{
+
+                                label:{
+                                        required:true
+                                },
+                                value:{
+                                        required:true
+                                }
+                        },
+                        errorClass: "help-inline",
+                        errorElement: "span",
+                        errorPlacement: function(error, element) {
+                            element.parent().after(error);
+                        },
+                        highlight:function(element, errorClass, validClass) {
+                                $(element).parents('.control-group').removeClass('success');
+                                $(element).parents('.control-group').addClass('error');
+                        },
+                        unhighlight: function(element, errorClass, validClass) {
+                                $(element).parents('.control-group').removeClass('error');
+                                $(element).parents('.control-group').addClass('success');
+                        }
+                });
+        });
+</script>
+
+
+{% endblock %}

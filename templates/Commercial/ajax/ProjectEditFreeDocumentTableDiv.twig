@@ -1,0 +1,30 @@
+<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="freeDocumentsTable">
+    <thead>
+        <tr>
+            <th>{% trans %}File{% endtrans %}</th>
+
+            <th>{% trans %}Actions{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tbody>
+       {% for row in freeDocuments %}
+            <tr>
+                <td>{{ row.title }}
+                    {% if row.description %}<br><small class="muted">{{ row.description }}</small>{% endif %}
+                </td>
+                <td>       
+                    <a data-toggle="modal" href="{{ url('commercial_project_edit_free_document', {FreeDocumentId : row.id }) }}" data-target="#project-edit-free-document-modal" class="btn btn-mini a-visible-line-on-over">
+                        <i class="icon-download"></i> {% trans %}Edit{% endtrans %}
+                    </a>
+                        
+                    <a href="{{ url( 'commercial_free_document_download', { 'Id' : row.id, 'ForceDl' : 1 } ) }}" class="btn btn-mini a-visible-line-on-over">
+                        <i class="icon-download"></i> {% trans %}Download{% endtrans %}
+                    </a>
+                    <a href="javascript:unlink_free_document('{{ row.id }}')" class="btn btn-danger btn-mini a-visible-line-on-over">
+                        <i class="icon-trash icon-white"></i> {% trans %}Delete{% endtrans %}
+                    </a>
+                </td>
+            </tr>
+      {% endfor %}
+    </tbody>
+</table>

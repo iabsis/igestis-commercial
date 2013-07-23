@@ -1,0 +1,616 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>igestis-iprojectis-v2 » \CommercialSupportIntervention</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">igestis-iprojectis-v2</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Igestis.html"><i class="icon-th"></i> Igestis</a></li>
+<li><a href="../namespaces/global.html"><i class="icon-th"></i> global</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">215</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method_getCustomerUser" title="getCustomerUser :: Get customerUser"><span class="description">Get customerUser</span><pre>getCustomerUser()</pre></a></li>
+<li class="method public "><a href="#method_getDate" title="getDate :: Get date"><span class="description">Get date</span><pre>getDate()</pre></a></li>
+<li class="method public "><a href="#method_getDescription" title="getDescription :: Get description"><span class="description">Get description</span><pre>getDescription()</pre></a></li>
+<li class="method public "><a href="#method_getEnd" title="getEnd :: Get end"><span class="description">Get end</span><pre>getEnd()</pre></a></li>
+<li class="method public "><a href="#method_getFileName" title="getFileName :: Get fileName"><span class="description">Get fileName</span><pre>getFileName()</pre></a></li>
+<li class="method public "><a href="#method_getId" title="getId :: Get id"><span class="description">Get id</span><pre>getId()</pre></a></li>
+<li class="method public "><a href="#method_getPause" title="getPause :: Get pause"><span class="description">Get pause</span><pre>getPause()</pre></a></li>
+<li class="method public "><a href="#method_getPeriod" title="getPeriod :: Get period"><span class="description">Get period</span><pre>getPeriod()</pre></a></li>
+<li class="method public "><a href="#method_getProject" title="getProject :: Get project"><span class="description">Get project</span><pre>getProject()</pre></a></li>
+<li class="method public "><a href="#method_getReportedByContact" title="getReportedByContact :: Get reportedByContact"><span class="description">Get reportedByContact</span><pre>getReportedByContact()</pre></a></li>
+<li class="method public "><a href="#method_getSoldType" title="getSoldType :: Get soldType"><span class="description">Get soldType</span><pre>getSoldType()</pre></a></li>
+<li class="method public "><a href="#method_getTitle" title="getTitle :: Get title"><span class="description">Get title</span><pre>getTitle()</pre></a></li>
+<li class="method public "><a href="#method_setCustomerUser" title="setCustomerUser :: Set customerUser"><span class="description">Set customerUser</span><pre>setCustomerUser()</pre></a></li>
+<li class="method public "><a href="#method_setDate" title="setDate :: Set date"><span class="description">Set date</span><pre>setDate()</pre></a></li>
+<li class="method public "><a href="#method_setDescription" title="setDescription :: Set description"><span class="description">Set description</span><pre>setDescription()</pre></a></li>
+<li class="method public "><a href="#method_setEnd" title="setEnd :: Set end"><span class="description">Set end</span><pre>setEnd()</pre></a></li>
+<li class="method public "><a href="#method_setFileName" title="setFileName :: Set fileName"><span class="description">Set fileName</span><pre>setFileName()</pre></a></li>
+<li class="method public "><a href="#method_setPause" title="setPause :: Set pause"><span class="description">Set pause</span><pre>setPause()</pre></a></li>
+<li class="method public "><a href="#method_setPeriod" title="setPeriod :: Set period"><span class="description">Set period</span><pre>setPeriod()</pre></a></li>
+<li class="method public "><a href="#method_setProject" title="setProject :: Set project"><span class="description">Set project</span><pre>setProject()</pre></a></li>
+<li class="method public "><a href="#method_setReportedByContact" title="setReportedByContact :: Set reportedByContact"><span class="description">Set reportedByContact</span><pre>setReportedByContact()</pre></a></li>
+<li class="method public "><a href="#method_setSoldType" title="setSoldType :: Set soldType"><span class="description">Set soldType</span><pre>setSoldType()</pre></a></li>
+<li class="method public "><a href="#method_setTitle" title="setTitle :: Set title"><span class="description">Set title</span><pre>setTitle()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_customerUser" title="$customerUser :: "><span class="description"></span><pre>$customerUser</pre></a></li>
+<li class="property private "><a href="#property_date" title="$date :: "><span class="description"></span><pre>$date</pre></a></li>
+<li class="property private "><a href="#property_description" title="$description :: "><span class="description"></span><pre>$description</pre></a></li>
+<li class="property private "><a href="#property_end" title="$end :: "><span class="description"></span><pre>$end</pre></a></li>
+<li class="property private "><a href="#property_fileName" title="$fileName :: "><span class="description"></span><pre>$fileName</pre></a></li>
+<li class="property private "><a href="#property_id" title="$id :: "><span class="description"></span><pre>$id</pre></a></li>
+<li class="property private "><a href="#property_pause" title="$pause :: "><span class="description"></span><pre>$pause</pre></a></li>
+<li class="property private "><a href="#property_period" title="$period :: "><span class="description"></span><pre>$period</pre></a></li>
+<li class="property private "><a href="#property_project" title="$project :: "><span class="description"></span><pre>$project</pre></a></li>
+<li class="property private "><a href="#property_reportedByContact" title="$reportedByContact :: "><span class="description"></span><pre>$reportedByContact</pre></a></li>
+<li class="property private "><a href="#property_soldType" title="$soldType :: "><span class="description"></span><pre>$soldType</pre></a></li>
+<li class="property private "><a href="#property_title" title="$title :: "><span class="description"></span><pre>$title</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\CommercialSupportIntervention"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/CommercialSupportIntervention.html">CommercialSupportIntervention</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">CommercialSupportIntervention</p>
+<div class="details">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>Table</th>
+<td>name="COMMERCIAL_SUPPORT_INTERVENTION"</td>
+</tr>
+<tr>
+<th>Entity</th>
+<td>Entity</td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method_getCustomerUser"></a><div class="element clickable method public method_getCustomerUser" data-toggle="collapse" data-target=".method_getCustomerUser .collapse">
+<h2>Get customerUser</h2>
+<pre>getCustomerUser() : \CoreUsers</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\CoreUsers</code></div>
+</div></div>
+</div>
+<a id="method_getDate"></a><div class="element clickable method public method_getDate" data-toggle="collapse" data-target=".method_getDate .collapse">
+<h2>Get date</h2>
+<pre>getDate() : \datetime</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\datetime</code></div>
+</div></div>
+</div>
+<a id="method_getDescription"></a><div class="element clickable method public method_getDescription" data-toggle="collapse" data-target=".method_getDescription .collapse">
+<h2>Get description</h2>
+<pre>getDescription() : \text</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\text</code></div>
+</div></div>
+</div>
+<a id="method_getEnd"></a><div class="element clickable method public method_getEnd" data-toggle="collapse" data-target=".method_getEnd .collapse">
+<h2>Get end</h2>
+<pre>getEnd() : \datetime</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\datetime</code></div>
+</div></div>
+</div>
+<a id="method_getFileName"></a><div class="element clickable method public method_getFileName" data-toggle="collapse" data-target=".method_getFileName .collapse">
+<h2>Get fileName</h2>
+<pre>getFileName() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getId"></a><div class="element clickable method public method_getId" data-toggle="collapse" data-target=".method_getId .collapse">
+<h2>Get id</h2>
+<pre>getId() : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>integer</code></div>
+</div></div>
+</div>
+<a id="method_getPause"></a><div class="element clickable method public method_getPause" data-toggle="collapse" data-target=".method_getPause .collapse">
+<h2>Get pause</h2>
+<pre>getPause() : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>integer</code></div>
+</div></div>
+</div>
+<a id="method_getPeriod"></a><div class="element clickable method public method_getPeriod" data-toggle="collapse" data-target=".method_getPeriod .collapse">
+<h2>Get period</h2>
+<pre>getPeriod() : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>integer</code></div>
+</div></div>
+</div>
+<a id="method_getProject"></a><div class="element clickable method public method_getProject" data-toggle="collapse" data-target=".method_getProject .collapse">
+<h2>Get project</h2>
+<pre>getProject() : <a href="../classes/CommercialProject.html">\CommercialProject</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialProject.html">\CommercialProject</a></code></div>
+</div></div>
+</div>
+<a id="method_getReportedByContact"></a><div class="element clickable method public method_getReportedByContact" data-toggle="collapse" data-target=".method_getReportedByContact .collapse">
+<h2>Get reportedByContact</h2>
+<pre>getReportedByContact() : \CoreContacts</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\CoreContacts</code></div>
+</div></div>
+</div>
+<a id="method_getSoldType"></a><div class="element clickable method public method_getSoldType" data-toggle="collapse" data-target=".method_getSoldType .collapse">
+<h2>Get soldType</h2>
+<pre>getSoldType() : <a href="../classes/CommercialSoldType.html">\CommercialSoldType</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialSoldType.html">\CommercialSoldType</a></code></div>
+</div></div>
+</div>
+<a id="method_getTitle"></a><div class="element clickable method public method_getTitle" data-toggle="collapse" data-target=".method_getTitle .collapse">
+<h2>Get title</h2>
+<pre>getTitle() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_setCustomerUser"></a><div class="element clickable method public method_setCustomerUser" data-toggle="collapse" data-target=".method_setCustomerUser .collapse">
+<h2>Set customerUser</h2>
+<pre>setCustomerUser(\CoreUsers $customerUser) : <a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$customerUser</h4>
+<code>\CoreUsers</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></code></div>
+</div></div>
+</div>
+<a id="method_setDate"></a><div class="element clickable method public method_setDate" data-toggle="collapse" data-target=".method_setDate .collapse">
+<h2>Set date</h2>
+<pre>setDate(\datetime $date) : <a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$date</h4>
+<code>\datetime</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></code></div>
+</div></div>
+</div>
+<a id="method_setDescription"></a><div class="element clickable method public method_setDescription" data-toggle="collapse" data-target=".method_setDescription .collapse">
+<h2>Set description</h2>
+<pre>setDescription(\text $description) : <a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$description</h4>
+<code>\text</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></code></div>
+</div></div>
+</div>
+<a id="method_setEnd"></a><div class="element clickable method public method_setEnd" data-toggle="collapse" data-target=".method_setEnd .collapse">
+<h2>Set end</h2>
+<pre>setEnd(\datetime $end) : <a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$end</h4>
+<code>\datetime</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></code></div>
+</div></div>
+</div>
+<a id="method_setFileName"></a><div class="element clickable method public method_setFileName" data-toggle="collapse" data-target=".method_setFileName .collapse">
+<h2>Set fileName</h2>
+<pre>setFileName(string $fileName) : <a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$fileName</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></code></div>
+</div></div>
+</div>
+<a id="method_setPause"></a><div class="element clickable method public method_setPause" data-toggle="collapse" data-target=".method_setPause .collapse">
+<h2>Set pause</h2>
+<pre>setPause(integer $pause) : <a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$pause</h4>
+<code>integer</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></code></div>
+</div></div>
+</div>
+<a id="method_setPeriod"></a><div class="element clickable method public method_setPeriod" data-toggle="collapse" data-target=".method_setPeriod .collapse">
+<h2>Set period</h2>
+<pre>setPeriod(integer $period) : <a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$period</h4>
+<code>integer</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></code></div>
+</div></div>
+</div>
+<a id="method_setProject"></a><div class="element clickable method public method_setProject" data-toggle="collapse" data-target=".method_setProject .collapse">
+<h2>Set project</h2>
+<pre>setProject(\CommercialProject $project) : <a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$project</h4>
+<code><a href="../classes/CommercialProject.html">\CommercialProject</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></code></div>
+</div></div>
+</div>
+<a id="method_setReportedByContact"></a><div class="element clickable method public method_setReportedByContact" data-toggle="collapse" data-target=".method_setReportedByContact .collapse">
+<h2>Set reportedByContact</h2>
+<pre>setReportedByContact(\CoreContacts $reportedByContact) : <a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$reportedByContact</h4>
+<code>\CoreContacts</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></code></div>
+</div></div>
+</div>
+<a id="method_setSoldType"></a><div class="element clickable method public method_setSoldType" data-toggle="collapse" data-target=".method_setSoldType .collapse">
+<h2>Set soldType</h2>
+<pre>setSoldType(\CommercialSoldType $soldType) : <a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$soldType</h4>
+<code><a href="../classes/CommercialSoldType.html">\CommercialSoldType</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></code></div>
+</div></div>
+</div>
+<a id="method_setTitle"></a><div class="element clickable method public method_setTitle" data-toggle="collapse" data-target=".method_setTitle .collapse">
+<h2>Set title</h2>
+<pre>setTitle(string $title) : <a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$title</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialSupportIntervention.html">\CommercialSupportIntervention</a></code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_customerUser"> </a><div class="element clickable property private property_customerUser" data-toggle="collapse" data-target=".property_customerUser .collapse">
+<h2></h2>
+<pre>$customerUser : \CoreUsers</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>ManyToOne</th>
+<td>targetEntity="CoreUsers"</td>
+</tr>
+<tr>
+<th>JoinColumns</th>
+<td>({
+  @JoinColumn(name="customer_user_id", referencedColumnName="id")
+})</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_date"> </a><div class="element clickable property private property_date" data-toggle="collapse" data-target=".property_date .collapse">
+<h2></h2>
+<pre>$date : \datetime</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="date", type="datetime"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_description"> </a><div class="element clickable property private property_description" data-toggle="collapse" data-target=".property_description .collapse">
+<h2></h2>
+<pre>$description : \text</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="description", type="text"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_end"> </a><div class="element clickable property private property_end" data-toggle="collapse" data-target=".property_end .collapse">
+<h2></h2>
+<pre>$end : \datetime</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="end", type="datetime"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_fileName"> </a><div class="element clickable property private property_fileName" data-toggle="collapse" data-target=".property_fileName .collapse">
+<h2></h2>
+<pre>$fileName : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="file_name", type="string", length=50</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_id"> </a><div class="element clickable property private property_id" data-toggle="collapse" data-target=".property_id .collapse">
+<h2></h2>
+<pre>$id : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>Column</th>
+<td>name="id", type="integer"</td>
+</tr>
+<tr>
+<th>Id</th>
+<td>Id</td>
+</tr>
+<tr>
+<th>GeneratedValue</th>
+<td>strategy="IDENTITY"</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_pause"> </a><div class="element clickable property private property_pause" data-toggle="collapse" data-target=".property_pause .collapse">
+<h2></h2>
+<pre>$pause : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="pause", type="integer"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_period"> </a><div class="element clickable property private property_period" data-toggle="collapse" data-target=".property_period .collapse">
+<h2></h2>
+<pre>$period : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="period", type="integer"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_project"> </a><div class="element clickable property private property_project" data-toggle="collapse" data-target=".property_project .collapse">
+<h2></h2>
+<pre>$project : <a href="../classes/CommercialProject.html">\CommercialProject</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>ManyToOne</th>
+<td>targetEntity="CommercialProject"</td>
+</tr>
+<tr>
+<th>JoinColumns</th>
+<td>({
+  @JoinColumn(name="project_id", referencedColumnName="id")
+})</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_reportedByContact"> </a><div class="element clickable property private property_reportedByContact" data-toggle="collapse" data-target=".property_reportedByContact .collapse">
+<h2></h2>
+<pre>$reportedByContact : \CoreContacts</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>ManyToOne</th>
+<td>targetEntity="CoreContacts"</td>
+</tr>
+<tr>
+<th>JoinColumns</th>
+<td>({
+  @JoinColumn(name="reported_by_contact_id", referencedColumnName="id")
+})</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_soldType"> </a><div class="element clickable property private property_soldType" data-toggle="collapse" data-target=".property_soldType .collapse">
+<h2></h2>
+<pre>$soldType : <a href="../classes/CommercialSoldType.html">\CommercialSoldType</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>ManyToOne</th>
+<td>targetEntity="CommercialSoldType"</td>
+</tr>
+<tr>
+<th>JoinColumns</th>
+<td>({
+  @JoinColumn(name="sold_type", referencedColumnName="code")
+})</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_title"> </a><div class="element clickable property private property_title" data-toggle="collapse" data-target=".property_title .collapse">
+<h2></h2>
+<pre>$title : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="title", type="string", length=120</td>
+</tr></table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-04-18T11:09:28+02:00.<br></footer></div>
+</div>
+</body>
+</html>

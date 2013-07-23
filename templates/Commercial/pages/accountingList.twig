@@ -1,0 +1,148 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {'logo': "emblem-departments",
+                'title': "Accounting management"|trans,
+                'help': "Add and remove the accounts."|trans} %}
+
+{% set sidebarActivated = true %}
+{% block sidebar %}
+  {% include 'sidebar.twig' %}
+{% endblock %}
+
+
+{% block content %}{{ parent() }}
+
+<script type="text/javascript">
+    function delete_purchasing_account(id) {
+        bootbox.confirm("{% trans %}Are you sure that you want to delete this purchasing account ?{% endtrans %}", "{% trans %}No{% endtrans %}", "{% trans %}Yes{% endtrans %}", function(result) {
+            if(result) window.location.href="{{ url('commercial_purchasing_account_delete', {"Id":''}) }}" + id;
+        });
+    }
+    
+    function delete_selling_account(id) {
+        bootbox.confirm("{% trans %}Are you sure that you want to delete this selling account ?{% endtrans %}", "{% trans %}No{% endtrans %}", "{% trans %}Yes{% endtrans %}", function(result) {
+            if(result) window.location.href="{{ url('commercial_selling_account_delete', {"Id":''}) }}" + id;
+        });
+    }
+</script>
+
+{# Navbar to select selling or purchasing seciton #}
+<ul class="nav nav-tabs">
+  <li class="active">
+    <a href="#purchasing-accounts" data-toggle="tab">{% trans %}Purchasing accounts{% endtrans %}</a>
+  </li>
+  <li><a href="#selling-accounts" data-toggle="tab">{% trans %}Selling accounts{% endtrans %}</a></li>
+  <li><a href="#vat-accounts" data-toggle="tab">{% trans %}Vat accounts{% endtrans %}</a></li>
+</ul>
+
+{# Tabls content #}
+<div class="tab-content">
+    
+    
+    {# Purchasing section pane content #}
+    <div class="tab-pane active" id="purchasing-accounts">
+      {# start #}
+        <div class="row-fluid" align="right">
+            <a href="{{ url('commercial_purchasing_account_new') }}" class="btn btn-success btn-small"><i class="icon-plus-sign icon-white"></i> {% trans %}Add new purchasing account{% endtrans %}</a>
+        </div>
+        <br />
+
+        {% import "table.twig" as purchasingTable %}
+        {{ purchasingTable.datatable() }}    
+
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="table_data">
+            <thead>
+                <tr>
+                    <th>{% trans %}Label{% endtrans %}</th>
+                    <th>{% trans %}Account number{% endtrans %}</th>
+                    <th>{% trans %}Actions{% endtrans %}</th>
+                </tr>
+            </thead>
+            <tbody>
+               {% for row in purchasingAccounts %}
+                    <tr>
+                        <td>{{ row.label }}</td>
+                        <td class="hidden-phone">{{ row.accountNumber }}</td>
+                        <td>
+                            <a href="{{ url('commercial_purchasing_account_edit', {'Id':row.id}) }}" class="btn btn-mini a-visible-line-on-over">
+                                <i class="icon-edit"></i> {% trans %}Edit{% endtrans %}
+                            </a>
+                            <a href="javascript:delete_purchasing_account('{{ row.id }}')" class="btn btn-danger btn-mini a-visible-line-on-over">
+                                <i class="icon-trash icon-white"></i> {% trans %}Delete{% endtrans %}
+                            </a>
+                        </td>
+                    </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+      {# End #}
+    </div>
+        
+        
+    {# Selling section pane content #}
+    <div class="tab-pane" id="selling-accounts">
+      {# start #}
+        <div class="row-fluid" align="right">
+            <a href="{{ url('commercial_selling_account_new') }}" class="btn btn-success btn-small"><i class="icon-plus-sign icon-white"></i> {% trans %}Add new selling account{% endtrans %}</a>
+        </div>
+        <br />
+
+        {% import "table.twig" as sellingTable %}
+        {{ sellingTable.datatable("#selling_table_data") }}    
+
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="selling_table_data">
+            <thead>
+                <tr>
+                    <th>{% trans %}Label{% endtrans %}</th>
+                    <th>{% trans %}Account number{% endtrans %}</th>
+                    <th>{% trans %}Actions{% endtrans %}</th>
+                </tr>
+            </thead>
+            <tbody>
+               {% for row in sellingAccounts %}
+                    <tr>
+                        <td>{{ row.label }}</td>
+                        <td class="hidden-phone">{{ row.accountNumber }}</td>
+                        <td>
+                            <a href="{{ url('commercial_selling_account_edit', {'Id':row.id}) }}" class="btn btn-mini a-visible-line-on-over">
+                                <i class="icon-edit"></i> {% trans %}Edit{% endtrans %}
+                            </a>
+                            <a href="javascript:delete_selling_account('{{ row.id }}')" class="btn btn-danger btn-mini a-visible-line-on-over">
+                                <i class="icon-trash icon-white"></i> {% trans %}Delete{% endtrans %}
+                            </a>
+                        </td>
+                    </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+      {# End #}
+    </div>
+    
+    <div class="tab-pane" id="vat-accounts">
+        <div class="well">
+            <form id="form_data" class="ajax-emulation-validation" method='post' action='{{ url("commercial_vat_accounting_update") }}'>
+                <fieldset>
+                    <legend>{% trans %}Vat accounts{% endtrans %}</legend>
+                    <div class="row-fluid">
+                        <div class="span6">                    
+                            {{ forms.input('sellingVatAccount', 'Selling vat acount'|trans, vatAccounting.sellingVatAccount) }}                            
+                        </div>
+                        <div class="span6">                    
+                            {{ forms.input('buyingVatAccount', 'Buying vat acount'|trans, vatAccounting.buyingVatAccount) }}                            
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
+                            <input class="btn" type="button" value="{% trans %}Cancel{% endtrans %}" onclick="javascript:history.go(-1);return true;">
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+        
+</div>
+
+
+        
+{% endblock %}

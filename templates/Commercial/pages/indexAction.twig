@@ -1,0 +1,14 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Igestis commercial",
+                'help': "Welcome to the commercial module."} %}
+
+
+{% set sidebarActivated = true %}
+{% block sidebar %}
+  {% include 'sidebar.twig' %}
+{% endblock %}
+
+{% block content %}{{ parent() }}
+{% endblock %}

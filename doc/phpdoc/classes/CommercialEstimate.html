@@ -1,0 +1,392 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>igestis-iprojectis-v2 » \CommercialEstimate</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">igestis-iprojectis-v2</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Igestis.html"><i class="icon-th"></i> Igestis</a></li>
+<li><a href="../namespaces/global.html"><i class="icon-th"></i> global</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">215</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method_getCommercialDocument" title="getCommercialDocument :: Get commercialDocument"><span class="description">Get commercialDocument</span><pre>getCommercialDocument()</pre></a></li>
+<li class="method public "><a href="#method_getDateEstimate" title="getDateEstimate :: Get dateEstimate"><span class="description">Get dateEstimate</span><pre>getDateEstimate()</pre></a></li>
+<li class="method public "><a href="#method_getEstimationNumber" title="getEstimationNumber :: Get estimationNumber"><span class="description">Get estimationNumber</span><pre>getEstimationNumber()</pre></a></li>
+<li class="method public "><a href="#method_getId" title="getId :: Get id"><span class="description">Get id</span><pre>getId()</pre></a></li>
+<li class="method public "><a href="#method_getPathPdfFile" title="getPathPdfFile :: Get pathPdfFile"><span class="description">Get pathPdfFile</span><pre>getPathPdfFile()</pre></a></li>
+<li class="method public "><a href="#method_getUserId" title="getUserId :: Get userId"><span class="description">Get userId</span><pre>getUserId()</pre></a></li>
+<li class="method public "><a href="#method_getValidUntil" title="getValidUntil :: Get validUntil"><span class="description">Get validUntil</span><pre>getValidUntil()</pre></a></li>
+<li class="method public "><a href="#method_setCommercialDocument" title="setCommercialDocument :: Set commercialDocument"><span class="description">Set commercialDocument</span><pre>setCommercialDocument()</pre></a></li>
+<li class="method public "><a href="#method_setDateEstimate" title="setDateEstimate :: Set dateEstimate"><span class="description">Set dateEstimate</span><pre>setDateEstimate()</pre></a></li>
+<li class="method public "><a href="#method_setEstimationNumber" title="setEstimationNumber :: Set estimationNumber"><span class="description">Set estimationNumber</span><pre>setEstimationNumber()</pre></a></li>
+<li class="method public "><a href="#method_setPathPdfFile" title="setPathPdfFile :: Set pathPdfFile"><span class="description">Set pathPdfFile</span><pre>setPathPdfFile()</pre></a></li>
+<li class="method public "><a href="#method_setUserId" title="setUserId :: Set userId"><span class="description">Set userId</span><pre>setUserId()</pre></a></li>
+<li class="method public "><a href="#method_setValidUntil" title="setValidUntil :: Set validUntil"><span class="description">Set validUntil</span><pre>setValidUntil()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_commercialDocument" title="$commercialDocument :: "><span class="description"></span><pre>$commercialDocument</pre></a></li>
+<li class="property private "><a href="#property_dateEstimate" title="$dateEstimate :: "><span class="description"></span><pre>$dateEstimate</pre></a></li>
+<li class="property private "><a href="#property_estimationNumber" title="$estimationNumber :: "><span class="description"></span><pre>$estimationNumber</pre></a></li>
+<li class="property private "><a href="#property_id" title="$id :: "><span class="description"></span><pre>$id</pre></a></li>
+<li class="property private "><a href="#property_pathPdfFile" title="$pathPdfFile :: "><span class="description"></span><pre>$pathPdfFile</pre></a></li>
+<li class="property private "><a href="#property_userId" title="$userId :: "><span class="description"></span><pre>$userId</pre></a></li>
+<li class="property private "><a href="#property_validUntil" title="$validUntil :: "><span class="description"></span><pre>$validUntil</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\CommercialEstimate"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/CommercialEstimate.html">CommercialEstimate</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">CommercialEstimate</p>
+<div class="details">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>Table</th>
+<td>name="COMMERCIAL_ESTIMATE"</td>
+</tr>
+<tr>
+<th>Entity</th>
+<td>Entity</td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method_getCommercialDocument"></a><div class="element clickable method public method_getCommercialDocument" data-toggle="collapse" data-target=".method_getCommercialDocument .collapse">
+<h2>Get commercialDocument</h2>
+<pre>getCommercialDocument() : <a href="../classes/CommercialCommercialDocument.html">\CommercialCommercialDocument</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialCommercialDocument.html">\CommercialCommercialDocument</a></code></div>
+</div></div>
+</div>
+<a id="method_getDateEstimate"></a><div class="element clickable method public method_getDateEstimate" data-toggle="collapse" data-target=".method_getDateEstimate .collapse">
+<h2>Get dateEstimate</h2>
+<pre>getDateEstimate() : \date</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\date</code></div>
+</div></div>
+</div>
+<a id="method_getEstimationNumber"></a><div class="element clickable method public method_getEstimationNumber" data-toggle="collapse" data-target=".method_getEstimationNumber .collapse">
+<h2>Get estimationNumber</h2>
+<pre>getEstimationNumber() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getId"></a><div class="element clickable method public method_getId" data-toggle="collapse" data-target=".method_getId .collapse">
+<h2>Get id</h2>
+<pre>getId() : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>integer</code></div>
+</div></div>
+</div>
+<a id="method_getPathPdfFile"></a><div class="element clickable method public method_getPathPdfFile" data-toggle="collapse" data-target=".method_getPathPdfFile .collapse">
+<h2>Get pathPdfFile</h2>
+<pre>getPathPdfFile() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getUserId"></a><div class="element clickable method public method_getUserId" data-toggle="collapse" data-target=".method_getUserId .collapse">
+<h2>Get userId</h2>
+<pre>getUserId() : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>integer</code></div>
+</div></div>
+</div>
+<a id="method_getValidUntil"></a><div class="element clickable method public method_getValidUntil" data-toggle="collapse" data-target=".method_getValidUntil .collapse">
+<h2>Get validUntil</h2>
+<pre>getValidUntil() : \date</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\date</code></div>
+</div></div>
+</div>
+<a id="method_setCommercialDocument"></a><div class="element clickable method public method_setCommercialDocument" data-toggle="collapse" data-target=".method_setCommercialDocument .collapse">
+<h2>Set commercialDocument</h2>
+<pre>setCommercialDocument(\CommercialCommercialDocument $commercialDocument) : <a href="../classes/CommercialEstimate.html">\CommercialEstimate</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$commercialDocument</h4>
+<code><a href="../classes/CommercialCommercialDocument.html">\CommercialCommercialDocument</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialEstimate.html">\CommercialEstimate</a></code></div>
+</div></div>
+</div>
+<a id="method_setDateEstimate"></a><div class="element clickable method public method_setDateEstimate" data-toggle="collapse" data-target=".method_setDateEstimate .collapse">
+<h2>Set dateEstimate</h2>
+<pre>setDateEstimate(\date $dateEstimate) : <a href="../classes/CommercialEstimate.html">\CommercialEstimate</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dateEstimate</h4>
+<code>\date</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialEstimate.html">\CommercialEstimate</a></code></div>
+</div></div>
+</div>
+<a id="method_setEstimationNumber"></a><div class="element clickable method public method_setEstimationNumber" data-toggle="collapse" data-target=".method_setEstimationNumber .collapse">
+<h2>Set estimationNumber</h2>
+<pre>setEstimationNumber(string $estimationNumber) : <a href="../classes/CommercialEstimate.html">\CommercialEstimate</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$estimationNumber</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialEstimate.html">\CommercialEstimate</a></code></div>
+</div></div>
+</div>
+<a id="method_setPathPdfFile"></a><div class="element clickable method public method_setPathPdfFile" data-toggle="collapse" data-target=".method_setPathPdfFile .collapse">
+<h2>Set pathPdfFile</h2>
+<pre>setPathPdfFile(string $pathPdfFile) : <a href="../classes/CommercialEstimate.html">\CommercialEstimate</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$pathPdfFile</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialEstimate.html">\CommercialEstimate</a></code></div>
+</div></div>
+</div>
+<a id="method_setUserId"></a><div class="element clickable method public method_setUserId" data-toggle="collapse" data-target=".method_setUserId .collapse">
+<h2>Set userId</h2>
+<pre>setUserId(integer $userId) : <a href="../classes/CommercialEstimate.html">\CommercialEstimate</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$userId</h4>
+<code>integer</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialEstimate.html">\CommercialEstimate</a></code></div>
+</div></div>
+</div>
+<a id="method_setValidUntil"></a><div class="element clickable method public method_setValidUntil" data-toggle="collapse" data-target=".method_setValidUntil .collapse">
+<h2>Set validUntil</h2>
+<pre>setValidUntil(\date $validUntil) : <a href="../classes/CommercialEstimate.html">\CommercialEstimate</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$validUntil</h4>
+<code>\date</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialEstimate.html">\CommercialEstimate</a></code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_commercialDocument"> </a><div class="element clickable property private property_commercialDocument" data-toggle="collapse" data-target=".property_commercialDocument .collapse">
+<h2></h2>
+<pre>$commercialDocument : <a href="../classes/CommercialCommercialDocument.html">\CommercialCommercialDocument</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>ManyToOne</th>
+<td>targetEntity="CommercialCommercialDocument"</td>
+</tr>
+<tr>
+<th>JoinColumns</th>
+<td>({
+  @JoinColumn(name="commercial_document_id", referencedColumnName="id")
+})</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_dateEstimate"> </a><div class="element clickable property private property_dateEstimate" data-toggle="collapse" data-target=".property_dateEstimate .collapse">
+<h2></h2>
+<pre>$dateEstimate : \date</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="date_estimate", type="date"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_estimationNumber"> </a><div class="element clickable property private property_estimationNumber" data-toggle="collapse" data-target=".property_estimationNumber .collapse">
+<h2></h2>
+<pre>$estimationNumber : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="estimation_number", type="string", length=10</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_id"> </a><div class="element clickable property private property_id" data-toggle="collapse" data-target=".property_id .collapse">
+<h2></h2>
+<pre>$id : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>Column</th>
+<td>name="id", type="integer"</td>
+</tr>
+<tr>
+<th>Id</th>
+<td>Id</td>
+</tr>
+<tr>
+<th>GeneratedValue</th>
+<td>strategy="IDENTITY"</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_pathPdfFile"> </a><div class="element clickable property private property_pathPdfFile" data-toggle="collapse" data-target=".property_pathPdfFile .collapse">
+<h2></h2>
+<pre>$pathPdfFile : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="path_pdf_file", type="string", length=256</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_userId"> </a><div class="element clickable property private property_userId" data-toggle="collapse" data-target=".property_userId .collapse">
+<h2></h2>
+<pre>$userId : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="user_id", type="integer"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_validUntil"> </a><div class="element clickable property private property_validUntil" data-toggle="collapse" data-target=".property_validUntil .collapse">
+<h2></h2>
+<pre>$validUntil : \date</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="valid_until", type="date"</td>
+</tr></table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-04-18T11:09:27+02:00.<br></footer></div>
+</div>
+</body>
+</html>

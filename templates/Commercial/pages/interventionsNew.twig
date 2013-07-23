@@ -1,0 +1,107 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Create a new intervention"|trans,
+                'help': "Log the time and the information about the work done to your customer."|trans} %}
+
+{% block content %}{{ parent() }}
+
+<div class="well">
+    <form id="form_data" method='post' action='' class="form-horizontal form-condensed   ajax-emulation-validation" enctype="multipart/form-data">
+        <fieldset>
+            <legend>{% trans %}Intervention informations{% endtrans %}</legend>
+            <input type="hidden" name="saveAndNew" id="saveAndNew" value="0" />
+            <input type="hidden" name="projectId" value="{{ projectId }}" />
+            <div class="row-fluid">
+                <div class="span6">      
+                       {{ forms.input('title', 'Title'|trans, form_data.title) }}
+                       {{ forms.textarea('description', 'Description'|trans, form_data.description) }}
+                       {% if RIGHTS_LIST.COMMERCIAL == "ADMIN" %}
+                            {{ forms.select('workerContact', 'Worker'|trans, employeesList, form_data.workerContact.id, 'id', '__toString') }}
+                       {% endif %}
+                       {{ forms.select('customerUser', 'Customer'|trans, customersList, form_data.customerUser.id, 'id', 'userLabel') }}
+                       {{ forms.tagfield('type', 'Type'|trans, interventionsTypeList, [form_data.type], null, null, null, 1) }}
+                </div>
+                    
+                <div class="span6">                    
+                       {{ forms.date('date', 'Date'|trans,  form_data.date is empty ? date() : form_data.date) }}
+                       {{ forms.time('startTime', 'Start time'|trans, form_data.date is empty ? '' : form_data.date|date("H:i")) }}
+                       {{ forms.time('endTime', 'End time'|trans, form_data.end is empty ? '' : form_data.end|date("H:i")) }}
+                       {{ forms.time('pause', 'Pause duration'|trans, form_data.pauseTime) }}
+                       {{ forms.time('period', 'Elapsed time'|trans, form_data.periodTime) }}
+                </div>
+            </div>
+        </fieldset>
+        
+        {% include 'scanner.twig' %}
+            
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
+            <a id="save-and-new-button" class="btn" href="javascript:;">{% trans %}Save changes and new{% endtrans %}</a>
+            <input class="btn" type="button" value="{% trans %}Cancel{% endtrans %}" onclick="javascript:history.go(-1);return true;">
+        </div>
+    </form>
+</div>
+
+<script>
+    igestisCommercial.support.init();
+    $(document).ready(function(){
+        $("#save-and-new-button").bind("click", function() {
+            if($("#form_data").valid()) {
+                $("#saveAndNew").val(1);
+                $("#form_data").submit();
+            }
+        });
+        
+        $("#form_data").validate({
+                    ignore: "input[type='text']:hidden",
+                    rules:{
+                            title:{
+                                required:true
+                            },
+                            title2:{
+                                required:true
+                            },
+                            description:{
+                                required:true
+                            },
+                            customerUser:{
+                                required:true
+                            },
+                            workerContact : {
+                                required: true
+                            },
+                            date:{
+                                regex: /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/,    
+                                required:true
+                            }
+                    },
+                    errorClass: "help-inline",
+                    errorElement: "span",
+                    errorPlacement: function(error, element) {
+                        element.parent().after(error);
+                    },
+                    highlight:function(element, errorClass, validClass) {
+                            $(element).parents('.control-group').removeClass('success');
+                            $(element).parents('.control-group').addClass('error');
+                    },
+                    unhighlight: function(element, errorClass, validClass) {
+                            $(element).parents('.control-group').removeClass('error');
+                            $(element).parents('.control-group').addClass('success');
+                    },
+                    submitHandler: function(form) { 
+                        var message = '';
+                        switch($(form).find("[name=getFile]:checked").val()) {
+                            case "scanner" : message = '{{ "Please wait while scanning your document."|trans|e('js') }}'; break;
+                            case "file" : message = '{{ "Please wait while uploading your document."|trans|e('js') }}'; break;
+                        }
+                        
+                        if(message) modalWaitingMessage(message);
+                        form.submit();
+                    }
+            });
+    });
+</script>
+
+
+{% endblock %}

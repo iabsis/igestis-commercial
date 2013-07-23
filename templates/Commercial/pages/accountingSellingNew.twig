@@ -1,0 +1,57 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Create a new selling account"|trans,
+                'help': "Fill all information about the new new selling account"|trans} %}
+
+{% block content %}{{ parent() }}
+
+<div class="well">
+    <form class="form" id="form_data" method='post' action=''>
+        <fieldset>
+            <legend>General information</legend>
+            <div class="row-fluid">
+                <div class="span12">
+                    {{ forms.input('label', 'Account name'|trans, form_data.label, null, null, null, false, "required") }}
+                    {{ forms.input('accountNumber', 'Account number'|trans, form_data.accountNumber, null, null, null, false, "required") }}
+                </div>  
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
+                <input class="btn" type="button" value="{% trans %}Cancel{% endtrans %}" onclick="javascript:history.go(-1);return true;">
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<script>
+    $(document).ready(function(){
+                    $("#form_data").validate({
+                            rules:{
+                                    label:{
+                                            required:true
+                                    },
+                                    accountNumber:{
+                                            required:true
+                                    }
+                            },
+                            errorClass: "help-inline",
+                            errorElement: "span",
+                            errorPlacement: function(error, element) {
+                                element.parent().after(error);
+                            },
+                            highlight:function(element, errorClass, validClass) {
+                                    $(element).parents('.control-group').removeClass('success');
+                                    $(element).parents('.control-group').addClass('error');
+                            },
+                            unhighlight: function(element, errorClass, validClass) {
+                                    $(element).parents('.control-group').removeClass('error');
+                                    $(element).parents('.control-group').addClass('success');
+                            }
+                    });
+            });
+    </script>
+
+
+{% endblock %}

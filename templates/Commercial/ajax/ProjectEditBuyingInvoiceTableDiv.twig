@@ -1,0 +1,32 @@
+
+<legend>{% trans %}Purchase invoices{% endtrans %}</legend>
+
+<a data-toggle="modal" href="{{ url('commercial_project_link_buying_invoice', {projectId : project.id }) }}" data-target="#project-link-buying-invoice-modal" class="btn btn-primary pull-right">{% trans %}Link a purchase invoice{% endtrans %}</a><br><br>
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="buyingInvoicesTable">
+    <thead>
+        <tr>
+            <th>{% trans %}Provider{% endtrans %}</th>
+            <th>{% trans %}Invoice date{% endtrans %}</th>
+            <th>{% trans %}Invoice amount{% endtrans %}</th>
+            <th>{% trans %}Actions{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tbody>
+       {% for row in buyingInvoices %}
+            <tr>
+                <td>{{ row.providerUser.userLabel }}</td>
+                <td>{{ row.invoiceDate ? row.invoiceDate|date('d/m/Y') : "" }}</td>
+                <td>{{ row.amountTi|number_format(2) }}</td>
+                <td>
+                	<a href="{{ url('commercial_provider_invoices_edit', {'Id':row.id}) }}" class="btn btn-mini a-visible-line-on-over">
+                        <i class="icon-eye"></i> {% trans %}Details{% endtrans %}
+                    </a>
+                    <a href="javascript:unlink_buying_invoice('{{ row.id }}')" class="btn btn-danger btn-mini a-visible-line-on-over">
+                        <i class="icon-fire icon-white"></i> {% trans %}Unlink{% endtrans %}
+                    </a>
+                </td>
+            </tr>
+      {% endfor %}
+    </tbody>
+</table>

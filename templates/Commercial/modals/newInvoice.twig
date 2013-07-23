@@ -1,0 +1,55 @@
+<div id="new-invoice-modal" class="modal hide fade">
+    <form class="modal-form form-horizontal" action="{{ url('commercial_invoice_new', {documentId:sellingDocument.id}) }}" id="new-invoice-form" method="post">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3>{% trans %}New invoice{% endtrans %}</h3>
+        </div>
+        <div class="modal-body">
+
+             {{ forms.date('validUntil', 'Payment deadline'|trans, sellingDocument.invoices|length ? sellingDocument.invoices[0].paymentDateLimit : invoiceValidUntil) }}
+             {{ forms.select('soldType', 'Method of payment'|trans, soldTypeList, null, 'code', 'label') }}
+             {{ forms.select('invoicesType', 'Invoice type'|trans, {  0 : {"value" : 'invoices', "label" : 'Invoice'|trans}, 1 : {"value" : 'credits', "label" : 'Credit note'|trans} }, null, 'value', 'label') }}
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal" >Close</a>
+            <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
+        </div>
+    </form>
+</div>
+
+
+
+<script>
+$(document).ready(function(){
+        $("#new-invoice-form").validate({
+                ignore: "input[type='text']:hidden",
+                rules:{
+                	estimateDate:{
+                        required:true
+                    },
+                    validUntil:{
+                        required:true
+                    },
+                    invoicesType:{
+                        required:true
+                    },
+                    soldType:{
+                        required:true
+                    }
+                },
+                errorClass: "help-inline",
+                errorElement: "span",
+                errorPlacement: function(error, element) {
+                    element.parent().after(error);
+                },
+                highlight:function(element, errorClass, validClass) {
+                        $(element).parents('.control-group').removeClass('success');
+                        $(element).parents('.control-group').addClass('error');
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                        $(element).parents('.control-group').removeClass('error');
+                        $(element).parents('.control-group').addClass('success');
+                }
+        });
+});
+</script>

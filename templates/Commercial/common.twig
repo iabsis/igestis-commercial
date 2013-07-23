@@ -1,0 +1,45 @@
+{% extends "common.twig" %}
+
+
+{% block cssFiles %}
+    {{ parent() }}
+    <link href="{{ SERVER_ADDRESS }}/modules/Commercial/assets/css/Commercial.css?{{ COMMERCIAL_VERSION }}" rel="stylesheet">
+{% endblock %}
+    
+{% block javascriptFiles  %}
+    {{ parent() }}
+    <script src="{{ SERVER_ADDRESS }}/modules/Commercial/assets/js/Commercial.js?{{ COMMERCIAL_VERSION }}"></script>
+    <script src="{{ SERVER_ADDRESS }}/modules/Commercial/assets/js/jquery.dataTables.rowReordering.js?{{ COMMERCIAL_VERSION }}"></script>
+    
+    <script>
+    function create_or_duplicate_document(id, projectId) {
+        $('#new-selling-document-modal').find('[name="copyFrom"]').val(id);
+        
+        $('#new-selling-document-modal').find('[name="projectId"]').val(projectId);
+        
+        var $userField = $("#new-selling-document-modal #id-customerUser");
+        if(projectId) {
+            $userField.parents(".control-group").hide();
+        }
+        else {
+            $userField.parents(".control-group").show();
+        }
+        $('#new-selling-document-modal').modal();
+    }
+    
+    function create_or_duplicate_project(id) {
+        $('#new-project-modal').modal();
+    }
+    </script>
+    
+{% endblock %}
+
+{% block translations %}
+    {{ parent() }}
+    {% include 'Commercial/translations.twig' %}
+{% endblock %}
+
+{% block content %}
+    {% include 'Commercial/modals/projectNew.html.twig' %}
+    {% include 'Commercial/modals/sellingDocumentNew.twig' %}
+{% endblock %}

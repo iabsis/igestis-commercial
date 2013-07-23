@@ -1,0 +1,5 @@
+{% import "form.twig" as forms %}
+
+{{ forms.text(sellingDocument.buyingAmountDf|number_format(2), "Total purchasing price"|trans) }}
+{{ forms.text(sellingDocument.amountDf|number_format(2), "Total selling price"|trans) }}
+{{ forms.text((sellingDocument.amountDf - sellingDocument.buyingAmountDf)|number_format(2), "Total benefits"|trans) }}

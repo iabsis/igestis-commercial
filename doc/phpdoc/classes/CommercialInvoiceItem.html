@@ -1,0 +1,720 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>igestis-iprojectis-v2 » \CommercialInvoiceItem</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">igestis-iprojectis-v2</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Igestis.html"><i class="icon-th"></i> Igestis</a></li>
+<li><a href="../namespaces/global.html"><i class="icon-th"></i> global</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">215</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method_getAccountingLabel" title="getAccountingLabel :: Get accountingLabel"><span class="description">Get accountingLabel</span><pre>getAccountingLabel()</pre></a></li>
+<li class="method public "><a href="#method_getAccountingNumber" title="getAccountingNumber :: Get accountingNumber"><span class="description">Get accountingNumber</span><pre>getAccountingNumber()</pre></a></li>
+<li class="method public "><a href="#method_getAmountTax" title="getAmountTax :: Get amountTax"><span class="description">Get amountTax</span><pre>getAmountTax()</pre></a></li>
+<li class="method public "><a href="#method_getComment" title="getComment :: Get comment"><span class="description">Get comment</span><pre>getComment()</pre></a></li>
+<li class="method public "><a href="#method_getId" title="getId :: Get id"><span class="description">Get id</span><pre>getId()</pre></a></li>
+<li class="method public "><a href="#method_getInvoice" title="getInvoice :: Get invoice"><span class="description">Get invoice</span><pre>getInvoice()</pre></a></li>
+<li class="method public "><a href="#method_getIsGroup" title="getIsGroup :: Get isGroup"><span class="description">Get isGroup</span><pre>getIsGroup()</pre></a></li>
+<li class="method public "><a href="#method_getItemLabel" title="getItemLabel :: Get itemLabel"><span class="description">Get itemLabel</span><pre>getItemLabel()</pre></a></li>
+<li class="method public "><a href="#method_getItemRef" title="getItemRef :: Get itemRef"><span class="description">Get itemRef</span><pre>getItemRef()</pre></a></li>
+<li class="method public "><a href="#method_getParent" title="getParent :: Get parent"><span class="description">Get parent</span><pre>getParent()</pre></a></li>
+<li class="method public "><a href="#method_getPurchasingDfUnitPrice" title="getPurchasingDfUnitPrice :: Get purchasingDfUnitPrice"><span class="description">Get purchasingDfUnitPrice</span><pre>getPurchasingDfUnitPrice()</pre></a></li>
+<li class="method public "><a href="#method_getQuantityArticle" title="getQuantityArticle :: Get quantityArticle"><span class="description">Get quantityArticle</span><pre>getQuantityArticle()</pre></a></li>
+<li class="method public "><a href="#method_getTaxRate" title="getTaxRate :: Get taxRate"><span class="description">Get taxRate</span><pre>getTaxRate()</pre></a></li>
+<li class="method public "><a href="#method_getTotSellPriceArticleDf" title="getTotSellPriceArticleDf :: Get totSellPriceArticleDf"><span class="description">Get totSellPriceArticleDf</span><pre>getTotSellPriceArticleDf()</pre></a></li>
+<li class="method public "><a href="#method_getTotSellPriceArticleTi" title="getTotSellPriceArticleTi :: Get totSellPriceArticleTi"><span class="description">Get totSellPriceArticleTi</span><pre>getTotSellPriceArticleTi()</pre></a></li>
+<li class="method public "><a href="#method_setAccountingLabel" title="setAccountingLabel :: Set accountingLabel"><span class="description">Set accountingLabel</span><pre>setAccountingLabel()</pre></a></li>
+<li class="method public "><a href="#method_setAccountingNumber" title="setAccountingNumber :: Set accountingNumber"><span class="description">Set accountingNumber</span><pre>setAccountingNumber()</pre></a></li>
+<li class="method public "><a href="#method_setAmountTax" title="setAmountTax :: Set amountTax"><span class="description">Set amountTax</span><pre>setAmountTax()</pre></a></li>
+<li class="method public "><a href="#method_setComment" title="setComment :: Set comment"><span class="description">Set comment</span><pre>setComment()</pre></a></li>
+<li class="method public "><a href="#method_setInvoice" title="setInvoice :: Set invoice"><span class="description">Set invoice</span><pre>setInvoice()</pre></a></li>
+<li class="method public "><a href="#method_setIsGroup" title="setIsGroup :: Set isGroup"><span class="description">Set isGroup</span><pre>setIsGroup()</pre></a></li>
+<li class="method public "><a href="#method_setItemLabel" title="setItemLabel :: Set itemLabel"><span class="description">Set itemLabel</span><pre>setItemLabel()</pre></a></li>
+<li class="method public "><a href="#method_setItemRef" title="setItemRef :: Set itemRef"><span class="description">Set itemRef</span><pre>setItemRef()</pre></a></li>
+<li class="method public "><a href="#method_setParent" title="setParent :: Set parent"><span class="description">Set parent</span><pre>setParent()</pre></a></li>
+<li class="method public "><a href="#method_setPurchasingDfUnitPrice" title="setPurchasingDfUnitPrice :: Set purchasingDfUnitPrice"><span class="description">Set purchasingDfUnitPrice</span><pre>setPurchasingDfUnitPrice()</pre></a></li>
+<li class="method public "><a href="#method_setQuantityArticle" title="setQuantityArticle :: Set quantityArticle"><span class="description">Set quantityArticle</span><pre>setQuantityArticle()</pre></a></li>
+<li class="method public "><a href="#method_setTaxRate" title="setTaxRate :: Set taxRate"><span class="description">Set taxRate</span><pre>setTaxRate()</pre></a></li>
+<li class="method public "><a href="#method_setTotSellPriceArticleDf" title="setTotSellPriceArticleDf :: Set totSellPriceArticleDf"><span class="description">Set totSellPriceArticleDf</span><pre>setTotSellPriceArticleDf()</pre></a></li>
+<li class="method public "><a href="#method_setTotSellPriceArticleTi" title="setTotSellPriceArticleTi :: Set totSellPriceArticleTi"><span class="description">Set totSellPriceArticleTi</span><pre>setTotSellPriceArticleTi()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_accountingLabel" title="$accountingLabel :: "><span class="description"></span><pre>$accountingLabel</pre></a></li>
+<li class="property private "><a href="#property_accountingNumber" title="$accountingNumber :: "><span class="description"></span><pre>$accountingNumber</pre></a></li>
+<li class="property private "><a href="#property_amountTax" title="$amountTax :: "><span class="description"></span><pre>$amountTax</pre></a></li>
+<li class="property private "><a href="#property_comment" title="$comment :: "><span class="description"></span><pre>$comment</pre></a></li>
+<li class="property private "><a href="#property_id" title="$id :: "><span class="description"></span><pre>$id</pre></a></li>
+<li class="property private "><a href="#property_invoice" title="$invoice :: "><span class="description"></span><pre>$invoice</pre></a></li>
+<li class="property private "><a href="#property_isGroup" title="$isGroup :: "><span class="description"></span><pre>$isGroup</pre></a></li>
+<li class="property private "><a href="#property_itemLabel" title="$itemLabel :: "><span class="description"></span><pre>$itemLabel</pre></a></li>
+<li class="property private "><a href="#property_itemRef" title="$itemRef :: "><span class="description"></span><pre>$itemRef</pre></a></li>
+<li class="property private "><a href="#property_parent" title="$parent :: "><span class="description"></span><pre>$parent</pre></a></li>
+<li class="property private "><a href="#property_purchasingDfUnitPrice" title="$purchasingDfUnitPrice :: "><span class="description"></span><pre>$purchasingDfUnitPrice</pre></a></li>
+<li class="property private "><a href="#property_quantityArticle" title="$quantityArticle :: "><span class="description"></span><pre>$quantityArticle</pre></a></li>
+<li class="property private "><a href="#property_taxRate" title="$taxRate :: "><span class="description"></span><pre>$taxRate</pre></a></li>
+<li class="property private "><a href="#property_totSellPriceArticleDf" title="$totSellPriceArticleDf :: "><span class="description"></span><pre>$totSellPriceArticleDf</pre></a></li>
+<li class="property private "><a href="#property_totSellPriceArticleTi" title="$totSellPriceArticleTi :: "><span class="description"></span><pre>$totSellPriceArticleTi</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\CommercialInvoiceItem"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/CommercialInvoiceItem.html">CommercialInvoiceItem</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">CommercialInvoiceItem</p>
+<div class="details">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>Table</th>
+<td>name="COMMERCIAL_INVOICE_ITEM"</td>
+</tr>
+<tr>
+<th>Entity</th>
+<td>Entity</td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method_getAccountingLabel"></a><div class="element clickable method public method_getAccountingLabel" data-toggle="collapse" data-target=".method_getAccountingLabel .collapse">
+<h2>Get accountingLabel</h2>
+<pre>getAccountingLabel() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getAccountingNumber"></a><div class="element clickable method public method_getAccountingNumber" data-toggle="collapse" data-target=".method_getAccountingNumber .collapse">
+<h2>Get accountingNumber</h2>
+<pre>getAccountingNumber() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getAmountTax"></a><div class="element clickable method public method_getAmountTax" data-toggle="collapse" data-target=".method_getAmountTax .collapse">
+<h2>Get amountTax</h2>
+<pre>getAmountTax() : \decimal</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\decimal</code></div>
+</div></div>
+</div>
+<a id="method_getComment"></a><div class="element clickable method public method_getComment" data-toggle="collapse" data-target=".method_getComment .collapse">
+<h2>Get comment</h2>
+<pre>getComment() : \text</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\text</code></div>
+</div></div>
+</div>
+<a id="method_getId"></a><div class="element clickable method public method_getId" data-toggle="collapse" data-target=".method_getId .collapse">
+<h2>Get id</h2>
+<pre>getId() : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>integer</code></div>
+</div></div>
+</div>
+<a id="method_getInvoice"></a><div class="element clickable method public method_getInvoice" data-toggle="collapse" data-target=".method_getInvoice .collapse">
+<h2>Get invoice</h2>
+<pre>getInvoice() : <a href="../classes/CommercialInvoice.html">\CommercialInvoice</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialInvoice.html">\CommercialInvoice</a></code></div>
+</div></div>
+</div>
+<a id="method_getIsGroup"></a><div class="element clickable method public method_getIsGroup" data-toggle="collapse" data-target=".method_getIsGroup .collapse">
+<h2>Get isGroup</h2>
+<pre>getIsGroup() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a id="method_getItemLabel"></a><div class="element clickable method public method_getItemLabel" data-toggle="collapse" data-target=".method_getItemLabel .collapse">
+<h2>Get itemLabel</h2>
+<pre>getItemLabel() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getItemRef"></a><div class="element clickable method public method_getItemRef" data-toggle="collapse" data-target=".method_getItemRef .collapse">
+<h2>Get itemRef</h2>
+<pre>getItemRef() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getParent"></a><div class="element clickable method public method_getParent" data-toggle="collapse" data-target=".method_getParent .collapse">
+<h2>Get parent</h2>
+<pre>getParent() : <a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></code></div>
+</div></div>
+</div>
+<a id="method_getPurchasingDfUnitPrice"></a><div class="element clickable method public method_getPurchasingDfUnitPrice" data-toggle="collapse" data-target=".method_getPurchasingDfUnitPrice .collapse">
+<h2>Get purchasingDfUnitPrice</h2>
+<pre>getPurchasingDfUnitPrice() : \decimal</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\decimal</code></div>
+</div></div>
+</div>
+<a id="method_getQuantityArticle"></a><div class="element clickable method public method_getQuantityArticle" data-toggle="collapse" data-target=".method_getQuantityArticle .collapse">
+<h2>Get quantityArticle</h2>
+<pre>getQuantityArticle() : \decimal</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\decimal</code></div>
+</div></div>
+</div>
+<a id="method_getTaxRate"></a><div class="element clickable method public method_getTaxRate" data-toggle="collapse" data-target=".method_getTaxRate .collapse">
+<h2>Get taxRate</h2>
+<pre>getTaxRate() : \decimal</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\decimal</code></div>
+</div></div>
+</div>
+<a id="method_getTotSellPriceArticleDf"></a><div class="element clickable method public method_getTotSellPriceArticleDf" data-toggle="collapse" data-target=".method_getTotSellPriceArticleDf .collapse">
+<h2>Get totSellPriceArticleDf</h2>
+<pre>getTotSellPriceArticleDf() : \decimal</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\decimal</code></div>
+</div></div>
+</div>
+<a id="method_getTotSellPriceArticleTi"></a><div class="element clickable method public method_getTotSellPriceArticleTi" data-toggle="collapse" data-target=".method_getTotSellPriceArticleTi .collapse">
+<h2>Get totSellPriceArticleTi</h2>
+<pre>getTotSellPriceArticleTi() : \decimal</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\decimal</code></div>
+</div></div>
+</div>
+<a id="method_setAccountingLabel"></a><div class="element clickable method public method_setAccountingLabel" data-toggle="collapse" data-target=".method_setAccountingLabel .collapse">
+<h2>Set accountingLabel</h2>
+<pre>setAccountingLabel(string $accountingLabel) : <a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$accountingLabel</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></code></div>
+</div></div>
+</div>
+<a id="method_setAccountingNumber"></a><div class="element clickable method public method_setAccountingNumber" data-toggle="collapse" data-target=".method_setAccountingNumber .collapse">
+<h2>Set accountingNumber</h2>
+<pre>setAccountingNumber(string $accountingNumber) : <a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$accountingNumber</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></code></div>
+</div></div>
+</div>
+<a id="method_setAmountTax"></a><div class="element clickable method public method_setAmountTax" data-toggle="collapse" data-target=".method_setAmountTax .collapse">
+<h2>Set amountTax</h2>
+<pre>setAmountTax(\decimal $amountTax) : <a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$amountTax</h4>
+<code>\decimal</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></code></div>
+</div></div>
+</div>
+<a id="method_setComment"></a><div class="element clickable method public method_setComment" data-toggle="collapse" data-target=".method_setComment .collapse">
+<h2>Set comment</h2>
+<pre>setComment(\text $comment) : <a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$comment</h4>
+<code>\text</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></code></div>
+</div></div>
+</div>
+<a id="method_setInvoice"></a><div class="element clickable method public method_setInvoice" data-toggle="collapse" data-target=".method_setInvoice .collapse">
+<h2>Set invoice</h2>
+<pre>setInvoice(\CommercialInvoice $invoice) : <a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$invoice</h4>
+<code><a href="../classes/CommercialInvoice.html">\CommercialInvoice</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></code></div>
+</div></div>
+</div>
+<a id="method_setIsGroup"></a><div class="element clickable method public method_setIsGroup" data-toggle="collapse" data-target=".method_setIsGroup .collapse">
+<h2>Set isGroup</h2>
+<pre>setIsGroup(boolean $isGroup) : <a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$isGroup</h4>
+<code>boolean</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></code></div>
+</div></div>
+</div>
+<a id="method_setItemLabel"></a><div class="element clickable method public method_setItemLabel" data-toggle="collapse" data-target=".method_setItemLabel .collapse">
+<h2>Set itemLabel</h2>
+<pre>setItemLabel(string $itemLabel) : <a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$itemLabel</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></code></div>
+</div></div>
+</div>
+<a id="method_setItemRef"></a><div class="element clickable method public method_setItemRef" data-toggle="collapse" data-target=".method_setItemRef .collapse">
+<h2>Set itemRef</h2>
+<pre>setItemRef(string $itemRef) : <a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$itemRef</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></code></div>
+</div></div>
+</div>
+<a id="method_setParent"></a><div class="element clickable method public method_setParent" data-toggle="collapse" data-target=".method_setParent .collapse">
+<h2>Set parent</h2>
+<pre>setParent(\CommercialInvoiceItem $parent) : <a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$parent</h4>
+<code><a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></code></div>
+</div></div>
+</div>
+<a id="method_setPurchasingDfUnitPrice"></a><div class="element clickable method public method_setPurchasingDfUnitPrice" data-toggle="collapse" data-target=".method_setPurchasingDfUnitPrice .collapse">
+<h2>Set purchasingDfUnitPrice</h2>
+<pre>setPurchasingDfUnitPrice(\decimal $purchasingDfUnitPrice) : <a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$purchasingDfUnitPrice</h4>
+<code>\decimal</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></code></div>
+</div></div>
+</div>
+<a id="method_setQuantityArticle"></a><div class="element clickable method public method_setQuantityArticle" data-toggle="collapse" data-target=".method_setQuantityArticle .collapse">
+<h2>Set quantityArticle</h2>
+<pre>setQuantityArticle(\decimal $quantityArticle) : <a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$quantityArticle</h4>
+<code>\decimal</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></code></div>
+</div></div>
+</div>
+<a id="method_setTaxRate"></a><div class="element clickable method public method_setTaxRate" data-toggle="collapse" data-target=".method_setTaxRate .collapse">
+<h2>Set taxRate</h2>
+<pre>setTaxRate(\decimal $taxRate) : <a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$taxRate</h4>
+<code>\decimal</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></code></div>
+</div></div>
+</div>
+<a id="method_setTotSellPriceArticleDf"></a><div class="element clickable method public method_setTotSellPriceArticleDf" data-toggle="collapse" data-target=".method_setTotSellPriceArticleDf .collapse">
+<h2>Set totSellPriceArticleDf</h2>
+<pre>setTotSellPriceArticleDf(\decimal $totSellPriceArticleDf) : <a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$totSellPriceArticleDf</h4>
+<code>\decimal</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></code></div>
+</div></div>
+</div>
+<a id="method_setTotSellPriceArticleTi"></a><div class="element clickable method public method_setTotSellPriceArticleTi" data-toggle="collapse" data-target=".method_setTotSellPriceArticleTi .collapse">
+<h2>Set totSellPriceArticleTi</h2>
+<pre>setTotSellPriceArticleTi(\decimal $totSellPriceArticleTi) : <a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$totSellPriceArticleTi</h4>
+<code>\decimal</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_accountingLabel"> </a><div class="element clickable property private property_accountingLabel" data-toggle="collapse" data-target=".property_accountingLabel .collapse">
+<h2></h2>
+<pre>$accountingLabel : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="accounting_label", type="string", length=20</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_accountingNumber"> </a><div class="element clickable property private property_accountingNumber" data-toggle="collapse" data-target=".property_accountingNumber .collapse">
+<h2></h2>
+<pre>$accountingNumber : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="accounting_number", type="string", length=12</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_amountTax"> </a><div class="element clickable property private property_amountTax" data-toggle="collapse" data-target=".property_amountTax .collapse">
+<h2></h2>
+<pre>$amountTax : \decimal</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="amount_tax", type="decimal"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_comment"> </a><div class="element clickable property private property_comment" data-toggle="collapse" data-target=".property_comment .collapse">
+<h2></h2>
+<pre>$comment : \text</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="comment", type="text"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_id"> </a><div class="element clickable property private property_id" data-toggle="collapse" data-target=".property_id .collapse">
+<h2></h2>
+<pre>$id : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>Column</th>
+<td>name="id", type="integer"</td>
+</tr>
+<tr>
+<th>Id</th>
+<td>Id</td>
+</tr>
+<tr>
+<th>GeneratedValue</th>
+<td>strategy="IDENTITY"</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_invoice"> </a><div class="element clickable property private property_invoice" data-toggle="collapse" data-target=".property_invoice .collapse">
+<h2></h2>
+<pre>$invoice : <a href="../classes/CommercialInvoice.html">\CommercialInvoice</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>ManyToOne</th>
+<td>targetEntity="CommercialInvoice"</td>
+</tr>
+<tr>
+<th>JoinColumns</th>
+<td>({
+  @JoinColumn(name="invoice_id", referencedColumnName="id")
+})</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_isGroup"> </a><div class="element clickable property private property_isGroup" data-toggle="collapse" data-target=".property_isGroup .collapse">
+<h2></h2>
+<pre>$isGroup : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="is_group", type="boolean"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_itemLabel"> </a><div class="element clickable property private property_itemLabel" data-toggle="collapse" data-target=".property_itemLabel .collapse">
+<h2></h2>
+<pre>$itemLabel : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="item_label", type="string", length=500</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_itemRef"> </a><div class="element clickable property private property_itemRef" data-toggle="collapse" data-target=".property_itemRef .collapse">
+<h2></h2>
+<pre>$itemRef : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="item_ref", type="string", length=10</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_parent"> </a><div class="element clickable property private property_parent" data-toggle="collapse" data-target=".property_parent .collapse">
+<h2></h2>
+<pre>$parent : <a href="../classes/CommercialInvoiceItem.html">\CommercialInvoiceItem</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>ManyToOne</th>
+<td>targetEntity="CommercialInvoiceItem"</td>
+</tr>
+<tr>
+<th>JoinColumns</th>
+<td>({
+  @JoinColumn(name="parent_id", referencedColumnName="id")
+})</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_purchasingDfUnitPrice"> </a><div class="element clickable property private property_purchasingDfUnitPrice" data-toggle="collapse" data-target=".property_purchasingDfUnitPrice .collapse">
+<h2></h2>
+<pre>$purchasingDfUnitPrice : \decimal</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="purchasing_DF_unit_price", type="decimal"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_quantityArticle"> </a><div class="element clickable property private property_quantityArticle" data-toggle="collapse" data-target=".property_quantityArticle .collapse">
+<h2></h2>
+<pre>$quantityArticle : \decimal</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="quantity_article", type="decimal"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_taxRate"> </a><div class="element clickable property private property_taxRate" data-toggle="collapse" data-target=".property_taxRate .collapse">
+<h2></h2>
+<pre>$taxRate : \decimal</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="tax_rate", type="decimal"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_totSellPriceArticleDf"> </a><div class="element clickable property private property_totSellPriceArticleDf" data-toggle="collapse" data-target=".property_totSellPriceArticleDf .collapse">
+<h2></h2>
+<pre>$totSellPriceArticleDf : \decimal</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="tot_sell_price_article_DF", type="decimal"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_totSellPriceArticleTi"> </a><div class="element clickable property private property_totSellPriceArticleTi" data-toggle="collapse" data-target=".property_totSellPriceArticleTi .collapse">
+<h2></h2>
+<pre>$totSellPriceArticleTi : \decimal</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="tot_sell_price_article_TI", type="decimal"</td>
+</tr></table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-04-18T11:09:27+02:00.<br></footer></div>
+</div>
+</body>
+</html>

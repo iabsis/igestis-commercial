@@ -1,0 +1,8 @@
+{% import "form.twig" as forms %}
+
+{{ forms.input('title', 'Title'|trans, freeDocument.title) }}
+{{ forms.textarea('description', 'Description'|trans, freeDocument.description) }}
+
+<script>
+    $("#project-edit-free-document-modal form").attr("action", '{{ url('commercial_project_edit_free_document', {FreeDocumentId : freeDocument.id }) }}');
+</script>

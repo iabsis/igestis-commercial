@@ -1,0 +1,76 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Create a new article"|trans,
+                'help': "Fill all information about the new article"|trans} %}
+
+{% block content %}{{ parent() }}
+
+<div class="well">
+    <form id="form_data" method='post' action=''>
+        <fieldset>
+            <legend>{% trans %}Article informations{% endtrans %}</legend>
+            <div class="row-fluid">
+                <div class="span5">                    
+                    {{ forms.input('companyRef', 'Our reference'|trans, form_data.companyRef) }}
+                    {{ forms.input('manufacturerRef', 'Manufacturer reference'|trans, form_data.manufacturerRef) }}
+                    {{ forms.input('designation', 'Designation'|trans, form_data.designation) }}
+                    {{ forms.textarea('description', 'Description'|trans, form_data.description) }}
+                </div>
+                <div class="span5 offset1">                    
+                    {{ forms.input('purchasingPriceDf', 'Purchasing price'|trans, form_data.purchasingPriceDf) }}
+                    {{ forms.input('sellingPriceDf', 'Selling price'|trans, form_data.sellingPriceDf) }}
+                    {{ forms.select('taxRate', 'Taxe rate'|trans, taxeRatesList, form_data.taxRate.id, 'id', 'showInList', null, null, null, "required") }}
+                        
+                    {{ forms.select('sellingAccount', 'Selling account'|trans, sellingAccountList, form_data.sellingAccount.id, 'id', 'label') }}
+                    {{ forms.tagfield('categoryLabel', 'Category'|trans, articleCategoriesList, form_data.categoryLabel) }}
+                </div>
+            </div>
+            <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
+                    <input class="btn" type="button" value="{% trans %}Cancel{% endtrans %}" onclick="javascript:history.go(-1);return true;">
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+
+<script>
+    $(document).ready(function(){
+                    $("#form_data").validate({
+                            ignore: "input[type='text']:hidden",
+                            rules:{
+                                    
+                                    designation:{
+                                            required:true
+                                    },
+                                    companyRef:{
+                                            required:true
+                                    },
+                                    sellingAccount:{
+                                            required:true
+                                    }
+                                    ,
+                                    taxRate:{
+                                            required:true
+                                    }
+                            },
+                            errorClass: "help-inline",
+                            errorElement: "span",
+                            errorPlacement: function(error, element) {
+                                element.parent().after(error);
+                            },
+                            highlight:function(element, errorClass, validClass) {
+                                    $(element).parents('.control-group').removeClass('success');
+                                    $(element).parents('.control-group').addClass('error');
+                            },
+                            unhighlight: function(element, errorClass, validClass) {
+                                    $(element).parents('.control-group').removeClass('error');
+                                    $(element).parents('.control-group').addClass('success');
+                            }
+                    });
+            });
+    </script>
+
+
+{% endblock %}

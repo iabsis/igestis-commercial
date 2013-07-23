@@ -1,0 +1,432 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>igestis-iprojectis-v2 » \CommercialBankOperation</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">igestis-iprojectis-v2</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Igestis.html"><i class="icon-th"></i> Igestis</a></li>
+<li><a href="../namespaces/global.html"><i class="icon-th"></i> global</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">215</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method_getAccount" title="getAccount :: Get account"><span class="description">Get account</span><pre>getAccount()</pre></a></li>
+<li class="method public "><a href="#method_getId" title="getId :: Get id"><span class="description">Get id</span><pre>getId()</pre></a></li>
+<li class="method public "><a href="#method_getImportDate" title="getImportDate :: Get importDate"><span class="description">Get importDate</span><pre>getImportDate()</pre></a></li>
+<li class="method public "><a href="#method_getLabel" title="getLabel :: Get label"><span class="description">Get label</span><pre>getLabel()</pre></a></li>
+<li class="method public "><a href="#method_getOperationAmount" title="getOperationAmount :: Get operationAmount"><span class="description">Get operationAmount</span><pre>getOperationAmount()</pre></a></li>
+<li class="method public "><a href="#method_getOperationDate" title="getOperationDate :: Get operationDate"><span class="description">Get operationDate</span><pre>getOperationDate()</pre></a></li>
+<li class="method public "><a href="#method_getOperationRef" title="getOperationRef :: Get operationRef"><span class="description">Get operationRef</span><pre>getOperationRef()</pre></a></li>
+<li class="method public "><a href="#method_getOperationType" title="getOperationType :: Get operationType"><span class="description">Get operationType</span><pre>getOperationType()</pre></a></li>
+<li class="method public "><a href="#method_setAccount" title="setAccount :: Set account"><span class="description">Set account</span><pre>setAccount()</pre></a></li>
+<li class="method public "><a href="#method_setImportDate" title="setImportDate :: Set importDate"><span class="description">Set importDate</span><pre>setImportDate()</pre></a></li>
+<li class="method public "><a href="#method_setLabel" title="setLabel :: Set label"><span class="description">Set label</span><pre>setLabel()</pre></a></li>
+<li class="method public "><a href="#method_setOperationAmount" title="setOperationAmount :: Set operationAmount"><span class="description">Set operationAmount</span><pre>setOperationAmount()</pre></a></li>
+<li class="method public "><a href="#method_setOperationDate" title="setOperationDate :: Set operationDate"><span class="description">Set operationDate</span><pre>setOperationDate()</pre></a></li>
+<li class="method public "><a href="#method_setOperationRef" title="setOperationRef :: Set operationRef"><span class="description">Set operationRef</span><pre>setOperationRef()</pre></a></li>
+<li class="method public "><a href="#method_setOperationType" title="setOperationType :: Set operationType"><span class="description">Set operationType</span><pre>setOperationType()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_account" title="$account :: "><span class="description"></span><pre>$account</pre></a></li>
+<li class="property private "><a href="#property_id" title="$id :: "><span class="description"></span><pre>$id</pre></a></li>
+<li class="property private "><a href="#property_importDate" title="$importDate :: "><span class="description"></span><pre>$importDate</pre></a></li>
+<li class="property private "><a href="#property_label" title="$label :: "><span class="description"></span><pre>$label</pre></a></li>
+<li class="property private "><a href="#property_operationAmount" title="$operationAmount :: "><span class="description"></span><pre>$operationAmount</pre></a></li>
+<li class="property private "><a href="#property_operationDate" title="$operationDate :: "><span class="description"></span><pre>$operationDate</pre></a></li>
+<li class="property private "><a href="#property_operationRef" title="$operationRef :: "><span class="description"></span><pre>$operationRef</pre></a></li>
+<li class="property private "><a href="#property_operationType" title="$operationType :: "><span class="description"></span><pre>$operationType</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\CommercialBankOperation"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/CommercialBankOperation.html">CommercialBankOperation</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">CommercialBankOperation</p>
+<div class="details">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>Table</th>
+<td>name="COMMERCIAL_BANK_OPERATION"</td>
+</tr>
+<tr>
+<th>Entity</th>
+<td>Entity</td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method_getAccount"></a><div class="element clickable method public method_getAccount" data-toggle="collapse" data-target=".method_getAccount .collapse">
+<h2>Get account</h2>
+<pre>getAccount() : <a href="../classes/CommercialBankAccount.html">\CommercialBankAccount</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialBankAccount.html">\CommercialBankAccount</a></code></div>
+</div></div>
+</div>
+<a id="method_getId"></a><div class="element clickable method public method_getId" data-toggle="collapse" data-target=".method_getId .collapse">
+<h2>Get id</h2>
+<pre>getId() : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>integer</code></div>
+</div></div>
+</div>
+<a id="method_getImportDate"></a><div class="element clickable method public method_getImportDate" data-toggle="collapse" data-target=".method_getImportDate .collapse">
+<h2>Get importDate</h2>
+<pre>getImportDate() : \datetime</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\datetime</code></div>
+</div></div>
+</div>
+<a id="method_getLabel"></a><div class="element clickable method public method_getLabel" data-toggle="collapse" data-target=".method_getLabel .collapse">
+<h2>Get label</h2>
+<pre>getLabel() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getOperationAmount"></a><div class="element clickable method public method_getOperationAmount" data-toggle="collapse" data-target=".method_getOperationAmount .collapse">
+<h2>Get operationAmount</h2>
+<pre>getOperationAmount() : \decimal</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\decimal</code></div>
+</div></div>
+</div>
+<a id="method_getOperationDate"></a><div class="element clickable method public method_getOperationDate" data-toggle="collapse" data-target=".method_getOperationDate .collapse">
+<h2>Get operationDate</h2>
+<pre>getOperationDate() : \date</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\date</code></div>
+</div></div>
+</div>
+<a id="method_getOperationRef"></a><div class="element clickable method public method_getOperationRef" data-toggle="collapse" data-target=".method_getOperationRef .collapse">
+<h2>Get operationRef</h2>
+<pre>getOperationRef() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getOperationType"></a><div class="element clickable method public method_getOperationType" data-toggle="collapse" data-target=".method_getOperationType .collapse">
+<h2>Get operationType</h2>
+<pre>getOperationType() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_setAccount"></a><div class="element clickable method public method_setAccount" data-toggle="collapse" data-target=".method_setAccount .collapse">
+<h2>Set account</h2>
+<pre>setAccount(\CommercialBankAccount $account) : <a href="../classes/CommercialBankOperation.html">\CommercialBankOperation</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$account</h4>
+<code><a href="../classes/CommercialBankAccount.html">\CommercialBankAccount</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialBankOperation.html">\CommercialBankOperation</a></code></div>
+</div></div>
+</div>
+<a id="method_setImportDate"></a><div class="element clickable method public method_setImportDate" data-toggle="collapse" data-target=".method_setImportDate .collapse">
+<h2>Set importDate</h2>
+<pre>setImportDate(\datetime $importDate) : <a href="../classes/CommercialBankOperation.html">\CommercialBankOperation</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$importDate</h4>
+<code>\datetime</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialBankOperation.html">\CommercialBankOperation</a></code></div>
+</div></div>
+</div>
+<a id="method_setLabel"></a><div class="element clickable method public method_setLabel" data-toggle="collapse" data-target=".method_setLabel .collapse">
+<h2>Set label</h2>
+<pre>setLabel(string $label) : <a href="../classes/CommercialBankOperation.html">\CommercialBankOperation</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$label</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialBankOperation.html">\CommercialBankOperation</a></code></div>
+</div></div>
+</div>
+<a id="method_setOperationAmount"></a><div class="element clickable method public method_setOperationAmount" data-toggle="collapse" data-target=".method_setOperationAmount .collapse">
+<h2>Set operationAmount</h2>
+<pre>setOperationAmount(\decimal $operationAmount) : <a href="../classes/CommercialBankOperation.html">\CommercialBankOperation</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$operationAmount</h4>
+<code>\decimal</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialBankOperation.html">\CommercialBankOperation</a></code></div>
+</div></div>
+</div>
+<a id="method_setOperationDate"></a><div class="element clickable method public method_setOperationDate" data-toggle="collapse" data-target=".method_setOperationDate .collapse">
+<h2>Set operationDate</h2>
+<pre>setOperationDate(\date $operationDate) : <a href="../classes/CommercialBankOperation.html">\CommercialBankOperation</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$operationDate</h4>
+<code>\date</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialBankOperation.html">\CommercialBankOperation</a></code></div>
+</div></div>
+</div>
+<a id="method_setOperationRef"></a><div class="element clickable method public method_setOperationRef" data-toggle="collapse" data-target=".method_setOperationRef .collapse">
+<h2>Set operationRef</h2>
+<pre>setOperationRef(string $operationRef) : <a href="../classes/CommercialBankOperation.html">\CommercialBankOperation</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$operationRef</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialBankOperation.html">\CommercialBankOperation</a></code></div>
+</div></div>
+</div>
+<a id="method_setOperationType"></a><div class="element clickable method public method_setOperationType" data-toggle="collapse" data-target=".method_setOperationType .collapse">
+<h2>Set operationType</h2>
+<pre>setOperationType(string $operationType) : <a href="../classes/CommercialBankOperation.html">\CommercialBankOperation</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$operationType</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/CommercialBankOperation.html">\CommercialBankOperation</a></code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_account"> </a><div class="element clickable property private property_account" data-toggle="collapse" data-target=".property_account .collapse">
+<h2></h2>
+<pre>$account : <a href="../classes/CommercialBankAccount.html">\CommercialBankAccount</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>ManyToOne</th>
+<td>targetEntity="CommercialBankAccount"</td>
+</tr>
+<tr>
+<th>JoinColumns</th>
+<td>({
+  @JoinColumn(name="account_id", referencedColumnName="id")
+})</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_id"> </a><div class="element clickable property private property_id" data-toggle="collapse" data-target=".property_id .collapse">
+<h2></h2>
+<pre>$id : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>Column</th>
+<td>name="id", type="integer"</td>
+</tr>
+<tr>
+<th>Id</th>
+<td>Id</td>
+</tr>
+<tr>
+<th>GeneratedValue</th>
+<td>strategy="IDENTITY"</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="property_importDate"> </a><div class="element clickable property private property_importDate" data-toggle="collapse" data-target=".property_importDate .collapse">
+<h2></h2>
+<pre>$importDate : \datetime</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="import_date", type="datetime"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_label"> </a><div class="element clickable property private property_label" data-toggle="collapse" data-target=".property_label .collapse">
+<h2></h2>
+<pre>$label : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="label", type="string", length=120</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_operationAmount"> </a><div class="element clickable property private property_operationAmount" data-toggle="collapse" data-target=".property_operationAmount .collapse">
+<h2></h2>
+<pre>$operationAmount : \decimal</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="operation_amount", type="decimal"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_operationDate"> </a><div class="element clickable property private property_operationDate" data-toggle="collapse" data-target=".property_operationDate .collapse">
+<h2></h2>
+<pre>$operationDate : \date</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="operation_date", type="date"</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_operationRef"> </a><div class="element clickable property private property_operationRef" data-toggle="collapse" data-target=".property_operationRef .collapse">
+<h2></h2>
+<pre>$operationRef : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="operation_ref", type="string", length=20</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_operationType"> </a><div class="element clickable property private property_operationType" data-toggle="collapse" data-target=".property_operationType .collapse">
+<h2></h2>
+<pre>$operationType : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>name="operation_type", type="string"</td>
+</tr></table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-04-18T11:09:27+02:00.<br></footer></div>
+</div>
+</body>
+</html>

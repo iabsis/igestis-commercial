@@ -1,0 +1,20 @@
+{% import "table.twig" as articlesListTable %}
+{{ articlesListTable.datatable('#articlesListTable') }}  
+<form>
+<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="articlesListTable">
+   <thead>
+       <tr>
+           <th>{% trans %}Amount{% endtrans %}</th>
+           <th>{% trans %}Contact{% endtrans %}</th>
+       </tr>
+   </thead>
+   <tbody>
+      {% for row in contactsList %}
+           <tr>
+               <td><input type="text" size="5" style="width: auto;" placeholder="{% trans %}0{% endtrans %}" name="selected-{{ row.id }}" value=""></td>
+               <td>{{ row.Contact }}</td>                   
+           </tr>
+     {% endfor %}
+   </tbody>
+</table>
+</form>

@@ -1,0 +1,59 @@
+<div id="new-item" class="modal hide fade">
+    <form class="modal-form  ajax-emulation-validation allow-to-quit" id="document-article-new-data" method="post" action="{{ url('commercial_selling_save_new_article', {documentId:sellingDocument.id} ) }}" enctype="multipart/form-data">
+        <input type="hidden" name="articleId" id="modal-article-id" value="">
+        <div class="modal-header">
+            <a type="button" class="close" data-dismiss="modal">×</a>
+            <h3>{% trans %}New article{% endtrans %}</h3>
+        </div>
+        <div class="modal-body">
+
+        <div class="row-fluid">
+            <div class="span3">
+              {{ forms.input('itemRef', 'Ref'|trans) }}
+            </div>
+            <div class="span6">
+              {{ forms.select('sellingAccount', 'Item type'|trans, sellingAccount, null, 'id', 'label') }}
+            </div>
+            <div class="span3">
+            {% if sellingDocument.customerUser.tvaInvoice %}
+            	{{ forms.select('taxRate', 'Tax rate'|trans, taxeRatesList, form_data.taxRate.id, 'value', 'value', null, null, null, "required") }}
+            {% else %}
+            	{{ forms.input('taxRate', 'Tax rate'|trans, '0.000', null , null, null, null, "readonly") }}
+           	{% endif %}
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span4">
+              {{ forms.input('itemLabel', 'Label'|trans) }}
+            </div>
+            <div class="span8">
+              {{ forms.textarea('comment', 'Description'|trans) }}
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span4">
+              {{ forms.symbol('sellingDfUnitPrice', 'Selling price'|trans, null, "€") }}
+            </div>
+            <div class="span2">
+              {{ forms.input('quantityArticle', 'Quantity'|trans) }}
+            </div>
+            <div class="span4 offset2">
+              {{ forms.symbol('totSellPriceArticleTi', 'Total sold'|trans, null, "€", null, 'disabled') }}
+            </div>
+        </div>
+        <div class="row-fluid">            
+            <div class="span4">
+              {{ forms.symbol('purchasingDfUnitPrice', 'Purchasing price'|trans, null, "€") }}
+            </div>
+            <div class="span4 offset4">
+              {{ forms.symbol('totEarningPriceArticleTi', 'Earning'|trans, null, "€", null, 'disabled') }}
+            </div>
+        </div>
+
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">{% trans %}Close{% endtrans %}</a>
+            <input type="submit" class="btn btn-primary" value="{% trans %}Save{% endtrans %}">
+        </div>
+    </form>
+</div>

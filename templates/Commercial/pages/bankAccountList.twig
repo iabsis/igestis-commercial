@@ -1,0 +1,70 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Bank accounts list"|trans,
+                'help': "Add or edit bank accounts. You can also import ofx files"|trans} %}
+
+{% set sidebarActivated = true %}
+{% block sidebar %}
+  {% include 'sidebar.twig' %}
+{% endblock %}
+
+
+{% block content %}{{ parent() }}
+
+<script type="text/javascript">
+function delete_account(id) {
+    bootbox.confirm("{% trans %}Are you sure that you want to delete this account ?{% endtrans %}", "{% trans %}No{% endtrans %}", "{% trans %}Yes{% endtrans %}", function(result) {
+        if(result) window.location.href="{{ url('commercial_bank_account_del', {"Id":''}) }}" + id;
+    });
+}
+</script>
+
+{# start #}
+<div class="row-fluid" align="right">
+    <a data-toggle="modal" href="#new-bank-account-modal" class="btn btn-success btn-small"><i class="icon-plus-sign icon-white"></i> {% trans %}Add new account{% endtrans %}</a>
+    <a data-toggle="modal" href="#import-accounts" class="btn btn-small hidden-phone hidden-tablet"><i class="icon-share"></i> {% trans %}Import ofx file{% endtrans %}</a>
+</div>
+<br />
+
+{% import "table.twig" as table_data %}
+{{ table_data.datatable() }}    
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="table_data">
+    <thead>
+        <tr>
+            <th>{% trans %}Account name{% endtrans %}</th>
+            <th>{% trans %}Bank name{% endtrans %}</th>
+            <th class="hidden-phone">{% trans %}Number{% endtrans %}</th>
+            <th class="hidden-phone">{% trans %}Sold{% endtrans %}</th>
+            <th>{% trans %}Actions{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tbody>
+       {% for row in data_table %}
+            <tr>
+                <td>{{ row.accountName }}</td>
+                <td>{{ row.bankName }}</td>
+                <td class="hidden-phone">{{ row.accountRef }}</td>
+                <td class="hidden-phone">{{ row.accountBalance }}</td>
+                <td>
+                    <a href="{{ url('commercial_operations_index', {'AccountId':row.id}) }}" class="btn btn-mini a-visible-line-on-over">
+                        <i class="icon-list"></i> {% trans %}Operations list{% endtrans %}
+                    </a>
+                    <a href="{{ url('commercial_bank_account_edit', {'Id':row.id}) }}" class="btn btn-mini a-visible-line-on-over">
+                        <i class="icon-edit"></i> {% trans %}Edit{% endtrans %}
+                    </a>
+                    <a href="javascript:delete_account('{{ row.id }}')" class="btn btn-danger btn-mini a-visible-line-on-over">
+                        <i class="icon-trash icon-white"></i> {% trans %}Delete{% endtrans %}
+                    </a>
+                </td>
+            </tr>
+      {% endfor %}
+    </tbody>
+</table>
+{# End #}
+
+{% include 'Commercial/modals/bankAccountNew.twig' %}
+{% include 'Commercial/modals/bankAccountImportForm.twig' %}
+        
+{% endblock %}
