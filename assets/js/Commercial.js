@@ -146,7 +146,7 @@ igestisCommercial.sellingDocument.init = function(options) {
     igestisCommercial.sellingDocument.initTable();
     
     $(function() {
-       $('#SendInvoice textarea').wysihtml5(); 
+       $('#SendInvoice textarea, #SendQuotation textarea').wysihtml5(); 
     });
 };
 
