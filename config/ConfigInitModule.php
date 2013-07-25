@@ -147,7 +147,7 @@ class ConfigInitModule implements \Igestis\Interfaces\ConfigMenuInterface, \Iges
         
         $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("Projets", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Projects", ConfigModuleVars::textDomain), 
                 "commercial_project_index");
         
         $sidebar->addItem(

@@ -40,7 +40,7 @@ msgstr ""
 msgid "Commercial"
 msgstr ""
 
-#: config/ConfigInitModule.php:72
+#: config/ConfigInitModule.php:72 config/ConfigInitModule.php:150
 msgid "Projects"
 msgstr ""
 
@@ -99,10 +99,6 @@ msgstr ""
 msgid "Navigation"
 msgstr ""
 
-#: config/ConfigInitModule.php:150
-msgid "Projets"
-msgstr ""
-
 #: config/ConfigInitModule.php:189 config/ConfigInitModule.php:194
 #: config/ConfigInitModule.php:199
 msgid "Administration"
@@ -130,8 +126,6 @@ msgid "Invoice has been generated"
 msgstr ""
 
 #: controllers/invoicesController.php:74 controllers/invoicesController.php:75
-#: controllers/estimatesController.php:67
-#: controllers/estimatesController.php:68
 msgid "Please rensign a well formed recipient"
 msgstr ""
 
@@ -243,38 +237,38 @@ msgstr ""
 msgid "An error occurred during the selling document update"
 msgstr ""
 
-#: controllers/sellingDocumentsController.php:149
+#: controllers/sellingDocumentsController.php:147
 msgid "Unable to find document"
 msgstr ""
 
-#: controllers/sellingDocumentsController.php:154
+#: controllers/sellingDocumentsController.php:152
 msgid "Unable to find article"
 msgstr ""
 
-#: controllers/sellingDocumentsController.php:181
-#: controllers/sellingDocumentsController.php:230
+#: controllers/sellingDocumentsController.php:179
+#: controllers/sellingDocumentsController.php:228
 msgid "Article successfully saved"
 msgstr ""
 
-#: controllers/sellingDocumentsController.php:201
+#: controllers/sellingDocumentsController.php:199
 msgid "Selling document not found"
 msgstr ""
 
-#: controllers/sellingDocumentsController.php:262
-#: controllers/sellingDocumentsController.php:263
+#: controllers/sellingDocumentsController.php:260
+#: controllers/sellingDocumentsController.php:261
 msgid "Article not found"
 msgstr ""
 
-#: controllers/sellingDocumentsController.php:268
-#: controllers/sellingDocumentsController.php:269
+#: controllers/sellingDocumentsController.php:266
+#: controllers/sellingDocumentsController.php:267
 msgid "Not access to this article"
 msgstr ""
 
-#: controllers/sellingDocumentsController.php:283
+#: controllers/sellingDocumentsController.php:281
 msgid "Article successfully removed"
 msgstr ""
 
-#: controllers/sellingDocumentsController.php:284
+#: controllers/sellingDocumentsController.php:282
 msgid "ok"
 msgstr ""
 
@@ -445,13 +439,18 @@ msgstr ""
 msgid "Estimate has been generated"
 msgstr ""
 
+#: controllers/estimatesController.php:67
+#: controllers/estimatesController.php:68
+msgid "Please provide a well formed recipient"
+msgstr ""
+
 #: controllers/estimatesController.php:74
 #: controllers/estimatesController.php:75
 msgid "Estimate not found"
 msgstr ""
 
 #: controllers/estimatesController.php:88
-msgid "Your quotation"
+msgid "Your estimate"
 msgstr ""
 
 #: controllers/taxeRatesController.php:39
@@ -540,7 +539,7 @@ msgstr ""
 #: classes/Pdfs/GenerateInvoice.php:205 classes/Pdfs/GenerateInvoice.php:213
 #: classes/Pdfs/GenerateEstimate.php:144 classes/Pdfs/GenerateEstimate.php:152
 #, php-format
-msgid "Unable to create the quotation folder '%s'"
+msgid "Unable to create the estimate folder '%s'"
 msgstr ""
 
 #: classes/Pdfs/GenerateCommercialDocument.php:149
@@ -640,7 +639,7 @@ msgstr ""
 #: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:40
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:40
 #: tmp/80/9e/b913f7254256f759d7739231bb6b.php:40
-msgid "Intervention informations"
+msgid "Intervention information"
 msgstr ""
 
 #: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:46
@@ -768,7 +767,11 @@ msgid "Contact"
 msgstr ""
 
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:122
-msgid "Invoice Number"
+#: tmp/5b/8a/d0a7c91c37b7f0af8411991cdcfa.php:24
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:56
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:180
+#: tmp/0d/3a/5d147d803dc62386a694204456fa.php:42
+msgid "Invoice number"
 msgstr ""
 
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:126
@@ -814,7 +817,7 @@ msgid "Associated user"
 msgstr ""
 
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:346
-#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:549
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:547
 msgid "Remove"
 msgstr ""
 
@@ -822,19 +825,19 @@ msgstr ""
 msgid "Save and next operation"
 msgstr ""
 
-#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:438
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:437
 msgid ""
 "Are you sure that you want not to assign this operation ? Every assigned row "
 "will be reseted"
 msgstr ""
 
-#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:440
-#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:466
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:439
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:464
 #: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:52
 #: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:77
 #: tmp/e0/bf/047222b830c544b90a003a8e2a64.php:35
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:58
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:225
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:224
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:41
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:92
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:52
@@ -853,13 +856,13 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:442
-#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:468
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:441
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:466
 #: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:54
 #: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:77
 #: tmp/e0/bf/047222b830c544b90a003a8e2a64.php:31
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:58
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:227
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:226
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:43
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:92
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:54
@@ -878,7 +881,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:464
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:462
 msgid ""
 "The assigned amounts does not match the operation amount. Do you want to "
 "validate anyway ?"
@@ -895,7 +898,7 @@ msgid "Providers invoices list"
 msgstr ""
 
 #: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:26
-msgid "Add and remove providers invoices."
+msgid "Import and list all purchases invoices."
 msgstr ""
 
 #: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:50
@@ -954,7 +957,8 @@ msgid "Dear Customer"
 msgstr ""
 
 #: tmp/e8/8a/72322d5c378823eda45034849138.php:23
-msgid "Following our conversation, please find enclosed the requested quote."
+msgid ""
+"Following our conversation, please find enclosed the requested estimate."
 msgstr ""
 
 #: tmp/e8/8a/72322d5c378823eda45034849138.php:28
@@ -1022,6 +1026,7 @@ msgid "Draft"
 msgstr ""
 
 #: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:84
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:62
 #: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:64
 #: tmp/53/f6/33a958759155030696f1added942.php:79
 #: tmp/53/f6/33a958759155030696f1added942.php:181
@@ -1389,12 +1394,12 @@ msgstr ""
 msgid "Exported"
 msgstr ""
 
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:217
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:216
 msgid ""
 "Thank to select at least one invoice before to click the \"export\" button"
 msgstr ""
 
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:223
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:222
 msgid "Are you sure that you want to export these invoices ?"
 msgstr ""
 
@@ -1438,12 +1443,6 @@ msgstr ""
 
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:201
 msgid "%assocNb% associations"
-msgstr ""
-
-#: tmp/5b/8a/d0a7c91c37b7f0af8411991cdcfa.php:24
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:180
-#: tmp/0d/3a/5d147d803dc62386a694204456fa.php:42
-msgid "Invoice number"
 msgstr ""
 
 #: tmp/5b/8a/d0a7c91c37b7f0af8411991cdcfa.php:28
@@ -1561,6 +1560,8 @@ msgid "Purchasing account"
 msgstr ""
 
 #: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:27
+#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:38
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:27
 msgid "Amount taxes included"
 msgstr ""
 
@@ -1629,8 +1630,8 @@ msgid "Payment deadline"
 msgstr ""
 
 #: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:39
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:94
-msgid "Method of payment"
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:52
+msgid "Payment mode"
 msgstr ""
 
 #: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:43
@@ -1648,7 +1649,7 @@ msgid "Articles list"
 msgstr ""
 
 #: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:26
-msgid "Add and remove articles."
+msgid "Manage the list of articles usable for your sales documents."
 msgstr ""
 
 #: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:50
@@ -1679,11 +1680,6 @@ msgstr ""
 msgid "Amount Df"
 msgstr ""
 
-#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:38
-#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:27
-msgid "Amount Ti"
-msgstr ""
-
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:25
 msgid "Project details"
 msgstr ""
@@ -1693,7 +1689,7 @@ msgid "Link and create all informations about your project."
 msgstr ""
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:39
-msgid "Project informations"
+msgid "Project information"
 msgstr ""
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:45
@@ -1763,10 +1759,6 @@ msgid ""
 "Are you sure that you to remove this intervention from this buying invoice ?"
 msgstr ""
 
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:62
-msgid "Estimation quote"
-msgstr ""
-
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:84
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:84
 msgid "Page"
@@ -1778,7 +1770,7 @@ msgid "of"
 msgstr ""
 
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:129
-msgid "Quotation to"
+msgid "Estimate to"
 msgstr ""
 
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:221
@@ -1873,7 +1865,7 @@ msgstr ""
 
 #: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:51
 #: tmp/2f/fb/405430ed4e7cba3d009789944224.php:51
-msgid "taxe rate informations"
+msgid "taxe rate information"
 msgstr ""
 
 #: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:63
@@ -1891,7 +1883,7 @@ msgstr ""
 
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:40
 #: tmp/3e/f7/54b6a714b9a0930416f394262650.php:40
-msgid "Article informations"
+msgid "Article information"
 msgstr ""
 
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:46
@@ -1982,7 +1974,7 @@ msgid "Documents"
 msgstr ""
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:344
-msgid "Generate the quotation"
+msgid "Generate the estimate"
 msgstr ""
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:351
@@ -1991,20 +1983,20 @@ msgid "Convert to invoice"
 msgstr ""
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:362
-msgid "Quotation action"
+msgid "Estimate action"
 msgstr ""
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:371
-msgid "Generate again the quotation"
+msgid "Generate again the estimate"
 msgstr ""
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:379
-msgid "Send the quotation by email"
+msgid "Send the estimate by email"
 msgstr ""
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:390
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:464
-msgid "Download the quotation"
+msgid "Download the estimate"
 msgstr ""
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:412
@@ -2122,14 +2114,6 @@ msgstr ""
 msgid "Creditor"
 msgstr ""
 
-#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:52
-msgid "Sold type"
-msgstr ""
-
-#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:56
-msgid "Invoice num"
-msgstr ""
-
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:65
 msgid "Document amounts"
 msgstr ""
@@ -2199,11 +2183,11 @@ msgid "Export format"
 msgstr ""
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:97
-msgid "Estimation expiration delay"
+msgid "Default estimate validity duration (in days)"
 msgstr ""
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:104
-msgid "Invoices payment due date"
+msgid "Default payment limit duration (in days)"
 msgstr ""
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:119
@@ -2310,6 +2294,10 @@ msgstr ""
 msgid "Little description"
 msgstr ""
 
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:94
+msgid "ayment mode"
+msgstr ""
+
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:398
 msgid "Commercial information"
 msgstr ""
@@ -2393,7 +2381,7 @@ msgid "Total commercial docs"
 msgstr ""
 
 #: tmp/6a/d2/434195b44da6387dc5924d3b0381.php:26
-msgid "Total support intervention"
+msgid "Total intervention time"
 msgstr ""
 
 #: tmp/6a/d2/434195b44da6387dc5924d3b0381.php:32
@@ -2402,7 +2390,9 @@ msgstr ""
 
 #: entities/CommercialProviderInvoiceAssocAmounts.php:250
 #, php-format
-msgid "The Amount df (%s), amount ti (%s) and taxes (%s) does not match"
+msgid ""
+"The amount tax free (%s), amount taxes included (%s) and taxes (%s) does not "
+"match"
 msgstr ""
 
 #: entities/CommercialInvoice.php:545
