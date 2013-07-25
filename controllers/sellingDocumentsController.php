@@ -78,12 +78,12 @@ class sellingDocumentsController extends \IgestisController {
                               ->render();                
             } catch (\Exception $e) {
                 $ajaxResponse
-                        ->addWizz(sprintf(\Igestis\I18n\Translate::_("An error occurred during the project creation : %s"), $e->getMessage()), \wizz::$WIZZ_ERROR, "#selling-document-wizz")
-                        ->setError(sprintf(\Igestis\I18n\Translate::_("An error occurred during the project creation : %s"), $e->getMessage()), $e);           
+                        ->addWizz(sprintf(\Igestis\I18n\Translate::_("An error has occurred during the project creation : %s"), $e->getMessage()), \wizz::$WIZZ_ERROR, "#selling-document-wizz")
+                        ->setError(sprintf(\Igestis\I18n\Translate::_("An error has occurred during the project creation : %s"), $e->getMessage()), $e);           
             }            
         }
         else {
-            $ajaxResponse->setError(\Igestis\I18n\Translate::_("No datas has been received for the selling document creation"));
+            $ajaxResponse->setError(\Igestis\I18n\Translate::_("No data has been received for the selling document creation"));
         }
 
     }
@@ -111,7 +111,7 @@ class sellingDocumentsController extends \IgestisController {
                 $this->redirect(\ConfigControllers::createUrl("commercial_selling_document_edit", array("Id" => $document->getId())));
                 
             } catch (\Exception $e) {
-                \IgestisErrors::createWizz($e, \IgestisErrors::TYPE_ANY, \Igestis\I18n\Translate::_("An error occurred during the selling document update"));
+                \IgestisErrors::createWizz($e, \IgestisErrors::TYPE_ANY, \Igestis\I18n\Translate::_("An error has occurred during the selling document update"));
                 $this->redirect(\ConfigControllers::createUrl("commercial_selling_document_edit", array("Id" => $document->getId())));
             }         
         }
@@ -263,8 +263,8 @@ class sellingDocumentsController extends \IgestisController {
         
         if($article->getDocument()->getCompany()->getId() != $this->context->security->user->getCompany()->getId()) {
             $ajaxResponse
-                ->addWizz(\Igestis\I18n\Translate::_("Not access to this article"), \wizz::$WIZZ_ERROR, "#wizz-articles")
-                ->setError(\Igestis\I18n\Translate::_("Not access to this article"));
+                ->addWizz(\Igestis\I18n\Translate::_("No access to this article"), \wizz::$WIZZ_ERROR, "#wizz-articles")
+                ->setError(\Igestis\I18n\Translate::_("No access to this article"));
         }
         
         $ajaxResponse->addScript('igestisInitTableHover()')

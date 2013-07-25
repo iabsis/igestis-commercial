@@ -18,14 +18,14 @@ class estimatesController extends \IgestisController {
         $this->_em->getConnection()->beginTransaction();         
 
         try {       
-            if(count($document->getInvoices())) throw new \Exception(\Igestis\I18n\Translate::_("This commercial document has already an invoice, it is locked"));
+            if(count($document->getInvoices())) throw new \Exception(\Igestis\I18n\Translate::_("An invoice has already been generated for this project an is not editable anymore."));
             $estimateDocument = new Pdfs\GenerateEstimate($this->_em, $document, $this->context->getTwigEnvironnement(), "Commercial/pdfs/estimate.twig");
             $estimateDocument->setEstimateDate(\DateTime::createFromFormat("d/m/Y", $this->request->getPost("estimateDate")))
                              ->setValidUntil(\DateTime::createFromFormat("d/m/Y", $this->request->getPost("validUntil")));
             
             $estimateDocument->generate()->show(null, "F");
             $this->context->entityManager->commit();
-            new \wizz(\Igestis\I18n\Translate::_("Estimate has been generated"), \wizz::$WIZZ_SUCCESS);
+            new \wizz(\Igestis\I18n\Translate::_("The estimate has been generated"), \wizz::$WIZZ_SUCCESS);
             $this->redirect(\ConfigControllers::createUrl("commercial_selling_document_edit", array("Id" => $documentId)));
         } catch (\Exception $e) {
             $this->context->entityManager->rollback();
@@ -64,8 +64,8 @@ class estimatesController extends \IgestisController {
         // Get recipient from the POST form
         $email = $this->request->getPost("email");
         if(!is_email($email)) {
-            $ajaxRender->addWizz(\Igestis\I18n\Translate::_("Please rensign a well formed recipient"), \wizz::$WIZZ_ERROR)
-                       ->setError(\Igestis\I18n\Translate::_("Please rensign a well formed recipient"));
+            $ajaxRender->addWizz(\Igestis\I18n\Translate::_("Please provide a valid email address"), \wizz::$WIZZ_ERROR)
+                       ->setError(\Igestis\I18n\Translate::_("Please provide a valid email addresst"));
         }
         
         // Retrieve the estimate entity
@@ -99,7 +99,7 @@ class estimatesController extends \IgestisController {
             \IgestisMailer::send($message);
             
             // Return the ajax response
-            $ajaxRender->addWizz(sprintf(\Igestis\I18n\Translate::_("Mail has been sent to %s"), $email), \wizz::$WIZZ_SUCCESS)
+            $ajaxRender->addWizz(sprintf(\Igestis\I18n\Translate::_("The email has been sent to %s"), $email), \wizz::$WIZZ_SUCCESS)
                        ->setSuccessful("ok")
                        ->render();
 

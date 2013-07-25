@@ -21,7 +21,7 @@ class invoicesController extends \IgestisController {
             if(count($document->getInvoices())) {
                 $invoice = $document->getInvoices()->get(0);
                 //\Igestis\Utils\Dump::show($invoice); exit;
-                if($invoice->getPaid() || $invoice->getExported()) throw new \Exception(\Igestis\I18n\Translate::_("This commercial document has already an invoice, it is locked"));
+                if($invoice->getPaid() || $invoice->getExported()) throw new \Exception(\Igestis\I18n\Translate::_("An invoice has already been generated for this project an is not editable anymore."));
             }
             
             $invoiceDocument = new Pdfs\GenerateInvoice($this->_em, $document, $this->context->getTwigEnvironnement(), "Commercial/pdfs/invoice.twig");
@@ -32,7 +32,7 @@ class invoicesController extends \IgestisController {
             
             $invoiceDocument->generate()->show(null, 'F');
             $this->context->entityManager->commit();
-            new \wizz(\Igestis\I18n\Translate::_("Invoice has been generated"), \wizz::$WIZZ_SUCCESS);
+            new \wizz(\Igestis\I18n\Translate::_("The invoice has been generated"), \wizz::$WIZZ_SUCCESS);
             $this->redirect(\ConfigControllers::createUrl("commercial_selling_document_edit", array("Id" => $documentId)));
         } catch (\Exception $e) {
             $this->context->entityManager->rollback();
@@ -71,7 +71,7 @@ class invoicesController extends \IgestisController {
         // Get recipient from the POST form
         $email = $this->request->getPost("email");
         if(!is_email($email)) {
-            $ajaxRender->addWizz(\Igestis\I18n\Translate::_("Please rensign a well formed recipient"), \wizz::$WIZZ_ERROR)
+            $ajaxRender->addWizz(\Igestis\I18n\Translate::_("Please provide a valid email address"), \wizz::$WIZZ_ERROR)
                        ->setError(\Igestis\I18n\Translate::_("Please rensign a well formed recipient"));
         }
         
@@ -105,7 +105,7 @@ class invoicesController extends \IgestisController {
             \IgestisMailer::send($message);
             
             // Return the ajax response
-            $ajaxRender->addWizz(sprintf(\Igestis\I18n\Translate::_("Mail has been sent to %s"), $email), \wizz::$WIZZ_SUCCESS)
+            $ajaxRender->addWizz(sprintf(\Igestis\I18n\Translate::_("The email has been sent to %s"), $email), \wizz::$WIZZ_SUCCESS)
                        ->setSuccessful("ok")
                        ->render();
 

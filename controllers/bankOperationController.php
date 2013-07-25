@@ -47,7 +47,7 @@ class bankOperationController extends \IgestisController {
             new \wizz(Translate::_("The operation has been successfully deleted"), \WIZZ::$WIZZ_SUCCESS);
         } catch (\Exception $e) {
             // Show wizz to alert user that thebank account deletion has not realy been deleted
-            \IgestisErrors::createWizz($e, \IgestisErrors::TYPE_MYSQL, sprintf(Translate::_("An error occurred during the database update : %s"), $e->getMessage())); 
+            \IgestisErrors::createWizz($e, \IgestisErrors::TYPE_MYSQL, sprintf(Translate::_("An error has occurred during the bank operation deletion : %s"), $e->getMessage())); 
         }
     
         // Redirect to the list
@@ -81,12 +81,12 @@ class bankOperationController extends \IgestisController {
                 $this->redirect(\ConfigControllers::createUrl("commercial_operations_index", array("AccountId" => $account->getId())));
         
             } catch (\Exception $e) {
-                \IgestisErrors::createWizz($e, \IgestisErrors::TYPE_MYSQL, sprintf(Translate::_("An error occurred during the database update : %s"), $e->getMessage()));
+                \IgestisErrors::createWizz($e, \IgestisErrors::TYPE_MYSQL, sprintf(Translate::_("An error has occurred during the bank operation creation : %s"), $e->getMessage()));
                 $this->redirect(\ConfigControllers::createUrl("commercial_operations_index", array("AccountId" => $account->getId())));
             }
         }
         else {
-            new \wizz(Translate::_("No datas has been received for the operation creation"), \WIZZ::$WIZZ_ERROR);
+            new \wizz(Translate::_("No data has been received for the operation creation"), \WIZZ::$WIZZ_ERROR);
             $this->redirect(\ConfigControllers::createUrl("commercial_operations_index", array("AccountId" => $account->getId())));
         }
     }

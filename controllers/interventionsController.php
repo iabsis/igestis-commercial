@@ -38,7 +38,7 @@ class interventionsController extends \IgestisController {
         try {
             if (is_file(ConfigModuleVars::interventionsDocumentFolder . "/" . $intervention->getFileName())) {
                 if (!@unlink(ConfigModuleVars::interventionsDocumentFolder . "/" . $intervention->getFileName())) {
-                    throw new \Exception(\Igestis\I18n\Translate::_("Failed to delete the old file."));
+                    throw new \Exception(\Igestis\I18n\Translate::_("Failed to delete the previous file."));
                 }
             }
             $this->context->entityManager->remove($intervention);
@@ -99,7 +99,7 @@ class interventionsController extends \IgestisController {
                     case "delete" :
                         if (is_file(ConfigModuleVars::interventionsDocumentFolder . "/" . $intervention->getFileName())) {
                             if (!@unlink(ConfigModuleVars::interventionsDocumentFolder . "/" . $intervention->getFileName())) {
-                                throw new \Exception(\Igestis\I18n\Translate::_("Failed to delete the old file."));
+                                throw new \Exception(\Igestis\I18n\Translate::_("Failed to delete the previous file."));
                             }
                         }
                         $intervention->setFileName(null);
@@ -229,7 +229,7 @@ class interventionsController extends \IgestisController {
                     case "delete" :
                         if (is_file(ConfigModuleVars::interventionsDocumentFolder . "/" . $intervention->getFileName())) {
                             if (!@unlink(ConfigModuleVars::interventionsDocumentFolder . "/" . $intervention->getFileName())) {
-                                throw new \Exception(\Igestis\I18n\Translate::_("Failed to delete the old file."));
+                                throw new \Exception(\Igestis\I18n\Translate::_("Failed to delete the previous file."));
                             }
                         }
                         $intervention->setFileName(null);

@@ -40,7 +40,7 @@ class parametersController extends \IgestisController {
                 
                 
                 $ajaxResponse
-                        ->addWizz(\Igestis\I18n\Translate::_("Company configuration has been savec successfully"), \wizz::$WIZZ_SUCCESS)
+                        ->addWizz(\Igestis\I18n\Translate::_("Company configuration has been saved successfully"), \wizz::$WIZZ_SUCCESS)
                         ->setSuccessful("ok")
                         ->render();
             } catch (\Exception $exc) {

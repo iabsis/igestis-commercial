@@ -36,7 +36,7 @@ class projectsController extends \IgestisController {
         } catch (\Exception $e) {
             // Show wizz to alert user that the purchasing article deletion has not realy been deleted
             //\IgestisErrors::createWizz($e);
-            new \wizz(\Igestis\I18n\Translate::_("Unable to delete this project. Check if it has any free documents linked"), \wizz::$WIZZ_ERROR);
+            new \wizz(\Igestis\I18n\Translate::_("Unable to delete this project unless there is linked resources."), \wizz::$WIZZ_ERROR);
             $this->redirect(\ConfigControllers::createUrl("commercial_project_index"));
         }
 
@@ -69,12 +69,12 @@ class projectsController extends \IgestisController {
                 $this->redirect(\ConfigControllers::createUrl("commercial_project_edit", array("Id" => $project->getId())));
                 
             } catch (\Exception $e) {
-                \IgestisErrors::createWizz($e, \IgestisErrors::TYPE_ANY, \Igestis\I18n\Translate::_("An error occurred during the project creation"));
+                \IgestisErrors::createWizz($e, \IgestisErrors::TYPE_ANY, \Igestis\I18n\Translate::_("An error has occurred during the project creation"));
                 $this->redirect(\ConfigControllers::createUrl("commercial_project_index"));
             }            
         }
         else {
-            new \wizz(\Igestis\I18n\Translate::_("No datas has been received for the project creation"), \WIZZ::$WIZZ_ERROR);
+            new \wizz(\Igestis\I18n\Translate::_("No data has been received for the project creation"), \WIZZ::$WIZZ_ERROR);
             $this->redirect(\ConfigControllers::createUrl("commercial_project_index"));
         }
 
@@ -101,7 +101,7 @@ class projectsController extends \IgestisController {
                 $this->redirect(\ConfigControllers::createUrl("commercial_project_edit", array("Id" => $project->getId())));
                 
             } catch (\Exception $e) {
-                \IgestisErrors::createWizz($e, \IgestisErrors::TYPE_ANY, \Igestis\I18n\Translate::_("An error occurred during the selling document update"));
+                \IgestisErrors::createWizz($e, \IgestisErrors::TYPE_ANY, \Igestis\I18n\Translate::_("An error has occurred during the selling document update"));
                 $this->redirect(\ConfigControllers::createUrl("commercial_project_edit", array("Id" => $project->getId())));
             }         
         }
@@ -377,7 +377,7 @@ class projectsController extends \IgestisController {
             $this->_em->remove($freeDocument);
             $this->_em->flush();
         } catch (Exception $exc) {
-            $ajaxResponse->setError (\Igestis\I18n\Translate::_("Error during the free document unlink") . $exc->getMessage());
+            $ajaxResponse->setError (\Igestis\I18n\Translate::_("Error during the free document deletion") . $exc->getMessage());
         }
         
         $htmlContent = $this->context->render("Commercial/ajax/ProjectEditFreeDocumentTableDiv.twig", array(
@@ -448,7 +448,7 @@ class projectsController extends \IgestisController {
                              ->setSuccessful("ok")->render();    
                 
             } catch (Exception $exc) {
-                $ajaxResponse->setError (\Igestis\I18n\Translate::_("Error during the free document unlink") . $exc->getMessage());
+                $ajaxResponse->setError (\Igestis\I18n\Translate::_("Error during the free document edition") . $exc->getMessage());
             }
             
         }

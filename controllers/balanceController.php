@@ -62,7 +62,7 @@ class balanceController extends \IgestisController {
                 ->setSuccessful("ok")
                 ->render();
         } catch (\Exception $exc) {
-            $ajaxResponse->setError(sprintf(\Igestis\I18n\Translate::_("An error occurred during the paid status change : %s"), $exc->getMessage()), $exc);
+            $ajaxResponse->setError(sprintf(\Igestis\I18n\Translate::_("An error has occurred during the paid status change : %s"), $exc->getMessage()), $exc);
         }
 
 

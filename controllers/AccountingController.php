@@ -31,11 +31,11 @@ class AccountingController extends \IgestisController {
             $this->_em->flush();
             
             $ajaxRender->setSuccessful("ok")
-                       ->addWizz(\Igestis\I18n\Translate::_("The vat accouting values has been successfuly updated"), \wizz::$WIZZ_SUCCESS)
+                       ->addWizz(\Igestis\I18n\Translate::_("The tax accouting values has been successfuly updated"), \wizz::$WIZZ_SUCCESS)
                        ->render();
         }
         catch(\Exception $e) {
-            $ajaxRender->setError(\Igestis\I18n\Translate::_("An error occurred during the record of the vat accounting"), $e);
+            $ajaxRender->setError(\Igestis\I18n\Translate::_("An error has occurred during the record of the tax accounting"), $e);
         }
     }
     
@@ -64,7 +64,7 @@ class AccountingController extends \IgestisController {
         $this->redirect(\ConfigControllers::createUrl("commercial_accounting_index"));
     }
 
-    /**
+    /**a
      * Add a purchasing account
      */
     public function purchasingAccountNewAction() {

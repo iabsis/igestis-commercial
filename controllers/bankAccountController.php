@@ -41,7 +41,7 @@ class bankAccountController extends \IgestisController {
         }
 
         // Show wizz to confirm the update
-        new \wizz(_("The purchasing article has been successfully deleted"), \WIZZ::$WIZZ_SUCCESS);
+        new \wizz(_("The bank account has been successfully deleted"), \WIZZ::$WIZZ_SUCCESS);
 
         // Redirect to the list
         $this->redirect(\ConfigControllers::createUrl("commercial_bank_index"));
@@ -56,7 +56,7 @@ class bankAccountController extends \IgestisController {
     		$ofxParser->parse();
     	} catch (\Exception $e) {
     		// Show wizz to confirm the update
-    		\IgestisErrors::createWizz($e, \IgestisErrors::TYPE_ANY, sprintf(Translate::_("An error occurred while parsing the file : %s"), $e->getMessage()));
+    		\IgestisErrors::createWizz($e, \IgestisErrors::TYPE_ANY, sprintf(Translate::_("An error has occurred while parsing the file : %s"), $e->getMessage()));
     		
     		// Redirect to the list
     		$this->redirect(\ConfigControllers::createUrl("commercial_bank_index"));
@@ -75,7 +75,7 @@ class bankAccountController extends \IgestisController {
         $importedRows = $this->_em->getRepository("CommercialBankTmpAccount")->findCurrentUserLastImport();
         if($importedRows == null) {
             // Show wizz to article the article update
-            new \wizz(Translate::_("There is not operations to import."), \WIZZ::$WIZZ_WARNING);
+            new \wizz(Translate::_("There is no operation to import."), \WIZZ::$WIZZ_WARNING);
             
             // Redirect to the article list
             $this->redirect(\ConfigControllers::createUrl("commercial_bank_index"));
@@ -118,7 +118,7 @@ class bankAccountController extends \IgestisController {
         } catch (\Exception $e) {
             $this->_em->getConnection()->rollback();
             
-            \IgestisErrors::createWizz($e, \IgestisErrors::TYPE_ANY, sprintf(Translate::_("An error occurred during the import process : %s"), $e->getMessage()));     
+            \IgestisErrors::createWizz($e, \IgestisErrors::TYPE_ANY, sprintf(Translate::_("An error has occurred during the import process : %s"), $e->getMessage()));     
             $this->redirect(\ConfigControllers::createUrl("commercial_bank_index"));
         } 
                
@@ -150,7 +150,7 @@ class bankAccountController extends \IgestisController {
             }
 
             // Show wizz to article the article update
-            new \wizz(_("The article data has been successfully saved"), \WIZZ::$WIZZ_SUCCESS);
+            new \wizz(_("The new bank account has been successfully created"), \WIZZ::$WIZZ_SUCCESS);
 
             // Redirect to the article list
             $this->redirect(\ConfigControllers::createUrl("commercial_bank_index"));
@@ -188,7 +188,7 @@ class bankAccountController extends \IgestisController {
                 $this->redirect(\ConfigControllers::createUrl("commercial_bank_index"));
                 
             } catch (\Exception $e) {
-                \IgestisErrors::createWizz($e, \IgestisErrors::TYPE_MYSQL, sprintf(Translate::_("An error occurred during the database update : %s"), $e->getMessage()));    
+                \IgestisErrors::createWizz($e, \IgestisErrors::TYPE_MYSQL, sprintf(Translate::_("An error has occurred during the bank account update : %s"), $e->getMessage()));    
                 $this->redirect(\ConfigControllers::createUrl("commercial_bank_index"));
             }
             
