@@ -296,7 +296,7 @@ msgstr ""
 
 #: controllers/AccountingController.php:38
 msgid "An error occurred during the record of the vat accounting"
-msgstr ""
+msgstr "Une erreur s'est produite "
 
 #: controllers/AccountingController.php:61
 msgid "The purchasing account has been successfully deleted"
@@ -648,19 +648,18 @@ msgstr "Date"
 
 #: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:25
 msgid "Edit a bank account"
-msgstr ""
+msgstr "Editer les informations bancaires"
 
 #: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:25
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:25
 msgid "Fill all information about the article"
-msgstr ""
+msgstr "Saisisseu toutes les informations a propos de l'article"
 
 #: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:40
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:40
 #: tmp/80/9e/b913f7254256f759d7739231bb6b.php:40
-#, fuzzy
 msgid "Intervention information"
-msgstr "Interventions"
+msgstr "Informations de l'intervention"
 
 #: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:46
 #: tmp/2d/77/c6405f1255bde67df8f7fa410dc7.php:43
@@ -763,11 +762,11 @@ msgstr "Statut de l'opération"
 
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:76
 msgid "Not assignable"
-msgstr ""
+msgstr "Non assignable"
 
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:76
 msgid "Assignable"
-msgstr ""
+msgstr "Assignable"
 
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:102
 msgid "Founded invoices with same amount"
@@ -1369,7 +1368,7 @@ msgstr "Ventes"
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:146
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:154
 msgid "Order"
-msgstr ""
+msgstr "Achat"
 
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:167
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:174
@@ -1474,11 +1473,11 @@ msgstr "Nom du fournisseur"
 
 #: tmp/5b/8a/d0a7c91c37b7f0af8411991cdcfa.php:36
 msgid "Buying price"
-msgstr ""
+msgstr "Prix d'achat"
 
 #: tmp/5b/8a/d0a7c91c37b7f0af8411991cdcfa.php:40
 msgid "Total with taxes"
-msgstr ""
+msgstr "Total TTC"
 
 #: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:25
 msgid "Import report"
@@ -1523,25 +1522,25 @@ msgstr ""
 
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:50
 msgid "Are you sure that you want to delete this project ?"
-msgstr ""
+msgstr "Ètes-vous sur de vouloir supprimer ce projet ?"
 
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:70
 msgid "Filter the projects"
-msgstr ""
+msgstr "Filtrer les projets"
 
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:76
 msgid "Status"
-msgstr ""
+msgstr "Statut"
 
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:76
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:53
 msgid "Opened"
-msgstr ""
+msgstr "Ouvert"
 
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:76
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:53
 msgid "Closed"
-msgstr ""
+msgstr "Fermé"
 
 #: tmp/c1/f7/ae7ddf2a067f06cc7d0e7a2f082e.php:28
 msgid "Import the operations of the bank account"
@@ -1549,20 +1548,20 @@ msgstr ""
 
 #: tmp/c1/f7/ae7ddf2a067f06cc7d0e7a2f082e.php:35
 msgid "Source file information"
-msgstr ""
+msgstr "Information du fichier source"
 
 #: tmp/c1/f7/ae7ddf2a067f06cc7d0e7a2f082e.php:41
 msgid "OFX file"
-msgstr ""
+msgstr "fichier OFX"
 
 #: tmp/c1/f7/ae7ddf2a067f06cc7d0e7a2f082e.php:54
 #: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:119
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: tmp/c1/f7/ae7ddf2a067f06cc7d0e7a2f082e.php:58
 msgid "Next step"
-msgstr ""
+msgstr "Étape suivante"
 
 #: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:22
 msgid "Support intervention"
@@ -1571,17 +1570,17 @@ msgstr ""
 #: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:29
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:219
 msgid "Link an intervention"
-msgstr ""
+msgstr "Lier une opération"
 
 #: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:54
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:166
 msgid "Duration"
-msgstr ""
+msgstr "Durée"
 
 #: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:21
 #: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:21
 msgid "Purchasing account"
-msgstr ""
+msgstr "Compte d'achat"
 
 #: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:27
 #: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:38
@@ -1596,19 +1595,19 @@ msgstr ""
 #: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:41
 #: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:41
 msgid "Or"
-msgstr ""
+msgstr "Ou"
 
 #: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:47
 #: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:47
 msgid "Taxes"
-msgstr ""
+msgstr "TVA"
 
 #: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:104
 #: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:108
 #: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:104
 #: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:108
 msgid "Set only one of the two fields"
-msgstr ""
+msgstr "Définir seulement un des deux champs"
 
 #: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:120
 #: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:124
@@ -1631,7 +1630,7 @@ msgstr ""
 
 #: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:50
 msgid "Are you sure that you want to delete this account ?"
-msgstr ""
+msgstr "Êtes-vous sur de vouloir supprimer ce compte ?"
 
 #: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:69
 msgid "Add new account"
@@ -1639,15 +1638,15 @@ msgstr ""
 
 #: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:73
 msgid "Import ofx file"
-msgstr ""
+msgstr "Importer un fichier ofx"
 
 #: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:141
 msgid "Operations list"
-msgstr ""
+msgstr "Liste des opérations"
 
 #: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:28
 msgid "New invoice"
-msgstr ""
+msgstr "Nouvelle facture"
 
 #: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:35
 msgid "Payment deadline"
@@ -1656,21 +1655,23 @@ msgstr ""
 #: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:39
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:52
 msgid "Payment mode"
-msgstr ""
+msgstr "Mode de paiement"
 
 #: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:43
 msgid "Invoice type"
-msgstr ""
+msgstr "Type de facture"
 
 #: tmp/16/30/076414dae8dd4d1f7b9b2c003918.php:23
 msgid ""
 "Please find enclosed the invoice for your project. The settlement "
 "information are also included."
 msgstr ""
+"Veuillez trouver ci-joint la facture pour votre projet. Les informations de "
+"règlement y sont incluses."
 
 #: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:26
 msgid "Articles list"
-msgstr ""
+msgstr "Liste d'articles"
 
 #: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:26
 msgid "Manage the list of articles usable for your sales documents."
@@ -1678,26 +1679,26 @@ msgstr ""
 
 #: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:50
 msgid "Are you sure that you want to delete this article ?"
-msgstr ""
+msgstr "Ètes-vous sur de vouloir supprimer cet article ?"
 
 #: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:72
 msgid "Add new article"
-msgstr ""
+msgstr "Ajouter un article"
 
 #: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:97
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:64
 #: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:104
 #: tmp/3e/f7/54b6a714b9a0930416f394262650.php:64
 msgid "Purchasing price"
-msgstr ""
+msgstr "Prix d'achat"
 
 #: tmp/eb/c0/7ad350433cc56e751191fe920821.php:28
 msgid "New bank account"
-msgstr ""
+msgstr "Nouveau compte bancaire"
 
 #: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:22
 msgid "Add an amount"
-msgstr ""
+msgstr "Ajouter un montant"
 
 #: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:34
 #: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:35
@@ -1706,44 +1707,43 @@ msgstr ""
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:25
 msgid "Project details"
-msgstr ""
+msgstr "Détails du projet"
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:25
 msgid "Link and create all informations about your project."
-msgstr ""
+msgstr "Lier et créer toutes les informations a propos de votre projet."
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:39
-#, fuzzy
 msgid "Project information"
-msgstr "Projet introuvable"
+msgstr "Informations du projet"
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:45
 msgid "title"
-msgstr ""
+msgstr "titre"
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:53
 msgid "Project status"
-msgstr ""
+msgstr "Statut du projet"
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:78
 msgid "Phone"
-msgstr ""
+msgstr "Téléphone"
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:148
 msgid "External documents"
-msgstr ""
+msgstr "Documents externes"
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:154
 msgid "Drag and drop any files here to import them."
-msgstr ""
+msgstr "Glissez-déposez n'importe quel fichier ici pour l'importer."
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:162
 msgid "Add an external document"
-msgstr ""
+msgstr "Ajouter un document externe"
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:193
 msgid "Link commercial document"
-msgstr ""
+msgstr "Lier un document commercial"
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:204
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:230
@@ -1751,48 +1751,48 @@ msgstr ""
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:280
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:604
 msgid "Add"
-msgstr ""
+msgstr "Ajouter"
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:244
 msgid "Link an external document"
-msgstr ""
+msgstr "Lier un document externe"
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:269
 msgid "Link buying invoice"
-msgstr ""
+msgstr "Lier une facture d'achat"
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:293
 msgid "Edit the free document"
-msgstr ""
+msgstr "Éditer le document libre"
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:304
 msgid "Update"
-msgstr ""
+msgstr "Mise à jour"
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:324
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:411
 msgid ""
 "Are you sure that you to remove this commercial document from this project ?"
-msgstr ""
+msgstr "Êtes-vous sur de vouloir enlever ce document commercial de ce projet ?"
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:353
 msgid "Are you sure that you to remove this intervention from this project ?"
-msgstr ""
+msgstr "Êtes-vous sur de vouloir enlever cette intervention de ce projet ?"
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:382
 msgid ""
 "Are you sure that you to remove this intervention from this buying invoice ?"
-msgstr ""
+msgstr "Êtes-vous sur de vouloir enlever cette facture d'achat de ce projet ?"
 
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:84
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:84
 msgid "Page"
-msgstr ""
+msgstr "Page"
 
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:88
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:88
 msgid "of"
-msgstr ""
+msgstr "sur"
 
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:129
 msgid "Estimate to"
@@ -1801,71 +1801,71 @@ msgstr ""
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:221
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:246
 msgid "Ref."
-msgstr ""
+msgstr "Ref."
 
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:229
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:254
 msgid "Unit Price"
-msgstr ""
+msgstr "Prix unitaire"
 
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:330
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:355
 msgid "Sub total"
-msgstr ""
+msgstr "Sous total"
 
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:340
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:134
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:212
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:365
 msgid "VAT"
-msgstr ""
+msgstr "TVA"
 
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:373
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:296
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:424
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:495
 msgid "RCS"
-msgstr ""
+msgstr "RCS"
 
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:26
 msgid "Accounting management"
-msgstr ""
+msgstr "Gestion des comptes"
 
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:26
 msgid "Add and remove the accounts."
-msgstr ""
+msgstr "Ajouter et supprimer des comptes."
 
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:50
 msgid "Are you sure that you want to delete this purchasing account ?"
-msgstr ""
+msgstr "Êtes-vous sur de vouloir supprimer ce compte d'achat ?"
 
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:66
 msgid "Are you sure that you want to delete this selling account ?"
-msgstr ""
+msgstr "Êtes-vous sur de vouloir supprimer ce compte de vente ?"
 
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:86
 msgid "Purchasing accounts"
-msgstr ""
+msgstr "Comptes d'achat"
 
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:91
 msgid "Selling accounts"
-msgstr ""
+msgstr "Comptes de vente"
 
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:95
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:292
 msgid "Vat accounts"
-msgstr ""
+msgstr "Comptes TVA"
 
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:114
 msgid "Add new purchasing account"
-msgstr ""
+msgstr "Ajouter un nouveau compte d'achat"
 
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:204
 msgid "Add new selling account"
-msgstr ""
+msgstr "Ajouter un nouveau de compte de vente"
 
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:298
 msgid "Selling vat acount"
@@ -1877,77 +1877,76 @@ msgstr ""
 
 #: tmp/01/4f/0ad7e54d0e73595aa365540bcfc7.php:25
 msgid "Edit the purchasing account"
-msgstr ""
+msgstr "Editer le compte d'achat"
 
 #: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:26
 msgid "Create a new taxe rate"
-msgstr ""
+msgstr "Créer un nouveau taux de TVA"
 
 #: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:26
 #: tmp/2f/fb/405430ed4e7cba3d009789944224.php:26
 msgid "Fill all information about the taxe rate"
-msgstr ""
+msgstr "Saisissez toutes les informations a propos du taux de TVA"
 
 #: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:51
 #: tmp/2f/fb/405430ed4e7cba3d009789944224.php:51
 msgid "taxe rate information"
-msgstr ""
+msgstr "Information du taux de TVA"
 
 #: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:63
 #: tmp/2f/fb/405430ed4e7cba3d009789944224.php:63
 msgid "Percentage"
-msgstr ""
+msgstr "Pourcentage"
 
 #: tmp/2f/fb/405430ed4e7cba3d009789944224.php:26
 msgid "Edit a taxe rate"
-msgstr ""
+msgstr "Éditer un taux de TVA"
 
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:25
 msgid "Edit an article"
-msgstr ""
+msgstr "Éditer un article"
 
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:40
 #: tmp/3e/f7/54b6a714b9a0930416f394262650.php:40
-#, fuzzy
 msgid "Article information"
-msgstr "Pas d'article trouvé"
+msgstr "Informations de l'article"
 
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:46
 #: tmp/3e/f7/54b6a714b9a0930416f394262650.php:46
 msgid "Our reference"
-msgstr ""
+msgstr "Notre reference"
 
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:50
 #: tmp/3e/f7/54b6a714b9a0930416f394262650.php:50
 msgid "Manufacturer reference"
-msgstr ""
+msgstr "Reférence fabricant"
 
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:72
 #: tmp/3e/f7/54b6a714b9a0930416f394262650.php:72
 msgid "Taxe rate"
-msgstr ""
+msgstr "Taux de TVA"
 
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:77
 #: tmp/3e/f7/54b6a714b9a0930416f394262650.php:77
 msgid "Selling account"
-msgstr ""
+msgstr "Compte de vente"
 
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:81
 #: tmp/3e/f7/54b6a714b9a0930416f394262650.php:81
 msgid "Category"
-msgstr ""
+msgstr "Catégorie"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:25
 msgid "Edit a commercial document"
-msgstr ""
+msgstr "Éditer un document commercial"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:25
 msgid "Fill all information about the commercial document"
-msgstr ""
+msgstr "Saisissez toutes les informations a propos du document commercial"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:74
 msgid "This document is not editable as it has been exported or paid."
-msgstr ""
+msgstr "Ce document n'est pas modification car il a déjà été exporté ou payé."
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:90
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:245
@@ -1961,101 +1960,101 @@ msgstr ""
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:232
 msgid "Revert to main contact"
-msgstr ""
+msgstr "Rétablir le contact principal"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:253
 msgid "User label"
-msgstr ""
+msgstr "Libellé de l'utilisateur"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:261
 msgid "Address"
-msgstr ""
+msgstr "Adresse"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:267
 msgid "Address complement"
-msgstr ""
+msgstr "Adresse supplément"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:275
 msgid "Postal code"
-msgstr ""
+msgstr "Code postal"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:281
 msgid "City"
-msgstr ""
+msgstr "Ville"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:288
 msgid "Revert"
-msgstr ""
+msgstr "Rétablir"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:303
 msgid "Small description"
-msgstr ""
+msgstr "Résumé"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:307
 msgid "Full description"
-msgstr ""
+msgstr "Details"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:326
 msgid "Documents"
-msgstr ""
+msgstr "Document"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:344
 msgid "Generate the estimate"
-msgstr ""
+msgstr "Générer le devis"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:351
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:400
 msgid "Convert to invoice"
-msgstr ""
+msgstr "Convertir en facture"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:362
 msgid "Estimate action"
-msgstr ""
+msgstr "Action sur le devis"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:371
 msgid "Generate again the estimate"
-msgstr ""
+msgstr "Générer a nouveau le devis"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:379
 msgid "Send the estimate by email"
-msgstr ""
+msgstr "Envoyer le devis par mail"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:390
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:464
 msgid "Download the estimate"
-msgstr ""
+msgstr "Télécharger le devis"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:412
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:472
 msgid "Invoice action"
-msgstr ""
+msgstr "Action sur la facture"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:425
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:485
 msgid "Generate again the invoice"
-msgstr ""
+msgstr "Générer a nouveau la facture"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:436
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:496
 msgid "Send the invoice by email"
-msgstr ""
+msgstr "Envoyer la facture par mail"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:447
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:507
 msgid "Download the invoice"
-msgstr ""
+msgstr "Télécharger la facture"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:545
 msgid "Items"
-msgstr ""
+msgstr "Éléments"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:557
 msgid "New item"
-msgstr ""
+msgstr "Nouvel élément"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:565
 msgid "Search an item"
-msgstr ""
+msgstr "Rechercher un élément"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:593
 msgid "Search article database"
@@ -2068,61 +2067,63 @@ msgstr ""
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:624
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:656
 msgid "Customer email"
-msgstr ""
+msgstr "Email du client"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:635
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:667
 msgid "Send"
-msgstr ""
+msgstr "Envoyer"
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:650
 msgid "Send estimate by mail"
-msgstr ""
+msgstr "Envoyer le devis par mail"
 
 #: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:26
 msgid "Taxe rates list"
-msgstr ""
+msgstr "Liste des taux de TVA"
 
 #: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:26
 msgid "Add and remove taxe rates."
-msgstr ""
+msgstr "Ajouter et supprimer des taux de TVA."
 
 #: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:50
 msgid "Are you sure that you want to delete this taxe rate ?"
-msgstr ""
+msgstr "Ètes-vous sur de vouloir supprimer ce taux de TVA ?"
 
 #: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:72
 msgid "Add new taxe rate"
-msgstr ""
+msgstr "Ajouter un nouveau taux"
 
 #: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:93
 msgid "Value"
-msgstr ""
+msgstr "Valeur"
 
 #: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:25
 msgid "Edit an intervention"
-msgstr ""
+msgstr "Éditer une intervention"
 
 #: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:25
 msgid ""
 "Review the time and the information about the work done to your customer."
 msgstr ""
+"Vérifiez les temps et autres informations du travail effectué chez votre "
+"client."
 
 #: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:39
 msgid "This intervention is linked to the project"
-msgstr ""
+msgstr "Cette intervention est liée au projet"
 
 #: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:53
 msgid "Intervention details"
-msgstr ""
+msgstr "Détail de l'intervention"
 
 #: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:173
 msgid "Please wait while the scanner is scanning your document."
-msgstr ""
+msgstr "Veuillez patienter pendant la numérisation de votre document."
 
 #: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:177
 msgid "Please wait while your document is uploading."
-msgstr ""
+msgstr "Veuillez patienter pendant le transfère de votre document."
 
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:25
 msgid "Edit a buying invoice"
@@ -2130,59 +2131,59 @@ msgstr ""
 
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:25
 msgid "Fill all information about the invoice"
-msgstr ""
+msgstr "Saisissez toutes les informations a propos de la facture"
 
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:44
 msgid "Document information"
-msgstr ""
+msgstr "Information du document"
 
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:48
 msgid "Creditor"
-msgstr ""
+msgstr "Créditeur"
 
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:65
 msgid "Document amounts"
-msgstr ""
+msgstr "Montants du document"
 
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:108
 msgid "Add or edit an amount"
-msgstr ""
+msgstr "Ajouter ou supprimer un montant"
 
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:119
 #: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:123
 msgid "Save"
-msgstr ""
+msgstr "Sauvegarder"
 
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:139
 #: entities/CommercialProviderInvoiceAssocAmounts.php:257
 #: entities/CommercialProviderInvoice.php:400
 #: entities/CommercialProviderInvoice.php:418
 msgid "This invoice is in read only mode. It has already been exported"
-msgstr ""
+msgstr "Cette facture est en lecture seule. Elle a déjà été exportée"
 
 #: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:29
 msgid "New article"
-msgstr ""
+msgstr "Nouvel article"
 
 #: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:44
 msgid "Item type"
-msgstr ""
+msgstr "Nouvel élément"
 
 #: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:96
 msgid "Total sold"
-msgstr ""
+msgstr "Solde total"
 
 #: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:110
 msgid "Earning"
-msgstr ""
+msgstr "Bénéfice"
 
 #: tmp/3e/f7/54b6a714b9a0930416f394262650.php:25
 msgid "Create a new article"
-msgstr ""
+msgstr "Créer un nouvel article"
 
 #: tmp/3e/f7/54b6a714b9a0930416f394262650.php:25
 msgid "Fill all information about the new article"
-msgstr ""
+msgstr "Saisissez toutes les informations a propos de votre nouvel article"
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:26
 msgid "emblem-personal"
@@ -2202,43 +2203,45 @@ msgstr ""
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:77
 msgid "Mails"
-msgstr ""
+msgstr "Mails"
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:81
 msgid "Export format"
-msgstr ""
+msgstr "Format d'exportation"
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:97
 msgid "Default estimate validity duration (in days)"
-msgstr ""
+msgstr "Durée de validité d'un devis par défaut (en jours)"
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:104
 msgid "Default payment limit duration (in days)"
-msgstr ""
+msgstr "Durée de limite de paiement d'une facture par défaut (en jours)"
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:119
 msgid "Estimate mail format"
-msgstr ""
+msgstr "Format du mail du devis"
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:126
 msgid "Invoice mail format"
-msgstr ""
+msgstr "Format de la facture par défaut"
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:139
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:145
 msgid "Export header (delete to restore default content)"
 msgstr ""
+"Exporter l'en-tête (vider le champs pour restorer le contenu par défaut)"
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:149
 msgid "Export format (delete to restore default content)"
 msgstr ""
+"Format d'exportation (vider le champs pour restorer le contenu par défaut)"
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:160
 msgid "Available variables"
-msgstr ""
+msgstr "Variables disponibles"
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:164
 msgid "'Selling' or 'buying'"
@@ -2250,7 +2253,7 @@ msgstr ""
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:172
 msgid "Tax account"
-msgstr ""
+msgstr "Compte de TVA"
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:176
 msgid "The account where to export the current invoice line"
@@ -2286,7 +2289,7 @@ msgstr ""
 
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:26
 msgid "Interventions list"
-msgstr ""
+msgstr "Liste des interventions"
 
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:26
 msgid "Add and remove interventions."
@@ -2294,7 +2297,7 @@ msgstr ""
 
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:50
 msgid "Are you sure that you want to delete this intervention ?"
-msgstr ""
+msgstr "Ètes-vous sur de vouloir supprimer cette intervention ?"
 
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:71
 msgid "Search for interventions"
@@ -2302,23 +2305,23 @@ msgstr ""
 
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:97
 msgid "From"
-msgstr ""
+msgstr "De"
 
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:103
 msgid "To"
-msgstr ""
+msgstr "À"
 
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:158
 msgid "Project"
-msgstr ""
+msgstr "Projet"
 
 #: tmp/18/35/a9f53c49d46b6e5b96a5d21f9ce7.php:30
 msgid "New selling document"
-msgstr ""
+msgstr "Nouveau document de vente"
 
 #: tmp/18/35/a9f53c49d46b6e5b96a5d21f9ce7.php:37
 msgid "Little description"
-msgstr ""
+msgstr "Résumé"
 
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:94
 msgid "ayment mode"
@@ -2326,7 +2329,7 @@ msgstr ""
 
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:398
 msgid "Commercial information"
-msgstr ""
+msgstr "Informations commerciales"
 
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:424
 msgid "Payments information"
@@ -2334,24 +2337,24 @@ msgstr ""
 
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:437
 msgid "RIB"
-msgstr ""
+msgstr "RIB"
 
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:445
 msgid "IBAN"
-msgstr ""
+msgstr "IBAN"
 
 #: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:29
 #: tmp/53/f6/33a958759155030696f1added942.php:97
 msgid "State"
-msgstr ""
+msgstr "État"
 
 #: tmp/7a/53/04aa49f586317677741397999ce2.php:24
 msgid "File"
-msgstr ""
+msgstr "Fichier"
 
 #: tmp/bd/08/1c0aa487614e37b9222a4f52c87f.php:25
 msgid "Edit the selling account"
-msgstr ""
+msgstr "Modifier le compte de vente"
 
 #: tmp/bd/08/1c0aa487614e37b9222a4f52c87f.php:25
 #: tmp/1d/bd/38c47de6b748d82ee7a64931796b.php:25
@@ -2360,15 +2363,15 @@ msgstr ""
 
 #: tmp/53/f6/33a958759155030696f1added942.php:26
 msgid "Documents list"
-msgstr ""
+msgstr "Liste des documents"
 
 #: tmp/53/f6/33a958759155030696f1added942.php:26
 msgid "Add and remove documents."
-msgstr ""
+msgstr "Ajouter et supprimer des documents."
 
 #: tmp/53/f6/33a958759155030696f1added942.php:50
 msgid "Are you sure that you want to delete this document ?"
-msgstr ""
+msgstr "Ètes-vous sur de vouloir supprimer ce document ?"
 
 #: tmp/53/f6/33a958759155030696f1added942.php:72
 msgid "Search for commercial document"
@@ -2376,11 +2379,11 @@ msgstr ""
 
 #: tmp/53/f6/33a958759155030696f1added942.php:120
 msgid "New document"
-msgstr ""
+msgstr "Nouveau document"
 
 #: tmp/53/f6/33a958759155030696f1added942.php:153
 msgid "Document date"
-msgstr ""
+msgstr "Date du document"
 
 #: tmp/53/f6/33a958759155030696f1added942.php:157
 msgid "Amout DF"
@@ -2388,32 +2391,31 @@ msgstr ""
 
 #: tmp/53/f6/33a958759155030696f1added942.php:222
 msgid "Duplicate"
-msgstr ""
+msgstr "Dupliquer"
 
 #: tmp/1d/bd/38c47de6b748d82ee7a64931796b.php:25
 msgid "Create a new selling account"
-msgstr ""
+msgstr "Créer un nouveau compte de vente"
 
 #: tmp/0d/3a/5d147d803dc62386a694204456fa.php:28
 msgid "New provider invoice"
-msgstr ""
+msgstr "Nouvelle facture d'achat"
 
 #: tmp/0d/3a/5d147d803dc62386a694204456fa.php:46
 msgid "Payment type"
-msgstr ""
+msgstr "Type de paiement"
 
 #: tmp/6a/d2/434195b44da6387dc5924d3b0381.php:20
 msgid "Total commercial docs"
-msgstr ""
+msgstr "Total document commerciaux"
 
 #: tmp/6a/d2/434195b44da6387dc5924d3b0381.php:26
-#, fuzzy
 msgid "Total intervention time"
-msgstr "Nouvelle intervention"
+msgstr "Temps total des interventions"
 
 #: tmp/6a/d2/434195b44da6387dc5924d3b0381.php:32
 msgid "Total buying invoices"
-msgstr ""
+msgstr "Total factures d'achat"
 
 #: entities/CommercialProviderInvoiceAssocAmounts.php:250
 #, php-format
@@ -2421,6 +2423,8 @@ msgid ""
 "The amount tax free (%s), amount taxes included (%s) and taxes (%s) does not "
 "match"
 msgstr ""
+"Le montant hors taxes (%s), le montant TTC (%s) et la TVA (%s) ne "
+"correspondent pas"
 
 #: entities/CommercialInvoice.php:545
 #: entities/CommercialProviderInvoice.php:408
@@ -2435,4 +2439,4 @@ msgstr ""
 
 #: entities/CommercialProviderInvoice.php:417
 msgid "This invoice is already linked to a bank operation"
-msgstr ""
+msgstr "Cette facture est déjà associée à une opération bancaire"
