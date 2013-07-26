@@ -1,7 +1,7 @@
 
 <legend>{% trans %}Commercial documents{% endtrans %}</legend>
 
-<a data-toggle="modal" href="{{ url('commercial_project_link_commercial_document', {projectId : project.id }) }}" data-target="#project-link-commercial-document-modal" class="btn btn-primary pull-right">{% trans %}Link a commercial documents{% endtrans %}</a>
+<a data-toggle="modal" href="{{ url('commercial_project_link_commercial_document', {projectId : project.id }) }}" data-target="#project-link-commercial-document-modal" class="btn btn-primary pull-right">{% trans %}Link a commercial document{% endtrans %}</a>
 <a href="javascript:;" onclick="javascript:create_or_duplicate_document(null, '{{ project.id }}');" class="btn">{% trans %}Add new{% endtrans %}</a><br><br>
 <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="commercialDocumentTable">
     <thead>

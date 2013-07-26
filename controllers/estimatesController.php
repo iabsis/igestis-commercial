@@ -18,7 +18,7 @@ class estimatesController extends \IgestisController {
         $this->_em->getConnection()->beginTransaction();         
 
         try {       
-            if(count($document->getInvoices())) throw new \Exception(\Igestis\I18n\Translate::_("An invoice has already been generated for this project an is not editable anymore."));
+            if(count($document->getInvoices())) throw new \Exception(\Igestis\I18n\Translate::_("An invoice has already been generated for this project and is not editable anymore."));
             $estimateDocument = new Pdfs\GenerateEstimate($this->_em, $document, $this->context->getTwigEnvironnement(), "Commercial/pdfs/estimate.twig");
             $estimateDocument->setEstimateDate(\DateTime::createFromFormat("d/m/Y", $this->request->getPost("estimateDate")))
                              ->setValidUntil(\DateTime::createFromFormat("d/m/Y", $this->request->getPost("validUntil")));
@@ -65,7 +65,7 @@ class estimatesController extends \IgestisController {
         $email = $this->request->getPost("email");
         if(!is_email($email)) {
             $ajaxRender->addWizz(\Igestis\I18n\Translate::_("Please provide a valid email address"), \wizz::$WIZZ_ERROR)
-                       ->setError(\Igestis\I18n\Translate::_("Please provide a valid email addresst"));
+                       ->setError(\Igestis\I18n\Translate::_("Please provide a valid email address"));
         }
         
         // Retrieve the estimate entity

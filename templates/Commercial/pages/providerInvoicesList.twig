@@ -28,7 +28,7 @@
             <legend>{% trans %}Filter the provider invoices{% endtrans %}</legend>
             <div class="row-fluid">
                 <div class="span6">
-                    {{ forms.select('assigned', 'Filled'|trans, { 0 : {'value': 0, 'label' : "No"|trans},  1 : {'value': 1, 'label' : "Yes"|trans},  2 : {'value': -1, 'label' : "All"|trans} }, searchForm.assigned, 'value', 'label') }}
+                    {{ forms.select('assigned', 'Filled out'|trans, { 0 : {'value': 0, 'label' : "No"|trans},  1 : {'value': 1, 'label' : "Yes"|trans},  2 : {'value': -1, 'label' : "All"|trans} }, searchForm.assigned, 'value', 'label') }}
                 </div>                
             </div>
             <div class="form-actions">

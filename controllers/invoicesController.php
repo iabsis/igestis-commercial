@@ -21,7 +21,7 @@ class invoicesController extends \IgestisController {
             if(count($document->getInvoices())) {
                 $invoice = $document->getInvoices()->get(0);
                 //\Igestis\Utils\Dump::show($invoice); exit;
-                if($invoice->getPaid() || $invoice->getExported()) throw new \Exception(\Igestis\I18n\Translate::_("An invoice has already been generated for this project an is not editable anymore."));
+                if($invoice->getPaid() || $invoice->getExported()) throw new \Exception(\Igestis\I18n\Translate::_("An invoice has already been generated for this project and is not editable anymore."));
             }
             
             $invoiceDocument = new Pdfs\GenerateInvoice($this->_em, $document, $this->context->getTwigEnvironnement(), "Commercial/pdfs/invoice.twig");

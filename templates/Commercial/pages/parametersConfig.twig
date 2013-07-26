@@ -21,7 +21,7 @@
 
 <ul class="nav nav-tabs">
   <li class="active">
-    <a href="#documents-duration" data-toggle="tab">{% trans %}Documents duration{% endtrans %}</a>
+    <a href="#documents-duration" data-toggle="tab">{% trans %}Sales document{% endtrans %}</a>
   </li>
   <li><a href="#mails-format" data-toggle="tab">{% trans %}Mails{% endtrans %}</a></li>
   <li><a href="#export-format" data-toggle="tab">{% trans %}Export format{% endtrans %}</a></li>
@@ -84,9 +84,9 @@
                     {{ forms.text("The account where to export the current invoice line"|trans, '{{ articleAccount }}') }}   
                     {{ forms.text("Invoice number"|trans, '{{ invoiceNumber }}') }}   
                     {{ forms.text("Invoice date (\Datetime format). See the formatting section to see how to use this field."|trans, '{{ invoiceDate }}') }}   
-                    {{ forms.text("Duty free amount amount of the row in decimal format (Precision two characters after float)"|trans, '{{ amountDf }}') }}   
-                    {{ forms.text("Tax included amount of the row in decimal format (Precision two characters after float)"|trans, '{{ amountTi }}') }}   
-                    {{ forms.text("Tax amount of the row in decimal format (Precision two characters after float)"|trans, '{{ taxes }}') }}   
+                    {{ forms.text("Row amount whithout tax in decimal format"|trans, '{{ amountDf }}') }}   
+                    {{ forms.text("Tax included amount of the row in decimal format"|trans, '{{ amountTi }}') }}   
+                    {{ forms.text("Tax amount of the row in decimal format"|trans, '{{ taxes }}') }}   
                 </div>      
                 <div class="span6">  
                     <legend>{% trans %}Formatting{% endtrans %}</legend>

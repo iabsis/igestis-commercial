@@ -79,12 +79,12 @@
                 {% if not (sellingDocument.invoices[0].exported or sellingDocument.invoices[0].paid) %}
 	                <p>
 	                    <a href="javascript:igestisCommercial.sellingDocument.editContact()" class="btn btn-small">
-	                      <i class="icon-edit"></i> {% trans %}Change billed contact{% endtrans %}
+	                      <i class="icon-edit"></i> {% trans %}Change contact details{% endtrans %}
 	                    </a>
 	                </p>
 	                {% if sellingDocument.customerName %}
 	                    <a href="javascript:igestisCommercial.sellingDocument.clearContact()" class="btn btn-small">
-	                      <i class="icon-reply"></i> {% trans %}Revert to main contact{% endtrans %}
+	                      <i class="icon-reply"></i> {% trans %}Restore contact details{% endtrans %}
 	                    </a>
 	                {% endif %}
                 {% endif %}
@@ -275,7 +275,7 @@
 <div id="commercial-document-search-article-modal" class="modal hide fade" data-ajax-url="{{ url('commercial_document_search_article', {SellingDocumentId : sellingDocument.id }) }}">
     <div class="modal-header">
        <button type="button" class="close" data-dismiss="modal">&times;</button>
-       <h3>{% trans %}Search article database{% endtrans %}</h3>
+       <h3>{% trans %}Filter articles{% endtrans %}</h3>
     </div>
     <div class="modal-body">
         {# Ajax content will be loaded there #}
