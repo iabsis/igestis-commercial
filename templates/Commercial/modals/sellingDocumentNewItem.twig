@@ -32,21 +32,21 @@
         </div>
         <div class="row-fluid">
             <div class="span4">
-              {{ forms.symbol('sellingDfUnitPrice', 'Selling price'|trans, null, "€", null, "required") }}
+              {{ forms.symbol('sellingDfUnitPrice', 'Selling price'|trans, null, sellingDocument.company.symbolMoney, null, "required") }}
             </div>
             <div class="span2">
               {{ forms.input('quantityArticle', 'Quantity'|trans, null , null, null, null, null, "required") }}
             </div>
             <div class="span4 offset2">
-              {{ forms.symbol('totSellPriceArticleTi', 'Total sold'|trans, null, "€", null, 'disabled') }}
+              {{ forms.symbol('totSellPriceArticleTi', 'Total sold'|trans, null, sellingDocument.company.symbolMoney, null, 'disabled') }}
             </div>
         </div>
         <div class="row-fluid">            
             <div class="span4">
-              {{ forms.symbol('purchasingDfUnitPrice', 'Purchasing price'|trans, null, "€") }}
+              {{ forms.symbol('purchasingDfUnitPrice', 'Purchasing price'|trans, null, sellingDocument.company.symbolMoney) }}
             </div>
             <div class="span4 offset4">
-              {{ forms.symbol('totEarningPriceArticleTi', 'Earning'|trans, null, "€", null, 'disabled') }}
+              {{ forms.symbol('totEarningPriceArticleTi', 'Earning'|trans, null, sellingDocument.company.symbolMoney, null, 'disabled') }}
             </div>
         </div>
 
