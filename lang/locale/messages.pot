@@ -61,7 +61,8 @@ msgid "Interventions"
 msgstr ""
 
 #: config/ConfigInitModule.php:102 config/ConfigInitModule.php:175
-msgid "Balances"
+#: tmp/c7/d8/f3dc2941b3f2e3c5d0b86f342a30.php:26
+msgid "Users balance"
 msgstr ""
 
 #: config/ConfigInitModule.php:108 config/ConfigInitModule.php:180
@@ -118,14 +119,21 @@ msgstr ""
 
 #: controllers/invoicesController.php:24
 #: controllers/estimatesController.php:21
-msgid "This commercial document has already an invoice, it is locked"
+msgid ""
+"An invoice has already been generated for this project an is not editable "
+"anymore."
 msgstr ""
 
 #: controllers/invoicesController.php:35
-msgid "Invoice has been generated"
+msgid "The invoice has been generated"
 msgstr ""
 
-#: controllers/invoicesController.php:74 controllers/invoicesController.php:75
+#: controllers/invoicesController.php:74
+#: controllers/estimatesController.php:67
+msgid "Please provide a valid email address"
+msgstr ""
+
+#: controllers/invoicesController.php:75
 msgid "Please rensign a well formed recipient"
 msgstr ""
 
@@ -140,7 +148,7 @@ msgstr ""
 #: controllers/invoicesController.php:108
 #: controllers/estimatesController.php:102
 #, php-format
-msgid "Mail has been sent to %s"
+msgid "The email has been sent to %s"
 msgstr ""
 
 #: controllers/invoicesController.php:115
@@ -161,16 +169,16 @@ msgid "At least one of the selected invoice has not been found."
 msgstr ""
 
 #: controllers/bankAccountController.php:44
-msgid "The purchasing article has been successfully deleted"
+msgid "The bank account has been successfully deleted"
 msgstr ""
 
 #: controllers/bankAccountController.php:59
 #, php-format
-msgid "An error occurred while parsing the file : %s"
+msgid "An error has occurred while parsing the file : %s"
 msgstr ""
 
 #: controllers/bankAccountController.php:78
-msgid "There is not operations to import."
+msgid "There is no operation to import."
 msgstr ""
 
 #: controllers/bankAccountController.php:115
@@ -179,13 +187,11 @@ msgstr ""
 
 #: controllers/bankAccountController.php:121
 #, php-format
-msgid "An error occurred during the import process : %s"
+msgid "An error has occurred during the import process : %s"
 msgstr ""
 
 #: controllers/bankAccountController.php:153
-#: controllers/ArticlesController.php:89
-#: controllers/ArticlesController.php:148
-msgid "The article data has been successfully saved"
+msgid "The new bank account has been successfully created"
 msgstr ""
 
 #: controllers/bankAccountController.php:160
@@ -197,10 +203,8 @@ msgid "The bank account data has been successfully saved"
 msgstr ""
 
 #: controllers/bankAccountController.php:191
-#: controllers/bankOperationController.php:50
-#: controllers/bankOperationController.php:84
 #, php-format
-msgid "An error occurred during the database update : %s"
+msgid "An error has occurred during the bank account update : %s"
 msgstr ""
 
 #: controllers/sellingDocumentsController.php:42
@@ -219,11 +223,11 @@ msgstr ""
 #: controllers/sellingDocumentsController.php:81
 #: controllers/sellingDocumentsController.php:82
 #, php-format
-msgid "An error occurred during the project creation : %s"
+msgid "An error has occurred during the project creation : %s"
 msgstr ""
 
 #: controllers/sellingDocumentsController.php:86
-msgid "No datas has been received for the selling document creation"
+msgid "No data has been received for the selling document creation"
 msgstr ""
 
 #: controllers/sellingDocumentsController.php:110
@@ -234,7 +238,7 @@ msgstr ""
 
 #: controllers/sellingDocumentsController.php:114
 #: controllers/projectsController.php:104
-msgid "An error occurred during the selling document update"
+msgid "An error has occurred during the selling document update"
 msgstr ""
 
 #: controllers/sellingDocumentsController.php:147
@@ -261,7 +265,7 @@ msgstr ""
 
 #: controllers/sellingDocumentsController.php:266
 #: controllers/sellingDocumentsController.php:267
-msgid "Not access to this article"
+msgid "No access to this article"
 msgstr ""
 
 #: controllers/sellingDocumentsController.php:281
@@ -273,11 +277,11 @@ msgid "ok"
 msgstr ""
 
 #: controllers/AccountingController.php:34
-msgid "The vat accouting values has been successfuly updated"
+msgid "The tax accouting values has been successfuly updated"
 msgstr ""
 
 #: controllers/AccountingController.php:38
-msgid "An error occurred during the record of the vat accounting"
+msgid "An error has occurred during the record of the tax accounting"
 msgstr ""
 
 #: controllers/AccountingController.php:61
@@ -313,13 +317,23 @@ msgstr ""
 msgid "The operation has been successfully deleted"
 msgstr ""
 
+#: controllers/bankOperationController.php:50
+#, php-format
+msgid "An error has occurred during the bank operation deletion : %s"
+msgstr ""
+
 #: controllers/bankOperationController.php:79
 #: controllers/projectsController.php:67
 msgid "The project has been successfully created"
 msgstr ""
 
+#: controllers/bankOperationController.php:84
+#, php-format
+msgid "An error has occurred during the bank operation creation : %s"
+msgstr ""
+
 #: controllers/bankOperationController.php:89
-msgid "No datas has been received for the operation creation"
+msgid "No data has been received for the operation creation"
 msgstr ""
 
 #: controllers/bankOperationController.php:152
@@ -344,15 +358,20 @@ msgstr ""
 
 #: controllers/balanceController.php:65
 #, php-format
-msgid "An error occurred during the paid status change : %s"
+msgid "An error has occurred during the paid status change : %s"
 msgstr ""
 
 #: controllers/ArticlesController.php:39
 msgid "The article has been successfully deleted"
 msgstr ""
 
+#: controllers/ArticlesController.php:89
+#: controllers/ArticlesController.php:148
+msgid "The article data has been successfully saved"
+msgstr ""
+
 #: controllers/parametersController.php:43
-msgid "Company configuration has been savec successfully"
+msgid "Company configuration has been saved successfully"
 msgstr ""
 
 #: controllers/parametersController.php:48
@@ -365,8 +384,7 @@ msgid "Error during the configuration save"
 msgstr ""
 
 #: controllers/projectsController.php:39
-msgid ""
-"Unable to delete this project. Check if it has any free documents linked"
+msgid "Unable to delete this project unless there is linked resources."
 msgstr ""
 
 #: controllers/projectsController.php:44
@@ -374,11 +392,11 @@ msgid "The project has been successfully deleted"
 msgstr ""
 
 #: controllers/projectsController.php:72
-msgid "An error occurred during the project creation"
+msgid "An error has occurred during the project creation"
 msgstr ""
 
 #: controllers/projectsController.php:77
-msgid "No datas has been received for the project creation"
+msgid "No data has been received for the project creation"
 msgstr ""
 
 #: controllers/projectsController.php:100
@@ -427,21 +445,23 @@ msgid "Wrong project and free document association"
 msgstr ""
 
 #: controllers/projectsController.php:380
-#: controllers/projectsController.php:451
-msgid "Error during the free document unlink"
+msgid "Error during the free document deletion"
 msgstr ""
 
 #: controllers/projectsController.php:429
 msgid "Free document not found"
 msgstr ""
 
-#: controllers/estimatesController.php:28
-msgid "Estimate has been generated"
+#: controllers/projectsController.php:451
+msgid "Error during the free document edition"
 msgstr ""
 
-#: controllers/estimatesController.php:67
+#: controllers/estimatesController.php:28
+msgid "The estimate has been generated"
+msgstr ""
+
 #: controllers/estimatesController.php:68
-msgid "Please provide a well formed recipient"
+msgid "Please provide a valid email addresst"
 msgstr ""
 
 #: controllers/estimatesController.php:74
@@ -488,7 +508,7 @@ msgstr ""
 #: controllers/interventionsController.php:41
 #: controllers/interventionsController.php:102
 #: controllers/interventionsController.php:232
-msgid "Failed to delete the old file."
+msgid "Failed to delete the previous file."
 msgstr ""
 
 #: controllers/interventionsController.php:53
@@ -1067,7 +1087,7 @@ msgstr ""
 
 #: tmp/2d/77/c6405f1255bde67df8f7fa410dc7.php:25
 #: tmp/01/4f/0ad7e54d0e73595aa365540bcfc7.php:25
-msgid "Fill all information about the new new purchasing account"
+msgid "Fill all information about the new purchasing account"
 msgstr ""
 
 #: tmp/2d/77/c6405f1255bde67df8f7fa410dc7.php:47
@@ -1080,19 +1100,13 @@ msgid "Account number"
 msgstr ""
 
 #: tmp/98/5a/53d1005b6dac7a9d264d7d42a707.php:28
-msgid "New account operation"
+msgid "New operation"
 msgstr ""
 
 #: tmp/c7/d8/f3dc2941b3f2e3c5d0b86f342a30.php:26
-#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:26
-msgid "User balance"
-msgstr ""
-
-#: tmp/c7/d8/f3dc2941b3f2e3c5d0b86f342a30.php:26
-#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:26
 msgid ""
-"Here you can see the user balance. Click on the 'see details' button to see "
-"the balance history for an user."
+"View user balance. For more details about a user balance, click on \"see "
+"details\" button."
 msgstr ""
 
 #: tmp/c7/d8/f3dc2941b3f2e3c5d0b86f342a30.php:57
@@ -1213,6 +1227,7 @@ msgstr ""
 
 #: tmp/80/9e/b913f7254256f759d7739231bb6b.php:68
 #: tmp/cd/e0/b0097b1d329c2c2c287f3f9e28a7.php:42
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:129
 #: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:76
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:77
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:162
@@ -1305,6 +1320,16 @@ msgid ""
 "twig"
 msgstr ""
 
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:26
+msgid "Balance detail"
+msgstr ""
+
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:26
+msgid ""
+"Here you can see the user balance. Click on the 'see details' button to see "
+"the balance history for an user."
+msgstr ""
+
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:64
 msgid "Balance amount"
 msgstr ""
@@ -1368,16 +1393,14 @@ msgid "Designation"
 msgstr ""
 
 #: tmp/af/5f/2b49dad23f1f08770ccdb691e172.php:41
-msgid "Price df"
-msgstr ""
-
-#: tmp/af/5f/2b49dad23f1f08770ccdb691e172.php:55
-#: tmp/90/58/69fa5ccf6279332c99d0ea399725.php:47
-msgid "0"
+#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:35
+#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:34
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:35
+msgid "Amount without taxes"
 msgstr ""
 
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:26
-msgid "Invoices export"
+msgid "Export the invoices"
 msgstr ""
 
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:26
@@ -1541,7 +1564,7 @@ msgid "Next step"
 msgstr ""
 
 #: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:22
-msgid "Support intervention"
+msgid "Linked interventions"
 msgstr ""
 
 #: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:29
@@ -1563,10 +1586,6 @@ msgstr ""
 #: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:38
 #: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:27
 msgid "Amount taxes included"
-msgstr ""
-
-#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:35
-msgid "Amount without taxes"
 msgstr ""
 
 #: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:41
@@ -1631,6 +1650,7 @@ msgstr ""
 
 #: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:39
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:52
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:94
 msgid "Payment mode"
 msgstr ""
 
@@ -1673,11 +1693,6 @@ msgstr ""
 
 #: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:22
 msgid "Add an amount"
-msgstr ""
-
-#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:34
-#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:35
-msgid "Amount Df"
 msgstr ""
 
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:25
@@ -1767,10 +1782,6 @@ msgstr ""
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:88
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:88
 msgid "of"
-msgstr ""
-
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:129
-msgid "Estimate to"
 msgstr ""
 
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:221
@@ -2099,7 +2110,7 @@ msgid "Please wait while your document is uploading."
 msgstr ""
 
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:25
-msgid "Edit a buying invoice"
+msgid "Edit a purchase invoice"
 msgstr ""
 
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:25
@@ -2159,10 +2170,6 @@ msgid "Fill all information about the new article"
 msgstr ""
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:26
-msgid "emblem-personal"
-msgstr ""
-
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:26
 msgid "Commercial module configuration"
 msgstr ""
 
@@ -2215,11 +2222,11 @@ msgid "Available variables"
 msgstr ""
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:164
-msgid "'Selling' or 'buying'"
+msgid "'selling' or 'buying'"
 msgstr ""
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:168
-msgid "The user account filled in the Customers > Customer ID field"
+msgid "The user account specified in the Customers > Customer ID field"
 msgstr ""
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:172
@@ -2271,7 +2278,7 @@ msgid "Are you sure that you want to delete this intervention ?"
 msgstr ""
 
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:71
-msgid "Search for interventions"
+msgid "Filter interventions"
 msgstr ""
 
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:97
@@ -2294,16 +2301,12 @@ msgstr ""
 msgid "Little description"
 msgstr ""
 
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:94
-msgid "ayment mode"
-msgstr ""
-
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:398
 msgid "Commercial information"
 msgstr ""
 
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:424
-msgid "Payments information"
+msgid "Payment informations"
 msgstr ""
 
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:437
@@ -2329,7 +2332,7 @@ msgstr ""
 
 #: tmp/bd/08/1c0aa487614e37b9222a4f52c87f.php:25
 #: tmp/1d/bd/38c47de6b748d82ee7a64931796b.php:25
-msgid "Fill all information about the new new selling account"
+msgid "Fill all information about the new selling account"
 msgstr ""
 
 #: tmp/53/f6/33a958759155030696f1added942.php:26
@@ -2345,7 +2348,7 @@ msgid "Are you sure that you want to delete this document ?"
 msgstr ""
 
 #: tmp/53/f6/33a958759155030696f1added942.php:72
-msgid "Search for commercial document"
+msgid "Filter commercial document"
 msgstr ""
 
 #: tmp/53/f6/33a958759155030696f1added942.php:120
@@ -2357,7 +2360,7 @@ msgid "Document date"
 msgstr ""
 
 #: tmp/53/f6/33a958759155030696f1added942.php:157
-msgid "Amout DF"
+msgid "Amout without taxes"
 msgstr ""
 
 #: tmp/53/f6/33a958759155030696f1added942.php:222
@@ -2398,12 +2401,12 @@ msgstr ""
 #: entities/CommercialInvoice.php:545
 #: entities/CommercialProviderInvoice.php:408
 msgid ""
-"This document is associated to one or more bank operation. You cannont set "
-"it as not paid"
+"This document is associated to one or more bank operation. You cannot change "
+"the payment status"
 msgstr ""
 
 #: entities/CommercialProviderInvoice.php:397
-msgid "This provider invoice number does already exist"
+msgid "This provider invoice number already exists"
 msgstr ""
 
 #: entities/CommercialProviderInvoice.php:417
