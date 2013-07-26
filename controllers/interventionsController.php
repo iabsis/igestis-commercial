@@ -80,9 +80,15 @@ class interventionsController extends \IgestisController {
 
             
             try {
+                
+                if(!is_dir(ConfigModuleVars::interventionsDocumentFolder)) {
+                    if(!@mkdir(ConfigModuleVars::interventionsDocumentFolder)) {
+                        throw new \Exception(sprintf(\Igestis\I18n\Translate::_("Unable to create the folder : '%s'"), ConfigModuleVars::interventionsDocumentFolder));
+                    }
+                }
                 switch ($this->request->getPost("getFile")) {
                     case "scanner" :     
-                        $filename = uniqid("", true) . ".jpg"; 
+                        $filename = uniqid("", true) . ".jpg";                         
                         \Igestis\Utils\Scanner::launchScanner($this->request->getPost("selectedScanner"), ConfigModuleVars::interventionsDocumentFolder, $filename);
                         $intervention->setFileName($filename);
                         break;

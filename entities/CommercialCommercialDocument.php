@@ -584,6 +584,12 @@ class CommercialCommercialDocument
             $totDf += $amount->getPurchasingDfUnitPrice() * $amount->getQuantityArticle();
         }
         
+        if(count($this->invoices)) {
+            if($this->invoices[0]->getInvoicesType() == CommercialInvoice::TYPE_CREDIT) {
+                $totDf *= -1;
+            }
+        }
+        
         return $totDf;
     }
 

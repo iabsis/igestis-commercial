@@ -144,6 +144,7 @@ class CommercialCommercialDocumentArticle
         $this->isGroup = false;
         if($article) {
             $this->setSellingAccount($article->getSellingAccount())
+                 ->setComment($article->getDescription())
                  ->setItemLabel($article->getDesignation())
                  ->setItemRef($article->getCompanyRef())
                  ->setPurchasingDfUnitPrice($article->getPurchasingPriceDf())
