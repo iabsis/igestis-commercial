@@ -120,7 +120,7 @@ msgstr ""
 #: controllers/invoicesController.php:24
 #: controllers/estimatesController.php:21
 msgid ""
-"An invoice has already been generated for this project an is not editable "
+"An invoice has already been generated for this project and is not editable "
 "anymore."
 msgstr ""
 
@@ -130,6 +130,7 @@ msgstr ""
 
 #: controllers/invoicesController.php:74
 #: controllers/estimatesController.php:67
+#: controllers/estimatesController.php:68
 msgid "Please provide a valid email address"
 msgstr ""
 
@@ -460,10 +461,6 @@ msgstr ""
 msgid "The estimate has been generated"
 msgstr ""
 
-#: controllers/estimatesController.php:68
-msgid "Please provide a valid email addresst"
-msgstr ""
-
 #: controllers/estimatesController.php:74
 #: controllers/estimatesController.php:75
 msgid "Estimate not found"
@@ -702,7 +699,7 @@ msgstr ""
 #: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:61
 msgid ""
 "This reference is used by the ofx import to associate the operations to the "
-"good account"
+"right account"
 msgstr ""
 
 #: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:74
@@ -930,7 +927,7 @@ msgid "Filter the provider invoices"
 msgstr ""
 
 #: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:77
-msgid "Filled"
+msgid "Filled out"
 msgstr ""
 
 #: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:77
@@ -996,7 +993,7 @@ msgid "Commercial documents"
 msgstr ""
 
 #: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:29
-msgid "Link a commercial documents"
+msgid "Link a commercial document"
 msgstr ""
 
 #: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:35
@@ -1216,7 +1213,8 @@ msgid "Create a new intervention"
 msgstr ""
 
 #: tmp/80/9e/b913f7254256f759d7739231bb6b.php:25
-msgid "Log the time and the information about the work done to your customer."
+msgid ""
+"Log the time and the informations about the work done for your customer."
 msgstr ""
 
 #: tmp/80/9e/b913f7254256f759d7739231bb6b.php:62
@@ -1326,8 +1324,8 @@ msgstr ""
 
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:26
 msgid ""
-"Here you can see the user balance. Click on the 'see details' button to see "
-"the balance history for an user."
+"Here you can see the user balance. Click on the \"see details\" button to "
+"see the balance history for an user."
 msgstr ""
 
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:64
@@ -1516,8 +1514,8 @@ msgstr ""
 
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:26
 msgid ""
-"A commercial project permit to group the sales documents, purchases invoices "
-"and intervention in one place."
+"A commercial project is a collection of sales documents, purchases invoices "
+"and interventions in one place."
 msgstr ""
 
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:50
@@ -1543,7 +1541,7 @@ msgid "Closed"
 msgstr ""
 
 #: tmp/c1/f7/ae7ddf2a067f06cc7d0e7a2f082e.php:28
-msgid "Import the operations of the bank account"
+msgid "Import bank account operations"
 msgstr ""
 
 #: tmp/c1/f7/ae7ddf2a067f06cc7d0e7a2f082e.php:35
@@ -1609,7 +1607,7 @@ msgstr ""
 #: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:124
 #: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:120
 #: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:124
-msgid "Set taxes or amount duty free"
+msgid "Set taxes or amount without taxes"
 msgstr ""
 
 #: tmp/b9/55/5557e2e49d75df989d379f23add5.php:24
@@ -1854,11 +1852,11 @@ msgid "Add new selling account"
 msgstr ""
 
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:298
-msgid "Selling vat acount"
+msgid "Sales tax account"
 msgstr ""
 
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:304
-msgid "Buying vat acount"
+msgid "Purchase tax account"
 msgstr ""
 
 #: tmp/01/4f/0ad7e54d0e73595aa365540bcfc7.php:25
@@ -1941,11 +1939,11 @@ msgid "Billed to"
 msgstr ""
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:221
-msgid "Change billed contact"
+msgid "Change contact details"
 msgstr ""
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:232
-msgid "Revert to main contact"
+msgid "Restore contact details"
 msgstr ""
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:253
@@ -2043,7 +2041,7 @@ msgid "Search an item"
 msgstr ""
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:593
-msgid "Search article database"
+msgid "Filter articles"
 msgstr ""
 
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:618
@@ -2178,7 +2176,7 @@ msgid "Update the default values for the commercial module"
 msgstr ""
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:72
-msgid "Documents duration"
+msgid "Sales document"
 msgstr ""
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:77
@@ -2244,21 +2242,15 @@ msgid ""
 msgstr ""
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:188
-msgid ""
-"Duty free amount amount of the row in decimal format (Precision two "
-"characters after float)"
+msgid "Row amount whithout tax in decimal format"
 msgstr ""
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:192
-msgid ""
-"Tax included amount of the row in decimal format (Precision two characters "
-"after float)"
+msgid "Tax included amount of the row in decimal format"
 msgstr ""
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:196
-msgid ""
-"Tax amount of the row in decimal format (Precision two characters after "
-"float)"
+msgid "Tax amount of the row in decimal format"
 msgstr ""
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:202
