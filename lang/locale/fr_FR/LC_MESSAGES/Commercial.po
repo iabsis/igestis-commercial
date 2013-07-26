@@ -2222,7 +2222,7 @@ msgstr "Nouvel article"
 
 #: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:44
 msgid "Item type"
-msgstr "Nouvel élément"
+msgstr "Type d'élément"
 
 #: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:96
 msgid "Total sold"
