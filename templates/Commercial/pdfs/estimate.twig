@@ -35,10 +35,10 @@
 					<strong>{{ commercialEstimate.commercialDocument.customerName }}</strong><br />
 					{% spaceless %}
 						{{ commercialEstimate.commercialDocument.address1 }}
-						{% if commercialEstimate.commercialDocument.company.address1 and commercialEstimate.commercialDocument.company.address2 %} - {% endif %}
-						{{ commercialEstimate.commercialDocument.company.address2 }}<br />
+						{% if commercialEstimate.commercialDocument.address1 and commercialEstimate.commercialDocument.address2 %} - {% endif %}
+						{{ commercialEstimate.commercialDocument.address2 }}<br />
 					{% endspaceless %}
-					{{ commercialEstimate.commercialDocument.company.postalCode }} {{ commercialEstimate.commercialDocument.company.city }}
+					{{ commercialEstimate.commercialDocument.postalCode }} {{ commercialEstimate.commercialDocument.city }}
 				{% else %}
 					<strong>{{ commercialEstimate.commercialDocument.customerUser.userLabel }}</strong><br />
 					{% spaceless %}

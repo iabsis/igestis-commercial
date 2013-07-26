@@ -11,7 +11,7 @@
 			</td>
 			<td width="20%">&nbsp;</td>
 			<td width="40%">
-				<h1>{{ commercialInvoice.invoiceType|trans }}</h1><br>
+				<h1>{{ commercialInvoice.invoicesType == "credits" ? "Credit note"|trans : "Invoice"|trans }}</h1><br>
 				<strong>{% trans %}Date{% endtrans %}: </strong>{{ commercialInvoice.invoicesDate ? commercialInvoice.invoicesDate|date("d/m/Y") }}<br>
 				<strong>{% trans %}Number{% endtrans %}: </strong>{{ commercialInvoice.invoiceNumber }}<br>
 				<strong>{% trans %}Valid until{% endtrans %}: </strong>{{ commercialInvoice.paymentDateLimit ? commercialInvoice.paymentDateLimit|date("d/m/Y") }}<br>
@@ -38,10 +38,10 @@
 					<strong>{{ commercialInvoice.commercialDocument.customerName }}</strong><br />
 					{% spaceless %}
 						{{ commercialInvoice.commercialDocument.address1 }}
-						{% if commercialInvoice.commercialDocument.company.address1 and commercialInvoice.commercialDocument.company.address2 %} - {% endif %}
-						{{ commercialInvoice.commercialDocument.company.address2 }}<br />
+						{% if commercialInvoice.commercialDocument.address1 and commercialInvoice.commercialDocument.address2 %} - {% endif %}
+						{{ commercialInvoice.commercialDocument.address2 }}<br />
 					{% endspaceless %}
-					{{ commercialInvoice.commercialDocument.company.postalCode }} {{ commercialInvoice.commercialDocument.company.city }}
+					{{ commercialInvoice.commercialDocument.postalCode }} {{ commercialInvoice.commercialDocument.city }}
 				{% else %}
 					<strong>{{ commercialInvoice.commercialDocument.customerUser.userLabel }}</strong><br />
 					{% spaceless %}
