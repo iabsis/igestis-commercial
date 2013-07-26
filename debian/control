@@ -7,7 +7,7 @@ Standards-Version: 3.7.2
 
 Package: igestis-commercial
 Architecture: all
-Depends: igestis (>= 2.3.10)
+Depends: igestis (>= 2.3.10), igestis-tcpdf
 Suggests: sane-utils
 Description: iGestis module : Manage your commercial projects.
  This module permit to manage your commercial projects. It's able to create
