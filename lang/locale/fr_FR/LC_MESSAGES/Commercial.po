@@ -711,7 +711,7 @@ msgstr "Nom de la banque"
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:72
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:72
 msgid "Number"
-msgstr "Nombre"
+msgstr "Numéro"
 
 #: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:61
 #: tmp/eb/c0/7ad350433cc56e751191fe920821.php:42
@@ -1127,7 +1127,7 @@ msgstr "Saisissez toutes les informations a propos du nouveau compte d'achat"
 #: tmp/bd/08/1c0aa487614e37b9222a4f52c87f.php:47
 #: tmp/1d/bd/38c47de6b748d82ee7a64931796b.php:47
 msgid "Account number"
-msgstr "Number de compte"
+msgstr "Numéro de compte"
 
 #: tmp/98/5a/53d1005b6dac7a9d264d7d42a707.php:28
 msgid "New operation"
@@ -1150,7 +1150,7 @@ msgstr "Utilisateur"
 #: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:57
 #: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:102
 msgid "Sold"
-msgstr "Vendu"
+msgstr "Solde"
 
 #: tmp/c7/d8/f3dc2941b3f2e3c5d0b86f342a30.php:94
 msgid "See details"
