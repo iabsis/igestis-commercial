@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: igestis-commercial 2.0\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Gilles Hemmerlé <gilles.h@iabsis.com>\n"
+"Last-Translator: Olivier Bitsch <olivier.b@iabsis.com>\n"
 "Language-Team: Iabsis SARL <info@iabsis.com>\n"
 "Language: Français\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: config/ConfigInitModule.php:36
 msgid "None"
@@ -591,6 +591,8 @@ msgid ""
 "The html render must implement the interface of the same name or to be type "
 "of 'Twig_Environment', now '%s'"
 msgstr ""
+"Le moteur de rendu html doit implémenter l'interface du même nom ou être du "
+"type 'Twig_Environment', actuellement '%s'"
 
 #: classes/EntityLogic/invoicesExportLogic.php:60
 msgid "The invoice is not a known invoice format"
@@ -988,7 +990,7 @@ msgstr "Ajouter une facture"
 
 #: tmp/e0/bf/047222b830c544b90a003a8e2a64.php:23
 msgid "Thanks to fill the bank name of each selected account"
-msgstr ""
+msgstr "Merci de remplir un nom de banque pour chaque compte sélectionné"
 
 #: tmp/e0/bf/047222b830c544b90a003a8e2a64.php:27
 msgid "Are you sure you want to delete this article ?"
