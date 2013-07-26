@@ -58,6 +58,7 @@ msgid "Commercial"
 msgstr "Commercial"
 
 #: config/ConfigInitModule.php:72 config/ConfigInitModule.php:150
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:26
 msgid "Projects"
 msgstr "Projets"
 
@@ -1554,13 +1555,9 @@ msgid "Import"
 msgstr "Importer"
 
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:26
-msgid "Commercial projects"
-msgstr "Projets commerciaux"
-
-#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:26
 msgid ""
-"A commercial project is a collection of sales documents, purchases invoices "
-"and interventions in one place."
+"A project is a collection of sales documents, purchases invoices and "
+"interventions in one place."
 msgstr ""
 "Un projet est un ensemble de documents de vente, factures d'achats et "
 "interventions regroupé à un seul endroit."
@@ -2464,6 +2461,9 @@ msgstr "Ce numéro de facture d'achat existe déjà"
 #: entities/CommercialProviderInvoice.php:417
 msgid "This invoice is already linked to a bank operation"
 msgstr "Cette facture est déjà associée à une opération bancaire"
+
+#~ msgid "Commercial projects"
+#~ msgstr "Projets commerciaux"
 
 #~ msgid "Revert to main contact"
 #~ msgstr "Rétablir le contact principal"

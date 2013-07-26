@@ -41,6 +41,7 @@ msgid "Commercial"
 msgstr ""
 
 #: config/ConfigInitModule.php:72 config/ConfigInitModule.php:150
+#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:26
 msgid "Projects"
 msgstr ""
 
@@ -1509,13 +1510,9 @@ msgid "Import"
 msgstr ""
 
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:26
-msgid "Commercial projects"
-msgstr ""
-
-#: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:26
 msgid ""
-"A commercial project is a collection of sales documents, purchases invoices "
-"and interventions in one place."
+"A project is a collection of sales documents, purchases invoices and "
+"interventions in one place."
 msgstr ""
 
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:50
