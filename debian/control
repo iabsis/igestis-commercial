@@ -5,7 +5,7 @@ Maintainer: Gilles Hemmerlé <gilles.h@iabsis.com>
 Build-Depends: debhelper (>= 5)
 Standards-Version: 3.7.2
 
-Package: igestis-keytours
+Package: igestis-commercial
 Architecture: all
 Depends: igestis (>= 2.3.10)
 Suggests: sane-utils
