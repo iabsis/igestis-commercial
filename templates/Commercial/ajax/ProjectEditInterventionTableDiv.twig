@@ -1,5 +1,5 @@
 
-<legend>{% trans %}Support intervention{% endtrans %}</legend>
+<legend>{% trans %}Linked interventions{% endtrans %}</legend>
 
 <a data-toggle="modal" href="{{ url('commercial_project_link_intervention', {projectId : project.id }) }}" data-target="#project-link-intervention-modal" class="btn btn-primary pull-right">{% trans %}Link an intervention{% endtrans %}</a>
 <a href="{{ url('commercial_interventions_new') }}&projectId={{ project.id }}" class="btn">{% trans %}Add new{% endtrans %}</a><br><br>

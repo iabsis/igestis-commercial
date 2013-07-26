@@ -11,7 +11,7 @@
    <tbody>
       {% for row in contactsList %}
            <tr>
-               <td><input type="text" size="5" style="width: auto;" placeholder="{% trans %}0{% endtrans %}" name="selected-{{ row.id }}" value=""></td>
+               <td><input type="text" size="7" style="width: auto;" placeholder="0.00" name="selected-{{ row.id }}" value=""></td>
                <td>{{ row.Contact }}</td>                   
            </tr>
      {% endfor %}
