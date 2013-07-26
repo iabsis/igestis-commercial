@@ -542,7 +542,7 @@ class CommercialInvoice
      */
     public function PrePersist() {
         if(count($this->bankAssocs) && !$this->paid) {
-            throw new \Exception(Igestis\I18n\Translate::_("This document is associated to one or more bank operation. You cannont set it as not paid"));
+            throw new \Exception(Igestis\I18n\Translate::_("This document is associated to one or more bank operation. You cannot change the payment status"));
         } 
         
         

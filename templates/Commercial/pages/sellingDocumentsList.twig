@@ -26,7 +26,7 @@
 <div class="well">
     <form class="form-search allow-to-quit" action="" method="get">
         <fieldset>
-            <legend>{% trans %}Search for commercial document{% endtrans %}</legend>
+            <legend>{% trans %}Filter commercial document{% endtrans %}</legend>
             {% set selectionList = { 0 : { 'value' : -1, 'label' : "All"|trans },  1 : { 'value' : 1, 'label' : "Yes"|trans },  2 : { 'value' : 0, 'label' : "No"|trans } } %}
             {% set statesList = {
                 0 : { "value" : 0, 'label' : "All"|trans },
@@ -75,7 +75,7 @@
             <th>{% trans %}Customer{% endtrans %}</th>
             <th>{% trans %}Label{% endtrans %}</th>
             <th>{% trans %}Document date{% endtrans %}</th>
-            <th>{% trans %}Amout DF{% endtrans %}</th>
+            <th>{% trans %}Amout without taxes{% endtrans %}</th>
             <th>{% trans %}Actions{% endtrans %}</th>
         </tr>
     </thead>

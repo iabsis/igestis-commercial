@@ -99,7 +99,7 @@ class ConfigInitModule implements \Igestis\Interfaces\ConfigMenuInterface, \Iges
         
         $menu->addItem(
         		\Igestis\I18n\Translate::_("Commercial"),
-        		\Igestis\I18n\Translate::_("Balances"),
+        		\Igestis\I18n\Translate::_("Users balance"),
         		"commercial_balance_index"
         );
         
@@ -172,7 +172,7 @@ class ConfigInitModule implements \Igestis\Interfaces\ConfigMenuInterface, \Iges
         
         $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("Balances", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Users balance", ConfigModuleVars::textDomain), 
                 "commercial_balance_index");
         
         $sidebar->addItem(

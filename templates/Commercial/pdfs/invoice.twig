@@ -16,7 +16,7 @@
 				<strong>{% trans %}Number{% endtrans %}: </strong>{{ commercialInvoice.invoiceNumber }}<br>
 				<strong>{% trans %}Valid until{% endtrans %}: </strong>{{ commercialInvoice.paymentDateLimit ? commercialInvoice.paymentDateLimit|date("d/m/Y") }}<br>
 				<strong>{% trans %}Page{% endtrans %}: </strong>{{ numPage }} {% trans %}of{% endtrans %} {{ nbPages }}<br>
-				<strong>{% trans %}ayment mode{% endtrans %}</strong>: {{ commercialInvoice.paymentMode.label }}<br>
+				<strong>{% trans %}Payment mode{% endtrans %}</strong>: {{ commercialInvoice.paymentMode.label }}<br>
 			</td>
 		</tr>
 		<tr>
@@ -129,7 +129,7 @@
 	<table cellpadding="4">
 		<tr style="background-color: #F0F0F0;">
 			<td>
-				<strong>{% trans %}Payments information{% endtrans %}</strong><br />
+				<strong>{% trans %}Payment informations{% endtrans %}</strong><br />
 				{% if commercialInvoice.commercialDocument.company.banque %}{% trans %}Bank name{% endtrans %} : {{ commercialInvoice.commercialDocument.company.banque }}<br />{% endif %}
 				{% if commercialInvoice.commercialDocument.company.rib %}{% trans %}RIB{% endtrans %} : {{ commercialInvoice.commercialDocument.company.rib }}<br />{% endif %}
 				{% if commercialInvoice.commercialDocument.company.iban %}{% trans %}IBAN{% endtrans %} : {{ commercialInvoice.commercialDocument.company.iban }}<br />{% endif %}

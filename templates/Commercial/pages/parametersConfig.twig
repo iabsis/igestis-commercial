@@ -1,6 +1,6 @@
 {% extends "Commercial/common.twig" %}
 
-{% set title = {'logo': "emblem-personal"|trans,
+{% set title = {
                 'title': "Commercial module configuration"|trans,
                 'help': "Update the default values for the commercial module"|trans} %}
  
@@ -78,8 +78,8 @@
             <div class="row-fluid" >
                 <div class="span6">  
                     <legend>{% trans %}Available variables{% endtrans %}</legend>
-                    {{ forms.text("'Selling' or 'buying'"|trans, '{{ type }}') }}   
-                    {{ forms.text("The user account filled in the Customers > Customer ID field"|trans, '{{ userAccount }}') }}   
+                    {{ forms.text("'selling' or 'buying'"|trans, '{{ type }}') }}   
+                    {{ forms.text("The user account specified in the Customers > Customer ID field"|trans, '{{ userAccount }}') }}   
                     {{ forms.text("Tax account"|trans, '{{ taxAccout }}') }}   
                     {{ forms.text("The account where to export the current invoice line"|trans, '{{ articleAccount }}') }}   
                     {{ forms.text("Invoice number"|trans, '{{ invoiceNumber }}') }}   

@@ -394,7 +394,7 @@ class CommercialProviderInvoice
         // Check if another provider invoice has already the same  reference
         $_em = \Application::getEntityMaanger();
         if($_em->getRepository("CommercialProviderInvoice")->findOtherProviderInvoiceWithSameReference($this)) {
-            throw new \Exception(\Igestis\I18n\Translate::_("This provider invoice number does already exist"));
+            throw new \Exception(\Igestis\I18n\Translate::_("This provider invoice number already exists"));
         }
         
         if($this->locked) throw new \Exception(\Igestis\I18n\Translate::_("This invoice is in read only mode. It has already been exported"));
@@ -405,7 +405,7 @@ class CommercialProviderInvoice
         }        
         
         if(count($this->bankAssocs) && !$this->paid) {
-            throw new \Exception(Igestis\I18n\Translate::_("This document is associated to one or more bank operation. You cannont set it as not paid"));
+            throw new \Exception(Igestis\I18n\Translate::_("This document is associated to one or more bank operation. You cannot change the payment status"));
         } 
       
         //exit;
