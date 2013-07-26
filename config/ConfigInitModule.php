@@ -33,23 +33,23 @@ class ConfigInitModule implements \Igestis\Interfaces\ConfigMenuInterface, \Iges
             /* Premier droit "None"*/
             array(
                 "CODE" => "NONE",
-                "NAME" => \Igestis\I18n\Translate::_("None"),
-                "DESCRIPTION" => \Igestis\I18n\Translate::_("Doesn't allow the access to sales projects")
+                "NAME" => \Igestis\I18n\Translate::_("None", ConfigModuleVars::textDomain),
+                "DESCRIPTION" => \Igestis\I18n\Translate::_("Doesn't allow the access to sales projects", ConfigModuleVars::textDomain)
             ),
             array(
                 "CODE" => "ADMIN",
                 "NAME" => \Igestis\I18n\Translate::_("Administrator"),
-                "DESCRIPTION" => \Igestis\I18n\Translate::_("Allow to create and delete projects, create assets, invoices and estimations, and export invoices and assets")
+                "DESCRIPTION" => \Igestis\I18n\Translate::_("Allow to create and delete projects, create assets, invoices and estimations, and export invoices and assets", ConfigModuleVars::textDomain)
             ),
             array(
                 "CODE" => "EMPL",
-                "NAME" => \Igestis\I18n\Translate::_("Employee"),
-                "DESCRIPTION" => \Igestis\I18n\Translate::_("Allow to create and delete projects, create assets, invoices and estimations")
+                "NAME" => \Igestis\I18n\Translate::_("Employee", ConfigModuleVars::textDomain),
+                "DESCRIPTION" => \Igestis\I18n\Translate::_("Allow to create and delete projects, create assets, invoices and estimations", ConfigModuleVars::textDomain)
             ),
             array(
                 "CODE" => "COMP",
-                "NAME" => \Igestis\I18n\Translate::_("Accountant"),
-                "DESCRIPTION" => \Igestis\I18n\Translate::_("Allow to export invoices and assets")
+                "NAME" => \Igestis\I18n\Translate::_("Accountant", ConfigModuleVars::textDomain),
+                "DESCRIPTION" => \Igestis\I18n\Translate::_("Allow to export invoices and assets", ConfigModuleVars::textDomain)
             )
         );
         
@@ -68,50 +68,50 @@ class ConfigInitModule implements \Igestis\Interfaces\ConfigMenuInterface, \Iges
          * - La route à lancer
          */
         $menu->addItem(
-                \Igestis\I18n\Translate::_("Commercial"), 
-                \Igestis\I18n\Translate::_("Projects"), 
+                \Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Projects", ConfigModuleVars::textDomain), 
                 "commercial_project_index"
         );
         
         $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial"),
-        		\Igestis\I18n\Translate::_("Sales documents"),
+        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain),
+        		\Igestis\I18n\Translate::_("Sales documents", ConfigModuleVars::textDomain),
         		"commercial_selling_document_index"
         );
         
         $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial"),
-        		\Igestis\I18n\Translate::_("Purchases invoices"),
+        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain),
+        		\Igestis\I18n\Translate::_("Purchases invoices", ConfigModuleVars::textDomain),
         		"commercial_provider_invoices_index"
         );
         
         $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial"),
-        		\Igestis\I18n\Translate::_("Articles database"),
+        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain),
+        		\Igestis\I18n\Translate::_("Articles database", ConfigModuleVars::textDomain),
         		"commercial_articles_index"
         );
         
         $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial"),
-        		\Igestis\I18n\Translate::_("Interventions"),
+        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain),
+        		\Igestis\I18n\Translate::_("Interventions", ConfigModuleVars::textDomain),
         		"commercial_interventions_index"
         );
         
         $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial"),
-        		\Igestis\I18n\Translate::_("Users balance"),
+        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain),
+        		\Igestis\I18n\Translate::_("Users balance", ConfigModuleVars::textDomain),
         		"commercial_balance_index"
         );
         
         $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial"),
-        		\Igestis\I18n\Translate::_("Bank accounts"),
+        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain),
+        		\Igestis\I18n\Translate::_("Bank accounts", ConfigModuleVars::textDomain),
         		"commercial_bank_index"
         );
         
         $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial"),
-        		\Igestis\I18n\Translate::_("Export"),
+        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain),
+        		\Igestis\I18n\Translate::_("Export", ConfigModuleVars::textDomain),
         		"commercial_export_index"
         );
         
