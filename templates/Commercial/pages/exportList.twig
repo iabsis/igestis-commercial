@@ -54,7 +54,7 @@
         
       {% for row in invoicesList %}
             <tr>
-                <td><input type="checkbox" name="export[]" value="{{ row.transactionType }}-{{ row.documentId }}" /></td>
+                <td><input checked="checked" type="checkbox" name="export[]" value="{{ row.transactionType }}-{{ row.documentId }}" /></td>
                 <td>{{ row.transactionDate|date("d/m/Y") }}</td>
                 <td>{{ row.paid ? 'Yes' : 'No' }}</td>
                 <td>{{ row.eported ? 'Yes' : 'No' }}</td>

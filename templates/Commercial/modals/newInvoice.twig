@@ -8,7 +8,7 @@
 
              {{ forms.date('validUntil', 'Payment deadline'|trans, sellingDocument.invoices|length ? sellingDocument.invoices[0].paymentDateLimit : invoiceValidUntil) }}
              {{ forms.select('soldType', 'Payment mode'|trans, soldTypeList, null, 'code', 'label') }}
-             {{ forms.select('invoicesType', 'Invoice type'|trans, {  0 : {"value" : 'invoices', "label" : 'Invoice'|trans}, 1 : {"value" : 'credits', "label" : 'Credit note'|trans} }, null, 'value', 'label') }}
+             {{ forms.select('invoicesType', 'Invoice type'|trans, {  0 : {"value" : 'invoices', "label" : 'Invoice'|trans}, 1 : {"value" : 'credits', "label" : 'Credit note'|trans} }, "invoices", 'value', 'label') }}
         </div>
         <div class="modal-footer">
             <a href="#" class="btn" data-dismiss="modal" >Close</a>
