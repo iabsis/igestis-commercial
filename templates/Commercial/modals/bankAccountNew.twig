@@ -1,5 +1,5 @@
 <div id="new-bank-account-modal" class="modal hide fade">
-    <form class="modal-form form-horizontal" action="{{ url('commercial_bank_account_new') }}" id="new-project-form" method="post">
+    <form class="modal-form form-horizontal" action="{{ url('commercial_bank_account_new') }}" id="new-account-form" method="post">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h3>{% trans %}New bank account{% endtrans %}</h3>
@@ -21,10 +21,9 @@
 
 <script>
 $(document).ready(function(){
-        $("#new-project-form").validate({
+        $("#new-account-form").validate({
                 ignore: "input[type='text']:hidden",
                 rules:{
-
                         accountName:{
                                 required:true
                         },

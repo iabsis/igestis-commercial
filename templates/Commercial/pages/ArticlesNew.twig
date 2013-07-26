@@ -6,6 +6,32 @@
 
 {% block content %}{{ parent() }}
 
+{% if taxeRatesList is empty  %}
+<div class="alert alert-error">
+  <strong>{% trans %}Warning!{% endtrans %}</strong><br />
+  {% trans %}You must first create at least one tax rate before adding an article.{% endtrans %}<br /><br />
+  <button class="btn btn-danger" onclick="javascript:window.location.href='{{ url('commercial_taxe_rates_new') }}'">{% trans %}Create a tax rate{% endtrans %}</button>
+</div>
+<script>
+    $(function(){
+        $("form *").attr('disabled', '');
+    });
+</script>
+{% endif %}
+
+{% if sellingAccountList is empty  %}
+<div class="alert alert-error">
+  <strong>{% trans %}Warning!{% endtrans %}</strong><br />
+  {% trans %}You must first create at least one selling account before adding an article.{% endtrans %}<br /><br />
+  <button class="btn btn-danger" onclick="javascript:window.location.href='{{ url('commercial_selling_account_new') }}'">{% trans %}Create a selling account{% endtrans %}</button>
+</div>
+<script>
+    $(function(){
+        $("form *").attr('disabled', '');
+    });
+</script>
+{% endif %}
+
 <div class="well">
     <form id="form_data" method='post' action=''>
         <fieldset>
@@ -22,7 +48,7 @@
                     {{ forms.input('sellingPriceDf', 'Selling price'|trans, form_data.sellingPriceDf) }}
                     {{ forms.select('taxRate', 'Taxe rate'|trans, taxeRatesList, form_data.taxRate.id, 'id', 'showInList', null, null, null, "required") }}
                         
-                    {{ forms.select('sellingAccount', 'Selling account'|trans, sellingAccountList, form_data.sellingAccount.id, 'id', 'label') }}
+                    {{ forms.select('sellingAccount', 'Selling account'|trans, sellingAccountList, form_data.sellingAccount.id, 'id', 'label', null, null, null, "required") }}
                     {{ forms.tagfield('categoryLabel', 'Category'|trans, articleCategoriesList, form_data.categoryLabel) }}
                 </div>
             </div>
