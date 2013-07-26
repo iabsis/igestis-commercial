@@ -8,7 +8,7 @@
 
 <div class="well">
     <fieldset>
-    	<form class="form-horizontal">
+    	<form class="form-horizontal allow-to-quit">
 	        <legend>{% trans %}Intervention information{% endtrans %}</legend>
 	        <div class="row-fluid">
 	            <div class="span6">      
@@ -180,7 +180,7 @@
                    dataToSend = $("#manual-part input, #manual-part select").serialize();
                }
                else {
-                   dataToSend = $('input[type=checkbox]', $('#sameAmountsInvoices').dataTable().fnGetNodes()).serialize();
+                   if($('#sameAmountsInvoices').length) dataToSend = $('input[type=checkbox]', $('#sameAmountsInvoices').dataTable().fnGetNodes()).serialize();
                }
                
                if($("#id-notAssignable").is(":checked")) {
@@ -217,10 +217,13 @@
                    var balance = $("#operationAmount").val();
                    var assocs = 0;
                    
-                   $('input[type=checkbox]', $('#sameAmountsInvoices').dataTable().fnGetNodes()).each(function() {
-                       if(!$(this).is(":checked")) return;
-                       assocs += parseFloat($(this).data("amount"));
-                   });
+                   if($('#sameAmountsInvoices').length) {
+                       $('input[type=checkbox]', $('#sameAmountsInvoices').dataTable().fnGetNodes()).each(function() {
+                            if(!$(this).is(":checked")) return;
+                            assocs += parseFloat($(this).data("amount"));
+                       });
+                   }
+                   
                    $("#manual-part [name^='amount']").each(function() {
                        var val = parseFloat($(this).val());
                        assocs += (isNaN(val) ? 0 : val);

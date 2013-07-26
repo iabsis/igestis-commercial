@@ -115,6 +115,8 @@ class bankOperationController extends \IgestisController {
                     unset($_POST['associatedUser']);
                     $operation->setNotAssign(true);
                 }
+                else $operation->setNotAssign(false);
+                
                 
                 if(isset($_POST['selected-invoices'])) {
                     foreach($_POST['selected-invoices'] as $sellingInvoiceId) {
@@ -134,7 +136,7 @@ class bankOperationController extends \IgestisController {
                 
                 if(isset($_POST['associatedUser'])) {
                     foreach ($_POST['associatedUser'] as $key => $associatedUserId) {
-                        if(empty($associatedUserId)) continue;
+                        if(empty($associatedUserId) || empty($_POST['amount'][$key])) continue;
                         $assoc = new \CommercialBankAssocOperations();
                         $assoc->setConcernedUser($this->_em->find("CoreUsers", $associatedUserId))
                               ->setAmount($_POST['amount'][$key]);
