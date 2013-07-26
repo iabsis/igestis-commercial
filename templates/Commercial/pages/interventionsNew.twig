@@ -11,7 +11,7 @@
         <fieldset>
             <legend>{% trans %}Intervention information{% endtrans %}</legend>
             <input type="hidden" name="saveAndNew" id="saveAndNew" value="0" />
-            <input type="hidden" name="projectId" value="{{ projectId }}" />
+            <input type="hidden" name="projectId" value="{{ project.id }}" />
             <div class="row-fluid">
                 <div class="span6">      
                        {{ forms.input('title', 'Title'|trans, form_data.title) }}
@@ -19,7 +19,12 @@
                        {% if RIGHTS_LIST.COMMERCIAL == "ADMIN" %}
                             {{ forms.select('workerContact', 'Worker'|trans, employeesList, form_data.workerContact.id, 'id', '__toString') }}
                        {% endif %}
-                       {{ forms.select('customerUser', 'Customer'|trans, customersList, form_data.customerUser.id, 'id', 'userLabel') }}
+                        
+                       {% if project.id %}
+                            {{ forms.select('customerUser', 'Customer'|trans, customersList, project.customerUser.id, 'id', 'userLabel', null, null, null, "disabled") }}
+                       {% else %}
+                            {{ forms.select('customerUser', 'Customer'|trans, customersList,null  , 'id', 'userLabel') }}
+                       {% endif %}
                        {{ forms.tagfield('type', 'Type'|trans, interventionsTypeList, [form_data.type], null, null, null, 1) }}
                 </div>
                     

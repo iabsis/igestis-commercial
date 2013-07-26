@@ -19,7 +19,12 @@
                        {% if RIGHTS_LIST.COMMERCIAL == "ADMIN" %}
                             {{ forms.select('workerContact', 'Worker'|trans, employeesList, form_data.workerContact.id, 'id', '__toString') }}
                        {% endif %}
-                       {{ forms.select('customerUser', 'Customer'|trans, customersList, form_data.customerUser.id, 'id', 'userLabel') }}
+                        
+                       {% if project.id %}
+                            {{ forms.select('customerUser', 'Customer'|trans, customersList, project.customerUser.id, 'id', 'userLabel', null, null, null, "disabled") }}
+                       {% else %}
+                            {{ forms.select('customerUser', 'Customer'|trans, customersList, form_data.customerUser.id, 'id', 'userLabel') }}
+                       {% endif %}
                        {{ forms.tagfield('type', 'Type'|trans, interventionsTypeList, [form_data.type], null, null, null, 1) }}
                 </div>
 

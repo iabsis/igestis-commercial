@@ -455,6 +455,10 @@ class CommercialSupportIntervention
         if(!$this->workerContact){
             $this->workerContact =  \IgestisSecurity::init()->contact;
         }
+        
+        if($this->getProject()) {
+            $this->customerUser = $this->getProject()->getCustomerUser();
+        }
     }
 }
 

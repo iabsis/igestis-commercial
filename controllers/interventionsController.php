@@ -116,10 +116,10 @@ class interventionsController extends \IgestisController {
             }
             
             if($this->request->getGet("projectId")) {
-                    $project = $this->_em->find("CommercialProject", $this->request->getGet("projectId"));
-                    if(!$project) throw new \Exception(\Igestis\I18n\Translate::_("Unknown project"));
-                    $intervention->setProject($project);
-                }
+                $project = $this->_em->find("CommercialProject", $this->request->getGet("projectId"));
+                if(!$project) throw new \Exception(\Igestis\I18n\Translate::_("Unknown project"));
+                $intervention->setProject($project);
+            }
 
             
             // Set the new datas to the article
@@ -134,7 +134,13 @@ class interventionsController extends \IgestisController {
             $nbMinutes = $intervention->getPeriod() + $intervention->getPause();
             $endTime->add(new \DateInterval("PT" . $nbMinutes . "M" ));
 
-            $intervention->setCustomerUser($this->context->entityManager->getRepository("CoreUsers")->find($this->request->getPost("customerUser")));  
+            if($this->request->getGet("projectId")) {
+                $intervention->setCustomerUser($project->getCustomerUser()); 
+            }
+            else {
+                $intervention->setCustomerUser($this->context->entityManager->getRepository("CoreUsers")->find($this->request->getPost("customerUser"))); 
+            }
+             
             
             if($this->context->security->module_access("COMMERCIAL") == "ADMIN") {
                 $intervention->setWorkerContact($this->context->entityManager->getRepository("CoreContacts")->find($this->request->getPost("workerContact")));  
@@ -156,7 +162,7 @@ class interventionsController extends \IgestisController {
                 $this->context->entityManager->commit();
             } catch (\Exception $e) {
                 $this->context->entityManager->rollback();
-                $ajaxResponse->setError(\Igestis\I18n\Translate::_("An error occured during the intervention save." ));
+                $ajaxResponse->setError(\Igestis\I18n\Translate::_("An error occured during the intervention save."));
             }
             
             // Show wizz to article the article update
@@ -183,7 +189,7 @@ class interventionsController extends \IgestisController {
         // If no form received, show the form
         $this->context->render("Commercial/pages/interventionsNew.twig", array(
             'form_data' => $intervention,
-            'projectId' => $this->request->getGet("projectId"),
+            'project' => $this->_em->find("CommercialProject", $this->request->getGet("projectId")),
             'customersList' => $this->_em->getRepository("CoreUsers")->findAll(),
             'employeesList' => $this->_em->getRepository("CoreContacts")->getEmployeesList(false, true),
             'interventionsTypeList' => $this->_em->getRepository("CommercialSupportIntervention")->findAllTypes(true),
@@ -291,6 +297,7 @@ class interventionsController extends \IgestisController {
         // If no form received, show the form
         $this->context->render("Commercial/pages/interventionsEdit.twig", array(
             'form_data' => $intervention,
+            'project' => $intervention->getProject() ? $this->_em->find("CommercialProject", $intervention->getProject()) : null,
             'customersList' => $this->_em->getRepository("CoreUsers")->findAll(),
             'employeesList' => $this->_em->getRepository("CoreContacts")->getEmployeesList(false, true),
             'interventionsTypeList' => $this->_em->getRepository("CommercialSupportIntervention")->findAllTypes(true),
