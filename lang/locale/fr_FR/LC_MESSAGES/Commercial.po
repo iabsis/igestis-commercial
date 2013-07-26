@@ -1929,6 +1929,30 @@ msgstr "Information du taux de TVA"
 msgid "Percentage"
 msgstr "Pourcentage"
 
+#: tmp/22/9a/c69183708597aa0793c37a05d5f4.php:19
+msgid "Cash"
+msgstr "Espèce"
+
+#: tmp/22/9a/c69183708597aa0793c37a05d5f4.php:21
+msgid "Credit card"
+msgstr "Carte de crédit"
+
+#: tmp/22/9a/c69183708597aa0793c37a05d5f4.php:23
+msgid "Check"
+msgstr "Chèque"
+
+#: tmp/22/9a/c69183708597aa0793c37a05d5f4.php:25
+msgid "Levy"
+msgstr "Prélèvement"
+
+#: tmp/22/9a/c69183708597aa0793c37a05d5f4.php:27
+msgid "Other"
+msgstr "Autre"
+
+#: tmp/22/9a/c69183708597aa0793c37a05d5f4.php:29
+msgid "Transfer"
+msgstr "Virement"
+
 #: tmp/2f/fb/405430ed4e7cba3d009789944224.php:26
 msgid "Edit a taxe rate"
 msgstr "Éditer un taux de TVA"
