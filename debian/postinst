@@ -59,7 +59,7 @@ case "$1" in
 
 	# Setup of Apache2.
 	
-	mkdir -p /usr/share/igestis/documents/keytours/invoices/
+	mkdir -p /usr/share/igestis/documents/Commercial/
 	chown www-data -R /usr/share/igestis/documents/
 	chmod 700 -R /usr/share/igestis/documents/
 
