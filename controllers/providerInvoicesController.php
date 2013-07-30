@@ -24,7 +24,8 @@ class providerInvoicesController extends \IgestisController {
     
     public function newAction() {
         $uploadHandler = new \Igestis\Utils\UploadHandler(array(
-            "upload_dir" => ConfigModuleVars::providersInvoicesFolder. "/"
+            "upload_dir" => ConfigModuleVars::providersInvoicesFolder. "/",
+            "accept_file_types" =>  '/(gif|jpe?g|png|pdf)$/i'
         ), false);
         
         $entityManager = $this->_em;
@@ -255,10 +256,11 @@ class providerInvoicesController extends \IgestisController {
     
     public function refreshAction() {
         $ajaxResponse = new \Igestis\Ajax\AjaxResult();        
-        
+        $searchForm = new Forms\providerInvoiceSearchForm();
+        $searchForm->initFromGet();
         
         $htmlContent = $this->context->render("Commercial/ajax/ProviderInvoicesListTableDiv.twig", array(
-            "data_table" => $this->_em->getRepository("CommercialProviderInvoice")->findAll(),           
+            "data_table" => $this->_em->getRepository("CommercialProviderInvoice")->findFromSearchForm($searchForm)
         ), true);
 
         $ajaxResponse->addAssign('BuyingInvoiceTableDiv', $htmlContent)->setSuccessful("ok")->render();        

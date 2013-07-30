@@ -67,10 +67,13 @@
 {% include 'Commercial/modals/providerInvoicesNew.twig' %}
 
 <script>
-igestisCommercial.providerInvoices.init({        
-    amountDeleteLink : '{{ url('commercial_provider_invoices_del_amount', {Id:''} ) }}',
-    refreshInvoicesListLink : '{{ url ( 'commercial_provider_invoices_refresh' ) }}'
-});
+    $(function() {
+        igestisCommercial.providerInvoices.init({        
+            amountDeleteLink : '{{ url('commercial_provider_invoices_del_amount', {Id:''} ) }}',
+            refreshInvoicesListLink : '{{ url ( 'commercial_provider_invoices_refresh' ) }}&assigned=' + $("#id-assigned").val()  
+        });
+    });
+
 </script>
         
 {% endblock %}

@@ -375,7 +375,7 @@ igestisCommercial.providerInvoices.refreshInvoicesList = function() {
         complete: function() {
            
         }
-     });
+   });
 };
 
 
