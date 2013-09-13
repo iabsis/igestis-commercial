@@ -1,0 +1,40 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Edit an intervention"|trans,
+                'help': "Review the time and the information about the work done to your customer."|trans} %}
+
+{% block content %}{{ parent() }}
+    
+<fieldset>
+    <div class="well">
+        <legend>{% trans %}Intervention details{% endtrans %} <a class="btn btn-small pull-right" href="javascript:window.history.go(-1);">{% trans %}Return to the list {% endtrans%}</a></legend>
+      <div class="row-fluid">
+          <div class="span6">      
+                 {{ forms.text(form_data.title, 'Title'|trans) }}
+                 {{ forms.text(form_data.description, 'Description'|trans) }}
+                 {{ forms.text(form_data.workerContact.user.userLabel, 'Worker'|trans) }}
+                 {{ forms.text(form_data.type, 'Type'|trans) }}
+                  
+                 {% if form_data.filename %}
+                  <div class="control-group">
+                    <label class="control-label"><b>{% trans %}Associated doc.{% endtrans %}</b></label>
+                    <div class="controls" style="padding-top: 5px;"><a href="{{ url('commercial_interventions_dl_doc', { "Id" : form_data.id, "ForceDl" : 1 }) }}">{% trans %}Download{% endtrans %}</a></div>
+                  </div>        
+                {% endif %}
+          </div>
+
+          <div class="span6">                    
+                 {{ forms.text(form_data.date is empty ? '' : form_data.date|date("d/m/Y"), 'Date'|trans) }}
+                 {{ forms.text(form_data.date is empty ? '' : form_data.date|date("H:i"), 'Start time'|trans) }}
+                 {{ forms.text(form_data.end  is empty ? '' : form_data.end|date("H:i"), 'endTime', 'End time'|trans) }}
+                 {{ forms.text(form_data.pauseTime, 'Pause duration'|trans) }}
+                 {{ forms.text(form_data.periodTime, 'Elapsed time'|trans) }}
+          </div>
+      </div>
+    </div>
+
+
+</fieldset>
+
+{% endblock %}

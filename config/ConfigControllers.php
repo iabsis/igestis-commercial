@@ -591,6 +591,17 @@ class ConfigControllers extends \IgestisConfigController {
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
             ),  
             array(
+                'id' => 'commercial_interventions_show',
+                'Parameters' => array(
+                    'Module' => 'Commercial',
+                    'Action' => 'interventions_show',
+                    'Id' => '{VAR}[0-9]+',
+                ),
+                'Controller' => '\Igestis\Modules\Commercial\interventionsController',
+                'Action' => 'showAction',
+                'Access' => array('AUTHENTICATED')
+            ),  
+            array(
                 'id' => 'commercial_interventions_del',
                 'Parameters' => array(
                     'Module' => 'Commercial',
@@ -893,6 +904,31 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'exportGenerateAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:COMP')
             ),
+            
+            
+            /**************** Customer account ******************************************************************/
+            array(
+                'id' => 'commercial_my_account_selling_document_index',
+                'Parameters' => array(
+                    'Module' => 'Commercial',
+                    'Action' => 'my_account_selling_document_index'
+                ),
+                'Controller' => '\Igestis\Modules\Commercial\sellingDocumentsController',
+                'Action' => 'myAccountIndexAction',
+                'Access' => array('AUTHENTICATED')
+            ),  
+            
+            array(
+                'id' => 'commercial_my_account_interventions_index',
+                'Parameters' => array(
+                    'Module' => 'Commercial',
+                    'Action' => 'my_account_interventions_index'
+                ),
+                'Controller' => '\Igestis\Modules\Commercial\interventionsController',
+                'Action' => 'myAccountIndexAction',
+                'Access' => array('AUTHENTICATED')
+            ),  
+            
             
          );
     }

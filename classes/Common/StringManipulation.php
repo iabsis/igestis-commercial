@@ -16,7 +16,7 @@ class StringManipulation {
     public static function convertDecimalToTimeFormat($nbMinutes) {
         if($nbMinutes == 0) return "00:00";
         else {
-            $hours = $nbMinutes / 60;
+            $hours = (int)($nbMinutes / 60);
             $minutes = $nbMinutes % 60;
             while (strlen($hours) < 2) $hours = "0" . $hours;
             while (strlen($minutes) < 2) $minutes = "0" . $minutes;

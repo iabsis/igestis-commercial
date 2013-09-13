@@ -25,6 +25,20 @@ class interventionsController extends \IgestisController {
         ));
     }
     
+    public function myAccountIndexAction() {
+        $searchForm = new Forms\InterventionsSearchForm($this->_em);
+        $searchForm->initFromGet();
+        $searchForm->setCustomerUser($this->context->security->user);
+         
+        $this->context->render("Commercial/pages/myAccountInterventionsList.twig", array(
+            'data_table' =>  $this->_em->getRepository("CommercialSupportIntervention")->findAllBySearchForm($searchForm),
+            'totalTime' =>   $this->_em->getRepository("CommercialSupportIntervention")->findAllBySearchForm($searchForm, true),
+            'searchForm' => $searchForm,
+            'typesList' => $this->_em->getRepository("CommercialSupportIntervention")->findAllTypes()
+        ));
+    }
+
+    
 
     /**
      * Delete the intervention
@@ -193,6 +207,18 @@ class interventionsController extends \IgestisController {
             'customersList' => $this->_em->getRepository("CoreUsers")->findAll(),
             'employeesList' => $this->_em->getRepository("CoreContacts")->getEmployeesList(false, true),
             'interventionsTypeList' => $this->_em->getRepository("CommercialSupportIntervention")->findAllTypes(true),
+        ));
+    }
+    
+    public function showAction($Id) {
+        $intervention = $this->_em->find("CommercialSupportIntervention", $Id);
+        if(!$intervention || $intervention->getCustomerUser()->getId() != $this->context->security->user->getId()) {
+            $this->context->throw404error();
+        }
+        
+        // If no form received, show the form
+        $this->context->render("Commercial/pages/myAccountInterventionsShow.twig", array(
+            'form_data' => $intervention
         ));
     }
     

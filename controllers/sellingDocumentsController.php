@@ -14,12 +14,23 @@ class sellingDocumentsController extends \IgestisController {
     public function indexAction() {
         $searchForm = new Forms\commercialDocumentSearchForm();
         $searchForm->initFromGet();
+        
         $this->context->render("Commercial/pages/sellingDocumentsList.twig", array(
             "searchForm" => $searchForm,
-            'data_table' =>  $this->_em->getRepository("CommercialCommercialDocument")->findBySearchForm($searchForm)
+            "data_table" =>  $this->_em->getRepository("CommercialCommercialDocument")->findBySearchForm($searchForm),
         ));
     }
     
+    public function myAccountIndexAction() {
+        $searchForm = new Forms\commercialDocumentSearchForm($this->_em);
+        $searchForm->initFromGet();
+        $searchForm->setCustomer($this->context->security->user);
+        
+        $this->context->render("Commercial/pages/myAccountSellingDocumentsList.twig", array(
+            "searchForm" => $searchForm,
+            "data_table" =>  $this->_em->getRepository("CommercialCommercialDocument")->findBySearchForm($searchForm),
+        ));
+    }
 
     /**
      * Delete the commercial document

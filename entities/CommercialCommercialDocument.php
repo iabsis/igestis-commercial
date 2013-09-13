@@ -704,7 +704,12 @@ class CommercialCommercialDocumentRepository extends \Doctrine\ORM\EntityReposit
                     $qb->andWhere("i.id is null")
                        ->leftJoin("d.estimates", "e")->andWhere("e.id is null");  
                     break;
-            }            
+            }  
+            
+            if($searchForm->getCustomer()) {
+                $qb->andWhere("d.customerUser = :customer")
+                   ->setParameter("customer", $searchForm->getCustomer());
+            }
             
         }
         catch (\Exception $e) {

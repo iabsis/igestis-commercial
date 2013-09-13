@@ -1,0 +1,91 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Documents list"|trans,
+                'help': "You commercial documents history."|trans} %}
+
+{% set sidebarActivated = true %}
+{% block sidebar %}
+  {% include 'sidebar.twig' %}
+{% endblock %}
+
+
+{% block content %}{{ parent() }}
+
+
+{% set statesList = {
+    0 : { "value" : 0, 'label' : "All"|trans },
+    2 : { "value" : 2, 'label' : "Estimate"|trans },
+    3 : { "value" : 4, 'label' : "Invoice"|trans },
+    4 : { "value" : 8, 'label' : "Credit"|trans }
+}
+%}
+
+
+<div class="well">
+    <form class="form-search allow-to-quit" action="" method="get">
+        <fieldset>
+            <legend>{% trans %}Filter commercial document{% endtrans %}</legend>
+
+            <div class="row-fluid">
+                <div class="span4">
+                    {{ forms.select('state', 'State'|trans, statesList, searchForm.state, 'value', 'label') }}
+                </div>                
+            </div>
+            <div class="form-actions">
+                <input type="hidden" name="Module" value="Commercial" />
+                <input type="hidden" name="Action" value="my_account_selling_document_index" />  
+                <button type="submit" class="btn btn-primary"><i class="icon-search"></i> {% trans %}Search{% endtrans %}</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+{% import "table.twig" as table_data %}
+{{ table_data.datatable() }}    
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="table_data">
+    <thead>
+        <tr>
+            <th>{% trans %}Type{% endtrans %}</th>
+            <th>{% trans %}Document number{% endtrans %}</th>
+            <th>{% trans %}Customer{% endtrans %}</th>
+            <th>{% trans %}Label{% endtrans %}</th>
+            <th>{% trans %}Document date{% endtrans %}</th>
+            <th>{% trans %}Amout without taxes{% endtrans %}</th>
+            <th>{% trans %}Actions{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tbody>
+       {% for row in data_table if row.status != 1 %}
+            <tr>
+                <td>
+                    {% if row.status == 1 %}{% trans %}Draft{% endtrans %}
+                    {% elseif row.status == 2 %}{% trans %}Estimate{% endtrans %}
+                    {% elseif row.status == 4 %}{% trans %}Invoice{% endtrans %}
+                    {% elseif row.status == 8 %}{% trans %}Credit{% endtrans %}
+                    {% endif %}
+                </td>
+                <td>{{ row.documentNumber ? row.documentNumber : "-" }}</td>
+                <td>{{ row.customerUser.userLabel }}</td>
+                <td class="hidden-phone">{{ row.description }}</td>
+                <td class="hidden-phone">{{ row.documentDate|date("d/m/Y") }}</td>
+                <td>{{ row.amountDf|number_format(2) }}</td>
+                <td>
+                    {% if row.status == 2 %}
+                        <a class="btn btn-small" href="{{ url('commercial_estimate_dl_doc', {"Id":row.estimates.last.Id, "ForceDl" : 1}) }}">
+                           <i class="icon-download-alt"></i> {% trans %}Download the estimate{% endtrans %}
+                        </a>
+                    {% else %}
+                        <a class="btn btn-small" href="{{ url('commercial_invoice_dl_doc', {"Id":row.invoices.last.Id, "ForceDl" : 1}) }}">
+                           <i class="icon-download-alt"></i> {% trans %}Download the invoice{% endtrans %}
+                        </a>
+                    {% endif %}
+                </td>
+            </tr>
+      {% endfor %}
+    </tbody>
+</table>
+{# End #}
+        
+{% endblock %}

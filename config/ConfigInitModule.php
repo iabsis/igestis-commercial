@@ -199,6 +199,16 @@ class ConfigInitModule implements \Igestis\Interfaces\ConfigMenuInterface, \Iges
                 \Igestis\I18n\Translate::_("Administration", ConfigModuleVars::textDomain), 
                 \Igestis\I18n\Translate::_("Commercial parameters", ConfigModuleVars::textDomain), 
                 "commercial_parameters_config");
+        
+        $sidebar->addItem(
+                \Igestis\I18n\Translate::_("My account", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Interventions", ConfigModuleVars::textDomain), 
+                "commercial_my_account_interventions_index");
+        
+        $sidebar->addItem(
+                \Igestis\I18n\Translate::_("My account", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Sales documents", ConfigModuleVars::textDomain), 
+                "commercial_my_account_selling_document_index");
     }
 }
 

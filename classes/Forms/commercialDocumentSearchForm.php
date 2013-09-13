@@ -9,6 +9,16 @@ class commercialDocumentSearchForm {
     private $exported;
     private $paid;
     private $state;
+    /**
+     *
+     * @var \CoreUsers
+     */
+    private $customer;
+    
+    /**
+    * @var \Doctrine\ORM\EntityManager Entitymanager to access to the doctrine entities
+    */
+    private $entityManager;
     
     const EXPORTED_YES = 1;
     const EXPORTED_NO = 0;
@@ -23,10 +33,13 @@ class commercialDocumentSearchForm {
     /**
      * Constructor, initialize variables
      */
-    public function __construct() {
+    public function __construct($entityManager=null) {
+        $this->entityManager = $entityManager;
+        
         $this->setExported(self::EXPORTED_NO)
              ->setPaid(self::EXPORTED_ALL)
-             ->setState(self::STATUS_ALL);
+             ->setState(self::STATUS_ALL)
+             ->setCustomer(null);
     }
     
     /**
@@ -40,9 +53,31 @@ class commercialDocumentSearchForm {
 
         $this->setExported(empty($_GET['exported']) ? self::EXPORTED_NO : $_GET['exported'])
              ->setPaid($paid)
-             ->setState(empty($_GET['state']) ? self::STATUS_ALL : $_GET['state']);
+             ->setState(empty($_GET['state']) ? self::STATUS_ALL : $_GET['state'])
+             ;
+        
+        if($this->entityManager) {
+            $this->setCustomer(empty($_GET['customerId']) ? null : $this->entityManager->getRepository("CoreUsers")->find($_GET['customerId']));
+        }
     }
     
+    /**
+     * 
+     * @return \CoreUsers
+     */
+    public function getCustomer() {
+        return $this->customer;
+    }
+
+    /**
+     * 
+     * @param \CoreUsers $customer
+     */
+    public function setCustomer(\CoreUsers $customer=null) {
+        $this->customer = $customer;
+    }
+
+                
     /**
      * 
      * @return integer
