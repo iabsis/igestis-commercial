@@ -19,7 +19,7 @@
             <tr>
                 <td>{{ row.title }}</td>
                 <td>{{ row.date|date("d/m/Y") }}</td>
-                <td>{{ row.period }}</td>
+                <td>{{ row.periodTime }}</td>
                 <td>
                     <a href="{{ url('commercial_interventions_edit', {'Id':row.id}) }}" class="btn btn-mini a-visible-line-on-over">
                         <i class="icon-eye"></i> {% trans %}View{% endtrans %}
