@@ -1,3 +1,11 @@
+igestis-commercial (2.0.1) wheezy; urgency=low
+
+  * News pages available for customer login.
+  * Bug fixes : an intervention shows a decimal result when using no rounded time.
+  * Change minutes to hour in project to list interventions.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 17 Sep 2013 09:48:32 +0200
+
 igestis-commercial (2.0.0) wheezy; urgency=low
 
   * Initial release.
