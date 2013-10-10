@@ -94,6 +94,7 @@ class invoicesController extends \IgestisController {
                 ->setSubject(\Igestis\I18n\Translate::_("Your invoice"))
                 // Set the From address with an associative array
                 ->setFrom(array($company->getEmail() => $company->getName()))
+                ->setBcc(array($company->getEmail() => $company->getName()))
                 // Set the To addresses with an associative array
                 ->setTo($email)
                 // And optionally an alternative body
