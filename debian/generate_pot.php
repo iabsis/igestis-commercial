@@ -1,6 +1,6 @@
 <?php
 
-$igestisPath = '../../igestis/trunk/';
+$igestisPath = '../../igestis/branches/2.3/';
 $modulePrefix = './';
 
 require_once $igestisPath . 'includes/Twig/Autoloader.php';

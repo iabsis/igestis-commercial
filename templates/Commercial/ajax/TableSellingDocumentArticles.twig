@@ -26,7 +26,7 @@
           	{% endif %}
       </td>
       <td>{{ row.itemRef }}</td>
-      <td>{{ row.itemLabel }}<br /><small class="muted">{{ row.comment }}</small></td>
+      <td>{{ row.itemLabel }}<br /><small class="muted">{{ row.comment|nl2br }}</small></td>
       <td>{{ row.sellingDfUnitPrice|number_format(2) }}</td>
       <td>{{ row.quantityArticle|number_format(3) }}</td>
       <td>{{ row.taxRate|number_format(3) }}</td>
