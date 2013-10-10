@@ -109,7 +109,7 @@ class projectsController extends \IgestisController {
         $this->context->render("Commercial/pages/projectsEdit.twig", array(
             "project" => $project,
             "commercialDocuments" => $this->_em->getRepository("CommercialCommercialDocument")->findBy(array("project" => $project)),
-            "interventions" => $this->_em->getRepository("CommercialSupportIntervention")->findBy(array("project" => $project)),
+            "interventions" => $this->_em->getRepository("CommercialSupportIntervention")->findBy(array("project" => $project), array("date" => "DESC")),
             "freeDocuments" => $this->_em->getRepository("CommercialFreeDocument")->findBy(array("project" => $project)),
             "buyingInvoices" => $this->_em->getRepository("CommercialProviderInvoice")->findBy(array("project" => $project)),
         ));

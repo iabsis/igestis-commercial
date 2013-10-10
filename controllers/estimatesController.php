@@ -59,7 +59,7 @@ class estimatesController extends \IgestisController {
         
         // Create ajax response
         $ajaxRender = new \Igestis\Ajax\AjaxResult();     
-        $ajaxRender->addScript('$("#SendInvoice").modal("hide");');
+        $ajaxRender->addScript('$("#SendQuotation").modal("hide");');
         
         // Get recipient from the POST form
         $email = $this->request->getPost("email");
