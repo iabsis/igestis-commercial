@@ -32,6 +32,8 @@
 </div>
 {% endif %}
 
+{% if sellingDocument.project.name %}<div class="alert alert-info">{% trans %}This document is linked to the project{% endtrans %}: <a href="{{ url('commercial_project_edit', {'Id':sellingDocument.project.id}) }}"><b>{{ sellingDocument.project.name }}</b></a>.</div>{% endif %}
+
 <form id="form_data" method='post' action='' class="form-condensed">
   <fieldset>
     <div class="well">
