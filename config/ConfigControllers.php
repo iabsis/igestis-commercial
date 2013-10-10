@@ -455,7 +455,6 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\sellingDocumentsController',
                 'Action' => 'deleteArticleAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL'),
-                'CsrfProtection' => true
             ), 
             
             /**************************************************************/
