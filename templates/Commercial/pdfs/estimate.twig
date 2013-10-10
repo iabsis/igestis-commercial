@@ -76,7 +76,7 @@
 	    {% for row in commercialEstimate.articles %}
 		<tr style="background-color: {% if loop.index is odd %}white;{% else %}#F0F0F0;{% endif %}">
 		    <td width="10%">{{ row.itemRef }}</td>
-		    <td width="50%">{{ row.itemLabel }}<br /><small style="font-size:8pt; color:#646464;">{{ row.comment|nl2br }}</small></td>
+		    <td width="50%">{{ row.itemLabel }}<br /><small style="font-size:8pt; color:#4f4f4f;">{{ row.comment|nl2br }}</small></td>
 		    <td width="10%" align="right">{{ row.sellingDfUnitPrice|number_format(2, ".", "'") }}</td>
 		    <td width="10%" align="right">{{ row.quantityArticle|number_format(3, ".", "'") }}</td>
 		    <td width="10%" align="right">{{ row.taxRate|number_format(2, ".", "'") }} %</td>
@@ -113,7 +113,7 @@
 		<tr style="background-color: #F0F0F0;">
 			<td>
 				{% trans %}Information{% endtrans %} : {{ commercialEstimate.commercialDocument.description }}
-				<div style="font-size:8pt; color:grey;">{{ commercialEstimate.commercialDocument.freeComment|nl2br }}</div>
+				<div style="font-size:8pt; color:#4f4f4f;">{{ commercialEstimate.commercialDocument.freeComment|nl2br }}</div>
 			</td>
 		</tr>
 	</table>

@@ -144,7 +144,7 @@ msgstr "Une facture a été générée pour ce projet et n'est plus modifiable."
 
 #: controllers/invoicesController.php:35
 msgid "The invoice has been generated"
-msgstr "La facture a été supprimée avec succès"
+msgstr "La facture a été générée avec succès"
 
 #: controllers/invoicesController.php:74
 #: controllers/estimatesController.php:67
