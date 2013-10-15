@@ -1,7 +1,12 @@
+igestis-commercial (2.0.3) UNRELEASED; urgency=low
+
+  * 
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 15 Oct 2013 21:30:41 +0200
+
 igestis-commercial (2.0.2) wheezy; urgency=low
 
   * Change #259 : Send a copy of the mail to the employee when sending a commercial document to the customer.
-  * Change #258 : Add translations for payment mode.
   * Change #257 : Show assigned project to a commercial document.
   * Bug #256 : Empty line assignment when associate account amount to an invoice.
   * Bug #255 : Sort linked intervention by date in a Project.
