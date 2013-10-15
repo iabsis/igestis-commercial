@@ -1,3 +1,17 @@
+igestis-commercial (2.0.2) wheezy; urgency=low
+
+  * Change #259 : Send a copy of the mail to the employee when sending a commercial document to the customer.
+  * Change #258 : Add translations for payment mode.
+  * Change #257 : Show assigned project to a commercial document.
+  * Bug #256 : Empty line assignment when associate account amount to an invoice.
+  * Bug #255 : Sort linked intervention by date in a Project.
+  * Bug #255 : Quotation mail modal doesn't hide after email is sent.
+  * Bug #255 : Comment on the quotation / invoices doesn't keep the line break
+  * Bug #255 : Color of the project description on the invoices / quotation is too bright
+  * Bug #254 : Article deletion issue in commercial document page.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 15 Oct 2013 21:25:04 +0200
+
 igestis-commercial (2.0.1) wheezy; urgency=low
 
   * News pages available for customer login.
