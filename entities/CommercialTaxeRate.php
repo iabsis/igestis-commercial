@@ -75,6 +75,8 @@ class CommercialTaxeRate
      */
     public function setValue($value)
     {
+        $value = (float)  str_replace(",", ".", $value);
+
         $this->value = $value;
         return $this;
     }

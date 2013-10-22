@@ -358,6 +358,7 @@ class CommercialInvoice
      */
     public function setInvoiceTotalDf($invoiceTotalDf)
     {
+        $invoiceTotalDf = (float)  str_replace(",", ".", $invoiceTotalDf);
         $this->invoiceTotalDf = $invoiceTotalDf;
         return $this;
     }
@@ -380,6 +381,7 @@ class CommercialInvoice
      */
     public function setInvoiceTotalTi($invoiceTotalTi)
     {
+        $invoiceTotalTi = (float)  str_replace(",", ".", $invoiceTotalTi);
         $this->invoiceTotalTi = $invoiceTotalTi;
         return $this;
     }

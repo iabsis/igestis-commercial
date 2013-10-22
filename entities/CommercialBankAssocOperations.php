@@ -77,6 +77,7 @@ class CommercialBankAssocOperations
      */
     public function setAmount($amount)
     {
+        $amount = (float)  str_replace(",", ".", $amount);
         $this->amount = $amount;
         return $this;
     }

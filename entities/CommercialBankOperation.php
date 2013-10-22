@@ -265,6 +265,7 @@ class CommercialBankOperation
      */
     public function setOperationAmount($operationAmount)
     {
+        $operationAmount = (float)  str_replace(",", ".", $operationAmount);
         $this->operationAmount = $operationAmount;
         return $this;
     }

@@ -224,6 +224,7 @@ class CommercialArticle
      */
     public function setPurchasingPriceDf($purchasingPriceDf)
     {
+        $purchasingPriceDf = (float)  str_replace(",", ".", $purchasingPriceDf);
         $this->purchasingPriceDf = $purchasingPriceDf;
         return $this;
     }
@@ -246,6 +247,7 @@ class CommercialArticle
      */
     public function setSellingPriceDf($sellingPriceDf)
     {
+        $sellingPriceDf = (float)  str_replace(",", ".", $sellingPriceDf);
         $this->sellingPriceDf = $sellingPriceDf;
         return $this;
     }

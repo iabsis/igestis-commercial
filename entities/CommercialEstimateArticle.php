@@ -211,6 +211,7 @@ class CommercialEstimateArticle
      */
     public function setPurchasingDfUnitPrice($purchasingDfUnitPrice)
     {
+        $purchasingDfUnitPrice = (float)  str_replace(",", ".", $purchasingDfUnitPrice);
         $this->purchasingDfUnitPrice = $purchasingDfUnitPrice;
         return $this;
     }
@@ -233,6 +234,7 @@ class CommercialEstimateArticle
      */
     public function setTaxRate($taxRate)
     {
+        $taxRate = (float)  str_replace(",", ".", $taxRate);
         $this->taxRate = $taxRate;
         return $this;
     }
@@ -255,6 +257,7 @@ class CommercialEstimateArticle
      */
     public function setAmountTax($amountTax)
     {
+        $amountTax = (float)  str_replace(",", ".", $amountTax);
         $this->amountTax = $amountTax;
         return $this;
     }
@@ -277,6 +280,7 @@ class CommercialEstimateArticle
      */
     public function setQuantityArticle($quantityArticle)
     {
+        $quantityArticle = (float)  str_replace(",", ".", $quantityArticle);
         $this->quantityArticle = $quantityArticle;
         return $this;
     }
@@ -299,6 +303,7 @@ class CommercialEstimateArticle
      */
     public function setTotSellPriceArticleDf($totSellPriceArticleDf)
     {
+        $totSellPriceArticleDf = (float)  str_replace(",", ".", $totSellPriceArticleDf);
         $this->totSellPriceArticleDf = $totSellPriceArticleDf;
         return $this;
     }
@@ -321,6 +326,7 @@ class CommercialEstimateArticle
      */
     public function setTotSellPriceArticleTi($totSellPriceArticleTi)
     {
+        $totSellPriceArticleTi = (float)  str_replace(",", ".", $totSellPriceArticleTi);
         $this->totSellPriceArticleTi = $totSellPriceArticleTi;
         return $this;
     }
@@ -441,6 +447,7 @@ class CommercialEstimateArticle
      */
     public function setSellingDfUnitPrice($sellingDfUnitPrice)
     {
+        $sellingDfUnitPrice = (float)  str_replace(",", ".", $sellingDfUnitPrice);
         $this->sellingDfUnitPrice = $sellingDfUnitPrice;
         return $this;
     }

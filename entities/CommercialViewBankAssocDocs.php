@@ -255,6 +255,8 @@ class CommercialViewBankAssocDocs {
      * @return \CommercialViewBankAssocDocs
      */
     public function setTotalTi($totalTi) {
+        
+        $totalTi = (float)  str_replace(",", ".", $totalTi);
         $this->totalTi = $totalTi;
         return $this;
     }

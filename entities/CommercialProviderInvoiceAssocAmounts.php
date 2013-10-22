@@ -128,6 +128,7 @@ class CommercialProviderInvoiceAssocAmounts
      */
     public function setAmountDf($amountDf)
     {
+        $amountDf = (float)  str_replace(",", ".", $amountDf);
         $this->amountDf = $amountDf;
         return $this;
     }
@@ -150,6 +151,7 @@ class CommercialProviderInvoiceAssocAmounts
      */
     public function setAmountTi($amountTi)
     {
+        $amountTi = (float)  str_replace(",", ".", $amountTi);
         $this->amountTi = $amountTi;
         return $this;
     }
@@ -172,6 +174,7 @@ class CommercialProviderInvoiceAssocAmounts
      */
     public function setTaxes($taxes)
     {
+        $taxes = (float)  str_replace(",", ".", $taxes);
         $this->taxes = $taxes;
         return $this;
     }

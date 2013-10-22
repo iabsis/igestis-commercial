@@ -114,6 +114,7 @@ class CommercialBankAccount
      */
     public function setAccountBalance($accountBalance)
     {
+        $accountBalance = (float)  str_replace(",", ".", $accountBalance);
         $this->accountBalance = $accountBalance;
         return $this;
     }
@@ -177,6 +178,7 @@ class CommercialBankAccount
      * @param float $amount
      */
     public function updateAccountBalance($amount) {
+        $amount = (float)  str_replace(",", ".", $amount);
         $this->accountBalance += $amount;
     }
 
