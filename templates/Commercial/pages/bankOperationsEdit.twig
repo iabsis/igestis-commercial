@@ -63,7 +63,7 @@
                         
 			       {% for row in sameAmoutProviderInvoicesList %}
 			            <tr>
-                            <td><input data-amount="{{ row.amountTi }}" type="checkbox" {{ row.id in assocProviderInvoiceId ? 'checked="checked"': '' }} name="selected-provider-invoices[]" value="{{ row.id }}" /></td>
+                            <td><input data-amount="{{ -1 * row.amountTi }}" type="checkbox" {{ row.id in assocProviderInvoiceId ? 'checked="checked"': '' }} name="selected-provider-invoices[]" value="{{ row.id }}" /></td>
 			                <td>{{ row.providerUser.userLabel }}</td>
                             <td>{{ row.invoiceDate ? row.invoiceDate|date("d/m/Y") : "" }}</td>
 			                <td>{{ row.invoiceNum }}</td>

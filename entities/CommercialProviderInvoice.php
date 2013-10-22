@@ -112,6 +112,7 @@ class CommercialProviderInvoice
      */
     private $bankAssocs;
 
+    private $changed;
     
     public function __construct() {
         $this->exported = false;
@@ -126,6 +127,7 @@ class CommercialProviderInvoice
      * @return \CommercialProviderInvoice
      */
     public function addAmount(\CommercialProviderInvoiceAssocAmounts $amount) {
+        $this->changed = true;
         $this->amounts->add($amount);
         $amount->setPurchaseInvoice($this);
         return $this;
@@ -137,6 +139,7 @@ class CommercialProviderInvoice
      * @return \CommercialProviderInvoice
      */
     public function removeAmount(\CommercialProviderInvoiceAssocAmounts $amount) {
+        $this->changed = true;
         $this->amounts->removeElement($amount);
         return  $this;
     }
@@ -157,6 +160,7 @@ class CommercialProviderInvoice
      */
     public function setInvoiceDate($invoiceDate)
     {
+        $this->changed = true;
         $this->invoiceDate = $invoiceDate;
         return $this;
     }
@@ -179,6 +183,7 @@ class CommercialProviderInvoice
      */
     public function setInvoiceNum($invoiceNum)
     {
+        $this->changed = true;
         $this->invoiceNum = $invoiceNum;
         return $this;
     }
@@ -223,6 +228,7 @@ class CommercialProviderInvoice
      */
     public function setInvoicePaymentType($invoicePaymentType)
     {
+        $this->changed = true;
         $this->invoicePaymentType = $invoicePaymentType;
         return $this;
     }
@@ -245,6 +251,7 @@ class CommercialProviderInvoice
      */
     public function setExported($exported)
     {
+        $this->changed = true;
         $this->exported = $exported;
         return $this;
     }
@@ -267,6 +274,7 @@ class CommercialProviderInvoice
      */
     public function setInvoicePath($invoicePath)
     {
+        $this->changed = true;
         $this->invoicePath = $invoicePath;
         return $this;
     }
@@ -299,6 +307,7 @@ class CommercialProviderInvoice
      */
     public function setProviderUser(\CoreUsers $providerUser = null)
     {
+        $this->changed = true;
         if($providerUser) {
             foreach ($this->bankAssocs as $assoc) {
                 $assoc->setConcernedUser($providerUser);
@@ -330,6 +339,7 @@ class CommercialProviderInvoice
      */
     public function setCompany(\CoreCompanies $company = null)
     {
+        $this->changed = true;
         $this->company = $company;
         return $this;
     }
@@ -352,6 +362,7 @@ class CommercialProviderInvoice
      */
     public function setProject(\CommercialProject $project = null)
     {
+        $this->changed = true;
         if($project != null) $project->addProviderInvoice($this);
         else {
             if($this->project) {
@@ -384,6 +395,7 @@ class CommercialProviderInvoice
      */
     public function PostLoad() {
         $this->locked = (bool)$this->exported;
+        $this->changed = false;
     }
     
     /**
@@ -393,11 +405,12 @@ class CommercialProviderInvoice
     public function prePersist() {   
         // Check if another provider invoice has already the same  reference
         $_em = \Application::getEntityMaanger();
-        if($_em->getRepository("CommercialProviderInvoice")->findOtherProviderInvoiceWithSameReference($this)) {
+        
+        if($this->changed && $_em->getRepository("CommercialProviderInvoice")->findOtherProviderInvoiceWithSameReference($this)) {
             throw new \Exception(\Igestis\I18n\Translate::_("This provider invoice number already exists"));
         }
         
-        if($this->locked) throw new \Exception(\Igestis\I18n\Translate::_("This invoice is in read only mode. It has already been exported"));
+        if($this->changed && $this->locked) throw new \Exception(\Igestis\I18n\Translate::_("This invoice is in read only mode. It has already been exported"));
         
         // Setting company
         if($this->company == null) {

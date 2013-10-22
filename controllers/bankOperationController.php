@@ -151,7 +151,7 @@ class bankOperationController extends \IgestisController {
             }
             catch (\Exception $e) {
                 $this->_em->rollback();
-                $ajaxResponse->addWizz(Translate::_("Error during the operation association process"));
+                $ajaxResponse->addWizz(Translate::_("Error during the operation association process") . \Igestis\Utils\Dump::get($e) );
                 $ajaxResponse->setError($e->getMessage(), \Igestis\Utils\Dump::get($e));
             }
             
