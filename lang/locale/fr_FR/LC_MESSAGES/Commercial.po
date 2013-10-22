@@ -1612,7 +1612,7 @@ msgstr "Lier des interventions"
 #: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:29
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:219
 msgid "Link an intervention"
-msgstr "Lier une opération"
+msgstr "Lier une intervention"
 
 #: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:54
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:166
