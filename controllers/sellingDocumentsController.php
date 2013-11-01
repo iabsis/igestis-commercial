@@ -213,8 +213,8 @@ class sellingDocumentsController extends \IgestisController {
                 foreach ($_POST as $key => $quantity) {
                     $matches = null;
                     if(preg_match('/^selected\-([0-9]+)$/', $key, $matches)) {
-                        $articleId = $matches[1][0];
-                        $article = $this->_em->find("CommercialArticle", $articleId);                        
+                        $articleId = $matches[1];
+                        $article = $this->_em->find("CommercialArticle", $articleId); 
                         $newArticle = new \CommercialCommercialDocumentArticle($article);
                         $newArticle->setQuantityArticle($quantity);   
                         
