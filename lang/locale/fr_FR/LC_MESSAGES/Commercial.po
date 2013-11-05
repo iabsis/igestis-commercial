@@ -1269,7 +1269,7 @@ msgstr "Travailleur"
 #: tmp/18/35/a9f53c49d46b6e5b96a5d21f9ce7.php:41
 #: tmp/53/f6/33a958759155030696f1added942.php:145
 msgid "Customer"
-msgstr "Clients"
+msgstr "Client"
 
 #: tmp/80/9e/b913f7254256f759d7739231bb6b.php:72
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:95
