@@ -210,6 +210,7 @@ class CommercialViewCommercialDocsRepository extends \Doctrine\ORM\EntityReposit
                ->from("CommercialViewCommercialDocs", "vcd")
                ->where("vcd.company = :company")
                ->andWhere("vcd.totalTi is not null")
+               ->andWhere("vcd.user IS NOT NULL")
                ->setParameter("company", $userCompany);
             
             switch ($searchForm->getExported()) {
