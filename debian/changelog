@@ -1,4 +1,4 @@
-igestis-commercial (2.0.3) UNRELEASED; urgency=low
+igestis-commercial (2.0.3) wheezy; urgency=low
 
   * Bug #280 - Message d'erreur à l'export de certaines factures.
   * Bug #273 - Erreur pendant l'ajout d'un article.
