@@ -1,3 +1,16 @@
+igestis-commercial (2.0.3) UNRELEASED; urgency=low
+
+  * Bug #280 - Message d'erreur à l'export de certaines factures.
+  * Bug #273 - Erreur pendant l'ajout d'un article.
+  * Bug #265 - Message d'erreur pour les opérations négatives liées à une facture d'achat
+  * Bug #264 - Problème de virgule au lieu d'un point dans les factures d'achats.
+  * Bug #263 - Pas d'erreur si on met des lettres dans le montant de la balance lors d'un nouveau compte bancaire.
+  * Bug #261 - Erreur de traduction dans la page ""détails du projet"
+  * Bug #254 - Article deletion issue in commercial document page.
+  * Evolution #266 - Dans les documents commerciaux, lorsqu'on choisit les clients il faudrait mettre la liste par ordre alphabétique.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 26 Nov 2013 17:06:36 +0100
+
 igestis-commercial (2.0.2) wheezy; urgency=low
 
   * Change #259 : Send a copy of the mail to the employee when sending a commercial document to the customer.
