@@ -58,7 +58,11 @@
                 <td>{{ row.transactionDate|date("d/m/Y") }}</td>
                 <td>{{ row.paid ? 'Yes' : 'No' }}</td>
                 <td>{{ row.eported ? 'Yes' : 'No' }}</td>
-                <td>{{ row.totalTi < 0 ? 'Credit note'|trans : 'Invoice'|trans }} 
+                <td>{% if row.transactionType == "selling_document" %}
+                		{{ row.totalTi < 0 ? 'Credit note'|trans : 'Invoice'|trans }} 
+                	{% else %}
+                		{{ row.totalTi > 0 ? 'Credit note'|trans : 'Invoice'|trans }} 
+                	{% endif %}
 	                ({{ row.transactionType == "selling_document" ? 'Sales'|trans : 'Order'|trans }})
                 </td>
                 <td>{{ row.documentNumber }}</td>
