@@ -575,7 +575,7 @@ class CommercialInvoice
                 $article->getTotSellPriceArticleTi(), 
                 $article->getAmountTax(),
                 $this->getCommercialDocument()->getCustomerUser()->getUserLabel()
-            ) . "\n";
+            );
         }
         
         return $string;

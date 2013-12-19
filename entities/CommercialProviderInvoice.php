@@ -467,7 +467,7 @@ class CommercialProviderInvoice
                 $amount->getAmountTi(), 
                 $amount->getTaxes(),
                 $this->getProviderUser()->getUserLabel()
-            ) . "\n";
+            );
         }
         
         return $string;
