@@ -12,18 +12,22 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 #: config/ConfigInitModule.php:36
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:36
 msgid "None"
 msgstr "Aucun"
 
 #: config/ConfigInitModule.php:37
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:37
 msgid "Doesn't allow the access to sales projects"
 msgstr "Ne permet pas l'accès aux projets de ventes"
 
 #: config/ConfigInitModule.php:41
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:41
 msgid "Administrator"
 msgstr "Administateur"
 
 #: config/ConfigInitModule.php:42
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:42
 msgid ""
 "Allow to create and delete projects, create assets, invoices and "
 "estimations, and export invoices and assets"
@@ -32,10 +36,12 @@ msgstr ""
 "factures d'avoir et esporter les informations."
 
 #: config/ConfigInitModule.php:46
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:46
 msgid "Employee"
 msgstr "Employé"
 
 #: config/ConfigInitModule.php:47
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:47
 msgid ""
 "Allow to create and delete projects, create assets, invoices and estimations"
 msgstr ""
@@ -43,10 +49,12 @@ msgstr ""
 "des factures d'avoir."
 
 #: config/ConfigInitModule.php:51
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:51
 msgid "Accountant"
 msgstr "Comptable"
 
 #: config/ConfigInitModule.php:52
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:52
 msgid "Allow to export invoices and assets"
 msgstr "Permet d'exporter les factures et des factures d'avoir."
 
@@ -54,58 +62,88 @@ msgstr "Permet d'exporter les factures et des factures d'avoir."
 #: config/ConfigInitModule.php:83 config/ConfigInitModule.php:89
 #: config/ConfigInitModule.php:95 config/ConfigInitModule.php:101
 #: config/ConfigInitModule.php:107 config/ConfigInitModule.php:113
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:71
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:77
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:83
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:89
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:95
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:101
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:107
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:113
 msgid "Commercial"
 msgstr "Commercial"
 
 #: config/ConfigInitModule.php:72 config/ConfigInitModule.php:150
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:72
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:150
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:26
 msgid "Projects"
 msgstr "Projets"
 
 #: config/ConfigInitModule.php:78 config/ConfigInitModule.php:155
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:78
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:155
 msgid "Sales documents"
 msgstr "Documents de vente"
 
 #: config/ConfigInitModule.php:84 config/ConfigInitModule.php:160
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:84
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:160
 msgid "Purchases invoices"
 msgstr "Factures d'achats"
 
 #: config/ConfigInitModule.php:90 config/ConfigInitModule.php:165
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:90
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:165
 msgid "Articles database"
 msgstr "Base d'articles"
 
 #: config/ConfigInitModule.php:96 config/ConfigInitModule.php:170
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:96
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:170
 msgid "Interventions"
 msgstr "Interventions"
 
 #: config/ConfigInitModule.php:102 config/ConfigInitModule.php:175
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:102
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:175
 #: tmp/c7/d8/f3dc2941b3f2e3c5d0b86f342a30.php:26
 msgid "Users balance"
 msgstr "Solde utilisateurs"
 
 #: config/ConfigInitModule.php:108 config/ConfigInitModule.php:180
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:108
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:180
 msgid "Bank accounts"
 msgstr "Comptes bancaires"
 
 #: config/ConfigInitModule.php:114 config/ConfigInitModule.php:185
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:198
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:114
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:185
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:227
 msgid "Export"
 msgstr "Exportation"
 
 #: config/ConfigInitModule.php:128 config/ConfigInitModule.php:133
 #: config/ConfigInitModule.php:141
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:128
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:133
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:141
 msgid "Quick links"
 msgstr "Navigation rapide"
 
 #: config/ConfigInitModule.php:129
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:129
 msgid "New intervention"
 msgstr "Nouvelle intervention"
 
 #: config/ConfigInitModule.php:134
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:134
 msgid "New commercial element"
 msgstr "Nouvel élément commercial"
 
 #: config/ConfigInitModule.php:142
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:142
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:99
 #: tmp/cd/e0/b0097b1d329c2c2c287f3f9e28a7.php:28
 msgid "New project"
@@ -115,197 +153,263 @@ msgstr "Nouveau projet"
 #: config/ConfigInitModule.php:159 config/ConfigInitModule.php:164
 #: config/ConfigInitModule.php:169 config/ConfigInitModule.php:174
 #: config/ConfigInitModule.php:179 config/ConfigInitModule.php:184
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:149
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:154
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:159
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:164
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:169
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:174
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:179
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:184
 msgid "Navigation"
 msgstr "Navigation"
 
 #: config/ConfigInitModule.php:189 config/ConfigInitModule.php:194
 #: config/ConfigInitModule.php:199
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:189
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:194
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:199
 msgid "Administration"
 msgstr "Administration"
 
 #: config/ConfigInitModule.php:190
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:190
 msgid "Taxe rates"
 msgstr "Taux de TVA"
 
 #: config/ConfigInitModule.php:195
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:195
 msgid "Accounting"
 msgstr "Comptes"
 
 #: config/ConfigInitModule.php:200
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:200
 msgid "Commercial parameters"
 msgstr "Paramètres commerciaux"
 
 #: controllers/invoicesController.php:24
 #: controllers/estimatesController.php:21
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/invoicesController.php:24
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/estimatesController.php:21
 msgid ""
 "An invoice has already been generated for this project and is not editable "
 "anymore."
 msgstr "Une facture a été générée pour ce projet et n'est plus modifiable."
 
 #: controllers/invoicesController.php:35
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/invoicesController.php:35
 msgid "The invoice has been generated"
 msgstr "La facture a été générée avec succès"
 
 #: controllers/invoicesController.php:74
 #: controllers/estimatesController.php:67
 #: controllers/estimatesController.php:68
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/invoicesController.php:74
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/estimatesController.php:67
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/estimatesController.php:68
 msgid "Please provide a valid email address"
 msgstr "Merci de spécifier une adresse email valide"
 
 #: controllers/invoicesController.php:75
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/invoicesController.php:75
 msgid "Please rensign a well formed recipient"
 msgstr "Merci de spécifier une adresse de destinataire valide"
 
 #: controllers/invoicesController.php:81 controllers/invoicesController.php:82
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/invoicesController.php:81
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/invoicesController.php:82
 msgid "Invoice not found"
 msgstr "Facture non trouvée"
 
 #: controllers/invoicesController.php:94
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/invoicesController.php:94
 msgid "Your invoice"
 msgstr "Votre facture"
 
-#: controllers/invoicesController.php:108
-#: controllers/estimatesController.php:102
+#: controllers/invoicesController.php:109
+#: controllers/estimatesController.php:103
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/invoicesController.php:109
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/estimatesController.php:103
 #, php-format
 msgid "The email has been sent to %s"
 msgstr "L'email a été envoyé à %s"
 
-#: controllers/invoicesController.php:115
-#: controllers/estimatesController.php:109
+#: controllers/invoicesController.php:116
+#: controllers/estimatesController.php:110
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/invoicesController.php:116
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/estimatesController.php:110
 msgid "Error during the mail delivrery"
 msgstr "Erreur lors de l'envoi du mail"
 
 #: controllers/exportController.php:34
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/exportController.php:34
 msgid "No invoice selected"
 msgstr "Pas de facture sélectionnée"
 
 #: controllers/exportController.php:42
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/exportController.php:42
 msgid "Malformed request"
 msgstr "Requête malformée"
 
 #: controllers/exportController.php:58
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/exportController.php:58
 msgid "At least one of the selected invoice has not been found."
 msgstr "Au moins une des factures sélectionnées n'a pas été trouvée."
 
 #: controllers/bankAccountController.php:44
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankAccountController.php:44
 msgid "The bank account has been successfully deleted"
 msgstr "Le compte bancaire a été supprimé avec succès"
 
 #: controllers/bankAccountController.php:59
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankAccountController.php:59
 #, php-format
 msgid "An error has occurred while parsing the file : %s"
 msgstr "Une erreur s'est produite pendant l'analyse du fichier : %s"
 
 #: controllers/bankAccountController.php:78
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankAccountController.php:78
 msgid "There is no operation to import."
 msgstr "Il n'y a pas d'opération à importer."
 
 #: controllers/bankAccountController.php:115
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankAccountController.php:115
 msgid "The selected data has been successfully imported"
 msgstr "Les données sélectionnées ont été importées avec succès"
 
 #: controllers/bankAccountController.php:121
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankAccountController.php:121
 #, php-format
 msgid "An error has occurred during the import process : %s"
 msgstr "Une erreur s'est produite pendant le processus d'importation : %s"
 
 #: controllers/bankAccountController.php:153
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankAccountController.php:153
 msgid "The new bank account has been successfully created"
 msgstr "Le compte bancaire a été créé avec succès"
 
 #: controllers/bankAccountController.php:160
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankAccountController.php:160
 msgid "No data received."
 msgstr "Aucune donnée reçue"
 
 #: controllers/bankAccountController.php:187
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankAccountController.php:187
 msgid "The bank account data has been successfully saved"
 msgstr "Les données du compte bancaire ont été sauvegardées avec succès"
 
 #: controllers/bankAccountController.php:191
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankAccountController.php:191
 #, php-format
 msgid "An error has occurred during the bank account update : %s"
 msgstr ""
 "Une erreur s'est produite pendant la mise à jour du compte bancaire : %s"
 
-#: controllers/sellingDocumentsController.php:42
+#: controllers/sellingDocumentsController.php:53
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:53
 msgid "The commercial document has been successfully deleted"
 msgstr "Le document commercial a été supprimé avec succès"
 
-#: controllers/sellingDocumentsController.php:69
-#: controllers/interventionsController.php:114
+#: controllers/sellingDocumentsController.php:80
+#: controllers/interventionsController.php:134
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:80
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:134
 msgid "Unknown project"
 msgstr "Projet inconnu"
 
-#: controllers/sellingDocumentsController.php:75
+#: controllers/sellingDocumentsController.php:86
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:86
 msgid "The document has been successfully created"
 msgstr "Le document a été créé avec succès"
 
-#: controllers/sellingDocumentsController.php:81
-#: controllers/sellingDocumentsController.php:82
+#: controllers/sellingDocumentsController.php:92
+#: controllers/sellingDocumentsController.php:93
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:92
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:93
 #, php-format
 msgid "An error has occurred during the project creation : %s"
 msgstr "Une erreur s'est produite pendant la création du projet : %s"
 
-#: controllers/sellingDocumentsController.php:86
+#: controllers/sellingDocumentsController.php:97
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:97
 msgid "No data has been received for the selling document creation"
 msgstr "Aucune valeur n'a été transmise pour la création du document de vente"
 
-#: controllers/sellingDocumentsController.php:110
-#: controllers/providerInvoicesController.php:95
+#: controllers/sellingDocumentsController.php:121
 #: controllers/providerInvoicesController.php:96
+#: controllers/providerInvoicesController.php:97
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:121
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/providerInvoicesController.php:96
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/providerInvoicesController.php:97
 msgid "The document has been successfully updated"
 msgstr "Le document a été mis à jour avec succès"
 
-#: controllers/sellingDocumentsController.php:114
+#: controllers/sellingDocumentsController.php:125
 #: controllers/projectsController.php:104
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:125
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:104
 msgid "An error has occurred during the selling document update"
 msgstr ""
 "Une erreur s'est produite pendant la mise à jour du document de vente : %s"
 
-#: controllers/sellingDocumentsController.php:147
+#: controllers/sellingDocumentsController.php:158
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:158
 msgid "Unable to find document"
 msgstr "Impossible de trouver un document"
 
-#: controllers/sellingDocumentsController.php:152
+#: controllers/sellingDocumentsController.php:163
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:163
 msgid "Unable to find article"
 msgstr "Impossible de trouver un article"
 
-#: controllers/sellingDocumentsController.php:179
-#: controllers/sellingDocumentsController.php:228
+#: controllers/sellingDocumentsController.php:190
+#: controllers/sellingDocumentsController.php:239
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:190
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:239
 msgid "Article successfully saved"
 msgstr "Article sauvegardé avec succès"
 
-#: controllers/sellingDocumentsController.php:199
+#: controllers/sellingDocumentsController.php:210
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:210
 msgid "Selling document not found"
 msgstr "Document de vente introuvable"
 
-#: controllers/sellingDocumentsController.php:260
-#: controllers/sellingDocumentsController.php:261
+#: controllers/sellingDocumentsController.php:271
+#: controllers/sellingDocumentsController.php:272
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:271
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:272
 msgid "Article not found"
 msgstr "Pas d'article trouvé"
 
-#: controllers/sellingDocumentsController.php:266
-#: controllers/sellingDocumentsController.php:267
+#: controllers/sellingDocumentsController.php:277
+#: controllers/sellingDocumentsController.php:278
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:277
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:278
 msgid "No access to this article"
 msgstr "Pas d'accès pour cet article"
 
-#: controllers/sellingDocumentsController.php:281
+#: controllers/sellingDocumentsController.php:292
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:292
 msgid "Article successfully removed"
 msgstr "Article supprimé avec succès"
 
-#: controllers/sellingDocumentsController.php:282
+#: controllers/sellingDocumentsController.php:293
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/sellingDocumentsController.php:293
 msgid "ok"
 msgstr "ok"
 
 #: controllers/AccountingController.php:34
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/AccountingController.php:34
 msgid "The tax accouting values has been successfuly updated"
 msgstr "Le compte de TVA a été mis à jour avec succès"
 
 #: controllers/AccountingController.php:38
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/AccountingController.php:38
 msgid "An error has occurred during the record of the tax accounting"
 msgstr "Une erreur s'est produite pendant l'enregistrement du compte de TVA"
 
 #: controllers/AccountingController.php:61
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/AccountingController.php:61
 msgid "The purchasing account has been successfully deleted"
 msgstr "Le compte d'achat a été supprimé avec succès"
 
@@ -313,6 +417,10 @@ msgstr "Le compte d'achat a été supprimé avec succès"
 #: controllers/AccountingController.php:110
 #: controllers/AccountingController.php:168
 #: controllers/AccountingController.php:204
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/AccountingController.php:74
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/AccountingController.php:110
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/AccountingController.php:168
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/AccountingController.php:204
 msgid "The account name is a required field"
 msgstr "Le nom du compte est un champ requis"
 
@@ -320,6 +428,10 @@ msgstr "Le nom du compte est un champ requis"
 #: controllers/AccountingController.php:111
 #: controllers/AccountingController.php:171
 #: controllers/AccountingController.php:205
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/AccountingController.php:77
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/AccountingController.php:111
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/AccountingController.php:171
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/AccountingController.php:205
 msgid "The account number is a required field"
 msgstr "Le numéro de compte est un champ requis"
 
@@ -327,18 +439,25 @@ msgstr "Le numéro de compte est un champ requis"
 #: controllers/AccountingController.php:125
 #: controllers/AccountingController.php:185
 #: controllers/AccountingController.php:219
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/AccountingController.php:91
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/AccountingController.php:125
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/AccountingController.php:185
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/AccountingController.php:219
 msgid "The account data has been successfully saved"
 msgstr "Les données du compte ont été supprimées avec succès"
 
 #: controllers/AccountingController.php:155
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/AccountingController.php:155
 msgid "The selling account has been successfully deleted"
 msgstr "Le compte de vente a été supprimé avec succès"
 
 #: controllers/bankOperationController.php:47
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankOperationController.php:47
 msgid "The operation has been successfully deleted"
 msgstr "L'opération a été supprimée avec succès"
 
 #: controllers/bankOperationController.php:50
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankOperationController.php:50
 #, php-format
 msgid "An error has occurred during the bank operation deletion : %s"
 msgstr ""
@@ -346,85 +465,106 @@ msgstr ""
 
 #: controllers/bankOperationController.php:79
 #: controllers/projectsController.php:67
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankOperationController.php:79
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:67
 msgid "The project has been successfully created"
 msgstr "Le projet a été créé avec succès"
 
 #: controllers/bankOperationController.php:84
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankOperationController.php:84
 #, php-format
 msgid "An error has occurred during the bank operation creation : %s"
 msgstr "Une erreur s'est produite pendant la création du compte bancaire : %s"
 
 #: controllers/bankOperationController.php:89
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankOperationController.php:89
 msgid "No data has been received for the operation creation"
 msgstr "Aucune valeur n'a été transmise pour la création de l'opération"
 
-#: controllers/bankOperationController.php:152
+#: controllers/bankOperationController.php:154
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankOperationController.php:154
 msgid "Error during the operation association process"
 msgstr "Erreur pendant le processus d'association de l'opération"
 
-#: controllers/bankOperationController.php:163
+#: controllers/bankOperationController.php:165
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankOperationController.php:165
 msgid "There is no more unassigned operation"
 msgstr "Il n'y a plus d'opération non assignée"
 
-#: controllers/bankOperationController.php:172
+#: controllers/bankOperationController.php:174
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/bankOperationController.php:174
 msgid "The association has been successfully saved"
 msgstr "L'association a été sauvegardée avec succès"
 
 #: controllers/balanceController.php:47
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/balanceController.php:47
 msgid "Document not found"
 msgstr "Document introuvable"
 
 #: controllers/balanceController.php:61
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/balanceController.php:61
 msgid "The paid status has been updated"
 msgstr "L'état du paiement a été mis à jour."
 
 #: controllers/balanceController.php:65
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/balanceController.php:65
 #, php-format
 msgid "An error has occurred during the paid status change : %s"
 msgstr ""
 "Une erreur s'est produite pendant le changement de l'état du paiement : %s"
 
 #: controllers/ArticlesController.php:39
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/ArticlesController.php:39
 msgid "The article has been successfully deleted"
 msgstr "L'article a été supprimé avec succès."
 
 #: controllers/ArticlesController.php:89
 #: controllers/ArticlesController.php:148
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/ArticlesController.php:89
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/ArticlesController.php:148
 msgid "The article data has been successfully saved"
 msgstr "Les données de l'article ont été sauvegardées avec succès"
 
 #: controllers/parametersController.php:43
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/parametersController.php:43
 msgid "Company configuration has been saved successfully"
 msgstr "La configuration de la société a été sauvegardée avec succès"
 
 #: controllers/parametersController.php:48
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/parametersController.php:48
 #, php-format
 msgid "Error during the configuration save. Error message : %s"
 msgstr ""
 "Erreur pendant la sauvegarde de la configuration. Erreur rencontrée : %s"
 
 #: controllers/parametersController.php:49
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/parametersController.php:49
 msgid "Error during the configuration save"
 msgstr "Erreur pendant la sauvegarde de la configuration"
 
 #: controllers/projectsController.php:39
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:39
 msgid "Unable to delete this project unless there is linked resources."
 msgstr ""
 "Impossible de supprimer ce projet tant que des ressources y sont liées."
 
 #: controllers/projectsController.php:44
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:44
 msgid "The project has been successfully deleted"
 msgstr "Le projet a été supprimé avec succès"
 
 #: controllers/projectsController.php:72
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:72
 msgid "An error has occurred during the project creation"
 msgstr "Une erreur s'est produite pendant la création du projet"
 
 #: controllers/projectsController.php:77
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:77
 msgid "No data has been received for the project creation"
 msgstr "Aucune donnée n'a été reçue pour la création de ce projet"
 
 #: controllers/projectsController.php:100
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:100
 msgid "The project has been successfully updated"
 msgstr "Le projet a été supprimé avec succès"
 
@@ -435,155 +575,221 @@ msgstr "Le projet a été supprimé avec succès"
 #: controllers/projectsController.php:277
 #: controllers/projectsController.php:319
 #: controllers/projectsController.php:369
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:125
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:170
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:202
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:245
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:277
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:319
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:369
 msgid "Project not found"
 msgstr "Projet introuvable"
 
 #: controllers/projectsController.php:138
 #: controllers/projectsController.php:215
 #: controllers/projectsController.php:290
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:138
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:215
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:290
 msgid "Error during the project association"
 msgstr "Erreur pendant l'association du projet"
 
 #: controllers/projectsController.php:173
 #: controllers/projectsController.php:248
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:173
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:248
 msgid "Wrong project and intervention association"
 msgstr "Mauvaise association de projet et d'intervention"
 
 #: controllers/projectsController.php:180
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:180
 msgid "Error during the document unlink"
 msgstr "Impossible de délié le document"
 
 #: controllers/projectsController.php:255
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:255
 msgid "Error during the intervention unlink"
 msgstr "Impossible de délié l'intervention"
 
 #: controllers/projectsController.php:322
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:322
 msgid "Wrong project and provider invoice association"
 msgstr "Mauvaise association de facture d'achat et d'intervention"
 
 #: controllers/projectsController.php:329
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:329
 msgid "Error during the provider invoice unlink"
 msgstr "Impossible de délié la facture d'achat"
 
 #: controllers/projectsController.php:372
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:372
 msgid "Wrong project and free document association"
 msgstr "Mauvaise association de projet et de document libre"
 
 #: controllers/projectsController.php:380
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:380
 msgid "Error during the free document deletion"
 msgstr "Erreur pendant la suppression du document libre"
 
 #: controllers/projectsController.php:429
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:429
 msgid "Free document not found"
 msgstr "Document libre introuvable"
 
 #: controllers/projectsController.php:451
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/projectsController.php:451
 msgid "Error during the free document edition"
 msgstr "Erreur pendant la modification du document libre"
 
 #: controllers/estimatesController.php:28
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/estimatesController.php:28
 msgid "The estimate has been generated"
 msgstr "Le devis a été généré"
 
 #: controllers/estimatesController.php:74
 #: controllers/estimatesController.php:75
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/estimatesController.php:74
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/estimatesController.php:75
 msgid "Estimate not found"
 msgstr "Devis introuvable"
 
 #: controllers/estimatesController.php:88
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/estimatesController.php:88
 msgid "Your estimate"
 msgstr "Votre devis"
 
 #: controllers/taxeRatesController.php:39
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/taxeRatesController.php:39
 msgid "The taxe rate has been successfully deleted"
 msgstr "Le taux de tva a été supprimé avec succès"
 
 #: controllers/taxeRatesController.php:70
 #: controllers/taxeRatesController.php:108
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/taxeRatesController.php:70
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/taxeRatesController.php:108
 msgid "The taxe rate data has been successfully saved"
 msgstr "Le taux de tva a été créé avec succès"
 
-#: controllers/providerInvoicesController.php:61
+#: controllers/providerInvoicesController.php:62
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/providerInvoicesController.php:62
 msgid "The provider invoice has been successfully deleted"
 msgstr "La facture d'achat a été supprimée avec succès"
 
-#: controllers/providerInvoicesController.php:136
-#: controllers/providerInvoicesController.php:185
-#: controllers/providerInvoicesController.php:233
+#: controllers/providerInvoicesController.php:137
+#: controllers/providerInvoicesController.php:186
+#: controllers/providerInvoicesController.php:234
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/providerInvoicesController.php:137
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/providerInvoicesController.php:186
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/providerInvoicesController.php:234
 msgid "Invoice unknown"
 msgstr "Facture inconnue"
 
-#: controllers/providerInvoicesController.php:164
-#: controllers/providerInvoicesController.php:211
+#: controllers/providerInvoicesController.php:165
+#: controllers/providerInvoicesController.php:212
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/providerInvoicesController.php:165
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/providerInvoicesController.php:212
 msgid "Error during the amount adding process"
 msgstr "Erreur pendant le processus d'ajout du montant"
 
-#: controllers/providerInvoicesController.php:231
+#: controllers/providerInvoicesController.php:232
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/providerInvoicesController.php:232
 msgid "Invoice amount unknown"
 msgstr "Montant de facture inconnu"
 
-#: controllers/providerInvoicesController.php:250
+#: controllers/providerInvoicesController.php:251
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/providerInvoicesController.php:251
 msgid "Error during the amount remove process"
 msgstr "Erreur pendant le processus de suppression de montant"
 
-#: controllers/interventionsController.php:41
-#: controllers/interventionsController.php:102
-#: controllers/interventionsController.php:232
+#: controllers/interventionsController.php:55
+#: controllers/interventionsController.php:122
+#: controllers/interventionsController.php:270
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:55
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:122
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:270
 msgid "Failed to delete the previous file."
 msgstr "Impossible de remplacer le fichier précédent."
 
-#: controllers/interventionsController.php:53
+#: controllers/interventionsController.php:67
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:67
 msgid "The intervention has been successfully deleted"
 msgstr "L'intervention a été supprimée avec succès"
 
-#: controllers/interventionsController.php:73
-#: controllers/interventionsController.php:203
+#: controllers/interventionsController.php:87
+#: controllers/interventionsController.php:241
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:87
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:241
 msgid "The date format is invalid"
 msgstr "Le format de date est invalide"
 
-#: controllers/interventionsController.php:74
-#: controllers/interventionsController.php:204
+#: controllers/interventionsController.php:88
+#: controllers/interventionsController.php:242
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:88
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:242
 msgid "The start time format is invalid"
 msgstr "L'heure de début est invalide"
 
-#: controllers/interventionsController.php:75
-#: controllers/interventionsController.php:205
+#: controllers/interventionsController.php:89
+#: controllers/interventionsController.php:243
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:89
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:243
 msgid "The end time format is invalid"
 msgstr "L'heure de fin est invalide"
 
-#: controllers/interventionsController.php:76
-#: controllers/interventionsController.php:206
+#: controllers/interventionsController.php:90
+#: controllers/interventionsController.php:244
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:90
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:244
 msgid "The pause time format is invalid"
 msgstr "Le temps de pause invalide"
 
-#: controllers/interventionsController.php:77
-#: controllers/interventionsController.php:207
+#: controllers/interventionsController.php:91
+#: controllers/interventionsController.php:245
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:91
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:245
 msgid "The elapsed time format is invalid"
 msgstr "Le format du temps effectué est invalide"
 
-#: controllers/interventionsController.php:91
-#: controllers/interventionsController.php:221
+#: controllers/interventionsController.php:100
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:100
+#, php-format
+msgid "Unable to create the folder : '%s'"
+msgstr "Impossible de créer le dossier : '%s'"
+
+#: controllers/interventionsController.php:111
+#: controllers/interventionsController.php:259
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:111
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:259
 #, php-format
 msgid "Unable to find the file '%s'."
 msgstr "Impossible de trouver le fichier '%s'"
 
-#: controllers/interventionsController.php:153
-#: controllers/interventionsController.php:273
+#: controllers/interventionsController.php:179
+#: controllers/interventionsController.php:311
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:179
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:311
 msgid "An error occured during the intervention save."
 msgstr "Une erreur s'est produite pendant la sauvegarde de l'intervention."
 
-#: controllers/interventionsController.php:157
-#: controllers/interventionsController.php:277
+#: controllers/interventionsController.php:183
+#: controllers/interventionsController.php:315
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:183
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/controllers/interventionsController.php:315
 msgid "The intervention data has been successfully saved"
 msgstr "Les données de l'intervention ont été sauvegardées avec succès"
 
 #: classes/Pdfs/GenerateInvoice.php:205 classes/Pdfs/GenerateInvoice.php:213
 #: classes/Pdfs/GenerateEstimate.php:144 classes/Pdfs/GenerateEstimate.php:152
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/classes/Pdfs/GenerateInvoice.php:205
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/classes/Pdfs/GenerateInvoice.php:213
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/classes/Pdfs/GenerateEstimate.php:144
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/classes/Pdfs/GenerateEstimate.php:152
 #, php-format
 msgid "Unable to create the estimate folder '%s'"
 msgstr "Impossible de créer le dossier pour le devis '%s'"
 
 #: classes/Pdfs/GenerateCommercialDocument.php:149
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/classes/Pdfs/GenerateCommercialDocument.php:149
 #, php-format
 msgid ""
 "The html render must implement the interface of the same name or to be type "
@@ -593,15 +799,59 @@ msgstr ""
 "type 'Twig_Environment', actuellement '%s'"
 
 #: classes/EntityLogic/invoicesExportLogic.php:60
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/classes/EntityLogic/invoicesExportLogic.php:60
 msgid "The invoice is not a known invoice format"
 msgstr "La facture n'est pas un format de facture connu"
+
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/entities/CommercialProviderInvoiceAssocAmounts.php:255
+#: entities/CommercialProviderInvoiceAssocAmounts.php:255
+#, php-format
+msgid ""
+"The amount tax free (%s), amount taxes included (%s) and taxes (%s) does not "
+"match"
+msgstr ""
+"Le montant hors taxes (%s), le montant TTC (%s) et la TVA (%s) ne "
+"correspondent pas"
+
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/entities/CommercialProviderInvoiceAssocAmounts.php:262
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/entities/CommercialProviderInvoice.php:413
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/entities/CommercialProviderInvoice.php:431
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:139
+#: entities/CommercialProviderInvoiceAssocAmounts.php:262
+#: entities/CommercialProviderInvoice.php:413
+#: entities/CommercialProviderInvoice.php:431
+msgid "This invoice is in read only mode. It has already been exported"
+msgstr "Cette facture est en lecture seule. Elle a déjà été exportée"
+
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/entities/CommercialInvoice.php:547
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/entities/CommercialProviderInvoice.php:421
+#: entities/CommercialInvoice.php:547
+#: entities/CommercialProviderInvoice.php:421
+msgid ""
+"This document is associated to one or more bank operation. You cannot change "
+"the payment status"
+msgstr ""
+"Ce document est associé à une ou plusieurs opérations bancaire. Vous ne "
+"pouvez pas changer l'état de paiment."
+
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/entities/CommercialProviderInvoice.php:410
+#: entities/CommercialProviderInvoice.php:410
+msgid "This provider invoice number already exists"
+msgstr "Ce numéro de facture d'achat existe déjà"
+
+#: debian/igestis-commercial/usr/share/igestis/modules/Commercial/entities/CommercialProviderInvoice.php:430
+#: entities/CommercialProviderInvoice.php:430
+msgid "This invoice is already linked to a bank operation"
+msgstr "Cette facture est déjà associée à une opération bancaire"
 
 #: tmp/8f/a3/2b5e33015fbbcb83881939e6a204.php:28
 msgid "New estimate"
 msgstr "Nouveau devis"
 
 #: tmp/8f/a3/2b5e33015fbbcb83881939e6a204.php:42
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:78
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:78
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:78
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:78
 msgid "Valid until"
 msgstr "Valide jusqu'au"
@@ -611,21 +861,22 @@ msgstr "Valide jusqu'au"
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:368
 #: tmp/2d/77/c6405f1255bde67df8f7fa410dc7.php:55
 #: tmp/98/5a/53d1005b6dac7a9d264d7d42a707.php:53
-#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:109
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:122
 #: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:50
 #: tmp/eb/c0/7ad350433cc56e751191fe920821.php:53
 #: tmp/cd/e0/b0097b1d329c2c2c287f3f9e28a7.php:49
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:108
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:540
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:311
 #: tmp/01/4f/0ad7e54d0e73595aa365540bcfc7.php:55
 #: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:70
 #: tmp/2f/fb/405430ed4e7cba3d009789944224.php:70
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:88
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:526
-#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:122
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:539
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:135
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:79
-#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:88
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:232
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:146
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:236
 #: tmp/18/35/a9f53c49d46b6e5b96a5d21f9ce7.php:48
 #: tmp/bd/08/1c0aa487614e37b9222a4f52c87f.php:55
 #: tmp/1d/bd/38c47de6b748d82ee7a64931796b.php:55
@@ -647,28 +898,183 @@ msgstr "Sel"
 #: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:46
 #: tmp/13/27/0e69aa4363d53ff6b504a73401dc.php:24
 #: tmp/cd/e0/b0097b1d329c2c2c287f3f9e28a7.php:34
+#: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:111
+#: tmp/ce/c6/454b36c515e9b48f680e92e7a576.php:47
 #: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:59
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:154
 msgid "Title"
 msgstr "Titre"
 
 #: tmp/61/3c/83125653435d706aa728a5c0155d.php:33
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:66
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:118
 #: tmp/40/c9/333f506017e60d16e7effac65e95.php:33
 #: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:46
-#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:79
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:92
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:91
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:93
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:136
 #: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:129
 #: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:50
+#: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:103
+#: tmp/ce/c6/454b36c515e9b48f680e92e7a576.php:86
 #: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:66
-#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:87
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:66
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:100
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:146
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:66
 #: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:37
 msgid "Date"
 msgstr "Date"
+
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:62
+#: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:84
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:49
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:138
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:62
+#: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:64
+#: tmp/53/f6/33a958759155030696f1added942.php:79
+#: tmp/53/f6/33a958759155030696f1added942.php:181
+msgid "Estimate"
+msgstr "Devis"
+
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:72
+#: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:57
+#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:98
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:72
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:72
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:72
+msgid "Number"
+msgstr "Numéro"
+
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:84
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:84
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:84
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:84
+msgid "Page"
+msgstr "Page"
+
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:88
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:88
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:88
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:88
+msgid "of"
+msgstr "sur"
+
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:129
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:73
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:79
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:101
+#: tmp/cd/e0/b0097b1d329c2c2c287f3f9e28a7.php:42
+#: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:119
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:129
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:81
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:87
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:77
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:162
+#: tmp/18/35/a9f53c49d46b6e5b96a5d21f9ce7.php:41
+#: tmp/53/f6/33a958759155030696f1added942.php:145
+msgid "Customer"
+msgstr "Client"
+
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:221
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:221
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:246
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:246
+msgid "Ref."
+msgstr "Ref."
+
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:225
+#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:31
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:105
+#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:144
+#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:133
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:225
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:132
+#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:222
+#: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:57
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:250
+#: tmp/2f/fb/405430ed4e7cba3d009789944224.php:57
+#: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:89
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:70
+#: tmp/68/44/8621dc9c9f98103ae67ea2b8d6e3.php:31
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:250
+#: tmp/53/f6/33a958759155030696f1added942.php:149
+msgid "Label"
+msgstr "Libellé"
+
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:229
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:229
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:254
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:254
+msgid "Unit Price"
+msgstr "Prix unitaire"
+
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:233
+#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:39
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:233
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:258
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:90
+#: tmp/68/44/8621dc9c9f98103ae67ea2b8d6e3.php:39
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:258
+msgid "Quantity"
+msgstr "Quantité"
+
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:237
+#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:43
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:237
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:262
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:53
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:59
+#: tmp/68/44/8621dc9c9f98103ae67ea2b8d6e3.php:43
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:262
+msgid "Tax rate"
+msgstr "Taux de tva"
+
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:241
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:350
+#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:47
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:241
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:350
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:266
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:375
+#: tmp/68/44/8621dc9c9f98103ae67ea2b8d6e3.php:47
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:266
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:375
+msgid "Total"
+msgstr "Total"
+
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:330
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:330
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:355
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:355
+msgid "Sub total"
+msgstr "Sous total"
+
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:340
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:340
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:134
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:212
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:365
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:134
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:212
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:365
+msgid "VAT"
+msgstr "TVA"
+
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:373
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:310
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:373
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:309
+msgid "Information"
+msgstr "Information"
+
+#: tmp/51/70/ed3c64f1a57216d2ee80c81b948d.php:424
+#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:424
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:495
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:495
+msgid "RCS"
+msgstr "RCS"
 
 #: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:25
 msgid "Edit a bank account"
@@ -702,16 +1108,10 @@ msgstr "Nom de compte"
 #: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:94
 #: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:94
 #: tmp/eb/c0/7ad350433cc56e751191fe920821.php:46
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:429
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:429
 msgid "Bank name"
 msgstr "Nom de la banque"
-
-#: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:57
-#: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:98
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:72
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:72
-msgid "Number"
-msgstr "Numéro"
 
 #: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:61
 #: tmp/eb/c0/7ad350433cc56e751191fe920821.php:42
@@ -733,19 +1133,20 @@ msgstr ""
 #: tmp/8b/2d/5c3b5a95ee47c6ef2176d82044ce.php:74
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:376
 #: tmp/2d/77/c6405f1255bde67df8f7fa410dc7.php:59
-#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:117
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:130
 #: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:221
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:112
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:544
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:315
 #: tmp/01/4f/0ad7e54d0e73595aa365540bcfc7.php:59
 #: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:74
 #: tmp/2f/fb/405430ed4e7cba3d009789944224.php:74
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:92
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:530
-#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:126
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:543
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:139
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:83
-#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:92
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:236
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:150
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:240
 #: tmp/bd/08/1c0aa487614e37b9222a4f52c87f.php:59
 #: tmp/1d/bd/38c47de6b748d82ee7a64931796b.php:59
 msgid "Cancel"
@@ -835,11 +1236,13 @@ msgstr "Montant"
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:130
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:308
 #: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:51
+#: tmp/68/44/8621dc9c9f98103ae67ea2b8d6e3.php:51
 msgid "Action"
 msgstr "Action"
 
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:199
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:249
+#: tmp/ce/c6/454b36c515e9b48f680e92e7a576.php:75
 #: tmp/7a/53/04aa49f586317677741397999ce2.php:71
 msgid "Download"
 msgstr "Télécharger"
@@ -862,7 +1265,7 @@ msgid "Associated user"
 msgstr "Utilisateur associé"
 
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:346
-#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:547
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:550
 msgid "Remove"
 msgstr "Enlever"
 
@@ -879,12 +1282,12 @@ msgstr ""
 "associations de cette operation seront supprimées."
 
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:439
-#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:464
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:467
 #: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:52
 #: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:77
 #: tmp/e0/bf/047222b830c544b90a003a8e2a64.php:35
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:58
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:224
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:253
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:41
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:92
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:52
@@ -904,12 +1307,12 @@ msgid "No"
 msgstr "Non"
 
 #: tmp/8b/ab/5e9f2d41bb298768904398607740.php:441
-#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:466
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:469
 #: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:54
 #: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:77
 #: tmp/e0/bf/047222b830c544b90a003a8e2a64.php:31
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:58
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:226
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:255
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:43
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:92
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:54
@@ -928,7 +1331,7 @@ msgstr "Non"
 msgid "Yes"
 msgstr "Oui"
 
-#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:462
+#: tmp/8b/ab/5e9f2d41bb298768904398607740.php:465
 msgid ""
 "The assigned amounts does not match the operation amount. Do you want to "
 "validate anyway ?"
@@ -963,6 +1366,7 @@ msgid "Filled out"
 msgstr "Saisies"
 
 #: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:77
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:49
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:58
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:92
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:76
@@ -972,9 +1376,11 @@ msgid "All"
 msgstr "Tout"
 
 #: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:86
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:74
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:67
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:105
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:85
+#: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:81
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:112
 #: tmp/53/f6/33a958759155030696f1added942.php:106
 msgid "Search"
@@ -1039,10 +1445,11 @@ msgstr "Nouveau"
 #: tmp/13/27/0e69aa4363d53ff6b504a73401dc.php:28
 #: tmp/cd/e0/b0097b1d329c2c2c287f3f9e28a7.php:38
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:49
+#: tmp/ce/c6/454b36c515e9b48f680e92e7a576.php:51
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:58
 #: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:63
 #: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:76
-#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:58
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:116
 #: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:33
 msgid "Description"
 msgstr "Description"
@@ -1050,6 +1457,7 @@ msgstr "Description"
 #: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:54
 #: tmp/c7/d8/f3dc2941b3f2e3c5d0b86f342a30.php:65
 #: tmp/1f/a3/f3b6f22dfd5e211f484b06e4c67c.php:49
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:117
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:111
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:117
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:156
@@ -1059,6 +1467,7 @@ msgstr "Description"
 #: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:106
 #: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:105
 #: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:42
+#: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:127
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:140
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:230
 #: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:97
@@ -1069,24 +1478,23 @@ msgid "Actions"
 msgstr "Actions"
 
 #: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:78
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:134
 #: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:60
 #: tmp/53/f6/33a958759155030696f1added942.php:79
 #: tmp/53/f6/33a958759155030696f1added942.php:177
 msgid "Draft"
 msgstr "Brouillon"
 
-#: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:84
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:62
-#: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:64
-#: tmp/53/f6/33a958759155030696f1added942.php:79
-#: tmp/53/f6/33a958759155030696f1added942.php:181
-msgid "Estimate"
-msgstr "Devis"
-
 #: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:90
-#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:142
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:150
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:49
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:142
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:145
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:151
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:153
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:159
 #: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:43
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:62
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:62
 #: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:68
 #: tmp/53/f6/33a958759155030696f1added942.php:79
 #: tmp/53/f6/33a958759155030696f1added942.php:185
@@ -1094,6 +1502,8 @@ msgid "Invoice"
 msgstr "Facture"
 
 #: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:96
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:49
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:146
 #: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:72
 #: tmp/53/f6/33a958759155030696f1added942.php:79
 #: tmp/53/f6/33a958759155030696f1added942.php:189
@@ -1160,57 +1570,21 @@ msgstr "Plus de détails"
 #: tmp/af/5f/2b49dad23f1f08770ccdb691e172.php:33
 #: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:89
 #: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:38
+#: tmp/68/44/8621dc9c9f98103ae67ea2b8d6e3.php:27
 msgid "Ref"
 msgstr "Ref"
-
-#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:31
-#: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:144
-#: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:133
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:225
-#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:132
-#: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:222
-#: tmp/1c/8d/36a549aa83a676d9e4e666e59de6.php:57
-#: tmp/2f/fb/405430ed4e7cba3d009789944224.php:57
-#: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:89
-#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:70
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:250
-#: tmp/53/f6/33a958759155030696f1added942.php:149
-msgid "Label"
-msgstr "Libellé"
 
 #: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:35
 #: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:101
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:68
 #: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:84
-#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:68
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:126
+#: tmp/68/44/8621dc9c9f98103ae67ea2b8d6e3.php:35
 msgid "Selling price"
 msgstr "Prix de vente"
 
-#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:39
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:233
-#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:90
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:258
-msgid "Quantity"
-msgstr "Quantité"
-
-#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:43
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:237
-#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:53
-#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:59
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:262
-msgid "Tax rate"
-msgstr "Taux de tva"
-
-#: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:47
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:241
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:350
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:266
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:375
-msgid "Total"
-msgstr "Total"
-
 #: tmp/80/41/8acc02064a67758a4bb22cdff7b7.php:122
-#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:213
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:237
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:214
 #: tmp/5b/8a/d0a7c91c37b7f0af8411991cdcfa.php:83
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:151
@@ -1220,6 +1594,7 @@ msgstr "Total"
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:167
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:257
 #: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:124
+#: tmp/68/44/8621dc9c9f98103ae67ea2b8d6e3.php:122
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:214
 #: tmp/7a/53/04aa49f586317677741397999ce2.php:61
 #: tmp/53/f6/33a958759155030696f1added942.php:231
@@ -1236,6 +1611,7 @@ msgstr "Édition"
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:176
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:266
 #: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:133
+#: tmp/68/44/8621dc9c9f98103ae67ea2b8d6e3.php:131
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:223
 #: tmp/7a/53/04aa49f586317677741397999ce2.php:80
 #: tmp/53/f6/33a958759155030696f1added942.php:243
@@ -1255,63 +1631,61 @@ msgstr ""
 "client."
 
 #: tmp/80/9e/b913f7254256f759d7739231bb6b.php:62
+#: tmp/ce/c6/454b36c515e9b48f680e92e7a576.php:55
 #: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:70
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:83
 msgid "Worker"
 msgstr "Travailleur"
 
-#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:68
-#: tmp/cd/e0/b0097b1d329c2c2c287f3f9e28a7.php:42
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:129
-#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:76
-#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:77
-#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:162
-#: tmp/18/35/a9f53c49d46b6e5b96a5d21f9ce7.php:41
-#: tmp/53/f6/33a958759155030696f1added942.php:145
-msgid "Customer"
-msgstr "Client"
-
-#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:72
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:85
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:93
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:95
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:105
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:140
 #: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:141
-#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:80
+#: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:58
+#: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:107
+#: tmp/ce/c6/454b36c515e9b48f680e92e7a576.php:59
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:93
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:89
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:150
 #: tmp/53/f6/33a958759155030696f1added942.php:137
 msgid "Type"
 msgstr "Type"
 
-#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:83
-#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:91
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:96
+#: tmp/ce/c6/454b36c515e9b48f680e92e7a576.php:90
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:104
 msgid "Start time"
 msgstr "Heure de début"
 
-#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:87
-#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:95
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:100
+#: tmp/ce/c6/454b36c515e9b48f680e92e7a576.php:94
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:108
 msgid "End time"
 msgstr "Heure de fin"
 
-#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:91
-#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:99
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:104
+#: tmp/ce/c6/454b36c515e9b48f680e92e7a576.php:98
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:112
 msgid "Pause duration"
 msgstr "Temps de pause"
 
-#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:95
-#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:103
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:108
+#: tmp/ce/c6/454b36c515e9b48f680e92e7a576.php:102
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:116
 msgid "Elapsed time"
 msgstr "Temps passé"
 
-#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:113
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:126
 msgid "Save changes and new"
 msgstr "Sauvegarder les changements et nouveau"
 
-#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:174
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:187
 msgid "Please wait while scanning your document."
 msgstr "Veuillez patienter pendant la numérisation du document."
 
-#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:178
+#: tmp/80/9e/b913f7254256f759d7739231bb6b.php:191
 msgid "Please wait while uploading your document."
 msgstr "Veuillez patienter pendant la transmission de votre document."
 
@@ -1334,26 +1708,58 @@ msgstr "Date de la facture"
 msgid "Invoice amount"
 msgstr "Montant de la facture"
 
-#: tmp/65/52/6e47fdc3f019148ae5012b258239.php:107
-msgid "Warning!"
-msgstr "Attention !"
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:26
+#: tmp/53/f6/33a958759155030696f1added942.php:26
+msgid "Documents list"
+msgstr "Liste des documents"
 
-#: tmp/65/52/6e47fdc3f019148ae5012b258239.php:111
-msgid ""
-"You are using the root account, which is a system account. Thus, some "
-"fonctions will be disabled by default. Please create a new employee whose "
-"account will allow you to enjoy all the fonctions."
-msgstr ""
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:26
+msgid "You commercial documents history."
+msgstr "L'historique des documents commerciaux."
 
-#: tmp/65/52/6e47fdc3f019148ae5012b258239.php:117
-msgid "Create an employee"
-msgstr "Créer un employé"
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:58
+#: tmp/53/f6/33a958759155030696f1added942.php:72
+msgid "Filter commercial document"
+msgstr "Filtrer des documents commerciaux"
 
-#: tmp/65/52/6e47fdc3f019148ae5012b258239.php:222
-msgid ""
-"Don't call this template directly, but extend this template from an other "
-"twig"
-msgstr ""
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:65
+#: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:29
+#: tmp/53/f6/33a958759155030696f1added942.php:97
+msgid "State"
+msgstr "État"
+
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:97
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:99
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:109
+#: tmp/53/f6/33a958759155030696f1added942.php:141
+msgid "Document number"
+msgstr "Numéro de document"
+
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:109
+#: tmp/53/f6/33a958759155030696f1added942.php:153
+msgid "Document date"
+msgstr "Date du document"
+
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:113
+#: tmp/53/f6/33a958759155030696f1added942.php:157
+msgid "Amout without taxes"
+msgstr "Total HT"
+
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:182
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:404
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:478
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:403
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:477
+msgid "Download the estimate"
+msgstr "Télécharger le devis"
+
+#: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:193
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:461
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:521
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:460
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:520
+msgid "Download the invoice"
+msgstr "Télécharger la facture"
 
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:26
 msgid "Balance detail"
@@ -1381,12 +1787,6 @@ msgstr "Retourner à la page balance"
 msgid "Paid"
 msgstr "Payé"
 
-#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:99
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:109
-#: tmp/53/f6/33a958759155030696f1added942.php:141
-msgid "Document number"
-msgstr "Numéro de document"
-
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:103
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:113
 msgid "Document amount"
@@ -1396,36 +1796,42 @@ msgstr "Montant du document"
 msgid "Transaction amount"
 msgstr "Montant de la transaction"
 
-#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:142
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:150
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:145
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:151
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:153
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:159
 #: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:43
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:62
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:62
 msgid "Credit note"
 msgstr "Facture d'avoir"
 
-#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:146
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:154
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:157
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:165
 msgid "Sales"
 msgstr "Ventes"
 
-#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:146
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:154
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:157
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:165
 msgid "Order"
 msgstr "Achat"
 
-#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:167
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:174
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:191
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:188
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:199
 #: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:89
+#: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:171
 msgid "View"
 msgstr "Afficher"
 
-#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:193
+#: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:217
 msgid "Bank transaction"
 msgstr "Transaction bancaire"
 
 #: tmp/af/5f/2b49dad23f1f08770ccdb691e172.php:37
 #: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:93
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:54
-#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:54
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:112
 msgid "Designation"
 msgstr "Designation"
 
@@ -1456,14 +1862,14 @@ msgstr "Filtrage des factures"
 msgid "Exported"
 msgstr "Exporter"
 
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:216
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:245
 msgid ""
 "Thank to select at least one invoice before to click the \"export\" button"
 msgstr ""
 "Merci de sélectionner au moins une facture avant de cliquer sur le bouton "
 "\"exporter\""
 
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:222
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:251
 msgid "Are you sure that you want to export these invoices ?"
 msgstr "Êtes-vous sûr de vouloir exporter ces factures ?"
 
@@ -1615,6 +2021,7 @@ msgid "Link an intervention"
 msgstr "Lier une intervention"
 
 #: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:54
+#: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:123
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:166
 msgid "Duration"
 msgstr "Durée"
@@ -1691,6 +2098,7 @@ msgid "Payment deadline"
 msgstr "Date limite de paiement"
 
 #: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:39
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:94
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:52
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:94
 msgid "Payment mode"
@@ -1728,7 +2136,7 @@ msgstr "Ajouter un article"
 #: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:97
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:64
 #: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:104
-#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:64
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:122
 msgid "Purchasing price"
 msgstr "Prix d'achat"
 
@@ -1784,7 +2192,8 @@ msgstr "Lier un document commercial"
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:230
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:255
 #: tmp/d9/d2/bf693bece03eb43f9d2f7179ce93.php:280
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:604
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:618
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:617
 msgid "Add"
 msgstr "Ajouter"
 
@@ -1819,47 +2228,236 @@ msgid ""
 "Are you sure that you to remove this intervention from this buying invoice ?"
 msgstr "Êtes-vous sur de vouloir enlever cette facture d'achat de ce projet ?"
 
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:84
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:84
-msgid "Page"
-msgstr "Page"
+#: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:26
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:26
+msgid "Interventions list"
+msgstr "Liste des interventions"
 
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:88
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:88
-msgid "of"
-msgstr "sur"
+#: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:26
+msgid "See your interventions history."
+msgstr "Afficher l'historique de vos interventions"
 
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:221
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:246
-msgid "Ref."
-msgstr "Ref."
+#: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:52
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:71
+msgid "Filter interventions"
+msgstr "Filtrer des interventions"
 
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:229
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:254
-msgid "Unit Price"
-msgstr "Prix unitaire"
+#: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:66
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:97
+msgid "From"
+msgstr "De"
 
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:330
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:355
-msgid "Sub total"
-msgstr "Sous total"
+#: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:72
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:103
+msgid "To"
+msgstr "À"
 
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:340
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:134
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:212
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:365
-msgid "VAT"
-msgstr "TVA"
+#: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:115
+#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:158
+msgid "Project"
+msgstr "Projet"
 
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:373
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:296
-msgid "Information"
-msgstr "Information"
+#: tmp/ce/c6/454b36c515e9b48f680e92e7a576.php:25
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:25
+msgid "Edit an intervention"
+msgstr "Éditer une intervention"
 
-#: tmp/a2/15/c7bcfd6cb951e8f56b888435ef6e.php:424
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:495
-msgid "RCS"
-msgstr "RCS"
+#: tmp/ce/c6/454b36c515e9b48f680e92e7a576.php:25
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:25
+msgid ""
+"Review the time and the information about the work done to your customer."
+msgstr ""
+"Vérifiez les temps et autres informations du travail effectué chez votre "
+"client."
+
+#: tmp/ce/c6/454b36c515e9b48f680e92e7a576.php:39
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:53
+msgid "Intervention details"
+msgstr "Détail de l'intervention"
+
+#: tmp/ce/c6/454b36c515e9b48f680e92e7a576.php:41
+msgid "Return to the list"
+msgstr "Retour à la liste"
+
+#: tmp/ce/c6/454b36c515e9b48f680e92e7a576.php:69
+msgid "Associated doc."
+msgstr "Doc associé"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:25
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:25
+msgid "Edit a commercial document"
+msgstr "Éditer un document commercial"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:25
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:25
+msgid "Fill all information about the commercial document"
+msgstr "Saisissez toutes les informations a propos du document commercial"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:74
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:74
+msgid "This document is not editable as it has been exported or paid."
+msgstr "Ce document n'est pas modification car il a déjà été exporté ou payé."
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:85
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:85
+msgid "This document is linked to the project"
+msgstr "Ce document est lié au projet."
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:104
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:259
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:145
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:103
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:258
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:145
+msgid "Billed to"
+msgstr "Facturé à"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:235
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:234
+msgid "Change contact details"
+msgstr "Changer les détails du contact"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:246
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:245
+msgid "Restore contact details"
+msgstr "Restaurer les détails du contact"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:267
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:266
+msgid "User label"
+msgstr "Libellé de l'utilisateur"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:275
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:274
+msgid "Address"
+msgstr "Adresse"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:281
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:280
+msgid "Address complement"
+msgstr "Adresse supplément"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:289
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:288
+msgid "Postal code"
+msgstr "Code postal"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:295
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:294
+msgid "City"
+msgstr "Ville"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:302
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:301
+msgid "Revert"
+msgstr "Rétablir"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:317
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:316
+msgid "Small description"
+msgstr "Résumé"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:321
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:320
+msgid "Full description"
+msgstr "Details"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:340
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:339
+msgid "Documents"
+msgstr "Document"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:358
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:357
+msgid "Generate the estimate"
+msgstr "Générer le devis"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:365
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:414
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:364
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:413
+msgid "Convert to invoice"
+msgstr "Convertir en facture"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:376
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:375
+msgid "Estimate action"
+msgstr "Action sur le devis"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:385
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:384
+msgid "Generate again the estimate"
+msgstr "Générer a nouveau le devis"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:393
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:392
+msgid "Send the estimate by email"
+msgstr "Envoyer le devis par mail"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:426
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:486
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:425
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:485
+msgid "Invoice action"
+msgstr "Action sur la facture"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:439
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:499
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:438
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:498
+msgid "Generate again the invoice"
+msgstr "Générer a nouveau la facture"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:450
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:510
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:449
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:509
+msgid "Send the invoice by email"
+msgstr "Envoyer la facture par mail"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:559
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:558
+msgid "Items"
+msgstr "Éléments"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:571
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:570
+msgid "New item"
+msgstr "Nouvel élément"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:579
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:578
+msgid "Search an item"
+msgstr "Rechercher un élément"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:607
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:606
+msgid "Filter articles"
+msgstr "Filtrage des articles"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:632
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:631
+msgid "Send invoice by mail"
+msgstr "Envoyer la facture par email"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:638
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:670
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:637
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:669
+msgid "Customer email"
+msgstr "Email du client"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:649
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:681
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:648
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:680
+msgid "Send"
+msgstr "Envoyer"
+
+#: tmp/b2/90/62e1c55369b89a48af234215954a.php:664
+#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:663
+msgid "Send estimate by mail"
+msgstr "Envoyer le devis par mail"
 
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:26
 msgid "Accounting management"
@@ -1953,6 +2551,26 @@ msgstr "Autre"
 msgid "Transfer"
 msgstr "Virement"
 
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:398
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:398
+msgid "Commercial information"
+msgstr "Informations commerciales"
+
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:424
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:424
+msgid "Payment informations"
+msgstr "Information des paiements"
+
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:437
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:437
+msgid "RIB"
+msgstr "RIB"
+
+#: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:445
+#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:445
+msgid "IBAN"
+msgstr "IBAN"
+
 #: tmp/2f/fb/405430ed4e7cba3d009789944224.php:26
 msgid "Edit a taxe rate"
 msgstr "Éditer un taux de TVA"
@@ -1962,176 +2580,40 @@ msgid "Edit an article"
 msgstr "Éditer un article"
 
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:40
-#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:40
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:98
 msgid "Article information"
 msgstr "Informations de l'article"
 
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:46
-#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:46
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:104
 msgid "Our reference"
 msgstr "Notre reference"
 
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:50
-#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:50
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:108
 msgid "Manufacturer reference"
 msgstr "Reférence fabricant"
 
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:72
-#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:72
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:130
 msgid "Taxe rate"
 msgstr "Taux de TVA"
 
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:77
-#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:77
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:135
 msgid "Selling account"
 msgstr "Compte de vente"
 
 #: tmp/03/82/1758b23b5efba2e6dafd8755a680.php:81
-#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:81
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:139
 msgid "Category"
 msgstr "Catégorie"
 
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:25
-msgid "Edit a commercial document"
-msgstr "Éditer un document commercial"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:25
-msgid "Fill all information about the commercial document"
-msgstr "Saisissez toutes les informations a propos du document commercial"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:74
-msgid "This document is not editable as it has been exported or paid."
-msgstr "Ce document n'est pas modification car il a déjà été exporté ou payé."
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:90
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:245
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:145
-msgid "Billed to"
-msgstr "Facturé à"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:221
-msgid "Change contact details"
-msgstr "Changer les détails du contact"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:232
-msgid "Restore contact details"
-msgstr "Restaurer les détails du contact"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:253
-msgid "User label"
-msgstr "Libellé de l'utilisateur"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:261
-msgid "Address"
-msgstr "Adresse"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:267
-msgid "Address complement"
-msgstr "Adresse supplément"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:275
-msgid "Postal code"
-msgstr "Code postal"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:281
-msgid "City"
-msgstr "Ville"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:288
-msgid "Revert"
-msgstr "Rétablir"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:303
-msgid "Small description"
-msgstr "Résumé"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:307
-msgid "Full description"
-msgstr "Details"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:326
-msgid "Documents"
-msgstr "Document"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:344
-msgid "Generate the estimate"
-msgstr "Générer le devis"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:351
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:400
-msgid "Convert to invoice"
-msgstr "Convertir en facture"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:362
-msgid "Estimate action"
-msgstr "Action sur le devis"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:371
-msgid "Generate again the estimate"
-msgstr "Générer a nouveau le devis"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:379
-msgid "Send the estimate by email"
-msgstr "Envoyer le devis par mail"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:390
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:464
-msgid "Download the estimate"
-msgstr "Télécharger le devis"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:412
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:472
-msgid "Invoice action"
-msgstr "Action sur la facture"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:425
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:485
-msgid "Generate again the invoice"
-msgstr "Générer a nouveau la facture"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:436
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:496
-msgid "Send the invoice by email"
-msgstr "Envoyer la facture par mail"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:447
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:507
-msgid "Download the invoice"
-msgstr "Télécharger la facture"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:545
-msgid "Items"
-msgstr "Éléments"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:557
-msgid "New item"
-msgstr "Nouvel élément"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:565
-msgid "Search an item"
-msgstr "Rechercher un élément"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:593
-msgid "Filter articles"
-msgstr "Filtrage des articles"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:618
-msgid "Send invoice by mail"
-msgstr "Envoyer la facture par email"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:624
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:656
-msgid "Customer email"
-msgstr "Email du client"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:635
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:667
-msgid "Send"
-msgstr "Envoyer"
-
-#: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:650
-msgid "Send estimate by mail"
-msgstr "Envoyer le devis par mail"
+#: tmp/9e/1d/60b538b06f277db50742170ee9cf.php:198
+msgid ""
+"Don't call this template directly, but extend this template from an other "
+"twig"
+msgstr ""
 
 #: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:26
 msgid "Taxe rates list"
@@ -2153,30 +2635,15 @@ msgstr "Ajouter un nouveau taux"
 msgid "Value"
 msgstr "Valeur"
 
-#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:25
-msgid "Edit an intervention"
-msgstr "Éditer une intervention"
-
-#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:25
-msgid ""
-"Review the time and the information about the work done to your customer."
-msgstr ""
-"Vérifiez les temps et autres informations du travail effectué chez votre "
-"client."
-
 #: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:39
 msgid "This intervention is linked to the project"
 msgstr "Cette intervention est liée au projet"
 
-#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:53
-msgid "Intervention details"
-msgstr "Détail de l'intervention"
-
-#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:173
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:186
 msgid "Please wait while the scanner is scanning your document."
 msgstr "Veuillez patienter pendant la numérisation de votre document."
 
-#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:177
+#: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:190
 msgid "Please wait while your document is uploading."
 msgstr "Veuillez patienter pendant le transfère de votre document."
 
@@ -2209,13 +2676,6 @@ msgstr "Ajouter ou supprimer un montant"
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:139
-#: entities/CommercialProviderInvoiceAssocAmounts.php:257
-#: entities/CommercialProviderInvoice.php:400
-#: entities/CommercialProviderInvoice.php:418
-msgid "This invoice is in read only mode. It has already been exported"
-msgstr "Cette facture est en lecture seule. Elle a déjà été exportée"
-
 #: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:29
 msgid "New article"
 msgstr "Nouvel article"
@@ -2239,6 +2699,31 @@ msgstr "Créer un nouvel article"
 #: tmp/3e/f7/54b6a714b9a0930416f394262650.php:25
 msgid "Fill all information about the new article"
 msgstr "Saisissez toutes les informations a propos de votre nouvel article"
+
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:42
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:71
+msgid "Warning!"
+msgstr "Attention !"
+
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:46
+msgid "You must first create at least one tax rate before adding an article."
+msgstr ""
+"Vous devez ajouter au moins une tax avant de pouvoir ajouter un article."
+
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:52
+msgid "Create a tax rate"
+msgstr "Créer un taux de TVA"
+
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:75
+msgid ""
+"You must first create at least one selling account before adding an article."
+msgstr ""
+"Vous devez créer au moins un compte de vente avant de pouvoir ajouter un "
+"article."
+
+#: tmp/3e/f7/54b6a714b9a0930416f394262650.php:81
+msgid "Create a selling account"
+msgstr "Créer un compte de vente"
 
 #: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:26
 msgid "Commercial module configuration"
@@ -2330,13 +2815,76 @@ msgstr "Montant TTC de la ligne au format décimal"
 msgid "Tax amount of the row in decimal format"
 msgstr "Montant des taxes de la ligne au format décimal"
 
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:202
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:200
+msgid "The invoice ID"
+msgstr "L'ID de facture"
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:206
 msgid "Formatting"
 msgstr "Formatage"
 
-#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:26
-msgid "Interventions list"
-msgstr "Liste des interventions"
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:210
+msgid ""
+"eg : {{ pad(userAccount, 10, '0', STR_PAD_RIGHT) }} show the userAccount and "
+"complete the string with '0' to create a string 10 characters length"
+msgstr ""
+"ex: {{ pad(userAccount, 10, '0', STR_PAD_RIGHT) }} affiche le champs "
+"userAccount et complète le champ avec des '0' pour créer une chaine de 10 "
+"caractères."
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:210
+msgid "pad function"
+msgstr "Function pad"
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:214
+msgid ""
+"eg : {{ invoiceDate|date('Ymd') }} will return the invoice date in the "
+"yyyymmdd format"
+msgstr ""
+"ex: {{ invoiceDate|date('Ymd') }} retournera la date de facture au format "
+"yyyymmdd"
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:214
+msgid "date function"
+msgstr "function date"
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:218
+msgid ""
+"eg : {{ taxes|number_format(2, '.', ',') }} will return a number with format "
+"1,234.56"
+msgstr ""
+"ex: {{ taxes|number_format(2, '.', ',') }} retournera un nombre au format "
+"1,234.56"
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:218
+msgid "number_format"
+msgstr ""
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:222
+msgid ""
+"eg : {{ type == 'selling' ? 'VT' : 'AC' }} will show 'VT' if type is selling "
+"and 'AC' else."
+msgstr ""
+"ex: {{ type == 'selling' ? 'VT' : 'AC' }} affichera  'VT' si le type est "
+"vente et  'AC' dans le cas contraire."
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:222
+msgid "Simple condition"
+msgstr "Condition simple"
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:226
+msgid ""
+"eg : {% if type == 'selling'%}VT{% else %}AC{% endif%} will show 'VT' if "
+"type is selling and 'AC' else. This syntax allow you to create condition for "
+"entire blocks."
+msgstr ""
+"ex: {% if type == 'selling'%}VT{% else %}AC{% endif%} affichera 'VT'  si le "
+"type est vente et 'AC' dans le cas contraire. Cette syntaxe permet de créer "
+"des conditions sur des blocs entiers."
+
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:226
+msgid "Complex condition"
+msgstr "Condition complexe"
 
 #: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:26
 msgid "Add and remove interventions."
@@ -2346,22 +2894,6 @@ msgstr "Ajouter ou supprimer des inteventions"
 msgid "Are you sure that you want to delete this intervention ?"
 msgstr "Ètes-vous sur de vouloir supprimer cette intervention ?"
 
-#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:71
-msgid "Filter interventions"
-msgstr "Filtrer des interventions"
-
-#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:97
-msgid "From"
-msgstr "De"
-
-#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:103
-msgid "To"
-msgstr "À"
-
-#: tmp/9d/cc/6678c25e24af24ba569e2602bc93.php:158
-msgid "Project"
-msgstr "Projet"
-
 #: tmp/18/35/a9f53c49d46b6e5b96a5d21f9ce7.php:30
 msgid "New selling document"
 msgstr "Nouveau document de vente"
@@ -2369,27 +2901,6 @@ msgstr "Nouveau document de vente"
 #: tmp/18/35/a9f53c49d46b6e5b96a5d21f9ce7.php:37
 msgid "Little description"
 msgstr "Résumé"
-
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:398
-msgid "Commercial information"
-msgstr "Informations commerciales"
-
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:424
-msgid "Payment informations"
-msgstr "Information des paiements"
-
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:437
-msgid "RIB"
-msgstr "RIB"
-
-#: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:445
-msgid "IBAN"
-msgstr "IBAN"
-
-#: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:29
-#: tmp/53/f6/33a958759155030696f1added942.php:97
-msgid "State"
-msgstr "État"
 
 #: tmp/7a/53/04aa49f586317677741397999ce2.php:24
 msgid "File"
@@ -2405,10 +2916,6 @@ msgid "Fill all information about the new selling account"
 msgstr "Saisissez toutes les informations a propos du nouveau compte de vente"
 
 #: tmp/53/f6/33a958759155030696f1added942.php:26
-msgid "Documents list"
-msgstr "Liste des documents"
-
-#: tmp/53/f6/33a958759155030696f1added942.php:26
 msgid "Add and remove documents."
 msgstr "Ajouter et supprimer des documents."
 
@@ -2416,21 +2923,9 @@ msgstr "Ajouter et supprimer des documents."
 msgid "Are you sure that you want to delete this document ?"
 msgstr "Ètes-vous sur de vouloir supprimer ce document ?"
 
-#: tmp/53/f6/33a958759155030696f1added942.php:72
-msgid "Filter commercial document"
-msgstr "Filtrer des documents commerciaux"
-
 #: tmp/53/f6/33a958759155030696f1added942.php:120
 msgid "New document"
 msgstr "Nouveau document"
-
-#: tmp/53/f6/33a958759155030696f1added942.php:153
-msgid "Document date"
-msgstr "Date du document"
-
-#: tmp/53/f6/33a958759155030696f1added942.php:157
-msgid "Amout without taxes"
-msgstr "Total HT"
 
 #: tmp/53/f6/33a958759155030696f1added942.php:222
 msgid "Duplicate"
@@ -2460,34 +2955,8 @@ msgstr "Temps total des interventions"
 msgid "Total buying invoices"
 msgstr "Total factures d'achat"
 
-#: entities/CommercialProviderInvoiceAssocAmounts.php:250
-#, php-format
-msgid ""
-"The amount tax free (%s), amount taxes included (%s) and taxes (%s) does not "
-"match"
-msgstr ""
-"Le montant hors taxes (%s), le montant TTC (%s) et la TVA (%s) ne "
-"correspondent pas"
-
-#: entities/CommercialInvoice.php:545
-#: entities/CommercialProviderInvoice.php:408
-msgid ""
-"This document is associated to one or more bank operation. You cannot change "
-"the payment status"
-msgstr ""
-"Ce document est associé à une ou plusieurs opérations bancaire. Vous ne "
-"pouvez pas changer l'état de paiment."
-
-#: entities/CommercialProviderInvoice.php:397
-msgid "This provider invoice number already exists"
-msgstr "Ce numéro de facture d'achat existe déjà"
-
-#: entities/CommercialProviderInvoice.php:417
-msgid "This invoice is already linked to a bank operation"
-msgstr "Cette facture est déjà associée à une opération bancaire"
-
-#~ msgid "Commercial projects"
-#~ msgstr "Projets commerciaux"
+#~ msgid "Create an employee"
+#~ msgstr "Créer un employé"
 
 #~ msgid "Revert to main contact"
 #~ msgstr "Rétablir le contact principal"
