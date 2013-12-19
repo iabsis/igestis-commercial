@@ -573,7 +573,8 @@ class CommercialInvoice
                 $this->invoicesDate,
                 $article->getTotSellPriceArticleDf(), 
                 $article->getTotSellPriceArticleTi(), 
-                $article->getAmountTax()
+                $article->getAmountTax(),
+                $this->getCommercialDocument()->getCustomerUser()->getUserLabel()
             );
         }
         

@@ -84,7 +84,7 @@ class invoicesExportLogic {
      * @param type $amountTi
      * @param type $taxes
      */
-    public static function exportLineFormatter($invoiceId, $type, $userAccount, $taxAccout, $articleAccount, $invoiceNumber, $invoiceDate, $amountDf, $amountTi, $taxes) {
+    public static function exportLineFormatter($invoiceId, $type, $userAccount, $taxAccout, $articleAccount, $invoiceNumber, $invoiceDate, $amountDf, $amountTi, $taxes, $customerLabel) {
         return self::$context->renderFromString(self::$companyConfig->getExportFormat(true), array(
             "type" => $type,
             "userAccount" => $userAccount,
@@ -95,7 +95,8 @@ class invoicesExportLogic {
             "amountDf" => $amountDf,
             "amountTi" => $amountTi,
             "taxes" => $taxes,
-            "incoiceId" => $invoiceId
+            "incoiceId" => $invoiceId,
+            "userLabel" => $customerLabel
         )) . "\n";
     }
     

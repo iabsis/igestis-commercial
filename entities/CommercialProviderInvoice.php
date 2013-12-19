@@ -324,7 +324,7 @@ class CommercialProviderInvoice
     /**
      * Get providerUser
      *
-     * @return CoreUsers 
+     * @return \CoreUsers 
      */
     public function getProviderUser()
     {
@@ -465,7 +465,8 @@ class CommercialProviderInvoice
                 $this->invoiceDate,
                 $amount->getAmountDf(), 
                 $amount->getAmountTi(), 
-                $amount->getTaxes()
+                $amount->getTaxes(),
+                $this->getProviderUser()->getUserLabel()
             );
         }
         
