@@ -571,9 +571,9 @@ class CommercialInvoice
                 $article->getAccountingNumber(),
                 $this->invoiceNumber, 
                 $this->invoicesDate,
-                $article->getTotSellPriceArticleDf(), 
-                $article->getTotSellPriceArticleTi(), 
-                $article->getAmountTax(),
+                $this->invoicesType == self::TYPE_INVOICE ? $article->getTotSellPriceArticleDf() : -1 * $article->getTotSellPriceArticleDf(), 
+                $this->invoicesType == self::TYPE_INVOICE ? $article->getTotSellPriceArticleTi() : -1 * $article->getTotSellPriceArticleTi(), 
+                $this->invoicesType == self::TYPE_INVOICE ? $article->getAmountTax() : -1 * $article->getAmountTax(),
                 $this->getCommercialDocument()->getCustomerUser()->getUserLabel()
             );
         }
