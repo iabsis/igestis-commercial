@@ -1,3 +1,9 @@
+igestis-commercial (2.0.5) squeeze; urgency=medium
+
+  * Fix export issue.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Thu, 19 Dec 2013 15:13:24 +0100
+
 igestis-commercial (2.0.4) squeeze; urgency=low
 
   * Fix issue in export page.
