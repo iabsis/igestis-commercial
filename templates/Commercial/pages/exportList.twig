@@ -68,9 +68,16 @@
                 <td>{{ row.documentNumber }}</td>
                 <td  class="{{ row.totalTi < 0 ? 'negative' : 'positive' }}">{{ row.totalTi }}</td>
                 <td>
+                    {% if row.transactionType == "selling_document" %}
                     <a class="btn btn-mini a-visible-line-on-over" href="{{ url('commercial_invoice_dl_doc', {"Id":row.documentId, "ForceDl" : 0}) }}">
                     	<i class="icon-eye-open"></i> {% trans %}View{% endtrans %}
                     </a>
+                    {% else %}
+                        <a class="btn btn-mini a-visible-line-on-over" href="{{ url('commercial_provider_invoices_download', {"Id":row.documentId, "ForceDl" : 0}) }}">
+                            <i class="icon-eye-open"></i> {% trans %}View{% endtrans %}
+                        </a>
+                    {% endif %}
+                    
                 </td>
             </tr>
       {% endfor %}

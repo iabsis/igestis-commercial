@@ -456,6 +456,7 @@ class CommercialProviderInvoice
             $amount->saveAccountNumber();
             
             $string = \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
+                $this->id,
                 \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING, 
                 $this->getProviderUser()->getAccountCode(),
                 $amount->getTaxAccountingNumber($companyVatAccounting->getBuyingVatAccount()),

@@ -564,6 +564,7 @@ class CommercialInvoice
         foreach($this->articles as $article) {
             
             $string = \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
+                $this->id,
                 \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYP_SELLING, 
                 $this->getCommercialDocument()->getCustomerUser()->getAccountCode(), 
                 $article->getTaxAccountingNumber($companyVatAccounting->getSellingVatAccount()),

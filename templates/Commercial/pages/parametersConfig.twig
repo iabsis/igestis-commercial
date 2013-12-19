@@ -87,14 +87,15 @@
                     {{ forms.text("Row amount whithout tax in decimal format"|trans, '{{ amountDf }}') }}   
                     {{ forms.text("Tax included amount of the row in decimal format"|trans, '{{ amountTi }}') }}   
                     {{ forms.text("Tax amount of the row in decimal format"|trans, '{{ taxes }}') }}   
+                    {{ forms.text("The invoice ID"|trans, '{{ invoiceId }}') }}   
                 </div>      
                 <div class="span6">  
                     <legend>{% trans %}Formatting{% endtrans %}</legend>
-                    {{ forms.text("ie : {{ pad(userAccount, 10, '0', STR_PAD_RIGHT) }} show the userAccount and complete the string with '0' to create a string 10 characters length", "pad function") }}
-                    {{ forms.text("ie : {{ invoiceDate|date('Ymd') }} will return the invoice date in the yyyymmdd format", "date function") }}
-                    {{ forms.text("ie : {{ taxes|number_format(2, '.', ',') }} will return a number with format 1,234.56", "number_format") }}
-                    {{ forms.text("ie : {{ type == 'selling' ? 'VT' : 'AC' }} will show 'VT' if type is selling and 'AC' else.", "Simple condition") }}
-                    {{ forms.text("ie : {% if type == 'selling'%}VT{% else %}AC{% endif%} will show 'VT' if type is selling and 'AC' else. This syntax allow you to create condition for entire blocks.", "Complex condition") }}
+                    {{ forms.text("ie : {{ pad(userAccount, 10, '0', STR_PAD_RIGHT) }} show the userAccount and complete the string with '0' to create a string 10 characters length"|trans, "pad function"|trans) }}
+                    {{ forms.text("ie : {{ invoiceDate|date('Ymd') }} will return the invoice date in the yyyymmdd format"|trans, "date function"|trans) }}
+                    {{ forms.text("ie : {{ taxes|number_format(2, '.', ',') }} will return a number with format 1,234.56"|trans, "number_format"|trans) }}
+                    {{ forms.text("ie : {{ type == 'selling' ? 'VT' : 'AC' }} will show 'VT' if type is selling and 'AC' else."|trans, "Simple condition"|trans) }}
+                    {{ forms.text("ie : {% if type == 'selling'%}VT{% else %}AC{% endif%} will show 'VT' if type is selling and 'AC' else. This syntax allow you to create condition for entire blocks."|trans, "Complex condition"|trans) }}
                 </div>      
             </div>
         </fieldset>
