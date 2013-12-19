@@ -544,7 +544,8 @@ class CommercialCommercialDocumentArticle
      */
     public function preUpdate() {        
         $this->totSellPriceArticleDf = $this->sellingDfUnitPrice * $this->quantityArticle;
-        $this->totSellPriceArticleTi = $this->totSellPriceArticleDf * (1 + ($this->taxRate/100));          
+        $this->totSellPriceArticleTi = $this->totSellPriceArticleDf * (1 + ($this->taxRate/100));   
+        $this->amountTax = $this->totSellPriceArticleTi - $this->totSellPriceArticleDf;
     }
     
     /**

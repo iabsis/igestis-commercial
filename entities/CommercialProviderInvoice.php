@@ -455,7 +455,7 @@ class CommercialProviderInvoice
         foreach($this->amounts as $amount) {
             $amount->saveAccountNumber();
             
-            $string = \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
+            $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
                 $this->id,
                 \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING, 
                 $this->getProviderUser()->getAccountCode(),
@@ -467,7 +467,7 @@ class CommercialProviderInvoice
                 $amount->getAmountTi(), 
                 $amount->getTaxes(),
                 $this->getProviderUser()->getUserLabel()
-            );
+            ) . "\n";
         }
         
         return $string;

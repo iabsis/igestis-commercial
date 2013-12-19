@@ -561,9 +561,9 @@ class CommercialInvoice
         $companyVatAccounting = \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::getVatAccountig();
         $this->setExported(true);
         $string = "";
+        
         foreach($this->articles as $article) {
-            
-            $string = \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
+            $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
                 $this->id,
                 \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYP_SELLING, 
                 $this->getCommercialDocument()->getCustomerUser()->getAccountCode(), 
@@ -575,7 +575,7 @@ class CommercialInvoice
                 $article->getTotSellPriceArticleTi(), 
                 $article->getAmountTax(),
                 $this->getCommercialDocument()->getCustomerUser()->getUserLabel()
-            );
+            ) . "\n";
         }
         
         return $string;
