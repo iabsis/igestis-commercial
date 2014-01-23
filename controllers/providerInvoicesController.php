@@ -155,7 +155,7 @@ class providerInvoicesController extends \IgestisController {
                     "providerInvoice" => $invoice,
                 ), true);
                 
-                $ajaxResponse->addScript('$("#provider-invoice-edit-amount-modal").modal("hide");')
+                $ajaxResponse->addScript('igestisCommercial.initPopover()')
                              ->addScript('igestisInitTableHover();')
                              ->addAssign("ProviderInvoicesEditAmountTableDiv", $htmlContent)
                              ->setSuccessful("ok")->render();    
@@ -202,7 +202,7 @@ class providerInvoicesController extends \IgestisController {
                     "providerInvoice" => $invoice,
                 ), true);
                 
-                $ajaxResponse->addScript('$("#provider-invoice-edit-amount-modal").modal("hide");')
+                $ajaxResponse->addScript('igestisCommercial.initPopover()')
                              ->addScript('igestisInitTableHover();')
                              ->addAssign("ProviderInvoicesEditAmountTableDiv", $htmlContent)
                              ->setSuccessful("ok")->render();    
@@ -242,7 +242,7 @@ class providerInvoicesController extends \IgestisController {
                 "providerInvoice" => $invoice,
             ), true);
             
-            $ajaxResponse->addScript('$("#provider-invoice-edit-amount-modal").modal("hide");')
+            $ajaxResponse->addScript('igestisCommercial.initPopover();')
                          ->addScript('igestisInitTableHover();')
                          ->addAssign("ProviderInvoicesEditAmountTableDiv", $htmlContent)
                          ->setSuccessful("ok")->render();    

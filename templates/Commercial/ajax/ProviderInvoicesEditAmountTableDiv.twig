@@ -1,4 +1,5 @@
-<a data-toggle="modal" href="{{ url('commercial_provider_invoices_add_amount', {ProviderInvoiceId : providerInvoice.id }) }}" data-target="#provider-invoice-edit-amount-modal" class="btn btn-primary pull-right">{% trans %}Add an amount{% endtrans %}</a><br><br>
+<!-- <a data-toggle="modal" href="{{ url('commercial_provider_invoices_add_amount', {ProviderInvoiceId : providerInvoice.id }) }}" data-target="#provider-invoice-edit-amount-modal" class="btn btn-primary">{% trans %}Add an amount{% endtrans %}</a><br><br> -->
+<a href="javascript:;" id="popover-add-line" class="btn btn-primary edit-amount-btn" data-url="{{ url('commercial_provider_invoices_add_amount', {ProviderInvoiceId : providerInvoice.id }) }}">{% trans %}Add an amount{% endtrans %}</a><br><br>
 
 <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="buyingInvoicesTable">
     <thead>
@@ -15,10 +16,15 @@
                 <td>{{ row.purchasingAccount.label }}</td>
                 <td>{{ row.amountDf|number_format(2) }}</td>
                 <td>{{ row.amountTi|number_format(2) }}</td>
-                <td>       
+                <td>     
+                    {#
                     <a data-toggle="modal" href="{{ url('commercial_provider_invoices_edit_amount', {Id : row.id }) }}" data-target="#provider-invoice-edit-amount-modal" class="btn btn-mini a-visible-line-on-over">
                         <i class="icon-edit">{% trans %}Edit{% endtrans %}</i>
                     </a>
+                    #}
+                    <a href="javascript:;" class="btn btn-primary edit-amount-btn" data-url="{{ url('commercial_provider_invoices_edit_amount', {Id : row.id }) }}">
+                        <i class="icon-edit">{% trans %}Edit{% endtrans %}</i>
+                    </a><br><br>
                         
                     <a href="javascript:igestisCommercial.providerInvoices.deleteAmount('{{ row.id }}')" class="btn btn-danger btn-mini a-visible-line-on-over">
                         <i class="icon-fire icon-white"></i> {% trans %}Delete{% endtrans %}

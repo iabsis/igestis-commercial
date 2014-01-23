@@ -396,3 +396,26 @@ igestisCommercial.providerInvoices.deleteAmount = function(amountId) {
         }
     });
 };
+
+
+igestisCommercial.refreshAjaxForm = function() {
+    var id = 500;
+    $(".ajax-emulation-validation-iframe").remove();
+    $(".ajax-emulation-validation").each(function() {
+      var iframeName = "ajax-emulation-validation-iframe-" + (++id);
+      var $iframe = $('<iframe id="' + iframeName + '" name="' + iframeName + '" class="ajax-emulation-validation-iframe"></iframe>');      
+      $(this).attr("target", $iframe.attr("id"));
+      $(this).append($iframe);
+      
+      $iframe.on("load", function() { 
+          var $modal = $("#igestis-waiting-msg");
+          if($modal.length !== 0)  {
+              $modal.modal("hide");
+          }
+          // Manage the result 
+          var jsonData = $.parseJSON($(this).contents().find("body").text());
+          if(jsonData !== null) igestisParseJsonAjaxResult(jsonData);
+      });
+      
+   });
+};
