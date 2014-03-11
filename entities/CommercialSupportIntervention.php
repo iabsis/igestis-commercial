@@ -506,7 +506,9 @@ class CommercialSupportInterventionRepository extends \Doctrine\ORM\EntityReposi
                 $qb->andWhere("i.date >= :dateFrom")->setParameter("dateFrom", $searchForm->getFrom()->format("Y-m-d"));
             }
             if($searchForm->getTo()) {
-                $qb->andWhere("i.date <= :dateTo")->setParameter("dateTo", $searchForm->getTo()->format("Y-m-d"));
+                $to = clone $searchForm->getTo();
+                $to->add(new DateInterval("P1D"));
+                $qb->andWhere("i.date < :dateTo")->setParameter("dateTo", $to->format("Y-m-d"));
             }
             if($returnOnlyTotalTime) {
                 $qb->select("sum(i.period) as totalPeriod");

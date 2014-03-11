@@ -529,7 +529,7 @@ class ConfigControllers extends \IgestisConfigController {
                 ),
                 'Controller' => '\Igestis\Modules\Commercial\invoicesController',
                 'Action' => 'downloadAction',
-                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
+                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL', 'COMMERCIAL:COMP')
             ),  
             
             array(
@@ -800,7 +800,7 @@ class ConfigControllers extends \IgestisConfigController {
                 ),
                 'Controller' => '\Igestis\Modules\Commercial\providerInvoicesController',
                 'Action' => 'downloadAction',
-                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
+                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL', 'COMMERCIAL:COMP')
             ), 
             array(
                 'id' => 'commercial_provider_invoices_add_amount',

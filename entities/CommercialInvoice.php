@@ -562,18 +562,38 @@ class CommercialInvoice
         $this->setExported(true);
         $string = "";
         
-        foreach($this->articles as $article) {
+        $exportableData = array();
+        foreach ($this->articles as $article) {
+            if(!isset($exportableData[$article->getAccountingNumber()])) {
+                $exportableData[$article->getAccountingNumber()] = array(
+                    "taxAccountingNumber" => "",
+                    "accountingNumber" => "",
+                    "articleDf" => 0,
+                    "articleTi" =>0,
+                    "articleTaxes" => 0
+                );
+            }
+            $exportableData[$article->getAccountingNumber()]["taxAccountingNumber"] = $article->getTaxAccountingNumber($companyVatAccounting->getSellingVatAccount());
+            $exportableData[$article->getAccountingNumber()]["accountingNumber"] = $article->getAccountingNumber();
+            $exportableData[$article->getAccountingNumber()]["articleDf"] += $this->invoicesType == self::TYPE_INVOICE ? $article->getTotSellPriceArticleDf() : -1 * $article->getTotSellPriceArticleDf();
+            $exportableData[$article->getAccountingNumber()]["articleTi"] += $this->invoicesType == self::TYPE_INVOICE ? $article->getTotSellPriceArticleTi() : -1 * $article->getTotSellPriceArticleTi();
+            $exportableData[$article->getAccountingNumber()]["articleTaxes"] += $this->invoicesType == self::TYPE_INVOICE ? $article->getAmountTax() : -1 * $article->getAmountTax();
+            
+        }
+        
+        //foreach($this->articles as $article) {
+        foreach ($exportableData as $accountingNumber => $currentData) {
             $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
                 $this->id,
                 \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYP_SELLING, 
                 $this->getCommercialDocument()->getCustomerUser()->getAccountCode(), 
-                $article->getTaxAccountingNumber($companyVatAccounting->getSellingVatAccount()),
-                $article->getAccountingNumber(),
+                $currentData['taxAccountingNumber'],
+                $accountingNumber,
                 $this->invoiceNumber, 
                 $this->invoicesDate,
-                $this->invoicesType == self::TYPE_INVOICE ? $article->getTotSellPriceArticleDf() : -1 * $article->getTotSellPriceArticleDf(), 
-                $this->invoicesType == self::TYPE_INVOICE ? $article->getTotSellPriceArticleTi() : -1 * $article->getTotSellPriceArticleTi(), 
-                $this->invoicesType == self::TYPE_INVOICE ? $article->getAmountTax() : -1 * $article->getAmountTax(),
+                $currentData['articleDf'], 
+                $currentData['articleTi'], 
+                $currentData['articleTaxes'],
                 $this->getCommercialDocument()->getCustomerUser()->getUserLabel()
             );
         }

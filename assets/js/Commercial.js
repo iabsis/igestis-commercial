@@ -419,3 +419,16 @@ igestisCommercial.refreshAjaxForm = function() {
       
    });
 };
+
+igestisCommercial.checkUncheckAll = function(field) {
+    if($(field).data("checked") === true) {
+        $('input[type=checkbox]', $('#table_data').dataTable().fnGetNodes()).removeAttr("checked");
+        $(field).data("checked", false);
+
+    }
+    else {
+        $('input[type=checkbox]', $('#table_data').dataTable().fnGetNodes()).attr("checked", "checked");
+        $(field).data("checked", true);
+    }
+    
+};

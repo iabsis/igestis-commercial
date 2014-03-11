@@ -33,59 +33,70 @@
 </div>
 <br />
 
+<div class="row-fluid">
+    <div class="span12">
+        <a href="javascript:;" data-checked="true" onclick="javascript:igestisCommercial.checkUncheckAll(this);" class="btn btn-success">Check / Uncheck all</a><br /><br />
+    </div>
+</div>
+
 
 {% import "table.twig" as table_data %}
 {{ table_data.datatable() }}    
 
-<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="table_data">
-    <thead>
-        <tr>
-            <th>{% trans %}Sel{% endtrans %}</th>
-            <th>{% trans %}Date{% endtrans %}</th>
-            <th>{% trans %}Paid{% endtrans %}</th>
-            <th>{% trans %}Exported{% endtrans %}</th>
-            <th>{% trans %}Type{% endtrans %}</th>
-            <th>{% trans %}Document number{% endtrans %}</th>
-            <th>{% trans %}Document amount{% endtrans %}</th>
-            <th>{% trans %}Actions{% endtrans %}</th>
-        </tr>
-    </thead>
-    <tbody>        
-        
-      {% for row in invoicesList %}
-            <tr>
-                <td><input checked="checked" type="checkbox" name="export[]" value="{{ row.transactionType }}-{{ row.documentId }}" /></td>
-                <td>{{ row.transactionDate|date("d/m/Y") }}</td>
-                <td>{{ row.paid ? 'Yes' : 'No' }}</td>
-                <td>{{ row.eported ? 'Yes' : 'No' }}</td>
-                <td>{% if row.transactionType == "selling_document" %}
-                		{{ row.totalTi < 0 ? 'Credit note'|trans : 'Invoice'|trans }} 
-                	{% else %}
-                		{{ row.totalTi > 0 ? 'Credit note'|trans : 'Invoice'|trans }} 
-                	{% endif %}
-	                ({{ row.transactionType == "selling_document" ? 'Sales'|trans : 'Order'|trans }})
-                </td>
-                <td>{{ row.documentNumber }}</td>
-                <td  class="{{ row.totalTi < 0 ? 'negative' : 'positive' }}">{{ row.totalTi }}</td>
-                <td>
-                    {% if row.transactionType == "selling_document" %}
-                    <a class="btn btn-mini a-visible-line-on-over" href="{{ url('commercial_invoice_dl_doc', {"Id":row.documentId, "ForceDl" : 0}) }}">
-                    	<i class="icon-eye-open"></i> {% trans %}View{% endtrans %}
-                    </a>
-                    {% else %}
-                        <a class="btn btn-mini a-visible-line-on-over" href="{{ url('commercial_provider_invoices_download', {"Id":row.documentId, "ForceDl" : 0}) }}">
-                            <i class="icon-eye-open"></i> {% trans %}View{% endtrans %}
-                        </a>
-                    {% endif %}
-                    
-                </td>
-            </tr>
-      {% endfor %}
-        
-      
-    </tbody>
-</table>
+<div class="row-fluid">
+    <div class="span12">
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="table_data">
+            <thead>
+                <tr>
+                    <th>{% trans %}Sel{% endtrans %}</th>
+                    <th>{% trans %}Third party{% endtrans %}</th>
+                    <th>{% trans %}Date{% endtrans %}</th>
+                    <th>{% trans %}Paid{% endtrans %}</th>
+                    <th>{% trans %}Exported{% endtrans %}</th>
+                    <th>{% trans %}Type{% endtrans %}</th>
+                    <th>{% trans %}Document number{% endtrans %}</th>
+                    <th>{% trans %}Document amount{% endtrans %}</th>
+                    <th>{% trans %}Actions{% endtrans %}</th>
+                </tr>
+            </thead>
+            <tbody>        
 
+              {% for row in invoicesList %}
+                    <tr>
+                        <td><input checked="checked" type="checkbox" name="export[]" value="{{ row.transactionType }}-{{ row.documentId }}" /></td>
+                        <td>{{ row.user }}</td>
+                        <td>{{ row.transactionDate|date("d/m/Y") }}</td>
+                        <td>{{ row.paid ? 'Yes' : 'No' }}</td>
+                        <td>{{ row.eported ? 'Yes' : 'No' }}</td>
+                        <td>{% if row.transactionType == "selling_document" %}
+                                        {{ row.totalTi < 0 ? 'Credit note'|trans : 'Invoice'|trans }} 
+                                {% else %}
+                                        {{ row.totalTi > 0 ? 'Credit note'|trans : 'Invoice'|trans }} 
+                                {% endif %}
+                                ({{ row.transactionType == "selling_document" ? 'Sales'|trans : 'Order'|trans }})
+                        </td>
+                        <td>{{ row.documentNumber }}</td>
+                        <td  class="{{ row.totalTi < 0 ? 'negative' : 'positive' }}">{{ row.totalTi }}</td>
+                        <td>
+                            {% if row.transactionType == "selling_document" %}
+                            <a class="btn btn-mini a-visible-line-on-over" href="{{ url('commercial_invoice_dl_doc', {"Id":row.documentId, "ForceDl" : 0}) }}">
+                                <i class="icon-eye-open"></i> {% trans %}View{% endtrans %}
+                            </a>
+                            {% else %}
+                                <a class="btn btn-mini a-visible-line-on-over" href="{{ url('commercial_provider_invoices_download', {"Id":row.documentId, "ForceDl" : 0}) }}">
+                                    <i class="icon-eye-open"></i> {% trans %}View{% endtrans %}
+                                </a>
+                            {% endif %}
+
+                        </td>
+                    </tr>
+              {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
 <form id="export-form" action="{{ url('commercial_export_generate') }}" method="post">
     <div class="form-actions">
         <input type="hidden" name="dataToSend" id="dataToSend" value="" />
@@ -101,7 +112,8 @@
         $("#export-form").submit(function() {           
            var currentForm = this;
            
-           var checkedFields = $('input[type=checkbox]:checked', $('#table_data').dataTable().fnGetNodes()); 
+           //var checkedFields = $('input[type=checkbox]:checked', $('#table_data').dataTable().fnGetNodes()); 
+           var checkedFields = $('#table_data').dataTable().$("input:checked", {"page": "all", "filter":"applied"});
            if(checkedFields.length === 0) {
                bootbox.alert('{{ 'Thank to select at least one invoice before to click the "export" button'|trans|e('js') }}');
            }
