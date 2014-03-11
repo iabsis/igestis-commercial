@@ -103,7 +103,7 @@ msgstr ""
 #: config/ConfigInitModule.php:114 config/ConfigInitModule.php:185
 #: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:114
 #: debian/igestis-commercial/usr/share/igestis/modules/Commercial/config/ConfigInitModule.php:185
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:227
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:244
 msgid "Export"
 msgstr ""
 
@@ -789,7 +789,7 @@ msgstr ""
 #: debian/igestis-commercial/usr/share/igestis/modules/Commercial/entities/CommercialProviderInvoiceAssocAmounts.php:262
 #: debian/igestis-commercial/usr/share/igestis/modules/Commercial/entities/CommercialProviderInvoice.php:413
 #: debian/igestis-commercial/usr/share/igestis/modules/Commercial/entities/CommercialProviderInvoice.php:431
-#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:139
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:180
 #: entities/CommercialProviderInvoiceAssocAmounts.php:262
 #: entities/CommercialProviderInvoice.php:413
 #: entities/CommercialProviderInvoice.php:431
@@ -847,7 +847,7 @@ msgstr ""
 #: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:135
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:79
 #: tmp/3e/f7/54b6a714b9a0930416f394262650.php:146
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:236
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:240
 #: tmp/18/35/a9f53c49d46b6e5b96a5d21f9ce7.php:48
 #: tmp/bd/08/1c0aa487614e37b9222a4f52c87f.php:55
 #: tmp/1d/bd/38c47de6b748d82ee7a64931796b.php:55
@@ -858,7 +858,7 @@ msgstr ""
 #: tmp/61/3c/83125653435d706aa728a5c0155d.php:25
 #: tmp/40/c9/333f506017e60d16e7effac65e95.php:25
 #: tmp/af/5f/2b49dad23f1f08770ccdb691e172.php:29
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:89
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:97
 #: tmp/26/db/62898257d8fb3c86eccd4e765d7c.php:25
 msgid "Sel"
 msgstr ""
@@ -883,7 +883,7 @@ msgstr ""
 #: tmp/e8/92/ff6670199a9801d2f625f517a33c.php:46
 #: tmp/80/9e/b913f7254256f759d7739231bb6b.php:92
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:91
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:93
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:105
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:136
 #: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:129
 #: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:50
@@ -1115,7 +1115,7 @@ msgstr ""
 #: tmp/56/bc/c2af398b9d7f2f38672f8df86c9f.php:139
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:83
 #: tmp/3e/f7/54b6a714b9a0930416f394262650.php:150
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:240
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:244
 #: tmp/bd/08/1c0aa487614e37b9222a4f52c87f.php:59
 #: tmp/1d/bd/38c47de6b748d82ee7a64931796b.php:59
 msgid "Cancel"
@@ -1254,7 +1254,7 @@ msgstr ""
 #: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:77
 #: tmp/e0/bf/047222b830c544b90a003a8e2a64.php:35
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:58
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:253
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:271
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:41
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:92
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:52
@@ -1279,7 +1279,7 @@ msgstr ""
 #: tmp/40/36/1f44abac87b0a4a0d56b8570c510.php:77
 #: tmp/e0/bf/047222b830c544b90a003a8e2a64.php:31
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:58
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:255
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:273
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:43
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:92
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:54
@@ -1423,14 +1423,14 @@ msgstr ""
 #: tmp/1f/a3/f3b6f22dfd5e211f484b06e4c67c.php:49
 #: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:117
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:111
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:117
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:129
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:156
 #: tmp/5b/8a/d0a7c91c37b7f0af8411991cdcfa.php:44
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:124
 #: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:58
 #: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:106
 #: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:105
-#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:42
+#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:48
 #: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:127
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:140
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:230
@@ -1454,8 +1454,8 @@ msgstr ""
 #: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:142
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:145
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:151
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:153
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:159
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:169
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:175
 #: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:43
 #: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:62
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:62
@@ -1552,7 +1552,7 @@ msgstr ""
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:151
 #: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:150
 #: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:140
-#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:73
+#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:80
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:167
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:257
 #: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:124
@@ -1569,7 +1569,7 @@ msgstr ""
 #: tmp/31/27/c5a658f1d31b4215ad4b7b3eefc4.php:160
 #: tmp/7d/51/d1f5b240a72512bf9b07ed8d7e4e.php:159
 #: tmp/b3/b5/4445a92ed1c9b111545b78758487.php:149
-#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:83
+#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:90
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:176
 #: tmp/38/3c/2c05115921d3f1072a95a37caeb3.php:266
 #: tmp/89/87/7aa82fe7e97645c6461d31fda3db.php:133
@@ -1600,7 +1600,7 @@ msgstr ""
 #: tmp/80/9e/b913f7254256f759d7739231bb6b.php:85
 #: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:93
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:95
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:105
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:117
 #: tmp/ab/ab/060b567fd84756ca393da513e1f3.php:140
 #: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:141
 #: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:58
@@ -1690,7 +1690,7 @@ msgstr ""
 
 #: tmp/04/05/6ef2a8ad93999178ba12954b82ff.php:97
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:99
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:109
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:121
 #: tmp/53/f6/33a958759155030696f1added942.php:141
 msgid "Document number"
 msgstr ""
@@ -1740,13 +1740,13 @@ msgid "Return to balance page"
 msgstr ""
 
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:87
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:97
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:109
 #: tmp/53/f6/33a958759155030696f1added942.php:91
 msgid "Paid"
 msgstr ""
 
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:103
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:113
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:125
 msgid "Document amount"
 msgstr ""
 
@@ -1756,8 +1756,8 @@ msgstr ""
 
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:145
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:151
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:153
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:159
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:169
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:175
 #: tmp/7d/85/e9cd94942af27eb46fde90ccfc9a.php:43
 #: tmp/71/8c/0bada2d6d7c608bff2ee76489be8.php:62
 #: tmp/26/3b/8e91ea110a692db3a839b6ae0b60.php:62
@@ -1765,18 +1765,18 @@ msgid "Credit note"
 msgstr ""
 
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:157
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:165
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:181
 msgid "Sales"
 msgstr ""
 
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:157
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:165
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:181
 msgid "Order"
 msgstr ""
 
 #: tmp/72/6a/0831c4bef773ee7a978b2ea9e099.php:191
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:188
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:199
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:204
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:215
 #: tmp/ed/17/9ea91949c18700f5e5f4ed9f4edb.php:89
 #: tmp/78/71/b5d8c94e0b11a90ddd53cbfb801e.php:171
 msgid "View"
@@ -1794,9 +1794,9 @@ msgid "Designation"
 msgstr ""
 
 #: tmp/af/5f/2b49dad23f1f08770ccdb691e172.php:41
-#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:35
-#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:34
-#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:35
+#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:38
+#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:40
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:38
 msgid "Amount without taxes"
 msgstr ""
 
@@ -1813,17 +1813,21 @@ msgid "Filter the invoices"
 msgstr ""
 
 #: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:58
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:101
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:113
 #: tmp/53/f6/33a958759155030696f1added942.php:85
 msgid "Exported"
 msgstr ""
 
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:245
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:101
+msgid "Third party"
+msgstr ""
+
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:263
 msgid ""
 "Thank to select at least one invoice before to click the \"export\" button"
 msgstr ""
 
-#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:251
+#: tmp/8e/60/66169a6a5a34137f494c529e1b65.php:269
 msgid "Are you sure that you want to export these invoices ?"
 msgstr ""
 
@@ -1903,7 +1907,7 @@ msgid "List of operations fetched from the ofx file"
 msgstr ""
 
 #: tmp/50/51/9367a6979c5ecc2d33d359b1abd4.php:125
-#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:30
+#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:36
 msgid "Account"
 msgstr ""
 
@@ -1975,39 +1979,32 @@ msgstr ""
 msgid "Duration"
 msgstr ""
 
-#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:21
-#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:21
+#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:24
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:24
 msgid "Purchasing account"
 msgstr ""
 
-#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:27
-#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:38
-#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:27
+#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:30
+#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:44
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:30
 msgid "Amount taxes included"
 msgstr ""
 
-#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:41
-#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:41
+#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:44
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:44
 msgid "Or"
 msgstr ""
 
-#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:47
-#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:47
+#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:50
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:50
 msgid "Taxes"
 msgstr ""
 
-#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:104
-#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:108
-#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:104
-#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:108
-msgid "Set only one of the two fields"
-msgstr ""
-
-#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:120
-#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:124
-#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:120
-#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:124
-msgid "Set taxes or amount without taxes"
+#: tmp/a0/c6/141d3865c7f78f43d320d6498852.php:59
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:119
+#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:123
+#: tmp/7a/a6/15721f144135bd6fa91286f1c51c.php:60
+msgid "Save"
 msgstr ""
 
 #: tmp/b9/55/5557e2e49d75df989d379f23add5.php:24
@@ -2091,6 +2088,7 @@ msgid "New bank account"
 msgstr ""
 
 #: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:22
+#: tmp/cd/bd/94bdbe16a7bd2e25c119830e84c9.php:28
 msgid "Add an amount"
 msgstr ""
 
@@ -2268,6 +2266,7 @@ msgstr ""
 
 #: tmp/b2/90/62e1c55369b89a48af234215954a.php:267
 #: tmp/c4/2b/6b40613200bd6d49de2a12fea151.php:266
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:204
 msgid "User label"
 msgstr ""
 
@@ -2612,12 +2611,22 @@ msgid "Document amounts"
 msgstr ""
 
 #: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:108
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:144
 msgid "Add or edit an amount"
 msgstr ""
 
-#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:119
-#: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:123
-msgid "Save"
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:155
+msgid "Loading form"
+msgstr ""
+
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:270
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:274
+msgid "Set only one of the two fields"
+msgstr ""
+
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:289
+#: tmp/d1/7d/bfaacbdbb5957e4729f52e0d22dc.php:293
+msgid "Set taxes or amount without taxes"
 msgstr ""
 
 #: tmp/3e/93/e42a2543683a1d5ccb0ccf0f3ff1.php:29
@@ -2756,58 +2765,58 @@ msgstr ""
 msgid "The invoice ID"
 msgstr ""
 
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:206
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:210
 msgid "Formatting"
 msgstr ""
 
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:210
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:214
 msgid ""
 "eg : {{ pad(userAccount, 10, '0', STR_PAD_RIGHT) }} show the userAccount and "
 "complete the string with '0' to create a string 10 characters length"
 msgstr ""
 
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:210
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:214
 msgid "pad function"
 msgstr ""
 
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:214
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:218
 msgid ""
 "eg : {{ invoiceDate|date('Ymd') }} will return the invoice date in the "
 "yyyymmdd format"
 msgstr ""
 
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:214
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:218
 msgid "date function"
 msgstr ""
 
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:218
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:222
 msgid ""
 "eg : {{ taxes|number_format(2, '.', ',') }} will return a number with format "
 "1,234.56"
 msgstr ""
 
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:218
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:222
 msgid "number_format"
 msgstr ""
 
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:222
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:226
 msgid ""
 "eg : {{ type == 'selling' ? 'VT' : 'AC' }} will show 'VT' if type is selling "
 "and 'AC' else."
 msgstr ""
 
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:222
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:226
 msgid "Simple condition"
 msgstr ""
 
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:226
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:230
 msgid ""
 "eg : {% if type == 'selling'%}VT{% else %}AC{% endif%} will show 'VT' if "
 "type is selling and 'AC' else. This syntax allow you to create condition for "
 "entire blocks."
 msgstr ""
 
-#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:226
+#: tmp/a7/af/1418bcc516ff373b8993618e8e6e.php:230
 msgid "Complex condition"
 msgstr ""
 
