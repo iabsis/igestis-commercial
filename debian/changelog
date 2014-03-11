@@ -1,4 +1,4 @@
-igestis-commercial (2.0.8) UNRELEASED; urgency=medium
+igestis-commercial (2.0.8) wheezy; urgency=medium
 
   * Anomalie #285 : Bug divers.
   * Anomalie #287 : Problème recherche calendrier.
