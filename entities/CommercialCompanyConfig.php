@@ -45,6 +45,48 @@ class CommercialCompanyConfig
     private $exportFormat;
     
     /**
+     * @var string $exportBuyingTi
+     *
+     * @Column(name="export_buying_TI", type="string")
+     */
+    private $exportBuyingTi;
+    
+    /**
+     * @var string $exportBuyingTaxes
+     *
+     * @Column(name="export_buying_taxes", type="string")
+     */
+    private $exportBuyingTaxes;
+    
+    /**
+     * @var string $exportBuyingDf
+     *
+     * @Column(name="export_buying_DF", type="string")
+     */
+    private $exportBuyingDf;
+    
+    /**
+     * @var string $exportSellingDf
+     *
+     * @Column(name="export_selling_DF", type="string")
+     */
+    private $exportSellingDf;
+    
+    /**
+     * @var string $exportSellingTi
+     *
+     * @Column(name="export_selling_TI", type="string")
+     */
+    private $exportSellingTi;
+    
+    /**
+     * @var string $exportSellingTaxes
+     *
+     * @Column(name="export_selling_taxes", type="string")
+     */
+    private $exportSellingTaxes;
+    
+    /**
      * @var string $exportHeader
      *
      * @Column(name="export_header", type="string")
@@ -201,10 +243,7 @@ class CommercialCompanyConfig
      * @return string
      */
     public function getExportHeader($transformConstants = false) {  
-        if(!$this->exportHeader) {
-            $format = "NUMJL;NUMCP;DTOPE;NPIE;LIBEC;MTDEB;MTVCRE";
-            $this->exportHeader = $format;
-        }
+  
         
         $format = $this->exportHeader;
         
@@ -234,33 +273,6 @@ class CommercialCompanyConfig
      * @return string
      */
     public function getExportFormat($transformConstants = false) {
-        if(!$this->exportFormat) {
-            $format.= '{# Taxes line #}' . "\n";
-            $format.= '{{ type == \'selling\' ? \'VE\' : \'HA\' }};';
-            $format.= '{{ taxAccout }};';
-            $format.= '{{ invoiceDate|date(\'d/m/Y\') }};';
-            $format.= '{{ type == \'selling\' ? \'Selling\' : \'Buying\' }} invoice \'{{ invoiceNumber }}\';';
-            $format.= '{{ type == \'selling\' ? \'0.00\' : taxes|number_format() }};';
-            $format.= '{{ type == \'buying\' ? \'0.00\' : taxes|number_format() }};' . "\n";
-
-            $format.= '{# Duty free line #}' . "\n";
-            $format.= '{{ type == \'selling\' ? \'VE\' : \'HA\' }};';
-            $format.= '{{ userAccount }};';
-            $format.= '{{ invoiceDate|date(\'d/m/Y\') }};';
-            $format.= '{{ type == \'selling\' ? \'Selling\' : \'Buying\' }} invoice \'{{ invoiceNumber }}\';';
-            $format.= '{{ type == \'selling\' ? \'0.00\' : amountDf|number_format() }};';
-            $format.= '{{ type == \'buying\' ? \'0.00\' : amountDf|number_format() }};' . "\n";
-
-            $format.= '{# Tax included line #}' . "\n";
-            $format.= '{{ type == \'selling\' ? \'VE\' : \'HA\' }};';
-            $format.= '{{ articleAccount }};';
-            $format.= '{{ invoiceDate|date(\'d/m/Y\') }};';
-            $format.= '{{ type == \'selling\' ? \'Selling\' : \'Buying\' }} invoice \'{{ invoiceNumber }}\';';
-            $format.= '{{ type == \'selling\' ? amountTi|number_format() : \'0.00\' }};';
-            $format.= '{{ type == \'buying\' ? amountTi|number_format() : \'0.00\' }};';     
-            
-            $this->exportFormat = $format;
-        }
         
         $format = $this->exportFormat;
         
@@ -283,6 +295,115 @@ class CommercialCompanyConfig
         return $this;
     }
     
+    /**
+     * 
+     * @return string
+     */
+    public function getExportBuyingTi() {
+        return $this->exportBuyingTi;
+    }
+
+    /**
+     * 
+     * @return string
+     */
+    public function getExportBuyingTaxes() {
+        return $this->exportBuyingTaxes;
+    }
+
+    /**
+     * 
+     * @return string
+     */
+    public function getExportBuyingDf() {
+        return $this->exportBuyingDf;
+    }
+
+    /**
+     * 
+     * @return string
+     */
+    public function getExportSellingDf() {
+        return $this->exportSellingDf;
+    }
+
+    /**
+     * 
+     * @return string
+     */
+    public function getExportSellingTi() {
+        return $this->exportSellingTi;
+    }
+
+    /**
+     * 
+     * @return string
+     */
+    public function getExportSellingTaxes() {
+        return $this->exportSellingTaxes;
+    }
+
+    /**
+     * 
+     * @param string $exportBuyingTi
+     * @return \CommercialCompanyConfig
+     */
+    public function setExportBuyingTi($exportBuyingTi) {
+        $this->exportBuyingTi = $exportBuyingTi;
+        return $this;
+    }
+
+    /**
+     * 
+     * @param string $exportBuyingTaxes
+     * @return \CommercialCompanyConfig
+     */
+    public function setExportBuyingTaxes($exportBuyingTaxes) {
+        $this->exportBuyingTaxes = $exportBuyingTaxes;
+        return $this;
+    }
+
+    /**
+     * 
+     * @param string $exportBuyingDf
+     * @return \CommercialCompanyConfig
+     */
+    public function setExportBuyingDf($exportBuyingDf) {
+        $this->exportBuyingDf = $exportBuyingDf;
+        return $this;
+    }
+
+    /**
+     * 
+     * @param string $exportSellingDf
+     * @return \CommercialCompanyConfig
+     */
+    public function setExportSellingDf($exportSellingDf) {
+        $this->exportSellingDf = $exportSellingDf;
+        return $this;
+    }
+
+    /**
+     * 
+     * @param string $exportSellingTi
+     * @return \CommercialCompanyConfig
+     */
+    public function setExportSellingTi($exportSellingTi) {
+        $this->exportSellingTi = $exportSellingTi;
+        return $this;
+    }
+
+    /**
+     * 
+     * @param string $exportSellingTaxes
+     * @return \CommercialCompanyConfig
+     */
+    public function setExportSellingTaxes($exportSellingTaxes) {
+        $this->exportSellingTaxes = $exportSellingTaxes;
+        return $this;
+    }
+
+        
     
 
         
@@ -294,6 +415,8 @@ class CommercialCompanyConfig
         if($this->company == null) {
             $this->company = \IgestisSecurity::init()->user->getCompany();
         }
+        
+        $this->exportFormat = null;
     }
 }
 

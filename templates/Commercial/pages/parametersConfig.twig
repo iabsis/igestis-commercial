@@ -67,9 +67,25 @@
         <fieldset>
             <legend>{% trans %}Format{% endtrans %}</legend>
             <div class="row-fluid" >
-                <div class="span12">        
-                    {{ forms.textarea('exportHeader', 'Export header (delete to restore default content)'|trans, form_data.exportHeader ) }}    
-                    {{ forms.textarea('exportFormat', 'Export format (delete to restore default content)'|trans, form_data.exportFormat ) }}                    
+                <div class="span12">   
+                    {% if form_data.exportFormat != "" %}
+                        <div class="alert alert-info">
+                            {% trans %}The import system has been changed since the last igestis-commercial module updates.{% endtrans %}
+                            {% trans %}Here is your last config to help you to change your configuration.{% endtrans %}
+                            <strong>{% trans %}Note that these information are going to disappear after your next change, then save them in a separate document if you want to keep it safe.{% endtrans %}</strong>
+                            <pre>{{ form_data.exportFormat }}</pre>
+                        </div>
+                    {% endif %}
+                    
+                    {{ forms.textarea('exportHeader', 'Export header'|trans, form_data.exportHeader ) }}    
+                    
+                    {{ forms.textarea('exportBuyingTi', 'Export buying invoice (taxe included)'|trans, form_data.exportBuyingTi ) }}    
+                    {{ forms.textarea('exportBuyingDf', 'Export buying invoice (duty free amount)'|trans, form_data.exportBuyingDf ) }}    
+                    {{ forms.textarea('exportBuyingTaxes', 'Export buying invoice (amount of taxes)'|trans, form_data.exportBuyingTaxes ) }}  
+                    
+                    {{ forms.textarea('exportSellingTi', 'Export selling invoice (taxe included)'|trans, form_data.exportSellingTi ) }}    
+                    {{ forms.textarea('exportSellingDf', 'Export selling invoice (duty free amount)'|trans, form_data.exportSellingDf ) }}    
+                    {{ forms.textarea('exportSellingTaxes', 'Export selling invoice (amount of taxes)'|trans, form_data.exportSellingTaxes ) }}  
                 </div>                
             </div>
         </fieldset>

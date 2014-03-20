@@ -18,7 +18,8 @@ class exportController extends \IgestisController {
         
         $this->context->render("Commercial/pages/exportList.twig", array(
             'searchForm' =>  $searchForm,
-            'invoicesList' => $this->_em->getRepository("CommercialViewCommercialDocs")->findFromSearchForm($searchForm)
+            'invoicesList' => $this->_em->getRepository("CommercialViewCommercialDocs")->findFromSearchForm($searchForm),
+            'commercialConfig' => $this->_em->getRepository("CommercialCompanyConfig")->getCompanyConfig()
         ));
     }
     
