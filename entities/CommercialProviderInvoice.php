@@ -452,6 +452,7 @@ class CommercialProviderInvoice
         $companyVatAccounting = \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::getVatAccountig();
         $this->setExported(true);
         $string = "";
+        $totTaxes = 0;
         foreach($this->amounts as $amount) {
             $amount->saveAccountNumber();
             
@@ -464,11 +465,41 @@ class CommercialProviderInvoice
                 $this->invoiceNum, 
                 $this->invoiceDate,
                 $amount->getAmountDf(), 
-                $amount->getAmountTi(), 
-                $amount->getTaxes(),
+                0, 
+                0,
                 $this->getProviderUser()->getUserLabel()
             );
+            
+            $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
+                $this->id,
+                \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING, 
+                $this->getProviderUser()->getAccountCode(),
+                $amount->getTaxAccountingNumber($companyVatAccounting->getBuyingVatAccount()),
+                $amount->getAccountNumber(),
+                $this->invoiceNum, 
+                $this->invoiceDate,
+                0, 
+                $amount->getAmountTi(), 
+                0,
+                $this->getProviderUser()->getUserLabel()
+            );
+            
+            $totTaxes += $amount->getTaxes();
         }
+        
+        $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
+            $this->id,
+            \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING, 
+            $this->getProviderUser()->getAccountCode(),
+            $amount->getTaxAccountingNumber($companyVatAccounting->getBuyingVatAccount()),
+            $amount->getAccountNumber(),
+            $this->invoiceNum, 
+            $this->invoiceDate,
+            0, 
+            0, 
+            $totTaxes,
+            $this->getProviderUser()->getUserLabel()
+        );
         
         return $string;
     }
