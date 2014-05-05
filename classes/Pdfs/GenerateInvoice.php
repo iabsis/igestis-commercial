@@ -137,8 +137,22 @@ class GenerateInvoice extends GenerateCommercialDocument {
      */
     public function generate() {
         if(count($this->document->getInvoices())) {
-            $this->commercialInvoice = $this->document->getInvoices()->get(0);     
+            $this->commercialInvoice = $this->document->getInvoices()->get(0); 
+            foreach ($this->commercialInvoice->getArticles() as $currentArticle) {
+                $this->entityManager->remove($currentArticle);
+                $this->entityManager->flush();
+            }
+            
+            $this->commercialInvoice->removeArticles();
+            
+            if($this->saveMode) {
+                $this->entityManager->persist($this->commercialInvoice);
+                $this->entityManager->flush();
+            }
+            
             $this->commercialInvoice->updateFromCommercialDocument($this->document);
+            
+            
         }
         else {
             $autoIncrement = $this->entityManager->getRepository("CommercialAutoIncrement")->find($this->document->getCompany()->getId());

@@ -516,6 +516,10 @@ class CommercialInvoice
         return $this->articles;
     }
     
+    public function removeArticles() {
+        $this->articles->clear();
+    }
+    
     /**
      * Set commercialDocument
      *
