@@ -119,12 +119,3 @@ where
     and isnull(`ao`.`invoice_id`) 
     and isnull(`ao`.`provider_invoice_id`)
 );
-
--- Fix the commercial document total errors
-UPDATE COMMERCIAL_INVOICE SET
-invoice_total_DF = (
-    SELECT SUM(tot_sell_price_article_DF) FROM COMMERCIAL_INVOICE_ARTICLE WHERE invoice_id=COMMERCIAL_INVOICE.id GROUP BY COMMERCIAL_INVOICE.id
-),
-invoice_total_TI = (
-    SELECT SUM(tot_sell_price_article_TI) FROM COMMERCIAL_INVOICE_ARTICLE WHERE invoice_id=COMMERCIAL_INVOICE.id GROUP BY COMMERCIAL_INVOICE.id
-);;
