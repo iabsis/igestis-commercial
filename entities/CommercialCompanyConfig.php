@@ -284,6 +284,14 @@ class CommercialCompanyConfig
         
         return $format;
     }
+    
+    private function transformation($format) {
+        $format = preg_replace("/STR_PAD_LEFT/", STR_PAD_LEFT, $format);
+        $format = preg_replace("/STR_PAD_RIGHT/", STR_PAD_RIGHT, $format);
+        $format = preg_replace("/STR_PAD_BOTH/", STR_PAD_BOTH, $format);
+        
+        return $format;
+    }
 
     /**
      * 
@@ -299,48 +307,48 @@ class CommercialCompanyConfig
      * 
      * @return string
      */
-    public function getExportBuyingTi() {
-        return $this->exportBuyingTi;
+    public function getExportBuyingTi($transformConstants = false) {
+        return ($transformConstants ? $this->transformation($this->exportBuyingTi) : $this->exportBuyingTi);
     }
 
     /**
      * 
      * @return string
      */
-    public function getExportBuyingTaxes() {
-        return $this->exportBuyingTaxes;
+    public function getExportBuyingTaxes($transformConstants = false) {
+        return ($transformConstants ? $this->transformation($this->exportBuyingTaxes) : $this->exportBuyingTaxes);
     }
 
     /**
      * 
      * @return string
      */
-    public function getExportBuyingDf() {
-        return $this->exportBuyingDf;
+    public function getExportBuyingDf($transformConstants = false) {
+        return ($transformConstants ? $this->transformation($this->exportBuyingDf) : $this->exportBuyingDf);
     }
 
     /**
      * 
      * @return string
      */
-    public function getExportSellingDf() {
-        return $this->exportSellingDf;
+    public function getExportSellingDf($transformConstants = false) {
+        return ($transformConstants ? $this->transformation($this->exportSellingDf) : $this->exportSellingDf);
     }
 
     /**
      * 
      * @return string
      */
-    public function getExportSellingTi() {
-        return $this->exportSellingTi;
+    public function getExportSellingTi($transformConstants = false) {
+        return ($transformConstants ? $this->transformation($this->exportSellingTi) : $this->exportSellingTi);
     }
 
     /**
      * 
      * @return string
      */
-    public function getExportSellingTaxes() {
-        return $this->exportSellingTaxes;
+    public function getExportSellingTaxes($transformConstants = false) {
+        return ($transformConstants ? $this->transformation($this->exportSellingTaxes) : $this->exportSellingTaxes);
     }
 
     /**
