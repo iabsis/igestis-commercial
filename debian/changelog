@@ -1,3 +1,9 @@
+igestis-commercial (2.0.9) UNRELEASED; urgency=medium
+
+  * Anomalie #290 : divers issues.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 06 May 2014 15:57:30 +0200
+
 igestis-commercial (2.0.8) wheezy; urgency=medium
 
   * Anomalie #285 : Bug divers.
