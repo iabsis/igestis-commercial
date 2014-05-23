@@ -70,9 +70,9 @@
                 <div class="span12">   
                     {% if form_data.exportFormat != "" %}
                         <div class="alert alert-info">
-                            {% trans %}The import system has been changed since the last igestis-commercial module update.{% endtrans %}
+                            {% trans %}The export system has been changed since the last igestis-commercial module update.{% endtrans %}
                             {% trans %}Here is your last config to help you to change your configuration.{% endtrans %}
-                            <strong>{% trans %}Note that this information is going to disappear after your next update. If you want to keep it safe, please save it in a separate text file.{% endtrans %}</strong>
+                            <strong>{% trans %}Note that this information is going to disappear after your next form save. If you want to keep it safe, please save it in a separate text file.{% endtrans %}</strong>
                             <pre>{{ form_data.exportFormat }}</pre>
                         </div>
                     {% endif %}
