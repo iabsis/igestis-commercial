@@ -588,6 +588,8 @@ class CommercialInvoice
             $totTaxes += $this->invoicesType == self::TYPE_INVOICE ? $article->getAmountTax() : -1 * $article->getAmountTax();
         }
         
+        $totTi = 0;
+        $lastCurrentData = null;
         //foreach($this->articles as $article) {
         foreach ($exportableData as $accountingNumber => $currentData) {
             $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
@@ -604,26 +606,31 @@ class CommercialInvoice
                 $this->getCommercialDocument()->getCustomerUser()->getUserLabel()
             );
             
-            $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
-                $this->id,
-                \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_SELLING, 
-                $this->getCommercialDocument()->getCustomerUser()->getAccountCode(), 
-                $currentData['taxAccountingNumber'],
-                $accountingNumber,
-                $this->invoiceNumber, 
-                $this->invoicesDate,
-                0, 
-                $currentData['articleTi'], 
-                0,
-                $this->getCommercialDocument()->getCustomerUser()->getUserLabel()
-            );
+            $totTi += $currentData['articleTi'];
+            
+            $lastCurrentData = $currentData;
+            
         }
         
         $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
             $this->id,
             \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_SELLING, 
             $this->getCommercialDocument()->getCustomerUser()->getAccountCode(), 
-            $currentData['taxAccountingNumber'],
+            $lastCurrentData['taxAccountingNumber'],
+            $accountingNumber,
+            $this->invoiceNumber, 
+            $this->invoicesDate,
+            0, 
+            $totTi, 
+            0,
+            $this->getCommercialDocument()->getCustomerUser()->getUserLabel()
+        );
+        
+        $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
+            $this->id,
+            \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_SELLING, 
+            $this->getCommercialDocument()->getCustomerUser()->getAccountCode(), 
+            $lastCurrentData['taxAccountingNumber'],
             $accountingNumber,
             $this->invoiceNumber, 
             $this->invoicesDate,
