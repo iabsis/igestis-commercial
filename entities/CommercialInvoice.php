@@ -621,8 +621,8 @@ class CommercialInvoice
             $this->invoiceNumber, 
             $this->invoicesDate,
             0, 
-            $totTi, 
-            0,
+            0, 
+            $totTaxes,
             $this->getCommercialDocument()->getCustomerUser()->getUserLabel()
         );
         
@@ -630,15 +630,17 @@ class CommercialInvoice
             $this->id,
             \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_SELLING, 
             $this->getCommercialDocument()->getCustomerUser()->getAccountCode(), 
-            $lastCurrentData['taxAccountingNumber'],
+            $currentData['taxAccountingNumber'],
             $accountingNumber,
             $this->invoiceNumber, 
             $this->invoicesDate,
             0, 
-            0, 
-            $totTaxes,
+            $totTi, 
+            0,
             $this->getCommercialDocument()->getCustomerUser()->getUserLabel()
         );
+        
+        
         
         return $string;
     }
