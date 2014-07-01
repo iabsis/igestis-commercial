@@ -31,12 +31,21 @@ class providerInvoicesController extends \IgestisController {
         $entityManager = $this->_em;
         
         $uploadHandler->setUploadedCallback(function($filePath = "") use($entityManager) {
-            igestis_logger("new object");
+            \Igestis\Utils\Debug::FileLogger("Start to import a new provider invoice");
+            $md5 = md5_file(ConfigModuleVars::providersInvoicesFolder. "/" . $filePath);
+            $alreadyExists = $entityManager->getRepository('CommercialProviderInvoice')->findOneBy(array("fileMd5Hash" => $md5));
+            if($alreadyExists) {
+                $message = \Igestis\I18n\Translate::_("This md5 does already exist : this invoice has already been imported.");
+                $exception = new \Igestis\Exceptions\UploadException($message);
+                $exception->setDetails(\Igestis\I18n\Translate::_("Show previous invoice"), \ConfigControllers::createUrl("commercial_provider_invoices_edit", array("Id" => $alreadyExists->getId())));
+                throw $exception;
+            }
             $providerInvoice = new \CommercialProviderInvoice();
             $providerInvoice->setInvoicePath($filePath);
+            $providerInvoice->setFileMd5Hash($md5);
             $entityManager->persist($providerInvoice);
             $entityManager->flush();
-            igestis_logger("new object finished");
+            \Igestis\Utils\Debug::FileLogger("Finish to import a new provider invoice");
         })->post();
     }
     
@@ -95,12 +104,18 @@ class providerInvoicesController extends \IgestisController {
                 // Show wizz to article the document update
                 new \wizz(_("The document has been successfully updated"), \WIZZ::$WIZZ_SUCCESS);
                 $ajaxRender->setSuccessful(_("The document has been successfully updated"))
-                           ->setRedirection(\ConfigControllers::createUrl("commercial_provider_invoices_index", array("Id" => $document->getId())))
+                           ->setRedirection(\ConfigControllers::createUrl("commercial_provider_invoices_index"))
                            ->render();                
             } catch (\Exception $e) {
+                $alreadyExisting = $this->_em->getRepository("CommercialProviderInvoice")->findOtherProviderInvoiceWithSameReference($document);
+                if($alreadyExisting) {
+                    $ajaxRender->addScript('$("#provider-invoice-already-exist-modal").modal("show")')
+                               ->addScript('$("#previous-invoice-view-link").attr("href", "' . \ConfigControllers::createUrl("commercial_provider_invoices_edit", array("Id" => $alreadyExisting->getId())) . '")');
+                }
+                
                 $ajaxRender
-                        ->addWizz($e->getMessage(), \wizz::$WIZZ_ERROR)
-                        ->setError($e->getMessage());                
+                    ->addWizz($e->getMessage(), \wizz::$WIZZ_ERROR)
+                    ->setError($e->getMessage());
             }
         }
   

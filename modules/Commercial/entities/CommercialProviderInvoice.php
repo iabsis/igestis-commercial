@@ -53,6 +53,13 @@ class CommercialProviderInvoice
      * @Column(name="paid", type="boolean")
      */
     private $paid;
+    
+    /**
+     * @var string $fileMd5Hash hash of the file to check if the same one has already been uploaded
+     *
+     * @Column(name="file_md5_hash", type="string", length=64)
+     */
+    private $fileMd5Hash;
 
     /**
      * @var integer $id
@@ -330,7 +337,26 @@ class CommercialProviderInvoice
     {
         return $this->providerUser;
     }
+    
+    /**
+     * 
+     * @return string
+     */
+    public function getFileMd5Hash() {
+        return $this->fileMd5Hash;
+    }
 
+    /**
+     * 
+     * @param string $fileMd5Hash
+     * @return \CommercialProviderInvoice
+     */
+    public function setFileMd5Hash($fileMd5Hash) {
+        $this->fileMd5Hash = $fileMd5Hash;
+        return $this;
+    }
+
+    
     /**
      * Set company
      *
@@ -702,7 +728,7 @@ class CommercialProviderInvoiceRepository extends Doctrine\ORM\EntityRepository 
             throw $e;
         }
         
-        return $qb->getQuery()->getResult();        
+        return $qb->getQuery()->getOneOrNullResult();        
     }
 
 }

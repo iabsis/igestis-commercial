@@ -359,6 +359,7 @@ igestisCommercial.providerInvoices.init = function(options) {
 };
 
 igestisCommercial.providerInvoices.refreshInvoicesList = function() {
+    igestisDebug.log("Refresh invoices list");
     $.ajax({
         url: igestisCommercial.providerInvoices.options.refreshInvoicesListLink,
         dataType:'json', //type json
