@@ -123,7 +123,7 @@ class GenerateInvoice extends GenerateCommercialDocument {
     /**
      * 
      * @param \DateTime $validUntil
-     * @return \Igestis\Modules\Commercial\Pdfs\GenerateEstimate
+     * @return \Igestis\Modules\Commercial\Pdfs\GenerateInvoice
      */
     public function setValidUntil(\DateTime $validUntil) {
         $this->validUntil = $validUntil;
@@ -133,7 +133,7 @@ class GenerateInvoice extends GenerateCommercialDocument {
     
     /**
      * 
-     * @return \Igestis\Modules\Commercial\Pdfs\GenerateEstimate
+     * @return \Igestis\Modules\Commercial\Pdfs\GenerateInvoice
      */
     public function generate() {
         if(count($this->document->getInvoices())) {
@@ -186,23 +186,38 @@ class GenerateInvoice extends GenerateCommercialDocument {
         //$this->tcpdfObject->setPrintHeader(false);
         //$this->tcpdfObject->setPrintFooter(false);
         
-		// set margins
-		$this->tcpdfObject->SetMargins(PDF_MARGIN_LEFT, 80, PDF_MARGIN_RIGHT);
-		$this->tcpdfObject->SetHeaderMargin(PDF_MARGIN_HEADER);
-		$this->tcpdfObject->SetFooterMargin(PDF_MARGIN_FOOTER);
-		// set auto page breaks
-		$this->tcpdfObject->SetAutoPageBreak(TRUE, 40);
+        // set margins
+        $this->tcpdfObject->SetMargins(PDF_MARGIN_LEFT, 80, PDF_MARGIN_RIGHT);
+        $this->tcpdfObject->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $this->tcpdfObject->SetFooterMargin(PDF_MARGIN_FOOTER);
+        // set auto page breaks
+        $this->tcpdfObject->SetAutoPageBreak(TRUE, 40);
         
-        $this->addReplacements(array('commercialInvoice' => $this->commercialInvoice,
-        							"numPage" => $this->tcpdfObject->getAliasNumPage(),
-        							"nbPages" => $this->tcpdfObject->getAliasNbPages())
-        		);
+        $this->addReplacements(
+            array(
+                'commercialInvoice' => $this->commercialInvoice,
+                "numPage" => $this->tcpdfObject->getAliasNumPage(),
+                "nbPages" => $this->tcpdfObject->getAliasNbPages(),
+                "companyConfig" => $this->entityManager->getRepository('CommercialCompanyConfig')->find($this->commercialInvoice->getCommercialDocument()->getCompany()->getId())
+            )
+        );
         //Define and run Header and Footer settings.
         $this->tcpdfObject->setHeaderContent($this->generateHeader());
         $this->tcpdfObject->setFooterContent($this->generateFooter());
         
         $this->tcpdfObject->AddPage();
         $this->tcpdfObject->writeHTML($this->generateHtml());
+        
+        $terms = $this->generateTerms();
+        if($terms) {
+            $this->tcpdfObject->SetPrintHeader(false);
+            $this->tcpdfObject->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+            $this->tcpdfObject->AddPage();
+            
+            $this->tcpdfObject->SetPrintFooter(false);
+            $this->tcpdfObject->writeHTML($terms);
+        }
+        
         return $this;
     }    
     

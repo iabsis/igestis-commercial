@@ -139,6 +139,19 @@
 {% endif %}
 
 
+{% if companyConfig.imprint %}
+    <table>
+        <tr style="background-color: #F0F0F0;">
+            <td style="padding: 20px;">
+                <strong>{% trans %}Imprint{% endtrans %}</strong><br />
+                {{ companyConfig.imprint|raw }}
+            </td>
+        </tr>
+    </table>
+{% endif %}
+
+
+
 {% endblock %}
 
 {% block footer %}
@@ -157,3 +170,11 @@
 </p>
 
 {% endblock %}
+
+{% block terms %}
+    {% if companyConfig.terms %}
+        <h1>Terms</h1>
+        <div style="color: #666; font-size: {{ companyConfig.termsFontSize }}pt;">{{ companyConfig.terms|raw }}</div>
+    {% endif %}
+    
+{% endblock terms %}

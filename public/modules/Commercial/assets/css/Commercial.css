@@ -14,3 +14,7 @@ table#document-items input {
     margin-top: 0;
     margin-bottom: 5px;
 }
+
+#id-imprint+input+iframe, #id-terms+input+iframe {
+    height: 500px !important;
+}

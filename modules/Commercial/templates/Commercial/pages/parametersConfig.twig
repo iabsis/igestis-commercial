@@ -25,6 +25,7 @@
   </li>
   <li><a href="#mails-format" data-toggle="tab">{% trans %}Mails{% endtrans %}</a></li>
   <li><a href="#export-format" data-toggle="tab">{% trans %}Export format{% endtrans %}</a></li>
+  <li><a href="#invoices-quotation-terms" data-toggle="tab">{% trans %}Invoices & quotations{% endtrans %}</a></li>
 </ul>
 
 <form id="form_data" class="ajax-emulation-validation" method='post' action=''>
@@ -114,6 +115,20 @@
             </div>
         </fieldset>
     </div> 
+                
+    <div class="tab-pane" id="invoices-quotation-terms">
+        <fieldset>
+            <div class="row-fluid"  style="height: 60px;">
+                <div class="span12">                    
+                    {{ forms.textarea('imprint', 'Legal mentions'|trans, form_data.imprint) }}               
+                    {{ forms.textarea('terms', 'General invoice conditions'|trans, form_data.terms) }}
+                    {{ forms.input('termsFontSize', 'Terms font size'|trans, form_data.termsFontSize) }}
+                </div>
+            </div>
+            
+
+        </fieldset>
+    </div> 
         
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
@@ -128,7 +143,7 @@
 
 <script>
 $(document).ready(function(){
-        $('#id-mailEstimate, #id-mailInvoice').wysihtml5();
+        $('#id-mailEstimate, #id-mailInvoice, #id-imprint, #id-terms').wysihtml5();
         
         $("#form_data").validate({
                 rules:{

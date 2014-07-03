@@ -149,11 +149,20 @@ abstract class GenerateCommercialDocument {
             $message = \Igestis\I18n\Translate::_("The html render must implement the interface of the same name or to be type of 'Twig_Environment', now '%s'");
             throw new \Exception(sprintf($message, get_class($this->htmlRenderer)));
         }
-        
-        //\Igestis\Utils\Dump::show($this->replacements);
-        //echo $this->htmlRenderer->render($this->htmlRendererFile, $this->replacements);
+
         $template = $this->htmlRenderer->loadTemplate($this->htmlRendererFile);
         return $template->renderBlock('content', $this->replacements);
+    }
+    
+    protected function generateTerms() {
+        if(!count($this->replacements)) return null;
+        if(!$this->htmlRenderer instanceof \Rssify\Interfaces\HtmlRenderer && !$this->htmlRenderer instanceof \Twig_Environment) {
+            $message = \Igestis\I18n\Translate::_("The html render must implement the interface of the same name or to be type of 'Twig_Environment', now '%s'");
+            throw new \Exception(sprintf($message, get_class($this->htmlRenderer)));
+        }
+
+        $template = $this->htmlRenderer->loadTemplate($this->htmlRendererFile);
+        return trim($template->renderBlock('terms', $this->replacements));
     }
     
     /**

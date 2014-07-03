@@ -19,6 +19,7 @@ class TcpdfWithHeaderAndFooter extends \Igestis\Modules\Tcpdf\Tcpdf {
 	 * @var \PdfHeaderHtml
 	 */
 	private $PdfFooterHtml;
+
 	
 	/**
 	 *
@@ -49,4 +50,5 @@ class TcpdfWithHeaderAndFooter extends \Igestis\Modules\Tcpdf\Tcpdf {
 		$this->setY(-20);
 		$this->writeHTML($this->PdfFooterHtml);
 	}
+
 }

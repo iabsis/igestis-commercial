@@ -93,6 +93,28 @@ class CommercialCompanyConfig
      */
     private $exportHeader;
     
+    /**
+     * @var string $imprint
+     *
+     * @Column(name="imprint", type="string")
+     */
+    private $imprint;
+    
+    /**
+     * @var string $terms
+     *
+     * @Column(name="terms", type="string")
+     */
+    private $terms;
+    
+    /**
+     * @var float $termsFontSize
+     *
+     * @Column(name="terms_font_size", type="decimal")
+     */
+    private $termsFontSize;
+    
+ 
 
     /**
      * @var integer $companyId
@@ -411,8 +433,60 @@ class CommercialCompanyConfig
         return $this;
     }
 
-        
-    
+    /**
+     * Return the legal mentions
+     * @return type
+     */
+    public function getImprint() {
+        return $this->imprint;
+    }
+
+    /**
+     * Return the selling generation condition
+     * @return type
+     */
+    public function getTerms() {
+        return $this->terms;
+    }
+
+    /**
+     * 
+     * @param string $imprint Legal mentions
+     * @return \CommercialCompanyConfig
+     */
+    public function setImprint($imprint) {
+        $this->imprint = $imprint;
+        return $this;
+    }
+
+    /**
+     * 
+     * @param string $terms selling generation condition
+     * @return \CommercialCompanyConfig
+     */
+    public function setTerms($terms) {
+        $this->terms = $terms;
+        return $this;
+    }
+
+    /**
+     * 
+     * @return float $termsFontSize Font size for the terms (in px)
+     */
+    public function getTermsFontSize() {
+        return $this->termsFontSize ? $this->termsFontSize : 8.0 ;
+    }
+
+
+    /**
+     * 
+     * @param float $termsFontSize Font size (in px) for the terms
+     * @return \CommercialCompanyConfig
+     */
+    public function setTermsFontSize($termsFontSize) {
+        $this->termsFontSize = $termsFontSize;
+        return $this;
+    }
 
         
     /**
