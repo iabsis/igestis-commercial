@@ -155,11 +155,11 @@ class providerInvoicesController extends \IgestisController {
                 $parser = new \IgestisFormParser();
                 $parser->FillEntityFromForm($invoiceAmount, $_POST);                        
                 $invoiceAmount->setPurchasingAccount($this->_em->find("CommercialPurchasingAccount", $this->request->getPost('purchasingAccount')));
-                if(!$this->request->getPost('taxes')) {
+                if($this->request->getPost('taxes') == "") {
                     $invoiceAmount->setTaxes($invoiceAmount->getAmountTi() -  $invoiceAmount->getAmountDf());
                 }
                 
-                if(!$this->request->getPost('amountDf')) {
+                if($this->request->getPost('amountDf') == "") {
                     $invoiceAmount->setAmountDf($invoiceAmount->getAmountTi() -  $invoiceAmount->getTaxes());
                 }
                 
