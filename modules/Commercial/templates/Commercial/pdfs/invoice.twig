@@ -1,0 +1,180 @@
+{% block header %}
+
+<table width="100%">
+	<tbody>
+		<tr>
+			<td width="40%">
+				{% if commercialInvoice.commercialDocument.company.logoFileName %}
+					<img height="100px" src="{{ commercialInvoice.commercialDocument.company.logoFolder }}/{{ commercialInvoice.commercialDocument.company.logoFileName }}">
+				{% endif %}
+				<br />
+			</td>
+			<td width="20%">&nbsp;</td>
+			<td width="40%">
+				<h1>{{ commercialInvoice.invoicesType == "credits" ? "Credit note"|trans : "Invoice"|trans }}</h1><br>
+				<strong>{% trans %}Date{% endtrans %}: </strong>{{ commercialInvoice.invoicesDate ? commercialInvoice.invoicesDate|date("d/m/Y") }}<br>
+				<strong>{% trans %}Number{% endtrans %}: </strong>{{ commercialInvoice.invoiceNumber }}<br>
+				<strong>{% trans %}Valid until{% endtrans %}: </strong>{{ commercialInvoice.paymentDateLimit ? commercialInvoice.paymentDateLimit|date("d/m/Y") }}<br>
+				<strong>{% trans %}Page{% endtrans %}: </strong>{{ numPage }} {% trans %}of{% endtrans %} {{ nbPages }}<br>
+				<strong>{% trans %}Payment mode{% endtrans %}</strong>: {{ commercialInvoice.paymentMode.label }}<br>
+			</td>
+		</tr>
+		<tr>
+			<td width="40%">
+				<h2>{{ commercialInvoice.commercialDocument.company.name }}</h2>
+				{% spaceless %}
+					{{ commercialInvoice.commercialDocument.company.address1 }}
+					{% if commercialInvoice.commercialDocument.company.address1 and commercialInvoice.commercialDocument.company.address2 %} - {% endif %}
+					{{ commercialInvoice.commercialDocument.company.address2 }}<br />
+				{% endspaceless %}
+				{{ commercialInvoice.commercialDocument.company.postalCode }} {{ commercialInvoice.commercialDocument.company.city }}<br />
+				{% if commercialInvoice.commercialDocument.company.tvaNumber %}<strong>{% trans %}VAT{% endtrans %} :</strong> {{ commercialInvoice.commercialDocument.company.tvaNumber }}{% endif %}
+				
+			</td>
+			<td width="20%">&nbsp;</td>
+			<td width="40%">
+				<h2>{% trans %}Billed to{% endtrans %}</h2>
+				{% if commercialInvoice.commercialDocument.customerName %}
+					<strong>{{ commercialInvoice.commercialDocument.customerName }}</strong><br />
+					{% spaceless %}
+						{{ commercialInvoice.commercialDocument.address1 }}
+						{% if commercialInvoice.commercialDocument.address1 and commercialInvoice.commercialDocument.address2 %} - {% endif %}
+						{{ commercialInvoice.commercialDocument.address2 }}<br />
+					{% endspaceless %}
+					{{ commercialInvoice.commercialDocument.postalCode }} {{ commercialInvoice.commercialDocument.city }}
+				{% else %}
+					<strong>{{ commercialInvoice.commercialDocument.customerUser.userLabel }}</strong><br />
+					{% spaceless %}
+						{{ commercialInvoice.commercialDocument.customerUser.mainContact.address1 }}
+						{% if commercialInvoice.commercialDocument.customerUser.mainContact.address1 and commercialInvoice.commercialDocument.customerUser.mainContact.address2 %} - {% endif %}
+						{{ commercialInvoice.commercialDocument.customerUser.mainContact.address2 }}<br />
+					{% endspaceless %}
+					{{ commercialInvoice.commercialDocument.customerUser.mainContact.postalCode }} {{ commercialInvoice.commercialDocument.customerUser.mainContact.city }}<br />
+					{% if commercialInvoice.commercialDocument.customerUser.tvaNumber %}<strong>{% trans %}VAT{% endtrans %}</strong> : {{ commercialInvoice.commercialDocument.customerUser.tvaNumber }}{% endif %}
+				{% endif %}
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+{% endblock %}
+
+{% block content %}
+
+{% set subtotal = 0 %}
+{% set total = 0 %}
+
+
+<table cellpadding="4" width="100%">
+	<thead>
+	    <tr>
+	        <th style="border-bottom: 1px solid #333333;" width="10%"><strong>{% trans %}Ref.{% endtrans %}</strong></th>
+	        <th style="border-bottom: 1px solid #333333;" width="50%"><strong>{% trans %}Label{% endtrans %}</strong></th>
+	        <th style="border-bottom: 1px solid #333333;" width="10%" align="right"><strong>{% trans %}Unit Price{% endtrans %}</strong></th>
+	        <th style="border-bottom: 1px solid #333333;" width="10%" align="right"><strong>{% trans %}Quantity{% endtrans %}</strong></th>
+	        <th style="border-bottom: 1px solid #333333;" width="10%" align="right"><strong>{% trans %}Tax rate{% endtrans %}</strong></th>
+	        <th style="border-bottom: 1px solid #333333;" width="10%" align="right"><strong>{% trans %}Total{% endtrans %}</strong></th>
+	    </tr>
+    </thead>
+    <tbody>
+	    {% for row in commercialInvoice.articles %}
+		<tr style="background-color: {% if loop.index is odd %}white;{% else %}#F0F0F0;{% endif %}">
+		    <td width="10%">{{ row.itemRef }}</td>
+		    <td width="50%">{{ row.itemLabel }}<br /><small style="font-size:8pt; color:#4f4f4f;">{{ row.comment|nl2br}}</small></td>
+		    <td width="10%" align="right">{{ row.sellingDfUnitPrice|number_format(2, ".", "'") }}</td>
+		    <td width="10%" align="right">{{ row.quantityArticle|number_format(3, ".", "'") }}</td>
+		    <td width="10%" align="right">{{ row.taxRate|number_format(2, ".", "'") }} %</td>
+		    <td width="10%" align="right">{{ row.totSellPriceArticleTi|number_format(2, ".", "'") }}</td>
+		</tr>
+		{% set subtotal = subtotal + row.totSellPriceArticleDf %}
+		{% set total = total + row.totSellPriceArticleTi  %}
+	  {% endfor %}
+  </tbody>
+</table>
+<table>
+	<tr>
+		<td width="70%"></td>
+		<td width="30%">
+			<table cellpadding="4">
+				<tr style="background-color: #F0F0F0;">
+					<td align="right"><strong>{% trans %}Sub total{% endtrans %}: {{ commercialInvoice.invoiceTotalDf|number_format(2, ".", "'") }} {{ commercialInvoice.commercialDocument.company.symbolMoney }}</strong></td>
+				</tr>
+				<tr style="background-color: white;">
+					<td align="right"><strong>{% trans %}VAT{% endtrans %}: {{ (commercialInvoice.invoiceTotalTi - commercialInvoice.invoiceTotalDf)|number_format(2, ".", "'") }} {{ commercialInvoice.commercialDocument.company.symbolMoney }}</strong></td>
+				</tr>
+				<tr style="background-color: #F0F0F0;">
+					<td align="right"><strong>{% trans %}Total{% endtrans %}: {{ commercialInvoice.invoiceTotalTi|number_format(2, ".", "'") }} {{ commercialInvoice.commercialDocument.company.symbolMoney }}</strong></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<p>&nbsp;</p>
+
+{% if commercialInvoice.commercialDocument.description or commercialInvoice.commercialDocument.freeComment %}
+	<table cellpadding="4">
+		<tr style="background-color: #F0F0F0;">
+			<td>
+				<strong>{% trans %}Commercial information{% endtrans %}</strong> : {{ commercialInvoice.commercialDocument.description }}
+				<div style="font-size:8pt; color:#4f4f4f;">{{ commercialInvoice.commercialDocument.freeComment|nl2br }}</div>
+			</td>
+		</tr>
+	</table>
+{% endif %}
+
+<p>&nbsp;</p>
+
+{% if commercialInvoice.commercialDocument.company.iban %}
+	<table cellpadding="4">
+		<tr style="background-color: #F0F0F0;">
+			<td>
+				<strong>{% trans %}Payment informations{% endtrans %}</strong><br />
+				{% if commercialInvoice.commercialDocument.company.banque %}{% trans %}Bank name{% endtrans %} : {{ commercialInvoice.commercialDocument.company.banque }}<br />{% endif %}
+				{% if commercialInvoice.commercialDocument.company.rib %}{% trans %}RIB{% endtrans %} : {{ commercialInvoice.commercialDocument.company.rib }}<br />{% endif %}
+				{% if commercialInvoice.commercialDocument.company.iban %}{% trans %}IBAN{% endtrans %} : {{ commercialInvoice.commercialDocument.company.iban }}<br />{% endif %}
+			</td>
+		</tr>
+	</table>
+{% endif %}
+
+
+{% if companyConfig.imprint %}
+    <table>
+        <tr style="background-color: #F0F0F0;">
+            <td style="padding: 20px;">
+                <strong>{% trans %}Imprint{% endtrans %}</strong><br />
+                {{ companyConfig.imprint|raw }}
+            </td>
+        </tr>
+    </table>
+{% endif %}
+
+
+
+{% endblock %}
+
+{% block footer %}
+
+<p style="text-align: center">
+{% spaceless %}
+		{{ commercialInvoice.commercialDocument.company.name }} - 
+		{{ commercialInvoice.commercialDocument.company.address1 }}{{ commercialInvoice.commercialDocument.company.address2 ? " - " }}
+		{{ commercialInvoice.commercialDocument.company.address2 }} -
+		{{ commercialInvoice.commercialDocument.company.postalCode }} - 
+		{{ commercialInvoice.commercialDocument.company.city }}<br>
+		{% if commercialInvoice.commercialDocument.company.rcs %}{% trans %}RCS{% endtrans %} : {{ commercialInvoice.commercialDocument.company.rcs }}{% endif %}
+		{{ commercialInvoice.commercialDocument.company.siteWeb ? " - " }}{{ commercialInvoice.commercialDocument.company.siteWeb }}
+		{{ commercialInvoice.commercialDocument.company.email ? " - " }}{{ commercialInvoice.commercialDocument.company.email }}
+{% endspaceless %}
+</p>
+
+{% endblock %}
+
+{% block terms %}
+    {% if companyConfig.terms %}
+        <h1>Terms</h1>
+        <div style="color: #666; font-size: {{ companyConfig.termsFontSize }}pt;">{{ companyConfig.terms|raw }}</div>
+    {% endif %}
+    
+{% endblock terms %}

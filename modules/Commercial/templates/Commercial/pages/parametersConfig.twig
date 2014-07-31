@@ -1,0 +1,180 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Commercial module configuration"|trans,
+                'help': "Update the default values for the commercial module"|trans} %}
+ 
+
+{% set sidebarActivated = true %}
+{% block sidebar %}
+  {% include 'sidebar.twig' %}
+{% endblock %}
+
+{% block content %}{{ parent() }}
+
+<link href="{{ TEMPLATE_URL }}/css/bootstrap-wysihtml5.css" rel="stylesheet">
+<link href="{{ TEMPLATE_URL }}/css/prettify.css" rel="stylesheet">
+
+<script src="{{ TEMPLATE_URL }}/js/wysihtml5-0.3.0.js"></script>
+<script src="{{ TEMPLATE_URL }}/js/prettify.js"></script>
+<script src="{{ TEMPLATE_URL }}/js/bootstrap-wysihtml5.js"></script>
+
+<ul class="nav nav-tabs">
+  <li class="active">
+    <a href="#documents-duration" data-toggle="tab">{% trans %}Sales document{% endtrans %}</a>
+  </li>
+  <li><a href="#mails-format" data-toggle="tab">{% trans %}Mails{% endtrans %}</a></li>
+  <li><a href="#export-format" data-toggle="tab">{% trans %}Export format{% endtrans %}</a></li>
+  <li><a href="#invoices-quotation-terms" data-toggle="tab">{% trans %}Invoices & quotations{% endtrans %}</a></li>
+</ul>
+
+<form id="form_data" class="ajax-emulation-validation" method='post' action=''>
+{# Tabls content #}
+<div class="tab-content">     
+    {# Purchasing section pane content #}
+    <div class="tab-pane active" id="documents-duration">
+        <fieldset>
+            <div class="row-fluid">
+                <div class="span5">                    
+                    {{ forms.input('estimateExpirationDays', 'Default estimate validity duration (in days)'|trans, form_data.estimateExpirationDays) }}
+                    
+                </div>
+                <div class="span5 offset1">                    
+                    {{ forms.input('invoicePaymentLimit', 'Default payment limit duration (in days)'|trans, form_data.invoicePaymentLimit) }}
+                </div>
+            </div>
+            
+
+        </fieldset>
+    </div>
+        
+    <div class="tab-pane" id="mails-format">
+        <fieldset>
+            <div class="row-fluid"  style="height: 60px;">
+                <div class="span5">                    
+                    {{ forms.textarea('mailEstimate', 'Estimate mail format'|trans, form_data.mailEstimate) }}
+                    
+                </div>
+                <div class="span5 offset1">                    
+                    {{ forms.textarea('mailInvoice', 'Invoice mail format'|trans, form_data.mailInvoice) }}
+                </div>
+            </div>
+            
+
+        </fieldset>
+    </div> 
+        
+    <div class="tab-pane" id="export-format">
+        <fieldset>
+            <legend>{% trans %}Format{% endtrans %}</legend>
+            <div class="row-fluid" >
+                <div class="span12">   
+                    {% if form_data.exportFormat != "" %}
+                        <div class="alert alert-info">
+                            {% trans %}The export system has been changed since the last igestis-commercial module update.{% endtrans %}
+                            {% trans %}Here is your last config to help you to change your configuration.{% endtrans %}
+                            <strong>{% trans %}Note that this information is going to disappear after your next form save. If you want to keep it safe, please save it in a separate text file.{% endtrans %}</strong>
+                            <pre>{{ form_data.exportFormat }}</pre>
+                        </div>
+                    {% endif %}
+                    
+                    {{ forms.textarea('exportHeader', 'Export header'|trans, form_data.exportHeader ) }}    
+                    
+                    {{ forms.textarea('exportBuyingTi', 'Export buying invoice (taxe included)'|trans, form_data.exportBuyingTi ) }}    
+                    {{ forms.textarea('exportBuyingDf', 'Export buying invoice (duty free amount)'|trans, form_data.exportBuyingDf ) }}    
+                    {{ forms.textarea('exportBuyingTaxes', 'Export buying invoice (amount of taxes)'|trans, form_data.exportBuyingTaxes ) }}  
+                    
+                    {{ forms.textarea('exportSellingTi', 'Export selling invoice (taxe included)'|trans, form_data.exportSellingTi ) }}    
+                    {{ forms.textarea('exportSellingDf', 'Export selling invoice (duty free amount)'|trans, form_data.exportSellingDf ) }}    
+                    {{ forms.textarea('exportSellingTaxes', 'Export selling invoice (amount of taxes)'|trans, form_data.exportSellingTaxes ) }}  
+                </div>                
+            </div>
+        </fieldset>
+            
+        <fieldset>            
+            <div class="row-fluid" >
+                <div class="span6">  
+                    <legend>{% trans %}Available variables{% endtrans %}</legend> 
+                    {{ forms.text("The user account specified in the Customers > Customer ID field"|trans, '{{ userAccount }}') }}   
+                    {{ forms.text("Tax account"|trans, '{{ taxAccount }}') }}   
+                    {{ forms.text("The account where to export the current invoice line"|trans, '{{ articleAccount }}') }}   
+                    {{ forms.text("Invoice number"|trans, '{{ invoiceNumber }}') }}   
+                    {{ forms.text("Invoice date (\Datetime format). See the formatting section to see how to use this field."|trans, '{{ invoiceDate }}') }} 
+                    {{ forms.text("Current amount to export"|trans, '{{ amount }}') }}   
+                    {{ forms.text("The invoice ID"|trans, '{{ invoiceId }}') }}   
+                    {{ forms.text("User label"|trans, '{{ userLabel }}') }}   
+                </div>      
+                <div class="span6">  
+                    <legend>{% trans %}Formatting{% endtrans %}</legend>
+                    {{ forms.text("eg : {{ pad(userAccount, 10, '0', STR_PAD_RIGHT) }} show the userAccount and complete the string with '0' to create a string 10 characters length"|trans, "pad function") }}
+                    {{ forms.text("eg : {{ invoiceDate|date('Ymd') }} will return the invoice date in the yyyymmdd format"|trans, "date function"|trans) }}
+                    {{ forms.text("eg : {{ taxes|number_format(2, '.', ',') }} will return a number with format 1,234.56"|trans, "number format"|trans) }}
+                    {{ forms.text("eg : {{ amount > 200 ? 'Cool' : 'NotCool' }} will show 'Cool' if amount is greater than 200, and 'NotCool' else."|trans, "Simple condition"|trans) }}
+                    {{ forms.text("eg : {% if type == 'selling'%}VT{% else %}AC{% endif%} will show 'VT' if type is selling and 'AC' else. This syntax allow you to create condition for entire blocks."|trans, "Complex condition"|trans) }}
+                </div>      
+            </div>
+        </fieldset>
+    </div> 
+                
+    <div class="tab-pane" id="invoices-quotation-terms">
+        <fieldset>
+            <div class="row-fluid"  style="height: 60px;">
+                <div class="span12">                    
+                    {{ forms.textarea('imprint', 'Legal mentions'|trans, form_data.imprint) }}               
+                    {{ forms.textarea('terms', 'General invoice conditions'|trans, form_data.terms) }}
+                    {{ forms.input('termsFontSize', 'Terms font size'|trans, form_data.termsFontSize) }}
+                </div>
+            </div>
+            
+
+        </fieldset>
+    </div> 
+        
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
+        <input class="btn" type="button" value="{% trans %}Cancel{% endtrans %}" onclick="javascript:history.go(-1);return true;">
+    </div>        
+
+
+</div>
+</form>
+
+         
+
+<script>
+$(document).ready(function(){
+        $('#id-mailEstimate, #id-mailInvoice, #id-imprint, #id-terms').wysihtml5();
+        
+        $("#form_data").validate({
+                rules:{
+                        estimateExpirationDays:{
+                                required:true
+                        },
+                        invoicePaymentLimit:{
+                                required:true
+                        },
+                       
+                        taxRate:{
+                                required:true
+                        }
+                },
+                errorClass: "help-inline",
+                errorElement: "span",
+                errorPlacement: function(error, element) {
+                        element.parent().after(error);
+                },
+                highlight:function(element, errorClass, validClass) {
+                        $(element).parents('.control-group').removeClass('success');
+                        $(element).parents('.control-group').addClass('error');
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                        $(element).parents('.control-group').removeClass('error');
+                        $(element).parents('.control-group').addClass('success');
+                }
+        });
+});
+</script>
+
+    
+{% endblock %}
+    
