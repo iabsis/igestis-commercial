@@ -58,9 +58,9 @@
                 <td>&nbsp;</td>
                 <td>
                     {% if row.transactionType == "selling_document" %}
-                    	<a class="btn btn-mini a-visible-line-on-over" href="{{ url('commercial_invoice_dl_doc', {"Id":row.documentId, "ForceDl" : 0}) }}">
+                    	<a class="btn btn-mini a-visible-line-on-over preview-button" href="{{ url('commercial_invoice_dl_doc', {"Id":row.documentId, "ForceDl" : 0}) }}">
                    	{% else %}
-                   		<a class="btn btn-mini a-visible-line-on-over" href="{{ url('commercial_provider_invoices_download', {"Id":row.documentId, "ForceDl" : 0}) }}">
+                   		<a class="btn btn-mini a-visible-line-on-over preview-button" href="{{ url('commercial_provider_invoices_download', {"Id":row.documentId, "ForceDl" : 0}) }}">
                    	{% endif %}
                    		
                     	<i class="icon-eye-open"></i> {% trans %}View{% endtrans %}
@@ -78,7 +78,7 @@
                 <td>&nbsp;</td>
                 <td  class="{{ row.totalTi < 0 ? 'negative' : 'positive' }}">{{ row.totalTi }}</td>
                 <td>
-                    <a href="{{ url('commercial_bank_operation_edit', {'Id':row.operationId}) }}" class="btn btn-mini a-visible-line-on-over">
+                    <a href="{{ url('commercial_bank_operation_edit', {'Id':row.operationId}) }}" class="btn btn-mini a-visible-line-on-over preview-button">
                         <i class="icon-edit"></i> {% trans %}Edit{% endtrans %}
                     </a>
                 </td>
@@ -90,6 +90,12 @@
 
 <script>
     $(function() {
+        $(window).on('click', "a.preview-button", function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            window.location.href= $(e.currentTarget).attr("href");
+        });
+
         $('input[type=checkbox]', $('#table_data').dataTable().fnGetNodes()).on("change", function(e) {
             e.preventDefault();
             
