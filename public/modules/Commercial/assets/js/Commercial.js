@@ -335,7 +335,6 @@ igestisCommercial.projects.refreshFreeDocuments = function(e, data) {
      });
 };
 
-
 igestisCommercial.providerInvoices.init = function(options) {
     
     igestisCommercial.providerInvoices.options = {

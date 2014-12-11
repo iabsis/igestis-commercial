@@ -329,6 +329,28 @@ class CommercialProject
         return $tot;
     }
 
+    public function getTotCreditTime() {
+        $tot = 0;
+        foreach($this->commercialDocuments as $document) {
+            $creditTime = $document->getCreditTime();
+            if (!$creditTime) {
+                continue;
+            }
+            $tot += $creditTime->getCreditMinutes();
+        }
+        return CommercialTimeCredit::getTimeString($tot);
+    }
+
+    public function remainingCreditTime() {
+
+        $totBuyingInvoices = \Igestis\Modules\Commercial\Common\StringManipulation::convertTimeToDecimalFormat($this->getTotSupportIntervention());
+        $totCreditTime = \Igestis\Modules\Commercial\Common\StringManipulation::convertTimeToDecimalFormat($this->getTotCreditTime());
+
+        $tot = $totCreditTime - $totBuyingInvoices;
+        return \Igestis\Modules\Commercial\Common\StringManipulation::convertDecimalToTimeFormat($tot);
+
+    }
+
 }
 
 

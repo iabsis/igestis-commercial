@@ -114,7 +114,12 @@ class sellingDocumentsController extends \IgestisController {
             $document = $parser->FillEntityFromForm($document, $_POST);
             $document->setCountryCode($this->_em->getRepository("CoreCountries")->find($this->request->getPost("countryCode")));
             //\Igestis\Utils\Dump::show($document); exit;
-            try {                
+            try {
+                $timeCredit = $this->_em->getRepository("CommercialTimeCredit")->getLinkedTimeCredit($document);
+
+                $document->setCreditTime($timeCredit);
+                $timeCredit->setCreditMinutes($this->request->getPost("creditTime"));
+                $this->context->entityManager->persist($timeCredit);
                 $this->context->entityManager->persist($document);
                 $this->context->entityManager->flush();  
                 // Show wizz to article the document update

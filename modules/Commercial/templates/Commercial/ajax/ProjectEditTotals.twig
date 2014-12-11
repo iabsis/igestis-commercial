@@ -1,3 +1,6 @@
 <div><strong>{% trans %}Total commercial docs{% endtrans %} : </strong><span id="tot-comm-doc">{{ project.totCommercialDoc|number_format(2) }}</span></div>
-<div><strong>{% trans %}Total intervention time{% endtrans %} : </strong><span id="tot-comm-doc">{{ project.totSupportIntervention }}</span></div>
-<div><strong>{% trans %}Total buying invoices{% endtrans %} : </strong><span id="tot-comm-doc">{{ project.totBuyingInvoices|number_format(2) }}</span></div>
+<div><strong>{% trans %}Total buying invoices{% endtrans %} : </strong><span id="tot-buying-invoice">{{ project.totBuyingInvoices|number_format(2) }}</span></div>
+<div><strong>{% trans %}Total intervention time{% endtrans %} : </strong><span id="tot-support-intervention">{{ project.totSupportIntervention }}</span></div>
+<div><strong>{% trans %}Total invoiced credit time{% endtrans %} : </strong><span id="tot-credit-time">{{ project.totCreditTime }}</span></div>
+<div><strong>{% trans %}Remaining credit time{% endtrans %} : </strong><span id="remaining-credit-time">{{ project.remainingCreditTime }}</span></div>
+
