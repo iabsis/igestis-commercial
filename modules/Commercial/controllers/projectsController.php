@@ -105,7 +105,11 @@ class projectsController extends \IgestisController {
                 $this->redirect(\ConfigControllers::createUrl("commercial_project_edit", array("Id" => $project->getId())));
             }         
         }
-        
+
+        /*$test = $this->_em->getRepository("CommercialCommercialDocument")->findBy(array("project" => $project));
+        echo $test[0]->getCreditTime(); 
+        \Igestis\Utils\Dump::show($test);
+            exit;*/
         $this->context->render("Commercial/pages/projectsEdit.twig", array(
             "project" => $project,
             "commercialDocuments" => $this->_em->getRepository("CommercialCommercialDocument")->findBy(array("project" => $project)),
@@ -459,5 +463,40 @@ class projectsController extends \IgestisController {
         }
         
         
+    }
+
+    public function editTimeCreditAction() {
+        $ajaxResponse = new \Igestis\Ajax\AjaxResult();
+
+        try {
+            $time = $this->request->getPost("timeCredit");
+            $id = $this->request->getPost("timeCreditId");
+            $projectId = $this->request->getPost("projectId");
+
+            $timeCredit = $this->_em->getRepository("CommercialTimeCredit")->find($id);
+            
+            if (!$timeCredit) {
+                $timeCredit = new \CommercialTimeCredit($this->_em->getRepository("CommercialCommercialDocument")->find($id));
+            }
+
+            $timeCredit->setCreditMinutes($time);
+            $time = $timeCredit->getCreditMinutesAsString();
+
+            $this->_em->persist($timeCredit);
+            $this->_em->flush();
+
+            $totalsContent = $this->context->render("Commercial/ajax/ProjectEditTotals.twig", array(
+                "project" =>  $this->_em->getRepository("CommercialProject")->find($projectId),
+            ), true);
+
+            $ajaxResponse->addScript("igestisCommercial.editPopover.popover('hide');")
+                         ->addScript("igestisCommercial.projects.updateTimeRow('$id', '$time');")
+                         ->addAssign("totals-section", $totalsContent)
+                         ->addWizz(\Igestis\I18n\Translate::_("Time saved"), \WIZZ::$WIZZ_SUCCESS, "#commercial-document-wizzs");
+            $ajaxResponse->setSuccessful("ok")->render();
+        } catch (\Exception $e) {
+
+            $ajaxResponse->setError (\Igestis\I18n\Translate::_("Error during the time credit saving") . " " .  $e->getMessage());
+        }
     }
 }

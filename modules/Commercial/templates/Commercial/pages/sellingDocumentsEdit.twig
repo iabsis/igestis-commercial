@@ -124,6 +124,7 @@
           {% if not (sellingDocument.invoices[0].exported or sellingDocument.invoices[0].paid) %}
 	          {{ forms.input('description', 'Small description'|trans, sellingDocument.description) }}
 	          {{ forms.textarea('freeComment', 'Full description'|trans, sellingDocument.freeComment) }}
+            {{ forms.input('creditTime', 'Credit time'|trans, sellingDocument.creditTime) }}
           {% else %}
           	<p>{{ sellingDocument.description }}</p>
           	<p>{{ sellingDocument.freeComment }}</p>

@@ -167,12 +167,62 @@
     </form>
 </div>
 
+{# Modal to add / edit an amount #}
+<div id="commercial-time-credit-modal" class="modal hide fade">
+    <form action="{{ url('commercial_project_update_time_credit') }}" method="post" class="modal-form ajax-emulation-validation">
+        <div class="modal-body">
+            <input type="hidden" name="timeCreditId" value="" />
+            <input type="hidden" name="projectId" value="{{ project.id }}">
+            {{ forms.input('timeCredit', 'Time credit') }}
+        </div>
+        <div class="modal-footer">
+            <a href="javascript:;" class="btn" onclick="javascript:igestisCommercial.editPopover.popover('hide');" >Close</a>
+            <button type="submit" class="btn btn-primary">{% trans %}Save{% endtrans %}</button>
+        </div>
+    </form>
+</div>
+
 
 <script>
+    igestisCommercial.projects.updateTimeRow = function(id, time) {
+        console.log(id, time);
+        $("a[data-time-credit-id=" + id + "]").data("timeCredit", time).text(time);
+
+    }
+
+    igestisCommercial.editPopover = null;
+    igestisCommercial.initPopover = function() {
+        $(".popover").remove();
+        igestisCommercial.editPopover = $('.update-credit-time').popover({ 
+            html : true,
+            container: "body",
+            placement:"top",
+            title: function() {
+              return "{% trans %}Update commercial document time credit{% endtrans %}";
+            },
+            content: function() {
+              return $("#commercial-time-credit-modal").html();
+            }
+        });
+
+        $('.update-credit-time').on('shown', function (e) {
+            var $clickedLink = $(e.currentTarget);
+            var time = $clickedLink.data("timeCredit");
+            var rowId = $clickedLink.data("timeCreditId");
+
+            $(".popover input[name=timeCredit]").removeClass("span12")
+
+            $(".popover input[name=timeCredit]").val(time);
+            $(".popover input[name=timeCreditId]").val(rowId);
+            
+        });
+    };
+
     $(function() {
        igestisCommercial.projects.init({
            freeDocumentRefreshLink : '{{ url ( 'commercial_project_refresh_free_documents', { projectId : project.id } ) }}'
        });
+       igestisCommercial.initPopover();
     });
     
     var unlink_commercial_document = function(documentId) {
@@ -250,7 +300,6 @@
         }
         });
     };
-
 </script>
 
 

@@ -138,6 +138,12 @@ class CommercialCommercialDocument
      * @OrderBy({"id" = "ASC"})
      */
     private $estimates;
+
+    /**
+     * @var CommercialTimeCredit
+     * @OneToOne(targetEntity="CommercialTimeCredit", mappedBy="commercialDocument")
+     */
+    private $creditTime;
     
     /**
      *
@@ -168,6 +174,29 @@ class CommercialCommercialDocument
                 $this->addArticle($newArticle);
             }
         }
+    }
+
+    /**
+     * Return the credit time
+     * @return CommercialTimeCredit credit time
+     */
+    public function getCreditTime() {
+        if ($this->creditTime) {
+            return $this->creditTime;
+        } else {
+            return new CommercialTimeCredit($this);
+        }
+        
+    }
+
+    /**
+     * Set the credit time
+     * @param CommercialTimeCredit $time Credit time
+     * @return self
+     */
+    public function setCreditTime(CommercialTimeCredit $time) {
+        $this->creditTime = $time;
+        return $this;
     }
     
     /**

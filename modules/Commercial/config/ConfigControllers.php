@@ -244,6 +244,16 @@ class ConfigControllers extends \IgestisConfigController {
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
             ),  
             array(
+                'id' => 'commercial_project_update_time_credit',
+                'Parameters' => array(
+                    'Module' => 'Commercial',
+                    'Action' => 'update_time_credit'
+                ),
+                'Controller' => '\Igestis\Modules\Commercial\projectsController',
+                'Action' => 'editTimeCreditAction',
+                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
+            ), 
+            array(
                 'id' => 'commercial_project_del',
                 'Parameters' => array(
                     'Module' => 'Commercial',
