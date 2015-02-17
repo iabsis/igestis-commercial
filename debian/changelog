@@ -1,3 +1,9 @@
+igestis-commercial (2.0.9) wheezy; urgency=medium
+
+  * Fix igestis dependancy.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 17 Feb 2015 18:08:29 +0100
+
 igestis-commercial (2.0.8) wheezy; urgency=medium
 
   * Anomalie #285 : Bug divers.

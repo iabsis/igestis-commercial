@@ -1,2 +1,6 @@
 
 sftp-config.json
+build-stamp
+configure-stamp
+.settings
+.project
