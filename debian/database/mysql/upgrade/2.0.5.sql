@@ -1,0 +1,2 @@
+UPDATE COMMERCIAL_INVOICE_ARTICLE SET amount_tax=tot_sell_price_article_TI-tot_sell_price_article_DF;
+UPDATE COMMERCIAL_COMMERCIAL_DOCUMENT_ARTICLE SET amount_tax=tot_sell_price_article_TI-tot_sell_price_article_DF;
