@@ -1,0 +1,5 @@
+install		    		usr/share/igestis
+modules					usr/share/igestis
+
+debian/database/mysql/upgrade/*	usr/share/dbconfig-common/data/igestis-commercial/upgrade/mysql
+debian/database/mysql/install/*	usr/share/dbconfig-common/data/igestis-commercial/install

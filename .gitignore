@@ -3,3 +3,5 @@ sftp-config.json
 build-stamp
 configure-stamp
 debian/igestis-commercial
+.project
+.settings
