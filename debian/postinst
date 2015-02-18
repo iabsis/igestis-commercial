@@ -52,20 +52,21 @@ case "$1" in
 	if [ ! -z "$CACHE_FOLDER" ] ; then rm -rf $CACHE_FOLDER/* ; fi
 	invoke-rc.d apache2 reload
 
-        # New script to automatically apply SQL updates.
-        php /usr/share/igestis/command.php  databases:update
-
 	## We regenerate the language cache
 	php /usr/share/doc/igestis/regenLocales.php /usr/share/igestis
 	chown www-data -R $CACHE_FOLDER
 	chmod 700 -R $CACHE_FOLDER
 
+	# New script to automatically apply SQL updates.
+	php /usr/share/igestis/command.php databases:update
+
 	# Setup of Apache2.
-	
 	mkdir -p /usr/share/igestis/documents/Commercial/
 	chown www-data -R /usr/share/igestis/documents/
 	chmod 700 -R /usr/share/igestis/documents/
 
+	# Remove setup install 
+#	rm -rf /usr/share/igestis/install
 
     ;;
 

@@ -1,4 +1,4 @@
-igestis-commercial (3.0) wheezy; urgency=medium
+igestis-commercial (3.0.0) wheezy; urgency=medium
 
   * New upstream release.
   * Feature: new time tracking management inside a project.
