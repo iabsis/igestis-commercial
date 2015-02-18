@@ -452,6 +452,30 @@ class CommercialProviderInvoice
         $companyVatAccounting = \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::getVatAccountig();
         $this->setExported(true);
         $string = "";
+        $totTaxes = 0;
+        
+        foreach ($this->amounts as $amount) {
+            if(!isset($exportableData[$amount->getAccountNumber()])) {
+                $exportableData[$amount->getAccountNumber()] = array(
+                    "taxAccountingNumber" => "",
+                    "accountingNumber" => "",
+                    "articleDf" => 0,
+                    "articleTi" =>0,
+                    "articleTaxes" => 0
+                );
+            }
+            $exportableData[$amount->getAccountNumber()]["taxAccountingNumber"] = $amount->getTaxAccountingNumber($companyVatAccounting->getBuyingVatAccount());
+            $exportableData[$amount->getAccountNumber()]["accountingNumber"] = $amount->getAccountNumber();
+            $exportableData[$amount->getAccountNumber()]["articleDf"] += $amount->getAmountDf();
+            $exportableData[$amount->getAccountNumber()]["articleTi"] += $amount->getAmountTi();
+            $exportableData[$amount->getAccountNumber()]["articleTaxes"] += $amount->getTaxes();
+            
+            $totTaxes += $amount->getTaxes();
+        }
+        
+        $totTi = 0;
+        $lastCurrentData = null;
+        /*
         foreach($this->amounts as $amount) {
             $amount->saveAccountNumber();
             
@@ -464,11 +488,77 @@ class CommercialProviderInvoice
                 $this->invoiceNum, 
                 $this->invoiceDate,
                 $amount->getAmountDf(), 
-                $amount->getAmountTi(), 
-                $amount->getTaxes(),
+                0, 
+                0,
                 $this->getProviderUser()->getUserLabel()
             );
+            
+            $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
+                $this->id,
+                \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING, 
+                $this->getProviderUser()->getAccountCode(),
+                $amount->getTaxAccountingNumber($companyVatAccounting->getBuyingVatAccount()),
+                $amount->getAccountNumber(),
+                $this->invoiceNum, 
+                $this->invoiceDate,
+                0, 
+                $amount->getAmountTi(), 
+                0,
+                $this->getProviderUser()->getUserLabel()
+            );
+            
+            $totTaxes += $amount->getTaxes();
         }
+        */
+        foreach ($exportableData as $accountingNumber => $currentData) {
+            $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
+                $this->id,
+                \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING, 
+                $this->getProviderUser()->getAccountCode(),
+                $currentData['taxAccountingNumber'],
+                $accountingNumber,
+                $this->invoiceNum, 
+                $this->invoiceDate,
+                $currentData['articleDf'], 
+                0, 
+                0,
+                $this->getProviderUser()->getUserLabel()
+            );
+            
+            $totTi += $currentData['articleTi'];
+            $lastCurrentData = $currentData;
+            
+        }
+        
+        
+        $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
+            $this->id,
+            \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING, 
+            $this->getProviderUser()->getAccountCode(),
+            $amount->getTaxAccountingNumber($companyVatAccounting->getBuyingVatAccount()),
+            $amount->getAccountNumber(),
+            $this->invoiceNum, 
+            $this->invoiceDate,
+            0, 
+            0, 
+            $totTaxes,
+            $this->getProviderUser()->getUserLabel()
+        );
+        
+        
+        $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
+            $this->id,
+            \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING, 
+            $this->getProviderUser()->getAccountCode(),
+            $amount->getTaxAccountingNumber($companyVatAccounting->getBuyingVatAccount()),
+            $accountingNumber,
+            $this->invoiceNum, 
+            $this->invoiceDate,
+            0, 
+            $totTi, 
+            0,
+            $this->getProviderUser()->getUserLabel()
+        );
         
         return $string;
     }

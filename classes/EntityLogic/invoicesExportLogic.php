@@ -9,7 +9,7 @@ namespace Igestis\Modules\Commercial\EntityLogic;
  */
 class invoicesExportLogic {
     const TYPE_BUYING = "buying";
-    const TYP_SELLING = "selling";
+    const TYPE_SELLING = "selling";
     
     /**
      *
@@ -64,11 +64,18 @@ class invoicesExportLogic {
     
     public function generateExportFile() {
         $fileContent = "";
-        $header = self::$context->renderFromString(self::$companyConfig->getExportHeader(true)) . "\n";
+        $header = "";
+        
+        if(self::$companyConfig->getExportHeader(true)) {
+            $header = self::$context->renderFromString(self::$companyConfig->getExportHeader(true)) . "\n";
+        }
+        
         foreach ($this->invoicesList as $invoice) {
             $exported = $invoice->getExported();
             $fileContent .= $invoice->export();
-            if(!$exported) self::$entityManager->persist($invoice);            
+            if(!$exported) {
+                self::$entityManager->persist($invoice);  
+            }
         }
         
         self::$entityManager->flush();  
@@ -84,17 +91,61 @@ class invoicesExportLogic {
      * @param type $amountTi
      * @param type $taxes
      */
-    public static function exportLineFormatter($invoiceId, $type, $userAccount, $taxAccout, $articleAccount, $invoiceNumber, $invoiceDate, $amountDf, $amountTi, $taxes, $customerLabel) {
-        return self::$context->renderFromString(self::$companyConfig->getExportFormat(true), array(
+    public static function exportLineFormatter($invoiceId, $type, $userAccount, $taxAccount, $articleAccount, $invoiceNumber, $invoiceDate, $amountDf, $amountTi, $taxes, $customerLabel) {
+        $amount = 0;
+        
+        if($amountDf) {
+            $amount = $amountDf;
+        }
+        if($amountTi) {
+            $amount = $amountTi;
+        }
+        if($taxes) {
+            $amount = $taxes;
+        }
+        
+        if(!$amount) {
+            return "";
+        }
+        
+        $template = "";
+        
+        switch ($type) {
+            case self::TYPE_BUYING :
+                if($amountDf != 0) {
+                    $template = self::$companyConfig->getExportBuyingDf();
+                }
+                if($amountTi != 0) {
+                    $template = self::$companyConfig->getExportBuyingTi();
+                }
+                if($taxes != 0) {
+                    $template = self::$companyConfig->getExportBuyingTaxes();
+                }
+                break;
+            case self::TYPE_SELLING :
+                if($amountDf != 0) {
+                    $template = self::$companyConfig->getExportSellingDf();
+                }
+                if($amountTi != 0) {
+                    $template = self::$companyConfig->getExportSellingTi();
+                }
+                if($taxes != 0) {
+                    $template = self::$companyConfig->getExportSellingTaxes();
+                }
+                break;
+        }
+        if(!$template) {
+            return "";
+        }
+        
+        return self::$context->renderFromString($template, array(
             "type" => $type,
             "userAccount" => $userAccount,
-            "taxAccout" => $taxAccout,
+            "taxAccount" => $taxAccount,
             "articleAccount" => $articleAccount,
             "invoiceNumber" => $invoiceNumber,
             "invoiceDate" => $invoiceDate,
-            "amountDf" => $amountDf,
-            "amountTi" => $amountTi,
-            "taxes" => $taxes,
+            "amount" => $amount,
             "incoiceId" => $invoiceId,
             "userLabel" => $customerLabel
         )) . "\n";
@@ -105,7 +156,9 @@ class invoicesExportLogic {
      * @return \CommercialVatAccounting
      */
     public static function getVatAccountig() {
-        if(self::$vatAccounting) return self::$vatAccounting;
+        if(self::$vatAccounting) {
+            return self::$vatAccounting;
+        }
         
         self::$vatAccounting = self::$entityManager->getRepository("CommercialVatAccounting")->getCompanyConfig();        
         return self::$vatAccounting;
