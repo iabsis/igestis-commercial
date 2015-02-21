@@ -1,0 +1,84 @@
+igestis-commercial (3.0.0) wheezy; urgency=medium
+
+  * New release for iGestis v3 compatibility.
+
+ -- Olivier Bitsch <olivierb@olivier-tanglu>  Sat, 21 Feb 2015 16:08:41 +0100
+
+igestis-commercial (2.0.9) wheezy; urgency=medium
+
+  * Fix igestis dependancy.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 17 Feb 2015 18:08:29 +0100
+
+igestis-commercial (2.0.8) wheezy; urgency=medium
+
+  * Anomalie #285 : Bug divers.
+  * Anomalie #287 : Problème recherche calendrier.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 11 Mar 2014 10:11:13 +0100
+
+igestis-commercial (2.0.7) wheezy; urgency=medium
+
+  * Evolution #272 : Optimisation saisie des factures d'achat.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Thu, 23 Jan 2014 16:23:28 +0100
+
+igestis-commercial (2.0.6) squeeze; urgency=medium
+
+  * Fix export issue.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Thu, 19 Dec 2013 16:12:36 +0100
+
+igestis-commercial (2.0.5) squeeze; urgency=medium
+
+  * Fix export issue.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Thu, 19 Dec 2013 15:13:24 +0100
+
+igestis-commercial (2.0.4) squeeze; urgency=low
+
+  * Fix issue in export page.
+  * Add new translations.
+  * Add new export variables.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 03 Dec 2013 11:45:08 +0100
+
+igestis-commercial (2.0.3) wheezy; urgency=low
+
+  * Bug #280 - Message d'erreur à l'export de certaines factures.
+  * Bug #273 - Erreur pendant l'ajout d'un article.
+  * Bug #265 - Message d'erreur pour les opérations négatives liées à une facture d'achat
+  * Bug #264 - Problème de virgule au lieu d'un point dans les factures d'achats.
+  * Bug #263 - Pas d'erreur si on met des lettres dans le montant de la balance lors d'un nouveau compte bancaire.
+  * Bug #261 - Erreur de traduction dans la page ""détails du projet"
+  * Bug #254 - Article deletion issue in commercial document page.
+  * Evolution #266 - Dans les documents commerciaux, lorsqu'on choisit les clients il faudrait mettre la liste par ordre alphabétique.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 26 Nov 2013 17:06:36 +0100
+
+igestis-commercial (2.0.2) wheezy; urgency=low
+
+  * Change #259 : Send a copy of the mail to the employee when sending a commercial document to the customer.
+  * Change #257 : Show assigned project to a commercial document.
+  * Bug #256 : Empty line assignment when associate account amount to an invoice.
+  * Bug #255 : Sort linked intervention by date in a Project.
+  * Bug #255 : Quotation mail modal doesn't hide after email is sent.
+  * Bug #255 : Comment on the quotation / invoices doesn't keep the line break
+  * Bug #255 : Color of the project description on the invoices / quotation is too bright
+  * Bug #254 : Article deletion issue in commercial document page.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 15 Oct 2013 21:25:04 +0200
+
+igestis-commercial (2.0.1) wheezy; urgency=low
+
+  * News pages available for customer login.
+  * Bug fixes : an intervention shows a decimal result when using no rounded time.
+  * Change minutes to hour in project to list interventions.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 17 Sep 2013 09:48:32 +0200
+
+igestis-commercial (2.0.0) wheezy; urgency=low
+
+  * Initial release.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 23 Jul 2013 14:50:33 +0200

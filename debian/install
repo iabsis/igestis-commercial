@@ -1,0 +1,10 @@
+assets		    		usr/share/igestis/modules/Commercial
+classes		     		usr/share/igestis/modules/Commercial
+config	     			usr/share/igestis/modules/Commercial
+controllers				usr/share/igestis/modules/Commercial
+entities     			usr/share/igestis/modules/Commercial
+lang	     			usr/share/igestis/modules/Commercial
+templates     			usr/share/igestis/modules/Commercial
+
+install/database/mysql/upgrade/*	usr/share/dbconfig-common/data/igestis-commercial/upgrade/mysql
+install/database/mysql/install/*	usr/share/dbconfig-common/data/igestis-commercial/install
