@@ -1,3 +1,9 @@
+igestis-commercial (2.0.10) wheezy; urgency=medium
+
+  * Fix regretion due to bad usage of git.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Wed, 18 Feb 2015 19:47:41 +0100
+
 igestis-commercial (2.0.9) wheezy; urgency=medium
 
   * Fix igestis dependancy.
