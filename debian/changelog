@@ -2,8 +2,9 @@ igestis-commercial (3.0.0) wheezy; urgency=medium
 
   * New upstream release.
   * Feature: new time tracking management inside a project.
+  * New release for iGestis v3 compatibility.
 
- -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 17 Feb 2015 18:27:48 +0100
+ -- Olivier Bitsch <olivierb@olivier-tanglu>  Sat, 21 Feb 2015 16:08:41 +0100
 
 igestis-commercial (2.0.9) wheezy; urgency=medium
 
