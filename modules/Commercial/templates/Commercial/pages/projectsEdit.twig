@@ -15,37 +15,34 @@
 <div class="well">
     <form id="form_data" method='post' action=''>
         <fieldset>
-            <legend>{% trans %}Project information{% endtrans %}</legend>
             <div class="row-fluid">
-                <div class="span5">
+                <div class="span8">
+                    <legend>{% trans %}Project management{% endtrans %}</legend>
                     {{ forms.input('name', 'title'|trans, project.name) }}
                     {{ forms.textarea('description', 'Description'|trans, project.description) }}
+                    {{ forms.input('initialTimeSold', 'Initial time sold'|trans, project.initialTimeSoldFormatted) }}
                     {{ forms.switchbox('closed', "Project status"|trans, project.closed, null, null, null, "Closed"|trans, "Opened"|trans) }}
                 </div>
                 <div class="span4">                    
                     <div id="customer-informations">
+                        <legend>{% trans %}Customer details{% endtrans %}</legend>
                         <div class="customer-name"><strong>{{ project.customerUser.userLabel }}</strong></div>
                         <div class="customer-address1">{{ project.customerUser.mainContact.address1 }}</div>
                         <div class="customer-address2">{{ project.customerUser.mainContact.address2 }}</div>
                         <div class="customer-city">{{ project.customerUser.mainContact.postalCode }} {{ project.customerUser.mainContact.city }}</div>
                         <div class="customer-tel">{% trans %}Phone{% endtrans %} : {{ project.customerUser.mainContact.phone1 }}</div>                        
                     </div>
-                    <div id="project-informations">
-                    	<div class="hidden" id="commercial-document-total">
-                    	{{ forms.input('commercial-document-total', 'Total sales', null, null, null, null, null, "disabled") }}
-                    	</div>
-                    	<div class="hidden" id="buyed-invoices-total">
-                    	{{ forms.input('buyed-invoices-total', 'Total sales', null, null, null, null, null, "disabled") }}
-                    	</div>
+
+                    <legend>{% trans %}Project resume{% endtrans %}</legend>
+                    <div id="totals-section">
+                        {% include 'Commercial/ajax/ProjectEditTotals.twig' %}
                     </div>
                 </div>
-                <div class="span3" id="totals-section">
-                    {% include 'Commercial/ajax/ProjectEditTotals.twig' %}
-                </div>
+                
             </div>
             <div class="form-actions">
-                    <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
-                    <input class="btn" type="button" value="{% trans %}Cancel{% endtrans %}" onclick="javascript:history.go(-1);return true;">
+                <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
+                <input class="btn" type="button" value="{% trans %}Cancel{% endtrans %}" onclick="javascript:history.go(-1);return true;">
             </div>
         </fieldset>
     </form>        
@@ -185,9 +182,7 @@
 
 <script>
     igestisCommercial.projects.updateTimeRow = function(id, time) {
-        console.log(id, time);
         $("a[data-time-credit-id=" + id + "]").data("timeCredit", time).text(time);
-
     }
 
     igestisCommercial.editPopover = null;
@@ -219,10 +214,11 @@
     };
 
     $(function() {
-       igestisCommercial.projects.init({
-           freeDocumentRefreshLink : '{{ url ( 'commercial_project_refresh_free_documents', { projectId : project.id } ) }}'
-       });
-       igestisCommercial.initPopover();
+        igestisCommercial.projects.init({
+            freeDocumentRefreshLink : '{{ url ( 'commercial_project_refresh_free_documents', { projectId : project.id } ) }}'
+        });
+        igestisCommercial.initPopover();
+        igestisCommercial.common.colorize();
     });
     
     var unlink_commercial_document = function(documentId) {

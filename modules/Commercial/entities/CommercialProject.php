@@ -1,7 +1,7 @@
 <?php
 
 
-
+use Igestis\Modules\Commercial\Common\StringManipulation;
 
 
 /**
@@ -33,6 +33,13 @@ class CommercialProject
      * @Column(name="closed", type="boolean")
      */
     private $closed;
+
+    /**
+     * @var decimal $purchasingPriceDf
+     *
+     * @Column(name="initial_time_sold", type="decimal")
+     */
+    private $initialTimeSold;
 
     /**
      * @var integer $id
@@ -287,51 +294,103 @@ class CommercialProject
     {
         return $this->company;
     }
+
+
+    /**
+     * Gets the value of initialTimeSold.
+     *
+     * @return decimal $initialTimeSold
+     */
+    public function getInitialTimeSold()
+    {
+        return $this->initialTimeSold;
+    }
+
+    /**
+     * Gets the value of initialTimeSold.
+     *
+     * @return decimal $initialTimeSold
+     */
+    public function getInitialTimeSoldFormatted()
+    {
+        return StringManipulation::convertDecimalToTimeFormat($this->initialTimeSold);
+    }
+
+    /**
+     * Sets the value of initialTimeSold.
+     *
+     * @param decimal $initialTimeSold the initial time sold
+     *
+     * @return self
+     */
+    public function setInitialTimeSold($initialTimeSold)
+    {
+        if (preg_match("#^(|[0-9\-]{1,3}\:[0-9]{1,2})$#", $initialTimeSold)) {
+            $aTime = explode(":", $initialTimeSold);
+            $initialTimeSold = (int)$aTime[0] * 60;
+            if ((int)$aTime[0] < 0) {
+                $initialTimeSold -= (int)$aTime[1];
+            } else {
+                $initialTimeSold += (int)$aTime[1];
+            }
+        } else {
+            $initialTimeSold = (int)$initialTimeSold;
+        }
+        
+        $this->initialTimeSold = $initialTimeSold;
+
+        return $this;
+    }
     
         
     /**
      * @PrePersist
      * @PreUpdate
      */
-    public function prePersist() {        
+    public function prePersist()
+    {
         // Setting company
-        if($this->company == null) {
+        if ($this->company == null) {
             $this->company = \IgestisSecurity::init()->user->getCompany();
         }
         
-        if(!($this->creatorContact instanceof \CoreContacts)) {
+        if (!($this->creatorContact instanceof \CoreContacts)) {
             $this->creatorContact = \IgestisSecurity::init()->contact;
         }
     }
     
-    public function getTotCommercialDoc() {
+    public function getTotCommercialDoc()
+    {
         $tot = 0;
-        foreach($this->commercialDocuments as $document) {
+        foreach ($this->commercialDocuments as $document) {
             
             $tot += $document->getAmountTi();
         }
         return $tot;
     }
     
-    public function getTotSupportIntervention() {
+    public function getTotSupportIntervention()
+    {
         $totTime = 0;
         foreach ($this->supportInterventions as $intervention) {
             $totTime += $intervention->getIntegerPeriodTime();
-        }        
+        }
         return \Igestis\Modules\Commercial\Common\StringManipulation::convertDecimalToTimeFormat($totTime);
     }
     
-    public function getTotBuyingInvoices() {
+    public function getTotBuyingInvoices()
+    {
         $tot = 0;
-        foreach($this->providerInvoices as $invoice) {
+        foreach ($this->providerInvoices as $invoice) {
             $tot += $invoice->getAmountTi();
         }
         return $tot;
     }
 
-    public function getTotCreditTime() {
+    public function getTotCreditTime()
+    {
         $tot = 0;
-        foreach($this->commercialDocuments as $document) {
+        foreach ($this->commercialDocuments as $document) {
             $creditTime = $document->getCreditTime();
             if (!$creditTime) {
                 continue;
@@ -341,25 +400,26 @@ class CommercialProject
         return CommercialTimeCredit::getTimeString($tot);
     }
 
-    public function remainingCreditTime() {
+    public function remainingCreditTime()
+    {
 
         $totBuyingInvoices = \Igestis\Modules\Commercial\Common\StringManipulation::convertTimeToDecimalFormat($this->getTotSupportIntervention());
         $totCreditTime = \Igestis\Modules\Commercial\Common\StringManipulation::convertTimeToDecimalFormat($this->getTotCreditTime());
 
-        $tot = $totCreditTime - $totBuyingInvoices;
+        $tot = $totCreditTime - $totBuyingInvoices + $this->initialTimeSold;
         return \Igestis\Modules\Commercial\Common\StringManipulation::convertDecimalToTimeFormat($tot);
-
     }
-
 }
 
 
 
 // ---------------------------------------------------------------------
 
-class CommercialProjectRepository extends \Doctrine\ORM\EntityRepository {
+class CommercialProjectRepository extends \Doctrine\ORM\EntityRepository
+{
 
-    public function findAll() {
+    public function findAll()
+    {
         try {
             $userCompany = \IgestisSecurity::init()->user->getCompany();
             $qb = $this->_em->createQueryBuilder();
@@ -367,27 +427,31 @@ class CommercialProjectRepository extends \Doctrine\ORM\EntityRepository {
                ->from("CommercialProject", "p")
                ->where("p.company = :company")
                ->setParameter("company", $userCompany);
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             throw $e;
         }
         
-        return $qb->getQuery()->getResult();        
+        return $qb->getQuery()->getResult();
         
     }
     
-    public function find($id, $lockMode = \Doctrine\DBAL\LockMode::NONE, $lockVersion = null) {
+    public function find($id, $lockMode = \Doctrine\DBAL\LockMode::NONE, $lockVersion = null)
+    {
         $result = parent::find($id, $lockMode, $lockVersion);
-        if(!$result || $result->getCompany()->getId() != \IgestisSecurity::init()->user->getCompany()->getId()) return null;
+        if (!$result || $result->getCompany()->getId() != \IgestisSecurity::init()->user->getCompany()->getId()) {
+            return null;
+        }
         return $result;
     }
     
-    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null) {
+    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+    {
         $criteria['company'] = \IgestisSecurity::init()->user->getCompany();
         return parent::findBy($criteria, $orderBy, $limit, $offset);
     }
     
-    public function findFromSearchForm(Igestis\Modules\Commercial\Forms\projectSearchForm $searchForm) {
+    public function findFromSearchForm(Igestis\Modules\Commercial\Forms\projectSearchForm $searchForm)
+    {
         try {
             $userCompany = \IgestisSecurity::init()->user->getCompany();
             $qb = $this->_em->createQueryBuilder();
@@ -397,19 +461,17 @@ class CommercialProjectRepository extends \Doctrine\ORM\EntityRepository {
                ->setParameter("company", $userCompany);
             
             switch($searchForm->getStatus()) {
-                case Igestis\Modules\Commercial\Forms\projectSearchForm::STATUS_CLOSED  :
+                case Igestis\Modules\Commercial\Forms\projectSearchForm::STATUS_CLOSED:
                     $qb->andWhere("p.closed=1");
                     break;
-                case Igestis\Modules\Commercial\Forms\projectSearchForm::STATUS_OPENED  :
+                case Igestis\Modules\Commercial\Forms\projectSearchForm::STATUS_OPENED:
                     $qb->andWhere("p.closed=0");
                     break;
             }
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             throw $e;
         }
         
-        return $qb->getQuery()->getResult();        
+        return $qb->getQuery()->getResult();
     }
-
 }

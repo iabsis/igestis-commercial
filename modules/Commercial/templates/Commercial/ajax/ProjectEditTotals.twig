@@ -1,6 +1,23 @@
-<div><strong>{% trans %}Total commercial docs{% endtrans %} : </strong><span id="tot-comm-doc">{{ project.totCommercialDoc|number_format(2) }}</span></div>
-<div><strong>{% trans %}Total buying invoices{% endtrans %} : </strong><span id="tot-buying-invoice">{{ project.totBuyingInvoices|number_format(2) }}</span></div>
-<div><strong>{% trans %}Total intervention time{% endtrans %} : </strong><span id="tot-support-intervention">{{ project.totSupportIntervention }}</span></div>
-<div><strong>{% trans %}Total invoiced credit time{% endtrans %} : </strong><span id="tot-credit-time">{{ project.totCreditTime }}</span></div>
-<div><strong>{% trans %}Remaining credit time{% endtrans %} : </strong><span id="remaining-credit-time">{{ project.remainingCreditTime }}</span></div>
+<table class="table table-bordered table-condensed table-striped table-hover">
+    <tr>
+        <td>{% trans %}Total commercial docs{% endtrans %}</td>
+        <td><span id="tot-comm-doc" data-negative-positive-auto-class="true">{{ project.totCommercialDoc|number_format(2) }}</span></td>
+    </tr>
+    <tr>
+        <td>{% trans %}Total buying invoices{% endtrans %}</td>
+        <td><span id="tot-buying-invoice" data-negative-positive-auto-class="true">{{ project.totBuyingInvoices|number_format(2) }}</span></td>
+    </tr>
+    <tr>
+        <td>{% trans %}Total intervention time{% endtrans %}</td>
+        <td><span id="tot-support-intervention" data-negative-positive-auto-class="true">{{ project.totSupportIntervention }}</span></td>
+    </tr>
+    <tr>
+        <td>{% trans %}Total invoiced credit time{% endtrans %}</td>
+        <td><span id="tot-credit-time" data-negative-positive-auto-class="true">{{ project.totCreditTime }}</span></td>
+    </tr>
+    <tr>
+        <td>{% trans %}Remaining credit time{% endtrans %}</td>
+        <td><span id="remaining-credit-time" data-negative-positive-auto-class="true">{{ project.remainingCreditTime }}</span></td>
+    </tr>
+</table>
 

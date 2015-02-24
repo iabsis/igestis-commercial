@@ -200,7 +200,7 @@ class CommercialSupportIntervention
      */
     public function getPauseTime()
     {
-        return Common\StringManipulation::convertDecimalToTimeFormat($this->pause);
+        return \Common\StringManipulation::convertDecimalToTimeFormat($this->pause);
     }
 
     /**

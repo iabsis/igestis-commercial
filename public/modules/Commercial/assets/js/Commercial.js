@@ -18,6 +18,17 @@ var igestisCommercial = function() {
 }();
 
 
+igestisCommercial.common.colorize = function() {
+    $("[data-negative-positive-auto-class]").each(function() {
+        $(this).removeClass("negative positive");
+        if ($(this).text().substr(0, 1) == "-") {
+             $(this).addClass("negative");
+        } else {
+            $(this).addClass("positive");
+        }
+    });
+}
+
 /**
  * Return the number of minutes in integer format
  * @param {string} time Time to format HH:ii

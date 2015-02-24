@@ -154,6 +154,7 @@ class projectsController extends \IgestisController {
             $ajaxResponse
                     ->addAssign('CommercialTableDiv', $htmlContent)
                     ->addAssign('totals-section', $totalsContent)
+                    ->addScript('igestisCommercial.common.colorize();')
                     ->setSuccessful("ok")->render();
 
         }
@@ -193,7 +194,7 @@ class projectsController extends \IgestisController {
                 "project" => $project,
             ), true);
 
-        $ajaxResponse->addAssign('totals-section', $totalsContent)->addAssign('CommercialTableDiv', $htmlContent)->setSuccessful("ok")->render();
+        $ajaxResponse->addAssign('totals-section', $totalsContent)->addAssign('CommercialTableDiv', $htmlContent)->addScript('igestisCommercial.common.colorize();')->setSuccessful("ok")->render();
     }
     
     public function linkInterventionAction($projectId) {
@@ -229,7 +230,7 @@ class projectsController extends \IgestisController {
                 "project" => $project,
             ), true);
             
-            $ajaxResponse->addAssign('totals-section', $totalsContent)->addAssign('InterventionTableDiv', $htmlContent)->setSuccessful("ok")->render();
+            $ajaxResponse->addAssign('totals-section', $totalsContent)->addAssign('InterventionTableDiv', $htmlContent)->addScript('igestisCommercial.common.colorize();')->setSuccessful("ok")->render();
 
         }
         else {
@@ -268,7 +269,7 @@ class projectsController extends \IgestisController {
                 "project" => $project,
             ), true);
 
-        $ajaxResponse->addAssign('totals-section', $totalsContent)->addAssign('InterventionTableDiv', $htmlContent)->setSuccessful("ok")->render();
+        $ajaxResponse->addAssign('totals-section', $totalsContent)->addAssign('InterventionTableDiv', $htmlContent)->addScript('igestisCommercial.common.colorize();')->setSuccessful("ok")->render();
     }
     
     public function linkBuyingInvoiceAction($projectId) {
@@ -303,7 +304,7 @@ class projectsController extends \IgestisController {
                 "project" => $project,
             ), true);
             
-            $ajaxResponse->addAssign('totals-section', $totalsContent)->addAssign('BuyingInvoiceTableDiv', $htmlContent)->setSuccessful("ok")->render();
+            $ajaxResponse->addAssign('totals-section', $totalsContent)->addAssign('BuyingInvoiceTableDiv', $htmlContent)->addScript('igestisCommercial.common.colorize();')->setSuccessful("ok")->render();
 
         }
         else {
@@ -342,7 +343,7 @@ class projectsController extends \IgestisController {
                 "project" => $project,
             ), true);
 
-        $ajaxResponse->addAssign('totals-section', $totalsContent)->addAssign('BuyingInvoiceTableDiv', $htmlContent)->setSuccessful("ok")->render();
+        $ajaxResponse->addAssign('totals-section', $totalsContent)->addAssign('BuyingInvoiceTableDiv', $htmlContent)->addScript('igestisCommercial.common.colorize();')->setSuccessful("ok")->render();
     }
     
     public function linkFreeDocumentAction($ProjectId) {
@@ -492,6 +493,7 @@ class projectsController extends \IgestisController {
             $ajaxResponse->addScript("igestisCommercial.editPopover.popover('hide');")
                          ->addScript("igestisCommercial.projects.updateTimeRow('$id', '$time');")
                          ->addAssign("totals-section", $totalsContent)
+                         ->addScript('igestisCommercial.common.colorize();')
                          ->addWizz(\Igestis\I18n\Translate::_("Time saved"), \WIZZ::$WIZZ_SUCCESS, "#commercial-document-wizzs");
             $ajaxResponse->setSuccessful("ok")->render();
         } catch (\Exception $e) {
