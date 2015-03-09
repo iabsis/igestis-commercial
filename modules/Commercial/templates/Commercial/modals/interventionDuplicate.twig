@@ -1,0 +1,61 @@
+<div id="intervention-duplicate-modal" class="modal hide fade">
+    <form class="modal-form form-horizontal" action="{{ url('commercial_interventions_duplicate') }}" id="intervention-duplicate-form" method="post">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3>{% trans %}Duplicate intervention{% endtrans %}</h3>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" id="intervention-src" name="interventionSrc" value="-1" />
+            <input type="hidden" id="intervention-redirect-edit" name="interventionRedirectEdit" value="0" />
+            <input type="hidden" name="redirectTo" value="{{ CURRENT_URL }}" />
+            <span id="duplicate-intervention-choose-user">{{ forms.select('customerUser', 'Customer'|trans, customersList, null, 'id', 'userLabel') }}</span>
+            {{ forms.date('interventionDate', 'Intervention date'|trans) }}
+        </div>
+        <div class="modal-footer">
+            
+            <button type="submit" class="btn btn-primary" name="bsubmit" value="save">{% trans %}Save{% endtrans %}</button>
+            <button type="submit" class="btn btn-default" name="bsubmit" value="save_and_edit">{% trans %}Save & Edit{% endtrans %}</button>
+            or <a href="#" data-dismiss="modal" >Cancel</a>
+        </div>
+    </form>
+</div>
+
+
+
+<script>
+
+
+$(document).ready(function(){
+    $("#intervention-duplicate-form").validate({
+        ignore: "input[type='text']:hidden",
+        rules:{
+            
+            interventionDate:{
+                required:true
+            }
+        },
+        errorClass: "help-inline",
+        errorElement: "span",
+        errorPlacement: function(error, element) {
+            element.parent().after(error);
+        },
+        highlight:function(element, errorClass, validClass) {
+            $(element).parents('.control-group').removeClass('success');
+            $(element).parents('.control-group').addClass('error');
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).parents('.control-group').removeClass('error');
+            $(element).parents('.control-group').addClass('success');
+        },
+        submitHandler: function(form) {
+            // do other things for a valid form
+            if ($(this.submitButton).val() == 'save_and_edit') {
+                $("#intervention-redirect-edit").val(1);
+            } else {
+                $("#intervention-redirect-edit").val(0);
+            }
+            form.submit();
+        }
+    });
+});
+</script>

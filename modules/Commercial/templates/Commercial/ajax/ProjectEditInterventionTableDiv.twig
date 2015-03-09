@@ -21,6 +21,9 @@
                 <td>{{ row.date|date("d/m/Y") }}</td>
                 <td>{{ row.periodTime }}</td>
                 <td>
+                    <a href="javascript:igestisCommercial.support.duplicate('{{ row.id }}', true)" class="btn btn-mini a-visible-line-on-over">
+                        <i class="icon-copy"></i> {% trans %}Duplicate{% endtrans %}
+                    </a>
                     <a href="{{ url('commercial_interventions_edit', {'Id':row.id}) }}" class="btn btn-mini a-visible-line-on-over">
                         <i class="icon-eye"></i> {% trans %}View{% endtrans %}
                     </a>

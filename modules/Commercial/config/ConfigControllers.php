@@ -577,7 +577,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\interventionsController',
                 'Action' => 'indexAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),  
+            ),
             array(
                 'id' => 'commercial_interventions_new',
                 'Parameters' => array(
@@ -587,7 +587,17 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\interventionsController',
                 'Action' => 'newAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),  
+            ),
+            array(
+                'id' => 'commercial_interventions_duplicate',
+                'Parameters' => array(
+                    'Module' => 'Commercial',
+                    'Action' => 'interventions_duplicate'
+                ),
+                'Controller' => '\Igestis\Modules\Commercial\interventionsController',
+                'Action' => 'duplicateAction',
+                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
+            ),
             array(
                 'id' => 'commercial_interventions_edit',
                 'Parameters' => array(
@@ -598,7 +608,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\interventionsController',
                 'Action' => 'editAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),  
+            ),
             array(
                 'id' => 'commercial_interventions_show',
                 'Parameters' => array(

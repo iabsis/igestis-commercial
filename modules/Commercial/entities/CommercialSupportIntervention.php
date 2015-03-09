@@ -116,9 +116,38 @@ class CommercialSupportIntervention
      */
     private $project;
     
-    public function __construct() {
+    public function __construct()
+    {
         $this->workerContact =  \IgestisSecurity::init()->contact;
     }
+
+    /**
+     * Return a copy of the original intervention
+     * @return self copy of the object
+     */
+    public function duplicate($date = null)
+    {
+        $newIntervention = clone($this);
+        $newIntervention->id = null;
+
+        $newIntervention->workerContact = \IgestisSecurity::init()->contact;
+
+        if ($date) {
+            $newIntervention->date = $date->setTime(
+                $newIntervention->date->format("H"),
+                $newIntervention->date->format("i"),
+                $newIntervention->date->format("s")
+            );
+            $newIntervention->end->setDate($date->format("Y"), $date->format("m"), $date->format("d"));
+
+            if ($newIntervention->end < $newIntervention->date) {
+                $newIntervention->end->add(new DateInterval('P1D'));
+            }
+        }
+
+        return $newIntervention;
+    }
+
 
 
     /**
@@ -200,7 +229,7 @@ class CommercialSupportIntervention
      */
     public function getPauseTime()
     {
-        return \Common\StringManipulation::convertDecimalToTimeFormat($this->pause);
+        return Common\StringManipulation::convertDecimalToTimeFormat($this->pause);
     }
 
     /**

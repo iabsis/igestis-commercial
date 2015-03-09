@@ -17,7 +17,6 @@ var igestisCommercial = function() {
    return _public;
 }();
 
-
 igestisCommercial.common.colorize = function() {
     $("[data-negative-positive-auto-class]").each(function() {
         $(this).removeClass("negative positive");
@@ -86,6 +85,17 @@ igestisCommercial.support.updateTimes = function($field) {
             break;
     }
 };
+
+igestisCommercial.support.duplicate = function(interventionSource, autoAssocUser) {
+    if (autoAssocUser === true) {
+        $("#duplicate-intervention-choose-user").hide();
+    } else {
+        $("#duplicate-intervention-choose-user").show();
+    }
+
+    $("#intervention-src").val(interventionSource);
+    $("#intervention-duplicate-modal").modal();
+}
 
 
 igestisCommercial.support.init = function() {

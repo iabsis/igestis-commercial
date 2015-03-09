@@ -1,9 +1,5 @@
 <?php
 
-
-
-
-
 /**
  * CommercialArticleCategory
  *

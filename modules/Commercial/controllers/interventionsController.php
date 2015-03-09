@@ -170,9 +170,9 @@ class interventionsController extends \IgestisController {
                 ->setPeriod($this->request->getPost("period"));
             
 
-            try {                
+            try {
                 $this->context->entityManager->persist($intervention);
-                $this->context->entityManager->flush();  
+                $this->context->entityManager->flush();
                 $this->context->entityManager->commit();
             } catch (\Exception $e) {
                 $this->context->entityManager->rollback();
@@ -209,10 +209,52 @@ class interventionsController extends \IgestisController {
             'interventionsTypeList' => $this->_em->getRepository("CommercialSupportIntervention")->findAllTypes(true),
         ));
     }
+
+    public function duplicateAction() {
+        $originalInterventionId = $this->request->getPost('interventionSrc');
+        $editAfterSave = $this->request->getPost('interventionRedirectEdit');
+        $customerId = $this->request->getPost('customerUser');
+        $interventionDate = $this->request->getPost('interventionDate');
+        $redirectTo = $this->request->getPost('redirectTo');
+
+        try {
+            $originalIntervention = $this->context->entityManager->getRepository('CommercialSupportIntervention')->find($originalInterventionId);
+            if ($customerId) {
+                $customer = $this->context->entityManager->getRepository('CoreUsers')->find($customerId);
+            } else {
+                $csutomer = null;
+            }
+
+            $newIntervention = $originalIntervention->duplicate(\DateTime::createFromFormat("d/m/Y", $interventionDate));
+
+            if ($customer) {
+                $newIntervention->setCustomerUser($customer);
+            }
+
+            if ($this->context->security->module_access("COMMERCIAL") == "ADMIN") {
+                $newIntervention->setWorkerContact($originalIntervention->getWorkerContact());
+            }
+
+            $this->context->entityManager->persist($newIntervention);
+            $this->context->entityManager->flush();
+            new \wizz(_("The intervention has been duplicated successfully"), \WIZZ::$WIZZ_SUCCESS);
+
+        } catch (\Exception $e) {
+            \IgestisErrors::createWizz($e);
+        }
+
+        if ($editAfterSave) {
+            $this->redirect(\ConfigControllers::createUrl("commercial_interventions_edit", array("Id" => $newIntervention->getId())));
+        } else {
+            $this->redirect($redirectTo);
+        }
+        
+    }
     
-    public function showAction($Id) {
+    public function showAction($Id)
+    {
         $intervention = $this->_em->find("CommercialSupportIntervention", $Id);
-        if(!$intervention || $intervention->getCustomerUser()->getId() != $this->context->security->user->getId()) {
+        if (!$intervention || $intervention->getCustomerUser()->getId() != $this->context->security->user->getId()) {
             $this->context->throw404error();
         }
         

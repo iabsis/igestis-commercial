@@ -11,7 +11,12 @@
 {% endblock %}
 #}
 
+
+
 {% block content %}{{ parent() }}
+
+{% include 'Commercial/modals/interventionDuplicate.twig' %}
+
 <div class="well">
     <form id="form_data" method='post' action=''>
         <fieldset>
