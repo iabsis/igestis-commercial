@@ -104,6 +104,7 @@ class CommercialProject
         $this->supportInterventions = new \Doctrine\Common\Collections\ArrayCollection  ;
         $this->providerInvoices = new \Doctrine\Common\Collections\ArrayCollection  ;
         
+        $this->initialTimeSold = 0;
         $this->closed = false;
     }
     
