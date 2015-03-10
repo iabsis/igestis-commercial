@@ -1,3 +1,10 @@
+igestis-commercial (3.0.2) wheezy; urgency=medium
+
+  * Feature: new config.ini for configuration file.
+  * Bug: by default, all system files goes in the data folder.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 10 Mar 2015 21:52:55 +0100
+
 igestis-commercial (3.0.1) wheezy; urgency=medium
 
   * Feature: ability to duplicate an intervention.
