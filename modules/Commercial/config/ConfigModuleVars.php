@@ -1,74 +1,142 @@
 <?php
- // config/ConfigModulVars.php
 
-// Le fichier de config se trouve dans le namespace du module
 namespace Igestis\Modules\Commercial;
-
-/* On définit les 3 constantes requises pour les modules 
- * (attention à bien préfixer vos variables avec le nom du module)
- */
-define("COMMERCIAL_VERSION", "0.1-1");
-define("COMMERCIAL_MODULE_NAME", "Commercial");
-define("COMMERCIAL_TEXTDOMAIN", COMMERCIAL_MODULE_NAME .  COMMERCIAL_VERSION);
 
 /**
  * Configuration of the module
  *
- * @author Gilles Hemmerlé
+ * @author Gilles Hemmerlé <gilles.h@iabsis.com>
  */
-class ConfigModuleVars {
+class ConfigModuleVars
+{
+    private static $version = null;
+    private static $params;
+
+    public static function initConfigVars()
+    {
+        if (empty(static::$params)) {
+            self::initFromIniFile();
+        }
+    }
+
+    public static function configFileFound()
+    {
+        return is_file(__DIR__ . "/config.ini") && is_readable(__DIR__ . "/config.ini");
+    }
+
+    public static function initFromIniFile()
+    {
+        
+        self::$params =  parse_ini_file(__DIR__ . "/default-config.ini");
+        if (self::configFileFound()) {
+            self::$params = array_merge(
+                self::$params,
+                parse_ini_file(__DIR__ . "/config.ini")
+            );
+
+            if (!parse_ini_file(__DIR__ . "/config.ini")) {
+                throw new \Igestis\Exceptions\ConfigException(\Igestis\I18n\Translate::_("The commercial config.ini file contains errors"));
+            }
+        }
+    }
 
     /**
-     * @var String Numéro de version du module (obligatoire)
+     * Return current module version
+     * @return string Current module version
      */
-    const version = COMMERCIAL_VERSION;
+    public static function version()
+    {
+        self::initConfigVars();
+        if (self::$version === null) {
+            self::$version = file_get_contents(__DIR__ . "/../version");
+        }
+        return self::$version;
+        return empty(self::$params['DEBUG_MODE']) ? false : (bool)self::$params['DEBUG_MODE'];
+    }
+
     /**
-     *
-     * @var String Nom du module (référence utilisé par le core pour la gestion des droits)
+     * Return the module internal name
+     * @return string module internal name
      */
-    const moduleName = COMMERCIAL_MODULE_NAME;
-    
+    public static function moduleName()
+    {
+        return "Commercial";
+    }
+
     /**
-     *
-     * @var String Nom tel qu'affiché dans la gestion des droits
+     * Return the module displayed name
+     * @return string module displayed name
      */
-    const moduleShowedName = "Commercial projects";
-    
+    public static function moduleShowedName()
+    {
+        return "Commercial projects";
+    }
+
     /**
-     *
-     * @var String Le textdomain utilisé pour la gestion des traduction en fichiers .mo
+     * Return the text domain for the module
+     * @return string Text domain
      */
-    const textDomain = COMMERCIAL_TEXTDOMAIN;
-    
+    public static function textDomain()
+    {
+        return self::moduleName() . self::version();
+    }
+
     /**
-     *
-     * @var String Folder where the pdf files will be moved.
+     * Generate folder depending of the / in prefix or not
+     * @param  string $folder A folder name
+     * @return string         The full folder name from the root of the server
      */
-    const invoicesFolder = "/usr/share/igestis/documents/Commercial/invoices";
-    
+    private function dataFolder($folder)
+    {
+        self::initConfigVars();
+        if (!preg_match("#^/#", $folder)) {
+            $folder = \ConfigIgestisGlobalVars::dataFolder() . "/" . $folder;
+        }
+        return $folder;
+    }
+
     /**
-     *
-     * @var String Folder where the pdf files will be moved.
+     * Return the invoices pdf folder
+     * @return string Invoices pdf folder
      */
-    const providersInvoicesFolder = "/usr/share/igestis/documents/Commercial/providersInvoices";
-    
+    public static function invoicesFolder()
+    {
+        return self::dataFolder(self::$params['INVOICES_FOLDER']);
+    }
+
     /**
-     *
-     * @var String Folder where the pdf files will be moved.
+     * Return the providers invoices pdf folder
+     * @return string Providers invoices pdf folder
      */
-    const quotationsFolder = "/usr/share/igestis/documents/Commercial/quotations";
-    
+    public static function providersInvoicesFolder()
+    {
+        return self::dataFolder(self::$params['PROVIDERS_INVOICES_FOLDER']);
+    }
+
     /**
-     *
-     * @var String Folder where the pdf files will be moved.
+     * Return the quotations pdf folder
+     * @return string Quotations pdf folder
      */
-    const freeDocumentFolder = "/usr/share/igestis/documents/Commercial/freeDocuments";
-    
+    public static function quotationsFolder()
+    {
+        return self::dataFolder(self::$params['QUOTATION_FOLDER']);
+    }
+
     /**
-     *
-     * @var String Folder where the pdf files will be moved.
+     * Return the free documents folder
+     * @return string Free documents folder
      */
-    const interventionsDocumentFolder = "/usr/share/igestis/documents/Commercial/interventions";
-    
-    
+    public static function freeDocumentFolder()
+    {
+        return self::dataFolder(self::$params['FREE_DOCUMENT_FOLDER']);
+    }
+
+    /**
+     * Return the interventions attachments folder
+     * @return string Interventions attachments folder
+     */
+    public static function interventionsDocumentFolder()
+    {
+        return self::dataFolder(self::$params['INTERVENTIONS_DOCUMENT_FOLDER']);
+    }
 }

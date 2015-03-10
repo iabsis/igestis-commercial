@@ -20,10 +20,10 @@ class ConfigInitModule implements \Igestis\Interfaces\ConfigMenuInterface, \Iges
         $module =   array(
             /* MODULE_NAME 
              * contient la référence de l'application que le core a besoin de connaitre */
-            "MODULE_NAME" => ConfigModuleVars::moduleName,
+            "MODULE_NAME" => ConfigModuleVars::moduleName(),
             /* MODULE_FULL_NAME 
              * contient le nom de l'application tel qu'affiché dans la gestion des droits */
-            "MODULE_FULL_NAME" => \Igestis\I18n\Translate::_(ConfigModuleVars::moduleShowedName),
+            "MODULE_FULL_NAME" => \Igestis\I18n\Translate::_(ConfigModuleVars::moduleShowedName()),
             /* RIGHTS_LIST 
              * contient la liste des droits qu'on va définir plus bas */
             "RIGHTS_LIST" => NULL);
@@ -33,23 +33,23 @@ class ConfigInitModule implements \Igestis\Interfaces\ConfigMenuInterface, \Iges
             /* Premier droit "None"*/
             array(
                 "CODE" => "NONE",
-                "NAME" => \Igestis\I18n\Translate::_("None", ConfigModuleVars::textDomain),
-                "DESCRIPTION" => \Igestis\I18n\Translate::_("Doesn't allow the access to sales projects", ConfigModuleVars::textDomain)
+                "NAME" => \Igestis\I18n\Translate::_("None", ConfigModuleVars::textDomain()),
+                "DESCRIPTION" => \Igestis\I18n\Translate::_("Doesn't allow the access to sales projects", ConfigModuleVars::textDomain())
             ),
             array(
                 "CODE" => "ADMIN",
                 "NAME" => \Igestis\I18n\Translate::_("Administrator"),
-                "DESCRIPTION" => \Igestis\I18n\Translate::_("Allow to create and delete projects, create assets, invoices and estimations, and export invoices and assets", ConfigModuleVars::textDomain)
+                "DESCRIPTION" => \Igestis\I18n\Translate::_("Allow to create and delete projects, create assets, invoices and estimations, and export invoices and assets", ConfigModuleVars::textDomain())
             ),
             array(
                 "CODE" => "EMPL",
-                "NAME" => \Igestis\I18n\Translate::_("Employee", ConfigModuleVars::textDomain),
-                "DESCRIPTION" => \Igestis\I18n\Translate::_("Allow to create and delete projects, create assets, invoices and estimations", ConfigModuleVars::textDomain)
+                "NAME" => \Igestis\I18n\Translate::_("Employee", ConfigModuleVars::textDomain()),
+                "DESCRIPTION" => \Igestis\I18n\Translate::_("Allow to create and delete projects, create assets, invoices and estimations", ConfigModuleVars::textDomain())
             ),
             array(
                 "CODE" => "COMP",
-                "NAME" => \Igestis\I18n\Translate::_("Accountant", ConfigModuleVars::textDomain),
-                "DESCRIPTION" => \Igestis\I18n\Translate::_("Allow to export invoices and assets", ConfigModuleVars::textDomain)
+                "NAME" => \Igestis\I18n\Translate::_("Accountant", ConfigModuleVars::textDomain()),
+                "DESCRIPTION" => \Igestis\I18n\Translate::_("Allow to export invoices and assets", ConfigModuleVars::textDomain())
             )
         );
         
@@ -68,50 +68,50 @@ class ConfigInitModule implements \Igestis\Interfaces\ConfigMenuInterface, \Iges
          * - La route à lancer
          */
         $menu->addItem(
-                \Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("Projects", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()), 
+                \Igestis\I18n\Translate::_("Projects", ConfigModuleVars::textDomain()), 
                 "commercial_project_index"
         );
         
         $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain),
-        		\Igestis\I18n\Translate::_("Sales documents", ConfigModuleVars::textDomain),
+        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+        		\Igestis\I18n\Translate::_("Sales documents", ConfigModuleVars::textDomain()),
         		"commercial_selling_document_index"
         );
         
         $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain),
-        		\Igestis\I18n\Translate::_("Purchases invoices", ConfigModuleVars::textDomain),
+        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+        		\Igestis\I18n\Translate::_("Purchases invoices", ConfigModuleVars::textDomain()),
         		"commercial_provider_invoices_index"
         );
         
         $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain),
-        		\Igestis\I18n\Translate::_("Articles database", ConfigModuleVars::textDomain),
+        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+        		\Igestis\I18n\Translate::_("Articles database", ConfigModuleVars::textDomain()),
         		"commercial_articles_index"
         );
         
         $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain),
-        		\Igestis\I18n\Translate::_("Interventions", ConfigModuleVars::textDomain),
+        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+        		\Igestis\I18n\Translate::_("Interventions", ConfigModuleVars::textDomain()),
         		"commercial_interventions_index"
         );
         
         $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain),
-        		\Igestis\I18n\Translate::_("Users balance", ConfigModuleVars::textDomain),
+        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+        		\Igestis\I18n\Translate::_("Users balance", ConfigModuleVars::textDomain()),
         		"commercial_balance_index"
         );
         
         $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain),
-        		\Igestis\I18n\Translate::_("Bank accounts", ConfigModuleVars::textDomain),
+        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+        		\Igestis\I18n\Translate::_("Bank accounts", ConfigModuleVars::textDomain()),
         		"commercial_bank_index"
         );
         
         $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain),
-        		\Igestis\I18n\Translate::_("Export", ConfigModuleVars::textDomain),
+        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+        		\Igestis\I18n\Translate::_("Export", ConfigModuleVars::textDomain()),
         		"commercial_export_index"
         );
         
@@ -125,79 +125,79 @@ class ConfigInitModule implements \Igestis\Interfaces\ConfigMenuInterface, \Iges
     public static function sidebarSet(\Application $context, \IgestisSidebar &$sidebar) {
 
         $sidebar->addItem(
-                \Igestis\I18n\Translate::_("Quick links", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("New intervention", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Quick links", ConfigModuleVars::textDomain()), 
+                \Igestis\I18n\Translate::_("New intervention", ConfigModuleVars::textDomain()), 
                 "commercial_interventions_new");
         
         $sidebar->addItem(
-                \Igestis\I18n\Translate::_("Quick links", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("New commercial element", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Quick links", ConfigModuleVars::textDomain()), 
+                \Igestis\I18n\Translate::_("New commercial element", ConfigModuleVars::textDomain()), 
                 new \Igestis\Types\SidebarJavascriptOnClick("create_or_duplicate_document(null);", null),
                 false,
                 array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
                 );
         
         $sidebar->addItem(
-                \Igestis\I18n\Translate::_("Quick links", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("New project", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Quick links", ConfigModuleVars::textDomain()), 
+                \Igestis\I18n\Translate::_("New project", ConfigModuleVars::textDomain()), 
                 new \Igestis\Types\SidebarJavascriptOnClick("create_or_duplicate_project(null);", null),
                 false,
                 array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
                 );
         
         $sidebar->addItem(
-                \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("Projects", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain()), 
+                \Igestis\I18n\Translate::_("Projects", ConfigModuleVars::textDomain()), 
                 "commercial_project_index");
         
         $sidebar->addItem(
-                \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("Sales documents", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain()), 
+                \Igestis\I18n\Translate::_("Sales documents", ConfigModuleVars::textDomain()), 
                 "commercial_selling_document_index");
         
         $sidebar->addItem(
-                \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("Purchases invoices", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain()), 
+                \Igestis\I18n\Translate::_("Purchases invoices", ConfigModuleVars::textDomain()), 
                 "commercial_provider_invoices_index");
         
         $sidebar->addItem(
-                \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("Articles database", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain()), 
+                \Igestis\I18n\Translate::_("Articles database", ConfigModuleVars::textDomain()), 
                 "commercial_articles_index");
         
         $sidebar->addItem(
-                \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("Interventions", ConfigModuleVars::textDomain),  
+                \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain()), 
+                \Igestis\I18n\Translate::_("Interventions", ConfigModuleVars::textDomain()),  
                 "commercial_interventions_index");
         
         $sidebar->addItem(
-                \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("Users balance", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain()), 
+                \Igestis\I18n\Translate::_("Users balance", ConfigModuleVars::textDomain()), 
                 "commercial_balance_index");
         
         $sidebar->addItem(
-                \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("Bank accounts", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain()), 
+                \Igestis\I18n\Translate::_("Bank accounts", ConfigModuleVars::textDomain()), 
                 "commercial_bank_index");
         
         $sidebar->addItem(
-                \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("Export", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain()), 
+                \Igestis\I18n\Translate::_("Export", ConfigModuleVars::textDomain()), 
                 "commercial_export_index");
         
         $sidebar->addItem(
-                \Igestis\I18n\Translate::_("Administration", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("Taxe rates", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Administration", ConfigModuleVars::textDomain()), 
+                \Igestis\I18n\Translate::_("Taxe rates", ConfigModuleVars::textDomain()), 
                 "commercial_taxe_rates_index");
         
         $sidebar->addItem(
-                \Igestis\I18n\Translate::_("Administration", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("Accounting", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Administration", ConfigModuleVars::textDomain()), 
+                \Igestis\I18n\Translate::_("Accounting", ConfigModuleVars::textDomain()), 
                 "commercial_accounting_index");
         
         $sidebar->addItem(
-                \Igestis\I18n\Translate::_("Administration", ConfigModuleVars::textDomain), 
-                \Igestis\I18n\Translate::_("Commercial parameters", ConfigModuleVars::textDomain), 
+                \Igestis\I18n\Translate::_("Administration", ConfigModuleVars::textDomain()), 
+                \Igestis\I18n\Translate::_("Commercial parameters", ConfigModuleVars::textDomain()), 
                 "commercial_parameters_config");        
 
     }

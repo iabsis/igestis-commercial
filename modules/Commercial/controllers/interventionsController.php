@@ -50,8 +50,8 @@ class interventionsController extends \IgestisController {
         
         // Delete the purchasing article from the database
         try {
-            if (is_file(ConfigModuleVars::interventionsDocumentFolder . "/" . $intervention->getFileName())) {
-                if (!@unlink(ConfigModuleVars::interventionsDocumentFolder . "/" . $intervention->getFileName())) {
+            if (is_file(ConfigModuleVars::interventionsDocumentFolder() . "/" . $intervention->getFileName())) {
+                if (!@unlink(ConfigModuleVars::interventionsDocumentFolder() . "/" . $intervention->getFileName())) {
                     throw new \Exception(\Igestis\I18n\Translate::_("Failed to delete the previous file."));
                 }
             }
@@ -95,15 +95,15 @@ class interventionsController extends \IgestisController {
             
             try {
                 
-                if(!is_dir(ConfigModuleVars::interventionsDocumentFolder)) {
-                    if(!@mkdir(ConfigModuleVars::interventionsDocumentFolder)) {
-                        throw new \Exception(sprintf(\Igestis\I18n\Translate::_("Unable to create the folder : '%s'"), ConfigModuleVars::interventionsDocumentFolder));
+                if(!is_dir(ConfigModuleVars::interventionsDocumentFolder())) {
+                    if(!@mkdir(ConfigModuleVars::interventionsDocumentFolder())) {
+                        throw new \Exception(sprintf(\Igestis\I18n\Translate::_("Unable to create the folder : '%s'"), ConfigModuleVars::interventionsDocumentFolder()));
                     }
                 }
                 switch ($this->request->getPost("getFile")) {
                     case "scanner" :     
                         $filename = uniqid("", true) . ".jpg";                         
-                        \Igestis\Utils\Scanner::launchScanner($this->request->getPost("selectedScanner"), ConfigModuleVars::interventionsDocumentFolder, $filename);
+                        \Igestis\Utils\Scanner::launchScanner($this->request->getPost("selectedScanner"), ConfigModuleVars::interventionsDocumentFolder(), $filename);
                         $intervention->setFileName($filename);
                         break;
                     case "file" :
@@ -112,13 +112,13 @@ class interventionsController extends \IgestisController {
                         
                         $pathinfo = pathinfo($_FILES['file']['name']);                        
                         $filename = uniqid("", true) . "." . $pathinfo['extension'];                        
-                        move_uploaded_file($_FILES['file']['tmp_name'], ConfigModuleVars::interventionsDocumentFolder . "/" . $filename);
+                        move_uploaded_file($_FILES['file']['tmp_name'], ConfigModuleVars::interventionsDocumentFolder() . "/" . $filename);
                         
                         $intervention->setFileName($filename);
                         break;
                     case "delete" :
-                        if (is_file(ConfigModuleVars::interventionsDocumentFolder . "/" . $intervention->getFileName())) {
-                            if (!@unlink(ConfigModuleVars::interventionsDocumentFolder . "/" . $intervention->getFileName())) {
+                        if (is_file(ConfigModuleVars::interventionsDocumentFolder() . "/" . $intervention->getFileName())) {
+                            if (!@unlink(ConfigModuleVars::interventionsDocumentFolder() . "/" . $intervention->getFileName())) {
                                 throw new \Exception(\Igestis\I18n\Translate::_("Failed to delete the previous file."));
                             }
                         }
@@ -293,7 +293,7 @@ class interventionsController extends \IgestisController {
                 switch ($this->request->getPost("getFile")) {
                     case "scanner" :     
                         $filename = uniqid("", true) . ".jpg"; 
-                        \Igestis\Utils\Scanner::launchScanner($this->request->getPost("selectedScanner"), ConfigModuleVars::interventionsDocumentFolder, $filename);
+                        \Igestis\Utils\Scanner::launchScanner($this->request->getPost("selectedScanner"), ConfigModuleVars::interventionsDocumentFolder(), $filename);
                         $intervention->setFileName($filename);
                         break;
                     case "file" :
@@ -302,13 +302,13 @@ class interventionsController extends \IgestisController {
                         
                         $pathinfo = pathinfo($_FILES['file']['name']);                        
                         $filename = uniqid("", true) . "." . $pathinfo['extension'];                        
-                        move_uploaded_file($_FILES['file']['tmp_name'], ConfigModuleVars::interventionsDocumentFolder . "/" . $filename);
+                        move_uploaded_file($_FILES['file']['tmp_name'], ConfigModuleVars::interventionsDocumentFolder() . "/" . $filename);
                         
                         $intervention->setFileName($filename);
                         break;
                     case "delete" :
-                        if (is_file(ConfigModuleVars::interventionsDocumentFolder . "/" . $intervention->getFileName())) {
-                            if (!@unlink(ConfigModuleVars::interventionsDocumentFolder . "/" . $intervention->getFileName())) {
+                        if (is_file(ConfigModuleVars::interventionsDocumentFolder() . "/" . $intervention->getFileName())) {
+                            if (!@unlink(ConfigModuleVars::interventionsDocumentFolder() . "/" . $intervention->getFileName())) {
                                 throw new \Exception(\Igestis\I18n\Translate::_("Failed to delete the previous file."));
                             }
                         }
@@ -382,7 +382,7 @@ class interventionsController extends \IgestisController {
     public function downloadAction($Id, $forceDl) {
          $intervention = $this->_em->find("CommercialSupportIntervention", $Id);
          if(!$intervention) $this->context->throw404error();
-         $filename = ConfigModuleVars::interventionsDocumentFolder . "/" . $intervention->getFilename();
+         $filename = ConfigModuleVars::interventionsDocumentFolder() . "/" . $intervention->getFilename();
          
          if(!is_file($filename) || !is_readable($filename)) $this->context->throw404error ();
          $this->context->renderFile($filename, $forceDl);

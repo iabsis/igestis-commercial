@@ -53,7 +53,7 @@ class invoicesController extends \IgestisController {
          
          $invoice = $this->_em->getRepository("CommercialInvoice")->find($Id);
          if(!$invoice) $this->context->throw404error();
-         $filename = ConfigModuleVars::invoicesFolder . "/" . $invoice->getCommercialDocument()->getCompany()->getId() . "/" . $invoice->getPathPdfFile();
+         $filename = ConfigModuleVars::invoicesFolder() . "/" . $invoice->getCommercialDocument()->getCompany()->getId() . "/" . $invoice->getPathPdfFile();
          if(!is_file($filename) || !is_readable($filename)) $this->context->throw404error ();
          $this->context->renderFile($filename, $forceDl);
     }
@@ -100,7 +100,7 @@ class invoicesController extends \IgestisController {
                 // And optionally an alternative body
                 ->addPart($html, 'text/html')
                 // Attech the quotation pdf
-                ->attach(\Swift_Attachment::fromPath(ConfigModuleVars::invoicesFolder . "/" . $company->getId() . "/" . $invoice->getPathPdfFile(), "application/pdf"))                
+                ->attach(\Swift_Attachment::fromPath(ConfigModuleVars::invoicesFolder() . "/" . $company->getId() . "/" . $invoice->getPathPdfFile(), "application/pdf"))                
             ;
             // Send the mail
             \IgestisMailer::send($message);

@@ -1,0 +1,1 @@
+UPDATE  `COMMERCIAL_SOLD_TYPE` SET  `label` =  'Debit' WHERE  `COMMERCIAL_SOLD_TYPE`.`code` =  'LEVY';

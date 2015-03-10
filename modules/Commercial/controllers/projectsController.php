@@ -347,18 +347,18 @@ class projectsController extends \IgestisController {
     }
     
     public function linkFreeDocumentAction($ProjectId) {
-        igestis_logger("Try to upload a document for project id '$ProjectId'");
+        \Igestis\Utils\Debug::FileLogger("Try to upload a document for project id '$ProjectId'");
         $project = $this->_em->find("CommercialProject", $ProjectId);
         if(!$project) exit;
         
         $uploadHandler = new \Igestis\Utils\UploadHandler(array(
-            "upload_dir" => ConfigModuleVars::freeDocumentFolder. "/"
+            "upload_dir" => ConfigModuleVars::freeDocumentFolder(). "/"
         ), false);
         
         $entityManager = $this->_em;
         
         $uploadHandler->setUploadedCallback(function($filePath = "") use($entityManager, $project) {
-            igestis_logger("new free document $filePath");
+            \Igestis\Utils\Debug::FileLogger("new free document $filePath");
             
             $freeDocument = new \CommercialFreeDocument();
             $freeDocument->setProject($project)->setFilename($filePath);
@@ -377,7 +377,7 @@ class projectsController extends \IgestisController {
         if($freeDocument->getProject()->getId() != $ProjectId) $ajaxResponse->setError (\Igestis\I18n\Translate::_("Wrong project and free document association"));
         
         try {
-            $file = ConfigModuleVars::freeDocumentFolder . "/" . $freeDocument->getFilename();
+            $file = ConfigModuleVars::freeDocumentFolder() . "/" . $freeDocument->getFilename();
             if(is_file($file)) @unlink($file);
             $this->_em->remove($freeDocument);
             $this->_em->flush();
@@ -406,7 +406,7 @@ class projectsController extends \IgestisController {
          $document = $this->_em->find("CommercialFreeDocument", $Id);
          if(!$document) $this->context->throw404error();
          
-         $filename = ConfigModuleVars::freeDocumentFolder . "/" . $document->getFilename();
+         $filename = ConfigModuleVars::freeDocumentFolder() . "/" . $document->getFilename();
          
          if(!is_file($filename) || !is_readable($filename)) $this->context->throw404error ();
          $this->context->renderFile($filename, $forceDl);

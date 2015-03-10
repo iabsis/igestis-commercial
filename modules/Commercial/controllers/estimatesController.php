@@ -45,7 +45,7 @@ class estimatesController extends \IgestisController {
     public function downloadAction($Id, $forceDl) {
          $estimate = $this->_em->getRepository("CommercialEstimate")->find($Id);
          if(!$estimate) $this->context->throw404error();
-         $filename = ConfigModuleVars::quotationsFolder . "/" . $estimate->getCommercialDocument()->getCompany()->getId() . "/" . $estimate->getPathPdfFile();
+         $filename = ConfigModuleVars::quotationsFolder() . "/" . $estimate->getCommercialDocument()->getCompany()->getId() . "/" . $estimate->getPathPdfFile();
          
          if(!is_file($filename) || !is_readable($filename)) $this->context->throw404error ();
          $this->context->renderFile($filename, $forceDl);
@@ -94,7 +94,7 @@ class estimatesController extends \IgestisController {
                 // And optionally an alternative body
                 ->addPart($html, 'text/html')
                 // Attech the quotation pdf
-                ->attach(\Swift_Attachment::fromPath(ConfigModuleVars::quotationsFolder . "/" . $company->getId() . "/" . $estimate->getPathPdfFile(), "application/pdf"))                
+                ->attach(\Swift_Attachment::fromPath(ConfigModuleVars::quotationsFolder() . "/" . $company->getId() . "/" . $estimate->getPathPdfFile(), "application/pdf"))                
             ;
             // Send the mail
             \IgestisMailer::send($message);

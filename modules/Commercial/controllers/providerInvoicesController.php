@@ -24,7 +24,7 @@ class providerInvoicesController extends \IgestisController {
     
     public function newAction() {
         $uploadHandler = new \Igestis\Utils\UploadHandler(array(
-            "upload_dir" => ConfigModuleVars::providersInvoicesFolder. "/",
+            "upload_dir" => ConfigModuleVars::providersInvoicesFolder(). "/",
             "accept_file_types" =>  '/(gif|jpe?g|png|pdf)$/i'
         ), false);
         
@@ -32,7 +32,7 @@ class providerInvoicesController extends \IgestisController {
         
         $uploadHandler->setUploadedCallback(function($filePath = "") use($entityManager) {
             \Igestis\Utils\Debug::FileLogger("Start to import a new provider invoice");
-            $md5 = md5_file(ConfigModuleVars::providersInvoicesFolder. "/" . $filePath);
+            $md5 = md5_file(ConfigModuleVars::providersInvoicesFolder(). "/" . $filePath);
             $alreadyExists = $entityManager->getRepository('CommercialProviderInvoice')->findOneBy(array("fileMd5Hash" => $md5));
             if($alreadyExists) {
                 $message = \Igestis\I18n\Translate::_("This md5 does already exist : this invoice has already been imported.");
@@ -137,7 +137,7 @@ class providerInvoicesController extends \IgestisController {
          
          $invoice = $this->_em->getRepository("CommercialProviderInvoice")->find($Id);
          if(!$invoice) $this->context->throw404error();
-         $filename = ConfigModuleVars::providersInvoicesFolder . "/" . $invoice->getInvoicePath();
+         $filename = ConfigModuleVars::providersInvoicesFolder() . "/" . $invoice->getInvoicePath();
          if(!is_file($filename) || !is_readable($filename)) $this->context->throw404error ();
          $this->context->renderFile($filename, $forceDl);
     }
