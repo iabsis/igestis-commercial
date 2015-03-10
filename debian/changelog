@@ -1,10 +1,16 @@
+igestis-commercial (3.0.1) wheezy; urgency=medium
+
+  * Feature: ability to duplicate an intervention.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 10 Mar 2015 09:32:47 +0100
+
 igestis-commercial (3.0.0) wheezy; urgency=medium
 
   * New upstream release.
   * Feature: new time tracking management inside a project.
   * New release for iGestis v3 compatibility.
 
- -- Olivier Bitsch <olivierb@olivier-tanglu>  Sat, 21 Feb 2015 16:08:41 +0100
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Sat, 21 Feb 2015 16:08:41 +0100
 
 igestis-commercial (2.0.9) wheezy; urgency=medium
 
