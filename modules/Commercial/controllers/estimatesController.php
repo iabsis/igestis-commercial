@@ -63,7 +63,7 @@ class estimatesController extends \IgestisController {
         
         // Get recipient from the POST form
         $email = $this->request->getPost("email");
-        if(!is_email($email)) {
+        if(!\Igestis\Utils\FormatChecker::isEmail($email)) {
             $ajaxRender->addWizz(\Igestis\I18n\Translate::_("Please provide a valid email address"), \wizz::$WIZZ_ERROR)
                        ->setError(\Igestis\I18n\Translate::_("Please provide a valid email address"));
         }
