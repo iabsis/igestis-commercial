@@ -21,19 +21,13 @@ class projectParametersController extends \IgestisController {
             try {
                 // Set the new datas to the account
                 $parser = new \IgestisFormParser();
-                $companyConfig = $parser->FillEntityFromForm($companyConfig, $_POST);
-                
-                $this->context->renderFromString($companyConfig->getExportHeader(), array());
-                $this->context->renderFromString($companyConfig->getExportFormat(), array());
-                
-                if(!$this->request->getPost("exportHeader")) {
-                    $ajaxResponse->addAssign("id-exportHeader", $companyConfig->getExportHeader());
-                }
-                
-                if(!$this->request->getPost("exportFormat")) {
-                    $ajaxResponse->addAssign("id-exportFormat", $companyConfig->getExportFormat());
-                }
+                $companyConfig->setProjectShowDocuments(false)
+                              ->setProjectShowInterventions(false)
+                              ->setProjectShowBuyingInvoices(false)
+                              ->setProjectShowSalesDocuments(false);
+                              
 
+                $companyConfig = $parser->FillEntityFromForm($companyConfig, $_POST);
                 $this->context->entityManager->persist($companyConfig);
                 $this->context->entityManager->flush();
                 

@@ -1,0 +1,5 @@
+ALTER TABLE  `COMMERCIAL_COMPANY_CONFIG` ADD  `project_show_documents` BOOLEAN NOT NULL DEFAULT  '0',
+ADD  `project_show_buying_invoices` BOOLEAN NOT NULL DEFAULT  '0',
+ADD  `project_show_sales_documents` BOOLEAN NOT NULL DEFAULT  '0',
+ADD  `project_show_interventions` BOOLEAN NOT NULL DEFAULT  '0';
+

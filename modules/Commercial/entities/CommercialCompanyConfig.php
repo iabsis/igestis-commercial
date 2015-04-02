@@ -99,7 +99,35 @@ class CommercialCompanyConfig
      * @Column(name="imprint", type="string")
      */
     private $imprint;
-    
+
+    /**
+     * project_show_documents  
+     * @var string $project_show_documents  
+     * @Column(name="project_show_documents", type="boolean")
+     */
+    private $projectShowDocuments;
+
+    /**
+     * project_show_buying_invoices    
+     * @var string $project_show_buying_invoices    
+     * @Column(name="project_show_buying_invoices", type="boolean")
+     */
+    private $projectShowBuyingInvoices;
+
+    /**
+     * project_show_sales_documents    
+     * @var string $project_show_sales_documents    
+     * @Column(name="project_show_sales_documents", type="boolean")
+     */
+    private $projectShowSalesDocuments;
+
+    /**
+     * project_show_interventions
+     * @var string $project_show_interventions
+     * @Column(name="project_show_interventions", type="boolean")
+     */
+    private $projectShowInterventions;
+
     /**
      * @var string $terms
      *
@@ -139,6 +167,11 @@ class CommercialCompanyConfig
         $this->taxRate = 0;
         $this->estimateExpirationDays = 7;
         $this->invoicePaymentLimit = 30;
+
+        $this->projectShowDocuments = false;
+        $this->projectShowInterventions = false;
+        $this->projectShowBuyingInvoices = false;
+        $this->projectShowSalesDocuments = false;
         
         $app = Application::getInstance();
         
@@ -488,6 +521,102 @@ class CommercialCompanyConfig
         return $this;
     }
 
+    /**
+     * Gets the project_show_documents.
+     *
+     * @return string $project_show_documents
+     */
+    public function getProjectShowDocuments()
+    {
+        return $this->projectShowDocuments;
+    }
+
+    /**
+     * Sets the project_show_documents.
+     *
+     * @param string $project_show_documents $projectShowDocuments the project show documents
+     *
+     * @return self
+     */
+    public function setProjectShowDocuments($projectShowDocuments)
+    {
+        $this->projectShowDocuments = $projectShowDocuments;
+
+        return $this;
+    }
+
+    /**
+     * Gets the project_show_interventions.
+     *
+     * @return string $project_show_interventions
+     */
+    public function getProjectShowInterventions()
+    {
+        return $this->projectShowInterventions;
+    }
+
+    /**
+     * Sets the project_show_interventions.
+     *
+     * @param string $project_show_interventions $projectShowInterventions the project show interventions
+     *
+     * @return self
+     */
+    public function setProjectShowInterventions($projectShowInterventions)
+    {
+        $this->projectShowInterventions = $projectShowInterventions;
+
+        return $this;
+    }
+
+    /**
+     * Gets the project_show_buying_invoices.
+     *
+     * @return string $project_show_buying_invoices
+     */
+    public function getProjectShowBuyingInvoices()
+    {
+        return $this->projectShowBuyingInvoices;
+    }
+
+    /**
+     * Sets the project_show_buying_invoices.
+     *
+     * @param string $project_show_buying_invoices $projectShowBuyingInvoices the project show buying invoices
+     *
+     * @return self
+     */
+    public function setProjectShowBuyingInvoices($projectShowBuyingInvoices)
+    {
+        $this->projectShowBuyingInvoices = $projectShowBuyingInvoices;
+
+        return $this;
+    }
+
+    /**
+     * Gets the project_show_sales_documents.
+     *
+     * @return string $project_show_sales_documents
+     */
+    public function getProjectShowSalesDocuments()
+    {
+        return $this->projectShowSalesDocuments;
+    }
+
+    /**
+     * Sets the project_show_sales_documents.
+     *
+     * @param string $project_show_sales_documents $projectShowSalesDocuments the project show sales documents
+     *
+     * @return self
+     */
+    public function setProjectShowSalesDocuments($projectShowSalesDocuments)
+    {
+        $this->projectShowSalesDocuments = $projectShowSalesDocuments;
+
+        return $this;
+    }
+
         
     /**
      * @PrePersist
@@ -500,6 +629,8 @@ class CommercialCompanyConfig
         
         $this->exportFormat = null;
     }
+
+
 }
 
 // ---------------------------------------------------------------------
@@ -559,4 +690,6 @@ class CommercialCompanyConfigRepository extends \Doctrine\ORM\EntityRepository {
         
     }
 
+
+    
 }
