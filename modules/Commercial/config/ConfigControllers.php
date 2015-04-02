@@ -110,6 +110,18 @@ class ConfigControllers extends \IgestisConfigController {
             
             /***************** Manage the configurations of the company *****************************************************/
             array(
+                'id' => 'commercial_project_parameters_config',
+                'Parameters' => array(
+                    'Module' => 'Commercial',
+                    'Action' => 'project_parameters_config'
+                ),
+                'Controller' => '\Igestis\Modules\Commercial\projectParametersController',
+                'Action' => 'editAction',
+                'Access' => array('COMMERCIAL:ADMIN')
+            ),
+            
+            /***************** Manage the configurations of the company *****************************************************/
+            array(
                 'id' => 'commercial_parameters_config',
                 'Parameters' => array(
                     'Module' => 'Commercial',
