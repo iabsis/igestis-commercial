@@ -12,7 +12,11 @@
       <div class="row-fluid">
           <div class="span6">      
                  {{ forms.text(form_data.title, 'Title'|trans) }}
-                 {{ forms.text(form_data.description, 'Description'|trans) }}
+                 <div class="control-group">
+                    <label class="control-label"><b>{% trans %}Description{% endtrans %}</b></label>
+                    <div class="controls" style="padding-top: 5px;">{{ form_data.description|nl2br|raw }}</div>
+                 </div>
+
                  {{ forms.text(form_data.workerContact.user.userLabel, 'Worker'|trans) }}
                  {{ forms.text(form_data.type, 'Type'|trans) }}
                   
