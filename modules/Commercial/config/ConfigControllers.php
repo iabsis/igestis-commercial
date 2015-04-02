@@ -538,7 +538,7 @@ class ConfigControllers extends \IgestisConfigController {
                 ),
                 'Controller' => '\Igestis\Modules\Commercial\estimatesController',
                 'Action' => 'downloadAction',
-                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
+                'Access' => array('AUTHENTICATED')
             ),
 
             array(

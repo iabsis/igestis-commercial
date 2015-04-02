@@ -43,12 +43,18 @@ class estimatesController extends \IgestisController {
      * 1 => Forced download
      */
     public function downloadAction($Id, $forceDl) {
-         $estimate = $this->_em->getRepository("CommercialEstimate")->find($Id);
-         if(!$estimate) $this->context->throw404error();
-         $filename = ConfigModuleVars::quotationsFolder() . "/" . $estimate->getCommercialDocument()->getCompany()->getId() . "/" . $estimate->getPathPdfFile();
-         
-         if(!is_file($filename) || !is_readable($filename)) $this->context->throw404error ();
-         $this->context->renderFile($filename, $forceDl);
+        $estimate = $this->_em->getRepository("CommercialEstimate")->find($Id);
+        $currentUserId = $this->context->security->user->getId();
+        $isEmployee = ($this->context->security->user->getUserType() == \CoreUsers::USER_TYPE_EMPLOYEE);
+
+        if (!$estimate || (!$isEmployee && $estimate->getCommercialDocument()->getCustomerUser()->getId() != $currentUserId))
+        {
+            $this->context->throw404error();
+        }
+        $filename = ConfigModuleVars::quotationsFolder() . "/" . $estimate->getCommercialDocument()->getCompany()->getId() . "/" . $estimate->getPathPdfFile();
+        
+        if(!is_file($filename) || !is_readable($filename)) $this->context->throw404error ();
+        $this->context->renderFile($filename, $forceDl);
     }
     
     /**
