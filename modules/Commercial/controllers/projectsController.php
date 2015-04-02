@@ -39,17 +39,20 @@ class projectsController extends \IgestisController {
     {
 
         $project = $this->_em->find("CommercialProject", $Id);
+        $rights = $this->_em->getRepository("CommercialCompanyConfig")->getCompanyConfig();
 
-//        \Igestis\Utils\Dump::show($project);
-//        exit();
-// TODO Check this function for security
-//        if (!$project || $project->getCustomerUser()->getId() != $this->context->security->user->getId()) {
-//            $this->context->throw404error();
-//        }
+        if (!$project || $project->getCustomerUser()->getId() != $this->context->security->user->getId()) {
+            $this->context->throw404error();
+        }
 
         // If no form received, show the form
         $this->context->render("Commercial/pages/clientProjectsView.twig", array(
-            'project' => $project
+            'project' => $project,
+            'rights' => $rights,
+            "commercialDocuments" => $this->_em->getRepository("CommercialCommercialDocument")->findBy(array("project" => $project)),
+            "interventions" => $this->_em->getRepository("CommercialSupportIntervention")->findBy(array("project" => $project), array("date" => "DESC")),
+            "freeDocuments" => $this->_em->getRepository("CommercialFreeDocument")->findBy(array("project" => $project)),
+            "buyingInvoices" => $this->_em->getRepository("CommercialProviderInvoice")->findBy(array("project" => $project))
         ));
     }
 
