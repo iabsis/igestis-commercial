@@ -29,7 +29,7 @@
 				{% endspaceless %}
 				{{ commercialInvoice.commercialDocument.company.postalCode }} {{ commercialInvoice.commercialDocument.company.city }}<br />
 				{% if commercialInvoice.commercialDocument.company.tvaNumber %}<strong>{% trans %}VAT{% endtrans %} :</strong> {{ commercialInvoice.commercialDocument.company.tvaNumber }}{% endif %}
-				
+
 			</td>
 			<td width="20%">&nbsp;</td>
 			<td width="40%">
@@ -158,10 +158,10 @@
 
 <p style="text-align: center">
 {% spaceless %}
-		{{ commercialInvoice.commercialDocument.company.name }} - 
+		{{ commercialInvoice.commercialDocument.company.name }} -
 		{{ commercialInvoice.commercialDocument.company.address1 }}{{ commercialInvoice.commercialDocument.company.address2 ? " - " }}
 		{{ commercialInvoice.commercialDocument.company.address2 }} -
-		{{ commercialInvoice.commercialDocument.company.postalCode }} - 
+		{{ commercialInvoice.commercialDocument.company.postalCode }} -
 		{{ commercialInvoice.commercialDocument.company.city }}<br>
 		{% if commercialInvoice.commercialDocument.company.rcs %}{% trans %}RCS{% endtrans %} : {{ commercialInvoice.commercialDocument.company.rcs }}{% endif %}
 		{{ commercialInvoice.commercialDocument.company.siteWeb ? " - " }}{{ commercialInvoice.commercialDocument.company.siteWeb }}
@@ -176,5 +176,5 @@
         <h1>Terms</h1>
         <div style="color: #666; font-size: {{ companyConfig.termsFontSize }}pt;">{{ companyConfig.terms|raw }}</div>
     {% endif %}
-    
+
 {% endblock terms %}

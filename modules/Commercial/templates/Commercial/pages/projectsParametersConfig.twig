@@ -1,0 +1,96 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Projects configuration"|trans,
+                'help': "Configure your projects settings"|trans} %}
+
+
+{% set sidebarActivated = true %}
+{% block sidebar %}
+  {% include 'sidebar.twig' %}
+{% endblock %}
+
+{% block content %}{{ parent() }}
+
+<link href="{{ TEMPLATE_URL }}/css/bootstrap-wysihtml5.css" rel="stylesheet">
+<link href="{{ TEMPLATE_URL }}/css/prettify.css" rel="stylesheet">
+
+<script src="{{ TEMPLATE_URL }}/js/wysihtml5-0.3.0.js"></script>
+<script src="{{ TEMPLATE_URL }}/js/prettify.js"></script>
+<script src="{{ TEMPLATE_URL }}/js/bootstrap-wysihtml5.js"></script>
+
+<ul class="nav nav-tabs">
+  <li class="active">
+    <a href="#project-rights" data-toggle="tab">{% trans %}Client visibility{% endtrans %}</a>
+  </li>
+</ul>
+
+<form id="form_data" class="ajax-emulation-validation" method='post' action=''>
+{# Tabls content #}
+<div class="tab-content">
+    {# Purchasing section pane content #}
+    <div class="tab-pane active" id="project-rights">
+        <fieldset>
+            <div class="row-fluid">
+                <div class="span5">
+                  {{ forms.switchbox('settingsViewExternalDocuments', 'External document visibility'|trans, form_data.settingsViewExternalDocuments, null, null, "checkbox") }}
+                  {{ forms.switchbox('settingsViewCommercialDocument', 'Commercial document visibility'|trans, form_data.settingsViewCommercialDocument, null, null, "checkbox") }}
+                </div>
+                <div class="span5 offset1">
+                  {{ forms.switchbox('settingsViewIntervention', 'Interventions visibility'|trans, form_data.settingsViewIntervention, null, null, "checkbox") }}
+                  {{ forms.switchbox('settingsViewBuyingInvoices', 'Buying invoices visibility'|trans, form_data.settingsViewBuyingInvoices, null, null, "checkbox") }}
+                </div>
+            </div>
+
+
+        </fieldset>
+    </div>
+
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
+        <input class="btn" type="button" value="{% trans %}Cancel{% endtrans %}" onclick="javascript:history.go(-1);return true;">
+    </div>
+
+
+</div>
+</form>
+
+
+
+<script>
+$(document).ready(function(){
+        $('#id-mailEstimate, #id-mailInvoice, #id-imprint, #id-terms').wysihtml5();
+
+        $("#form_data").validate({
+                rules:{
+                        estimateExpirationDays:{
+                                required:true
+                        },
+                        invoicePaymentLimit:{
+                                required:true
+                        },
+
+                        taxRate:{
+                                required:true
+                        }
+                },
+                errorClass: "help-inline",
+                errorElement: "span",
+                errorPlacement: function(error, element) {
+                        element.parent().after(error);
+                },
+                highlight:function(element, errorClass, validClass) {
+                        $(element).parents('.control-group').removeClass('success');
+                        $(element).parents('.control-group').addClass('error');
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                        $(element).parents('.control-group').removeClass('error');
+                        $(element).parents('.control-group').addClass('success');
+                }
+        });
+});
+</script>
+
+
+{% endblock %}
