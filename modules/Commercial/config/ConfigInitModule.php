@@ -114,6 +114,26 @@ class ConfigInitModule implements \Igestis\Interfaces\ConfigMenuInterface, \Iges
         		\Igestis\I18n\Translate::_("Export", ConfigModuleVars::textDomain()),
         		"commercial_export_index"
         );
+
+        if (true) { //$context->security->user && $context->security->user->getUserType() == \CoreUsers::USER_TYPE_EMPLOYEE) {
+            $menu->addItem(
+                \Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+                \Igestis\I18n\Translate::_("My projects", ConfigModuleVars::textDomain()),
+                "commercial_my_account_project_index"
+            );
+
+            $menu->addItem(
+                \Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+                \Igestis\I18n\Translate::_("My interventions", ConfigModuleVars::textDomain()),
+                "commercial_my_account_interventions_index"
+            );
+
+            $menu->addItem(
+                \Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+                \Igestis\I18n\Translate::_("My commercial documents", ConfigModuleVars::textDomain()),
+                "commercial_my_account_selling_document_index"
+            );
+        }
         
     }
 
