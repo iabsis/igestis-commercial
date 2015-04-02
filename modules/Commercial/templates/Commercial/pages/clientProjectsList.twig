@@ -23,7 +23,7 @@
             </div>
             <div class="form-actions">
                 <input type="hidden" name="Module" value="Commercial" />
-                <input type="hidden" name="Action" value="projects_index" />
+                <input type="hidden" name="Action" value="my_account_project_index" />
                 <button type="submit" class="btn btn-primary"><i class="icon-search"></i> {% trans %}Search{% endtrans %}</button>
             </div>
         </fieldset>
@@ -32,11 +32,6 @@
 </div>
 <br />
 
-{# start #}
-<div class="row-fluid" align="right">
-    <a href="javascript:;" onclick="javascript:create_or_duplicate_project(null);" class="btn btn-success btn-small"><i class="icon-plus-sign icon-white"></i> {% trans %}New project{% endtrans %}</a>
-</div>
-<br />
 
 {% import "table.twig" as table_data %}
 {{ table_data.datatable() }}

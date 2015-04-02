@@ -115,7 +115,7 @@ class ConfigInitModule implements \Igestis\Interfaces\ConfigMenuInterface, \Iges
         		"commercial_export_index"
         );
 
-        if (true) { //$context->security->user && $context->security->user->getUserType() == \CoreUsers::USER_TYPE_EMPLOYEE) {
+        if ($context->security->user && $context->security->user->getUserType() != \CoreUsers::USER_TYPE_EMPLOYEE) {
             $menu->addItem(
                 \Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("My projects", ConfigModuleVars::textDomain()),
