@@ -374,7 +374,7 @@ class ConfigControllers extends \IgestisConfigController {
                 ),
                 'Controller' => '\Igestis\Modules\Commercial\projectsController',
                 'Action' => 'downloadAction',
-                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
+                'Access' => array('AUTHENTICATED')
             ),
             array(
                 'id' => 'commercial_project_refresh_free_documents',
@@ -832,7 +832,7 @@ class ConfigControllers extends \IgestisConfigController {
                 ),
                 'Controller' => '\Igestis\Modules\Commercial\providerInvoicesController',
                 'Action' => 'downloadAction',
-                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL', 'COMMERCIAL:COMP')
+                'Access' => array('AUTHENTICATED')
             ),
             array(
                 'id' => 'commercial_provider_invoices_add_amount',

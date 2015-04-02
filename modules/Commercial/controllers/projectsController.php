@@ -438,13 +438,25 @@ class projectsController extends \IgestisController {
      * 1 => Forced download
      */
     public function downloadAction($Id, $forceDl) {
-         $document = $this->_em->find("CommercialFreeDocument", $Id);
-         if(!$document) $this->context->throw404error();
+        $currentUserId = $this->context->security->user->getId();
+        $isEmployee = ($this->context->security->user->getUserType() == \CoreUsers::USER_TYPE_EMPLOYEE);
+        $companyConfig = $this->_em->getRepository("CommercialCompanyConfig")->getCompanyConfig();
 
-         $filename = ConfigModuleVars::freeDocumentFolder() . "/" . $document->getFilename();
 
-         if(!is_file($filename) || !is_readable($filename)) $this->context->throw404error ();
-         $this->context->renderFile($filename, $forceDl);
+        $document = $this->_em->find("CommercialFreeDocument", $Id);
+
+        // If document not fount or the actual user in not an employee and the linked customer is not the current autheticated one
+        if (!$document || (!$isEmployee && $document->getProject()->getCustomerUser()->getId() != $currentUserId)) {
+            $this->context->throw404error();
+        }
+        // If not employee and the free documents displays in disabled in general configuration
+        if (!$isEmployee && !$companyConfig->getProjectShowDocuments()) {
+            $this->context->throw404error();
+        }
+
+        $filename = ConfigModuleVars::freeDocumentFolder() . "/" . $document->getFilename();
+        if(!is_file($filename) || !is_readable($filename)) $this->context->throw404error ();
+        $this->context->renderFile($filename, $forceDl);
     }
 
     public function refreshFreeDocumentsAction($ProjectId) {
