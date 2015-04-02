@@ -1,17 +1,23 @@
-igestis-commercial (3.0.2) wheezy; urgency=medium
+igestis-commercial (3.0.3) testing; urgency=medium
+
+  * Feature #3 : new pages for client.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Fri, 03 Apr 2015 00:17:27 +0200
+
+igestis-commercial (3.0.2) testing; urgency=medium
 
   * Feature: new config.ini for configuration file.
   * Bug: by default, all system files goes in the data folder.
 
  -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 10 Mar 2015 21:52:55 +0100
 
-igestis-commercial (3.0.1) wheezy; urgency=medium
+igestis-commercial (3.0.1) testing; urgency=medium
 
   * Feature: ability to duplicate an intervention.
 
  -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 10 Mar 2015 09:32:47 +0100
 
-igestis-commercial (3.0.0) wheezy; urgency=medium
+igestis-commercial (3.0.0) testing; urgency=medium
 
   * New upstream release.
   * Feature: new time tracking management inside a project.
@@ -19,7 +25,7 @@ igestis-commercial (3.0.0) wheezy; urgency=medium
 
  -- Olivier Bitsch <olivier.b@iabsis.com>  Sat, 21 Feb 2015 16:08:41 +0100
 
-igestis-commercial (2.0.9) wheezy; urgency=medium
+igestis-commercial (2.0.9) stable; urgency=medium
 
   * Fix igestis dependancy.
 
