@@ -5,3 +5,4 @@ configure-stamp
 debian/igestis-commercial
 .project
 .settings
+.remote-sync.json

@@ -14,13 +14,39 @@ class projectsController extends \IgestisController {
     public function indexAction() {
         $searchForm = new Forms\projectSearchForm();
         $searchForm->initFromGet();
-        
+
         $this->context->render("Commercial/pages/projectsList.twig", array(
             "searchForm" => $searchForm,
             'data_table' =>  $this->_em->getRepository("CommercialProject")->findFromSearchForm($searchForm)
         ));
     }
-    
+
+    /**
+     * Display project list shared with the client
+     */
+    public function myAccountIndexAction() {
+        $searchForm = new Forms\projectSearchForm();
+        $searchForm->initFromGet();
+
+        $this->context->render("Commercial/pages/clientProjectsList.twig", array(
+            "searchForm" => $searchForm,
+            'data_table' =>  $this->_em->getRepository("CommercialProject")->findFromSearchForm($searchForm)
+        ));
+    }
+
+    public function showAction($Id)
+    {
+        $project = $this->_em->find("CommercialSupportIntervention", $Id);
+        if (!$project || $project->getCustomerUser()->getId() != $this->context->security->user->getId()) {
+            $this->context->throw404error();
+        }
+
+        // If no form received, show the form
+        $this->context->render("Commercial/pages/clientProjectsView.twig", array(
+            'form_data' => $project
+        ));
+    }
+
 
     /**
      * Delete the project
@@ -28,7 +54,7 @@ class projectsController extends \IgestisController {
     public function delAction($Id) {
         $project = $this->context->entityManager->getRepository("CommercialProject")->find($Id);
         if(!$project) $this->context->throw404error();
-        
+
         // Delete the purchasing article from the database
         try {
             $this->context->entityManager->remove($project);
@@ -52,26 +78,26 @@ class projectsController extends \IgestisController {
      */
     public function newAction() {
         $project = new \CommercialProject;
-        
+
         if ($this->request->IsPost()) {
 
             // Create the new commercial document
             $parser = new \IgestisFormParser();
             $project = $parser->FillEntityFromForm($project, $_POST);
             $project->setCustomerUser($this->_em->getRepository("CoreUsers")->find($this->request->getPost("customerUser")));
-            
-            try {                
+
+            try {
                 $this->context->entityManager->persist($project);
-                $this->context->entityManager->flush();  
+                $this->context->entityManager->flush();
                 // Show wizz to article the article update
                 new \wizz(_("The project has been successfully created"), \WIZZ::$WIZZ_SUCCESS);
                 // Redirect to the article list
                 $this->redirect(\ConfigControllers::createUrl("commercial_project_edit", array("Id" => $project->getId())));
-                
+
             } catch (\Exception $e) {
                 \IgestisErrors::createWizz($e, \IgestisErrors::TYPE_ANY, \Igestis\I18n\Translate::_("An error has occurred during the project creation"));
                 $this->redirect(\ConfigControllers::createUrl("commercial_project_index"));
-            }            
+            }
         }
         else {
             new \wizz(\Igestis\I18n\Translate::_("No data has been received for the project creation"), \WIZZ::$WIZZ_ERROR);
@@ -79,35 +105,35 @@ class projectsController extends \IgestisController {
         }
 
     }
-    
+
     /**
      * Open the form to edit the project
      * @param type $Id Id of the project to edit
      */
     public function editAction($Id) {
-        
+
         $project = $this->_em->find("CommercialProject", $Id);
-        
+
         if($this->request->IsPost()) {
             // Create the new commercial document
             $parser = new \IgestisFormParser();
             $project = $parser->FillEntityFromForm($project, $_POST);
-            
-            try {                
+
+            try {
                 $this->context->entityManager->persist($project);
-                $this->context->entityManager->flush();  
+                $this->context->entityManager->flush();
                 // Show wizz to article the project update
                 new \wizz(_("The project has been successfully updated"), \WIZZ::$WIZZ_SUCCESS);
                 $this->redirect(\ConfigControllers::createUrl("commercial_project_edit", array("Id" => $project->getId())));
-                
+
             } catch (\Exception $e) {
                 \IgestisErrors::createWizz($e, \IgestisErrors::TYPE_ANY, \Igestis\I18n\Translate::_("An error has occurred during the selling document update"));
                 $this->redirect(\ConfigControllers::createUrl("commercial_project_edit", array("Id" => $project->getId())));
-            }         
+            }
         }
 
         /*$test = $this->_em->getRepository("CommercialCommercialDocument")->findBy(array("project" => $project));
-        echo $test[0]->getCreditTime(); 
+        echo $test[0]->getCreditTime();
         \Igestis\Utils\Dump::show($test);
             exit;*/
         $this->context->render("Commercial/pages/projectsEdit.twig", array(
@@ -118,13 +144,13 @@ class projectsController extends \IgestisController {
             "buyingInvoices" => $this->_em->getRepository("CommercialProviderInvoice")->findBy(array("project" => $project)),
         ));
     }
-    
+
     public function linkCommercialDocumentAction($projectId) {
         $project = $this->_em->find("CommercialProject", $projectId);
-        
-        
+
+
         if($this->request->IsPost()) {
-            
+
             $ajaxResponse = new \Igestis\Ajax\AjaxResult();
             if(!$project) $ajaxResponse->setError (\Igestis\I18n\Translate::_("Project not found"));
 
@@ -141,16 +167,16 @@ class projectsController extends \IgestisController {
             } catch (\Exception $exc) {
                 $ajaxResponse->setError (\Igestis\I18n\Translate::_("Error during the project association") . $exc->getMessage());
             }
-            
+
             $htmlContent = $this->context->render("Commercial/ajax/ProjectEditCommercialDocumentTableDiv.twig", array(
                 "project" => $project,
                 "commercialDocuments" => $this->_em->getRepository("CommercialCommercialDocument")->findBy(array("project" => $project)),
             ), true);
-            
+
             $totalsContent = $this->context->render("Commercial/ajax/ProjectEditTotals.twig", array(
                 "project" => $project,
             ), true);
-            
+
             $ajaxResponse
                     ->addAssign('CommercialTableDiv', $htmlContent)
                     ->addAssign('totals-section', $totalsContent)
@@ -160,23 +186,23 @@ class projectsController extends \IgestisController {
         }
         else {
             if(!$project) $this->context->throw404error ();
-            
+
             $this->context->render("Commercial/ajax/ModalContentLinkCommercialDocument.twig", array(
-                "availableCommercialDocuments" => $this->_em->getRepository("CommercialCommercialDocument")->getUnlinkedToProjectForCustomer($project->getCustomerUser())            
+                "availableCommercialDocuments" => $this->_em->getRepository("CommercialCommercialDocument")->getUnlinkedToProjectForCustomer($project->getCustomerUser())
             ));
         }
     }
-    
+
     public function unlinkCommercialDocumentAction($ProjectId, $CommercialDocumentId) {
-        
+
         $project = $this->_em->find("CommercialProject", $ProjectId);
-        
+
         $ajaxResponse = new \Igestis\Ajax\AjaxResult();
         if(!$project) $ajaxResponse->setError (\Igestis\I18n\Translate::_("Project not found"));
-        
+
         $commercialDocument = $this->_em->find("CommercialCommercialDocument", $CommercialDocumentId);
         if($commercialDocument->getProject()->getId() != $ProjectId) $ajaxResponse->setError (\Igestis\I18n\Translate::_("Wrong project and intervention association"));
-        
+
         try {
             $commercialDocument->setProject(null);
             $this->_em->persist($commercialDocument);
@@ -184,25 +210,25 @@ class projectsController extends \IgestisController {
         } catch (Exception $exc) {
             $ajaxResponse->setError (\Igestis\I18n\Translate::_("Error during the document unlink") . $exc->getMessage());
         }
-        
+
         $htmlContent = $this->context->render("Commercial/ajax/ProjectEditCommercialDocumentTableDiv.twig", array(
             "project" => $project,
             "commercialDocuments" => $this->_em->getRepository("CommercialCommercialDocument")->findBy(array("project" => $project)),
         ), true);
-        
+
         $totalsContent = $this->context->render("Commercial/ajax/ProjectEditTotals.twig", array(
                 "project" => $project,
             ), true);
 
         $ajaxResponse->addAssign('totals-section', $totalsContent)->addAssign('CommercialTableDiv', $htmlContent)->addScript('igestisCommercial.common.colorize();')->setSuccessful("ok")->render();
     }
-    
+
     public function linkInterventionAction($projectId) {
         $project = $this->_em->find("CommercialProject", $projectId);
-        
-        
+
+
         if($this->request->IsPost()) {
-            
+
             $ajaxResponse = new \Igestis\Ajax\AjaxResult();
             if(!$project) $ajaxResponse->setError (\Igestis\I18n\Translate::_("Project not found"));
 
@@ -219,39 +245,39 @@ class projectsController extends \IgestisController {
             } catch (\Exception $exc) {
                 $ajaxResponse->setError (\Igestis\I18n\Translate::_("Error during the project association") . $exc->getMessage());
             }
-            
+
             $htmlContent = $this->context->render("Commercial/ajax/ProjectEditInterventionTableDiv.twig", array(
                 "project" => $project,
                 "commercialDocuments" => $this->_em->getRepository("CommercialCommercialDocument")->findBy(array("project" => $project)),
                 "interventions" => $this->_em->getRepository("CommercialSupportIntervention")->findBy(array("project" => $project)),
             ), true);
-            
+
             $totalsContent = $this->context->render("Commercial/ajax/ProjectEditTotals.twig", array(
                 "project" => $project,
             ), true);
-            
+
             $ajaxResponse->addAssign('totals-section', $totalsContent)->addAssign('InterventionTableDiv', $htmlContent)->addScript('igestisCommercial.common.colorize();')->setSuccessful("ok")->render();
 
         }
         else {
             if(!$project) $this->context->throw404error ();
-            
+
             $this->context->render("Commercial/ajax/ModalContentLinkIntervention.twig", array(
-                "availableInterventions" => $this->_em->getRepository("CommercialSupportIntervention")->getUnlinkedToProjectForCustomer($project->getCustomerUser())            
+                "availableInterventions" => $this->_em->getRepository("CommercialSupportIntervention")->getUnlinkedToProjectForCustomer($project->getCustomerUser())
             ));
         }
     }
-    
+
     public function unlinkInterventionAction($ProjectId, $InterventionId) {
-        
+
         $project = $this->_em->find("CommercialProject", $ProjectId);
-        
+
         $ajaxResponse = new \Igestis\Ajax\AjaxResult();
         if(!$project) $ajaxResponse->setError (\Igestis\I18n\Translate::_("Project not found"));
-        
+
         $intervention = $this->_em->find("CommercialSupportIntervention", $InterventionId);
         if($intervention->getProject()->getId() != $ProjectId) $ajaxResponse->setError (\Igestis\I18n\Translate::_("Wrong project and intervention association"));
-        
+
         try {
             $intervention->setProject(null);
             $this->_em->persist($intervention);
@@ -259,25 +285,25 @@ class projectsController extends \IgestisController {
         } catch (Exception $exc) {
             $ajaxResponse->setError (\Igestis\I18n\Translate::_("Error during the intervention unlink") . $exc->getMessage());
         }
-        
+
         $htmlContent = $this->context->render("Commercial/ajax/ProjectEditInterventionTableDiv.twig", array(
             "project" => $project,
             "commercialDocuments" => $this->_em->getRepository("CommercialSupportIntervention")->findBy(array("project" => $project)),
         ), true);
-        
+
         $totalsContent = $this->context->render("Commercial/ajax/ProjectEditTotals.twig", array(
                 "project" => $project,
             ), true);
 
         $ajaxResponse->addAssign('totals-section', $totalsContent)->addAssign('InterventionTableDiv', $htmlContent)->addScript('igestisCommercial.common.colorize();')->setSuccessful("ok")->render();
     }
-    
+
     public function linkBuyingInvoiceAction($projectId) {
         $project = $this->_em->find("CommercialProject", $projectId);
-        
-        
+
+
         if($this->request->IsPost()) {
-            
+
             $ajaxResponse = new \Igestis\Ajax\AjaxResult();
             if(!$project) $ajaxResponse->setError (\Igestis\I18n\Translate::_("Project not found"));
 
@@ -294,38 +320,38 @@ class projectsController extends \IgestisController {
             } catch (\Exception $exc) {
                 $ajaxResponse->setError (\Igestis\I18n\Translate::_("Error during the project association") . $exc->getMessage());
             }
-            
+
             $htmlContent = $this->context->render("Commercial/ajax/ProjectEditBuyingInvoiceTableDiv.twig", array(
                 "project" => $project,
                 "buyingInvoices" => $this->_em->getRepository("CommercialProviderInvoice")->findBy(array("project" => $project)),
             ), true);
-            
+
             $totalsContent = $this->context->render("Commercial/ajax/ProjectEditTotals.twig", array(
                 "project" => $project,
             ), true);
-            
+
             $ajaxResponse->addAssign('totals-section', $totalsContent)->addAssign('BuyingInvoiceTableDiv', $htmlContent)->addScript('igestisCommercial.common.colorize();')->setSuccessful("ok")->render();
 
         }
         else {
             if(!$project) $this->context->throw404error ();
-            
+
             $this->context->render("Commercial/ajax/ModalContentLinkBuyingInvoice.twig", array(
-                "availableBuyingInvoices" => $this->_em->getRepository("CommercialProviderInvoice")->getUnlinkedToProject()            
+                "availableBuyingInvoices" => $this->_em->getRepository("CommercialProviderInvoice")->getUnlinkedToProject()
             ));
         }
     }
-    
+
     public function unlinkBuyingInvoiceAction($ProjectId, $ProviderInvoiceId) {
-        
+
         $project = $this->_em->find("CommercialProject", $ProjectId);
-        
+
         $ajaxResponse = new \Igestis\Ajax\AjaxResult();
         if(!$project) $ajaxResponse->setError (\Igestis\I18n\Translate::_("Project not found"));
-        
+
         $providerInvoice = $this->_em->find("CommercialProviderInvoice", $ProviderInvoiceId);
         if($providerInvoice->getProject()->getId() != $ProjectId) $ajaxResponse->setError (\Igestis\I18n\Translate::_("Wrong project and provider invoice association"));
-        
+
         try {
             $providerInvoice->setProject(null);
             $this->_em->persist($providerInvoice);
@@ -333,49 +359,49 @@ class projectsController extends \IgestisController {
         } catch (Exception $exc) {
             $ajaxResponse->setError (\Igestis\I18n\Translate::_("Error during the provider invoice unlink") . $exc->getMessage());
         }
-        
+
         $htmlContent = $this->context->render("Commercial/ajax/ProjectEditBuyingInvoiceTableDiv.twig", array(
             "project" => $project,
             "buyingInvoices" => $this->_em->getRepository("CommercialProviderInvoice")->findBy(array("project" => $project)),
         ), true);
-        
+
         $totalsContent = $this->context->render("Commercial/ajax/ProjectEditTotals.twig", array(
                 "project" => $project,
             ), true);
 
         $ajaxResponse->addAssign('totals-section', $totalsContent)->addAssign('BuyingInvoiceTableDiv', $htmlContent)->addScript('igestisCommercial.common.colorize();')->setSuccessful("ok")->render();
     }
-    
+
     public function linkFreeDocumentAction($ProjectId) {
         \Igestis\Utils\Debug::FileLogger("Try to upload a document for project id '$ProjectId'");
         $project = $this->_em->find("CommercialProject", $ProjectId);
         if(!$project) exit;
-        
+
         $uploadHandler = new \Igestis\Utils\UploadHandler(array(
             "upload_dir" => ConfigModuleVars::freeDocumentFolder(). "/"
         ), false);
-        
+
         $entityManager = $this->_em;
-        
+
         $uploadHandler->setUploadedCallback(function($filePath = "") use($entityManager, $project) {
             \Igestis\Utils\Debug::FileLogger("new free document $filePath");
-            
+
             $freeDocument = new \CommercialFreeDocument();
             $freeDocument->setProject($project)->setFilename($filePath);
             $entityManager->persist($freeDocument);
             $entityManager->flush();
         })->post();
     }
-    
+
     public function unlinkFreeDocumentAction($ProjectId, $FreeDocumentId) {
         $project = $this->_em->find("CommercialProject", $ProjectId);
-        
+
         $ajaxResponse = new \Igestis\Ajax\AjaxResult();
         if(!$project) $ajaxResponse->setError (\Igestis\I18n\Translate::_("Project not found"));
-        
+
         $freeDocument = $this->_em->find("CommercialFreeDocument", $FreeDocumentId);
         if($freeDocument->getProject()->getId() != $ProjectId) $ajaxResponse->setError (\Igestis\I18n\Translate::_("Wrong project and free document association"));
-        
+
         try {
             $file = ConfigModuleVars::freeDocumentFolder() . "/" . $freeDocument->getFilename();
             if(is_file($file)) @unlink($file);
@@ -384,7 +410,7 @@ class projectsController extends \IgestisController {
         } catch (Exception $exc) {
             $ajaxResponse->setError (\Igestis\I18n\Translate::_("Error during the free document deletion") . $exc->getMessage());
         }
-        
+
         $htmlContent = $this->context->render("Commercial/ajax/ProjectEditFreeDocumentTableDiv.twig", array(
             "project" => $project,
             "commercialDocuments" => $this->_em->getRepository("CommercialCommercialDocument")->findBy(array("project" => $project)),
@@ -394,7 +420,7 @@ class projectsController extends \IgestisController {
 
         $ajaxResponse->addAssign('FreeDocumentTableDiv', $htmlContent)->setSuccessful("ok")->render();
     }
-    
+
     /**
      * Download the document
      * @param int $Id Id of the document to look for the last estimate
@@ -405,65 +431,65 @@ class projectsController extends \IgestisController {
     public function downloadAction($Id, $forceDl) {
          $document = $this->_em->find("CommercialFreeDocument", $Id);
          if(!$document) $this->context->throw404error();
-         
+
          $filename = ConfigModuleVars::freeDocumentFolder() . "/" . $document->getFilename();
-         
+
          if(!is_file($filename) || !is_readable($filename)) $this->context->throw404error ();
          $this->context->renderFile($filename, $forceDl);
     }
-    
+
     public function refreshFreeDocumentsAction($ProjectId) {
         $ajaxResponse = new \Igestis\Ajax\AjaxResult();
-        
+
         $project = $this->_em->find("CommercialProject", $ProjectId);
         if(!$project) $ajaxResponse->setError(\Igestis\I18n\Translate::_("Project not found '$ProjectId'"));
-        
+
         $htmlContent = $this->context->render("Commercial/ajax/ProjectEditFreeDocumentTableDiv.twig", array(
             "project" => $project,
             "commercialDocuments" => $this->_em->getRepository("CommercialCommercialDocument")->findBy(array("project" => $project)),
             "freeDocuments" => $this->_em->getRepository("CommercialFreeDocument")->findBy(array("project" => $project)),
         ), true);
 
-        $ajaxResponse->addAssign('FreeDocumentTableDiv', $htmlContent)->setSuccessful("ok")->render();        
+        $ajaxResponse->addAssign('FreeDocumentTableDiv', $htmlContent)->setSuccessful("ok")->render();
     }
-    
+
     public function editFreeDocumentAction($FreeDocumentId) {
         $ajaxResponse = new \Igestis\Ajax\AjaxResult();
-        
+
         $freeDocument = $this->_em->find("CommercialFreeDocument", $FreeDocumentId);
         if(!$freeDocument) $ajaxResponse->setError(\Igestis\I18n\Translate::_("Free document not found"));
-        
-        if($this->request->IsPost()) {            
-            
+
+        if($this->request->IsPost()) {
+
             try {
                 $parser = new \IgestisFormParser();
-                $parser->FillEntityFromForm($freeDocument, $_POST);                            
-                
+                $parser->FillEntityFromForm($freeDocument, $_POST);
+
                 $this->_em->persist($freeDocument);
                 $this->_em->flush();
-                
+
                 $htmlContent = $this->context->render("Commercial/ajax/ProjectEditFreeDocumentTableDiv.twig", array(
                     "project" => $freeDocument->getProject(),
                     "freeDocuments" => $this->_em->getRepository("CommercialFreeDocument")->findBy(array("project" => $freeDocument->getProject())),
                 ), true);
-                
+
                 $ajaxResponse->addScript('$("#project-edit-free-document-modal").modal("hide");')
                              ->addScript('igestisInitTableHover();')
                              ->addAssign("FreeDocumentTableDiv", $htmlContent)
-                             ->setSuccessful("ok")->render();    
-                
+                             ->setSuccessful("ok")->render();
+
             } catch (Exception $exc) {
                 $ajaxResponse->setError (\Igestis\I18n\Translate::_("Error during the free document edition") . $exc->getMessage());
             }
-            
+
         }
         else {
             $this->context->render("Commercial/ajax/ModalContentEditFreeDocument.twig", array(
                 "freeDocument" => $freeDocument,
             ));
         }
-        
-        
+
+
     }
 
     public function editTimeCreditAction() {
@@ -475,7 +501,7 @@ class projectsController extends \IgestisController {
             $projectId = $this->request->getPost("projectId");
 
             $timeCredit = $this->_em->getRepository("CommercialTimeCredit")->find($id);
-            
+
             if (!$timeCredit) {
                 $timeCredit = new \CommercialTimeCredit($this->_em->getRepository("CommercialCommercialDocument")->find($id));
             }

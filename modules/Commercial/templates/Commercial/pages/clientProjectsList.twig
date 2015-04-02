@@ -50,14 +50,16 @@
     </thead>
     <tbody>
        {% for row in data_table %}
-            <tr>
-                <td>{{ row.name }}</td>
-                <td>
-                    <a href="{{ url('commercial_project_edit', {'Id':row.id}) }}" class="btn btn-mini a-visible-line-on-over">
-                        <i class="icon-eye-open"></i> {% trans %}View{% endtrans %}
-                    </a>
-                </td>
-            </tr>
+            {% if not row.clientVisible %}
+                <tr>
+                    <td>{{ row.name }}</td>
+                    <td>
+                        <a href="{{ url('commercial_project_show', {'Id':row.id}) }}" class="btn btn-mini a-visible-line-on-over">
+                            <i class="icon-eye-open"></i> {% trans %}View{% endtrans %}
+                        </a>
+                    </td>
+                </tr>
+            {% endif %}
       {% endfor %}
     </tbody>
 </table>

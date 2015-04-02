@@ -31,14 +31,15 @@
     {# Purchasing section pane content #}
     <div class="tab-pane active" id="project-rights">
         <fieldset>
+           <input type="hidden" name="post_form" value="1">
             <div class="row-fluid">
                 <div class="span5">
-                  {{ forms.switchbox('settingsViewExternalDocuments', 'External document visibility'|trans, form_data.settingsViewExternalDocuments, null, null, "checkbox") }}
-                  {{ forms.switchbox('settingsViewCommercialDocument', 'Commercial document visibility'|trans, form_data.settingsViewCommercialDocument, null, null, "checkbox") }}
+                  {{ forms.switchbox('projectShowDocuments', 'External document'|trans, form_data.projectShowDocuments, null, null, null, "Visible"|trans, "Hidden"|trans) }}
+                  {{ forms.switchbox('projectShowSalesDocuments', 'Commercial document'|trans, form_data.projectShowSalesDocuments, null, null, null, "Visible"|trans, "Hidden"|trans) }}
                 </div>
                 <div class="span5 offset1">
-                  {{ forms.switchbox('settingsViewIntervention', 'Interventions visibility'|trans, form_data.settingsViewIntervention, null, null, "checkbox") }}
-                  {{ forms.switchbox('settingsViewBuyingInvoices', 'Buying invoices visibility'|trans, form_data.settingsViewBuyingInvoices, null, null, "checkbox") }}
+                  {{ forms.switchbox('projectShowInterventions', 'Interventions'|trans, form_data.projectShowInterventions, null, null, null, "Visible"|trans, "Hidden"|trans) }}
+                  {{ forms.switchbox('projectShowBuyingInvoices', 'Buying invoices'|trans, form_data.projectShowBuyingInvoices, null, null, null, "Visible"|trans, "Hidden"|trans) }}
                 </div>
             </div>
 
