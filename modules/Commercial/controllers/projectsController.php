@@ -27,6 +27,7 @@ class projectsController extends \IgestisController {
     public function myAccountIndexAction() {
         $searchForm = new Forms\projectSearchForm();
         $searchForm->initFromGet();
+        $searchForm->setCustomerUser($this->context->security->user);
 
         $this->context->render("Commercial/pages/clientProjectsList.twig", array(
             "searchForm" => $searchForm,
