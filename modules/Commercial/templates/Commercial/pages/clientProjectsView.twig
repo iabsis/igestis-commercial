@@ -23,8 +23,8 @@
             <div class="row-fluid">
                 <div class="span8">
                     <legend>{% trans %}Project management{% endtrans %}</legend>
-                    {{ forms.input('name', 'title'|trans, project.name) }}
-                    {{ forms.textarea('description', 'Description'|trans, project.description) }}
+                    {{ forms.text(project.name, 'Title'|trans) }}
+                    {{ forms.text(project.description, 'Description'|trans) }}
                     {{ forms.input('initialTimeSold', 'Initial time sold'|trans, project.initialTimeSoldFormatted) }}
                     {{ forms.switchbox('closed', "Project status"|trans, project.closed, null, null, null, "Closed"|trans, "Opened"|trans) }}
                 </div>

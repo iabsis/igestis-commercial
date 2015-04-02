@@ -36,14 +36,19 @@ class projectsController extends \IgestisController {
 
     public function showAction($Id)
     {
-        $project = $this->_em->find("CommercialSupportIntervention", $Id);
-        if (!$project || $project->getCustomerUser()->getId() != $this->context->security->user->getId()) {
-            $this->context->throw404error();
-        }
+
+        $project = $this->_em->find("CommercialProject", $Id);
+
+//        \Igestis\Utils\Dump::show($project);
+//        exit();
+// TODO Check this function for security
+//        if (!$project || $project->getCustomerUser()->getId() != $this->context->security->user->getId()) {
+//            $this->context->throw404error();
+//        }
 
         // If no form received, show the form
         $this->context->render("Commercial/pages/clientProjectsView.twig", array(
-            'form_data' => $project
+            'project' => $project
         ));
     }
 
