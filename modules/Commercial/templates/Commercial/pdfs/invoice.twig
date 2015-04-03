@@ -16,7 +16,7 @@
 				<strong>{% trans %}Number{% endtrans %}: </strong>{{ commercialInvoice.invoiceNumber }}<br>
 				<strong>{% trans %}Paiment before{% endtrans %}: </strong>{{ commercialInvoice.paymentDateLimit ? commercialInvoice.paymentDateLimit|date("d/m/Y") }}<br>
 				<strong>{% trans %}Page{% endtrans %}: </strong>{{ numPage }} {% trans %}of{% endtrans %} {{ nbPages }}<br>
-				<strong>{% trans %}Payment mode{% endtrans %}</strong>: {{ commercialInvoice.paymentMode.label }}<br>
+				<strong>{% trans %}Payment mode{% endtrans %}</strong>: {{ commercialInvoice.paymentMode.label|trans }}<br>
 			</td>
 		</tr>
 		<tr>

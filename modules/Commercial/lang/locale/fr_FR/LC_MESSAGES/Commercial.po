@@ -2231,7 +2231,7 @@ msgstr "Dupliquer"
 #: /tmp/igestis/Commercial-551c824570db9/10/9e/3d13cc03b08d44e812e0a3edc994.php:92
 #: /tmp/igestis/Commercial-551c824570db9/46/58/bce21e14bcd7dc3aeccfce9c8d6c.php:145
 msgid "Unlink"
-msgstr "Dissocier"
+msgstr "Détacher"
 
 #: /tmp/igestis/Commercial-551c824570db9/50/47/dd4dd873bae36416a61d84672638.php:28
 msgid "Create a new article"
@@ -2346,7 +2346,7 @@ msgstr "Statut du projet"
 #: /tmp/igestis/Commercial-551c824570db9/49/49/2d298b23117dd8d6a4fd0bfae02d.php:73
 #: /tmp/igestis/Commercial-551c824570db9/e6/c1/1be2a59dde6cfdc1124bc1924540.php:70
 msgid "Customer details"
-msgstr "Details du client"
+msgstr "Détails du client"
 
 #: /tmp/igestis/Commercial-551c824570db9/49/49/2d298b23117dd8d6a4fd0bfae02d.php:95
 #: /tmp/igestis/Commercial-551c824570db9/e6/c1/1be2a59dde6cfdc1124bc1924540.php:92
@@ -2355,7 +2355,7 @@ msgstr "Téléphone"
 
 #: /tmp/igestis/Commercial-551c824570db9/49/49/2d298b23117dd8d6a4fd0bfae02d.php:103
 #: /tmp/igestis/Commercial-551c824570db9/e6/c1/1be2a59dde6cfdc1124bc1924540.php:100
-msgid "Project resume"
+msgid "Project summary"
 msgstr "Résumé du projets"
 
 #: /tmp/igestis/Commercial-551c824570db9/49/49/2d298b23117dd8d6a4fd0bfae02d.php:157
@@ -2951,8 +2951,11 @@ msgstr "Doc associé"
 msgid "Create a new taxe rate"
 msgstr "Créer un nouveau taux de TVA"
 
-#~ msgid "Paiment before"
-#~ msgstr "A régler avant le"
+msgid "Check / Uncheck all"
+msgstr "Tout cocher / décocher"
+
+msgid "Paiment before"
+msgstr "A régler avant le"
 
 #~ msgid "Export header (delete to restore default content)"
 #~ msgstr ""
