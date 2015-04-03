@@ -79,6 +79,19 @@ class interventionsController extends \IgestisController {
         $ajaxResponse = new \Igestis\Ajax\AjaxResult();        
 
         if(!$intervention) $this->context->throw404error();
+
+        if($this->request->getGet("projectId")) {
+            $project = $this->_em->find("CommercialProject", $this->request->getGet("projectId"));
+            if(!$project) throw new \Exception(\Igestis\I18n\Translate::_("Unknown project"));
+            $intervention->setProject($project);
+        }
+
+        if($this->request->getGet("projectId")) {
+            $intervention->setCustomerUser($project->getCustomerUser()); 
+        }
+        else {
+            $intervention->setCustomerUser($this->context->entityManager->getRepository("CoreUsers")->find($this->request->getPost("customerUser"))); 
+        }
         
         // If the form has been received, manage the form...
         if ($this->request->IsPost()) {
@@ -90,7 +103,7 @@ class interventionsController extends \IgestisController {
             if(!preg_match("#^(|[0-9]{1,3}\:[0-9]{1,2})$#", $this->request->getPost("pause"))) $ajaxResponse->setError(\Igestis\I18n\Translate::_("The pause time format is invalid" ));
             if(!preg_match("#^(|[0-9]{1,3}\:[0-9]{1,2})$#", $this->request->getPost("period"))) $ajaxResponse->setError(\Igestis\I18n\Translate::_("The elapsed time format is invalid" ));
             
-            $this->context->entityManager->beginTransaction();            
+            $this->context->entityManager->beginTransaction();
 
             
             try {
@@ -129,11 +142,7 @@ class interventionsController extends \IgestisController {
                 $ajaxResponse->setError($exc->getMessage());
             }
             
-            if($this->request->getGet("projectId")) {
-                $project = $this->_em->find("CommercialProject", $this->request->getGet("projectId"));
-                if(!$project) throw new \Exception(\Igestis\I18n\Translate::_("Unknown project"));
-                $intervention->setProject($project);
-            }
+            
 
             
             // Set the new datas to the article
@@ -147,13 +156,6 @@ class interventionsController extends \IgestisController {
             
             $nbMinutes = $intervention->getPeriod() + $intervention->getPause();
             $endTime->add(new \DateInterval("PT" . $nbMinutes . "M" ));
-
-            if($this->request->getGet("projectId")) {
-                $intervention->setCustomerUser($project->getCustomerUser()); 
-            }
-            else {
-                $intervention->setCustomerUser($this->context->entityManager->getRepository("CoreUsers")->find($this->request->getPost("customerUser"))); 
-            }
              
             
             if($this->context->security->module_access("COMMERCIAL") == "ADMIN") {
@@ -168,6 +170,10 @@ class interventionsController extends \IgestisController {
                 ->setEnd($endTime)
                 ->setPause($this->request->getPost("pause"))
                 ->setPeriod($this->request->getPost("period"));
+
+            if ($this->request->getPost("project")) {
+                $intervention->setProject($this->context->entityManager->getRepository("CommercialProject")->find($this->request->getPost("project")));
+            }
             
 
             try {
@@ -199,11 +205,11 @@ class interventionsController extends \IgestisController {
                          ->render();
             
         }
-
         // If no form received, show the form
         $this->context->render("Commercial/pages/interventionsNew.twig", array(
             'form_data' => $intervention,
             'project' => $this->_em->find("CommercialProject", $this->request->getGet("projectId")),
+            'customerProjects' => $this->_em->getRepository("CommercialProject")->findByCustomer($intervention->getCustomerUser()),
             'customersList' => $this->_em->getRepository("CoreUsers")->findAll(),
             'employeesList' => $this->_em->getRepository("CoreContacts")->getEmployeesList(false, true),
             'interventionsTypeList' => $this->_em->getRepository("CommercialSupportIntervention")->findAllTypes(true),
@@ -333,7 +339,8 @@ class interventionsController extends \IgestisController {
             $endTime->add(new \DateInterval("PT" . $nbMinutes . "M" ));
 
             $intervention->setCustomerUser($this->context->entityManager->getRepository("CoreUsers")->find($this->request->getPost("customerUser")));  
-            $intervention->setWorkerContact($this->context->entityManager->getRepository("CoreContacts")->find($this->request->getPost("workerContact")));  
+            $intervention->setWorkerContact($this->context->entityManager->getRepository("CoreContacts")->find($this->request->getPost("workerContact")));
+            $intervention->setProject($this->context->entityManager->getRepository("CommercialProject")->find($this->request->getPost("project")));
             $intervention
                 ->setTitle($this->request->getPost("title"))
                 ->setDescription($this->request->getPost("description"))
@@ -366,6 +373,7 @@ class interventionsController extends \IgestisController {
         $this->context->render("Commercial/pages/interventionsEdit.twig", array(
             'form_data' => $intervention,
             'project' => $intervention->getProject() ? $this->_em->find("CommercialProject", $intervention->getProject()) : null,
+            'customerProjects' => $this->_em->getRepository("CommercialProject")->findByCustomer($intervention->getCustomerUser()),
             'customersList' => $this->_em->getRepository("CoreUsers")->findAll(),
             'employeesList' => $this->_em->getRepository("CoreContacts")->getEmployeesList(false, true),
             'interventionsTypeList' => $this->_em->getRepository("CommercialSupportIntervention")->findAllTypes(true),

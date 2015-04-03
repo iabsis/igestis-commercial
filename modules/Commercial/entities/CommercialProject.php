@@ -479,4 +479,21 @@ class CommercialProjectRepository extends \Doctrine\ORM\EntityRepository
         
         return $qb->getQuery()->getResult();
     }
+
+
+    public function findByCustomer(\CoreUsers $customerUser)
+    {
+        try {
+            $userCompany = \IgestisSecurity::init()->user->getCompany();
+            $qb = $this->_em->createQueryBuilder();
+            $qb->select("p")
+               ->from("CommercialProject", "p")
+               ->where("p.customerUser = :customerUser")
+               ->setParameter("customerUser", $customerUser);
+        } catch (\Exception $e) {
+            throw $e;
+        }
+        
+        return $qb->getQuery()->getResult();
+    }
 }

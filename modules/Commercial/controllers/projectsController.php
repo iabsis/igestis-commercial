@@ -1,17 +1,20 @@
 <?php
 
 namespace Igestis\Modules\Commercial;
+
 /**
  * Projects management
  *
  * @author Gilles Hemmerlé <giloux@gmail.com>
  */
-class projectsController extends \IgestisController {
+class projectsController extends \IgestisController
+{
 
     /**
      * Show the list of projects
      */
-    public function indexAction() {
+    public function indexAction()
+    {
         $searchForm = new Forms\projectSearchForm();
         $searchForm->initFromGet();
 
@@ -24,7 +27,8 @@ class projectsController extends \IgestisController {
     /**
      * Display project list shared with the client
      */
-    public function myAccountIndexAction() {
+    public function myAccountIndexAction()
+    {
         $searchForm = new Forms\projectSearchForm();
         $searchForm->initFromGet();
         $searchForm->setCustomerUser($this->context->security->user);
@@ -33,6 +37,26 @@ class projectsController extends \IgestisController {
             "searchForm" => $searchForm,
             'data_table' =>  $this->_em->getRepository("CommercialProject")->findFromSearchForm($searchForm)
         ));
+    }
+
+    public function customerProjectsAction($customerUserId)
+    {
+        $projectsList = $this->_em->getRepository("CommercialProject")->findByCustomer(
+            $this->_em->getRepository("CoreUsers")->find($customerUserId)
+        );
+
+        $arrayResult = array();
+        foreach ($projectsList as $currentProject) {
+            $arrayResult[] = array(
+                "id" => $currentProject->getId(),
+                "text" => $currentProject->getName()
+            );
+        }
+
+        header("Content-Type: application/json");
+        die(json_encode($arrayResult));
+
+
     }
 
     public function showAction($Id)
@@ -297,7 +321,8 @@ class projectsController extends \IgestisController {
 
         $htmlContent = $this->context->render("Commercial/ajax/ProjectEditInterventionTableDiv.twig", array(
             "project" => $project,
-            "commercialDocuments" => $this->_em->getRepository("CommercialSupportIntervention")->findBy(array("project" => $project)),
+            "commercialDocuments" => $this->_em->getRepository("CommercialCommercialDocument")->findBy(array("project" => $project)),
+            "interventions" => $this->_em->getRepository("CommercialSupportIntervention")->findBy(array("project" => $project)),
         ), true);
 
         $totalsContent = $this->context->render("Commercial/ajax/ProjectEditTotals.twig", array(
