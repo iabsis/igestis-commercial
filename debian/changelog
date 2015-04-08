@@ -1,10 +1,28 @@
-igestis-commercial (3.0.1) wheezy; urgency=medium
+igestis-commercial (3.0.5) testing; urgency=medium
+
+  * Fix: issue from client page, can now display invoices.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Wed, 08 Apr 2015 18:18:32 +0200
+
+igestis-commercial (3.0.4) testing; urgency=medium
+
+  * Fix #4 : fix check amount function of vat for exported invoices.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 24 Mar 2015 16:08:36 +0100
+
+igestis-commercial (3.0.3) testing; urgency=medium
+
+  * Fix regression : replaced the is_email() call by the new \Igestis\Utils\FormatChecker::isEmail() one
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 24 Mar 2015 10:07:53 +0100
+
+igestis-commercial (3.0.1) testing; urgency=medium
 
   * Feature: ability to duplicate an intervention.
 
  -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 10 Mar 2015 09:32:47 +0100
 
-igestis-commercial (3.0.0) wheezy; urgency=medium
+igestis-commercial (3.0.0) testing; urgency=medium
 
   * New upstream release.
   * Feature: new time tracking management inside a project.
@@ -12,7 +30,7 @@ igestis-commercial (3.0.0) wheezy; urgency=medium
 
  -- Olivier Bitsch <olivier.b@iabsis.com>  Sat, 21 Feb 2015 16:08:41 +0100
 
-igestis-commercial (2.0.9) wheezy; urgency=medium
+igestis-commercial (2.0.9) stable; urgency=medium
 
   * Fix igestis dependancy.
 
