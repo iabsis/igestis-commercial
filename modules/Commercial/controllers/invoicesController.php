@@ -49,9 +49,17 @@ class invoicesController extends \IgestisController {
      * 0 => Inline loading
      * 1 => Forced download
      */
-    public function downloadAction($Id, $forceDl) {      
-         
+    public function downloadAction($Id, $forceDl)
+    {
          $invoice = $this->_em->getRepository("CommercialInvoice")->find($Id);
+         $currentUserId = $this->context->security->user->getId();
+         $isEmployee = ($this->context->security->user->getUserType() == \CoreUsers::USER_TYPE_EMPLOYEE);
+
+         if (!$invoice || (!$isEmployee && $invoice->getCommercialDocument()->getCustomerUser()->getId() != $currentUserId))
+         {
+             $this->context->throw404error();
+         }
+
          if(!$invoice) $this->context->throw404error();
          $filename = ConfigModuleVars::invoicesFolder() . "/" . $invoice->getCommercialDocument()->getCompany()->getId() . "/" . $invoice->getPathPdfFile();
          if(!is_file($filename) || !is_readable($filename)) $this->context->throw404error ();
