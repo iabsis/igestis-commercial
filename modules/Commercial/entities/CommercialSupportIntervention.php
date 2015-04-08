@@ -596,7 +596,8 @@ class CommercialSupportInterventionRepository extends \Doctrine\ORM\EntityReposi
      * @return type
      * @throws Exception
      */
-    public function getUnlinkedToProjectForCustomer($customerUser) {
+    public function getUnlinkedToProjectForCustomer($customerUser)
+    {
         try {
             $userCompany = \IgestisSecurity::init()->user->getCompany();
             $qb = $this->_em->createQueryBuilder();
@@ -607,12 +608,10 @@ class CommercialSupportInterventionRepository extends \Doctrine\ORM\EntityReposi
                ->andWhere("i.customerUser = :customerUser")
                ->setParameter("company", $userCompany)
                ->setParameter("customerUser", $customerUser);
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             throw $e;
         }
         
-        return $qb->getQuery()->getResult();   
+        return $qb->getQuery()->getResult();
     }
-
 }

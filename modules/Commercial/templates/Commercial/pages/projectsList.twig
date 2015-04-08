@@ -28,11 +28,11 @@
             <div class="row-fluid">
                 <div class="span6">
                     {{ forms.select('status', 'Status'|trans, { 0 : {'value': 0, 'label' : "Opened"|trans},  1 : {'value': 1, 'label' : "Closed"|trans},  2 : {'value': -1, 'label' : "All"|trans} }, searchForm.status, 'value', 'label') }}
-                </div>                
+                </div>
             </div>
             <div class="form-actions">
                 <input type="hidden" name="Module" value="Commercial" />
-                <input type="hidden" name="Action" value="projects_index" />  
+                <input type="hidden" name="Action" value="projects_index" />
                 <button type="submit" class="btn btn-primary"><i class="icon-search"></i> {% trans %}Search{% endtrans %}</button>
             </div>
         </fieldset>
@@ -48,13 +48,14 @@
 <br />
 
 {% import "table.twig" as table_data %}
-{{ table_data.datatable() }}    
+{{ table_data.datatable() }}
 
 <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="table_data">
     <thead>
         <tr>
             <th>{% trans %}Title{% endtrans %}</th>
             <th>{% trans %}Contact{% endtrans %}</th>
+            <th>{% trans %}Remaining credit time{% endtrans %}</th>
             <th>{% trans %}Actions{% endtrans %}</th>
         </tr>
     </thead>
@@ -63,6 +64,7 @@
             <tr>
                 <td>{{ row.name }}</td>
                 <td class="hidden-phone">{{ row.customerUser.userLabel }}</td>
+                <td class="hidden-phone" data-negative-positive-auto-class="true">{{ row.remainingCreditTime }}</td>
                 <td>
                     <a href="{{ url('commercial_project_edit', {'Id':row.id}) }}" class="btn btn-mini a-visible-line-on-over">
                         <i class="icon-edit"></i> {% trans %}Edit{% endtrans %}
@@ -77,6 +79,11 @@
 </table>
 {# End #}
 
+<script charset="utf-8">
+$(function() {
+    igestisCommercial.common.colorize();
+});
+</script>
 
-        
+
 {% endblock %}

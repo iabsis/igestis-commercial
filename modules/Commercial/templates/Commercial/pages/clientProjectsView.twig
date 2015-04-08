@@ -1,0 +1,190 @@
+{% extends "Commercial/common.twig" %}
+
+{% set title = {
+                'title': "Project details"|trans,
+                'help': "Informations regarding your project."|trans} %}
+
+{% block content %}{{ parent() }}
+
+{% include 'Commercial/modals/interventionDuplicate.twig' %}
+
+<div class="well">
+    <form id="form_data" method='post' action=''>
+        <fieldset>
+            <div class="row-fluid">
+                <div class="span8">
+                    <legend>{{ project.name }}</legend>
+                    {{ forms.text(project.description, 'Description'|trans) }}
+
+                    {{ forms.text(project.initialTimeSoldFormatted, 'Initial time sold'|trans) }}
+                    {{ forms.switchbox('closed', "Project status"|trans, project.closed, null, "disabled", null, "Closed"|trans, "Opened"|trans) }}
+                </div>
+                <div class="span4">
+                    <div id="customer-informations">
+                        <legend>{% trans %}Customer details{% endtrans %}</legend>
+                        <div class="customer-name"><strong>{{ project.customerUser.userLabel }}</strong></div>
+                        <div class="customer-address1">{{ project.customerUser.mainContact.address1 }}</div>
+                        <div class="customer-address2">{{ project.customerUser.mainContact.address2 }}</div>
+                        <div class="customer-city">{{ project.customerUser.mainContact.postalCode }} {{ project.customerUser.mainContact.city }}</div>
+                        <div class="customer-tel">{% trans %}Phone{% endtrans %} : {{ project.customerUser.mainContact.phone1 }}</div>
+                    </div>
+
+                    <legend>{% trans %}Project resume{% endtrans %}</legend>
+                    <div id="totals-section">
+                        {% include 'Commercial/ajax/ProjectEditTotals.twig' %}
+                    </div>
+                </div>
+
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<div class="row-fluid">
+
+    {# First column, first line #}
+
+        {% if rights.projectShowSalesDocuments %}
+
+            <legend>{% trans %}Commercial documents{% endtrans %}</legend>
+            <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="commercialDocumentTable">
+                <thead>
+                    <tr>
+                        <th>{% trans %}Description{% endtrans %}</th>
+                        <th>{% trans %}Date{% endtrans %}</th>
+                        <th>{% trans %}Amount{% endtrans %}</th>
+                        <th>{% trans %}Credit time{% endtrans %}</th>
+                        <th>{% trans %}Actions{% endtrans %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% set commercial_document_total = 0 %}
+                {% set commercial_document_total = 0 %}
+                   {% for row in commercialDocuments %}
+                        <tr>
+                            <td>
+                              {{ row.description }}
+                                {% if row.status == 1 %} <strong>({% trans %}Draft{% endtrans %})</strong>
+                                {% elseif row.status == 2 %} <strong>({% trans %}Estimate{% endtrans %})</strong>
+                                {% elseif row.status == 4 %} <strong>({% trans %}Invoice{% endtrans %})</strong>
+                                {% elseif row.status == 8 %} <strong>({% trans %}Credit{% endtrans %})</strong>
+                                {% endif %}
+                            </td>
+                            <td>{{ row.date|date("d/m/Y") }}</td>
+                            <td>{{ row.amountDf|number_format(2) }}</td>
+                            <td>{{ row.creditTime }}</td>
+                            <td>
+                                {% if row.status == 2 %}
+                                    <a class="btn btn-small" href="{{ url('commercial_estimate_dl_doc', {"Id":row.estimates.last.Id, "ForceDl" : 1}) }}">
+                                       <i class="icon-download-alt"></i> {% trans %}Download the estimate{% endtrans %}
+                                    </a>
+                                {% else %}
+                                    <a class="btn btn-small" href="{{ url('commercial_invoice_dl_doc', {"Id":row.invoices.last.Id, "ForceDl" : 1}) }}">
+                                       <i class="icon-download-alt"></i> {% trans %}Download the invoice{% endtrans %}
+                                    </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% set commercial_document_total = commercial_document_total + row.amountDf %}
+                  {% endfor %}
+                </tbody>
+            </table>
+            <div class="hidden" id="commercial_document_total">{{ commercial_document_total }}</div>
+        {% endif %}
+
+      {% if rights.projectShowInterventions %}
+
+          <legend>{% trans %}Linked interventions{% endtrans %}</legend>
+          {% import "table.twig" as table_data %}
+          {{ table_data.datatable() }}  
+
+          <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="table_data">
+              <thead>
+                  <tr>
+                      <th>{% trans %}Title{% endtrans %}</th>
+                      <th>{% trans %}Date{% endtrans %}</th>
+                      <th>{% trans %}Duration{% endtrans %}</th>
+                      <th>{% trans %}Actions{% endtrans %}</th>
+                  </tr>
+              </thead>
+              <tbody>
+                 {% for row in interventions %}
+                      <tr>
+                          <td>{{ row.title }}</td>
+                          <td>{{ row.date|date("d/m/Y") }}</td>
+                          <td>{{ row.periodTime }}</td>
+                          <td>
+                              <a href="{{ url('commercial_interventions_show', {'Id':row.id}) }}" class="btn btn-mini a-visible-line-on-over">
+                                  <i class="icon-edit"></i> {% trans %}View{% endtrans %}
+                              </a>
+                          </td>
+                      </tr>
+                {% endfor %}
+              </tbody>
+          </table>
+      {% endif %}
+
+      {% if rights.projectShowDocuments %}
+          <legend>{% trans %}External documents{% endtrans %}</legend>
+
+          <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="freeDocumentsTable">
+              <thead>
+                  <tr>
+                      <th>{% trans %}File{% endtrans %}</th>
+
+                      <th>{% trans %}Actions{% endtrans %}</th>
+                  </tr>
+              </thead>
+              <tbody>
+                 {% for row in freeDocuments %}
+                      <tr>
+                          <td>{{ row.title }}
+                              {% if row.description %}<br><small class="muted">{{ row.description }}</small>{% endif %}
+                          </td>
+                          <td>
+                              <a href="{{ url( 'commercial_free_document_download', { 'Id' : row.id, 'ForceDl' : 1 } ) }}" class="btn btn-mini a-visible-line-on-over">
+                                  <i class="icon-download"></i> {% trans %}Download{% endtrans %}
+                              </a>
+                          </td>
+                      </tr>
+                {% endfor %}
+              </tbody>
+          </table>
+          {% endif %}
+
+      {% if rights.projectShowBuyingInvoices %}
+          <legend>{% trans %}Purchase invoices{% endtrans %}</legend>
+
+          <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="buyingInvoicesTable">
+              <thead>
+                  <tr>
+                      <th>{% trans %}Provider{% endtrans %}</th>
+                      <th>{% trans %}Invoice date{% endtrans %}</th>
+                      <th>{% trans %}Invoice amount{% endtrans %}</th>
+                      <th>{% trans %}Actions{% endtrans %}</th>
+                  </tr>
+              </thead>
+              <tbody>
+                 {% for row in buyingInvoices %}
+                      <tr>
+                          <td>{{ row.providerUser.userLabel }}</td>
+                          <td>{{ row.invoiceDate ? row.invoiceDate|date('d/m/Y') : "" }}</td>
+                          <td>{{ row.amountTi|number_format(2) }}</td>
+                          <td>
+                            <a href="{{ url('commercial_provider_invoices_download', {'Id':row.id, 'ForceDl':1}) }}" class="btn btn-mini a-visible-line-on-over">
+                                  <i class="icon-eye"></i> {% trans %}Download{% endtrans %}
+                              </a>
+                          </td>
+                      </tr>
+                {% endfor %}
+              </tbody>
+          </table>
+      {% endif %}
+
+<script charset="utf-8">
+$(function() {
+    igestisCommercial.common.colorize();
+});
+</script>
+
+{% endblock %}

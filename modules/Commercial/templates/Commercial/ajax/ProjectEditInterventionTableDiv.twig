@@ -1,3 +1,5 @@
+{% import "table.twig" as table_data %}
+{{ table_data.datatable('#commercialInterventionstTable', 1, 'desc') }} 
 
 <legend>{% trans %}Linked interventions{% endtrans %}</legend>
 

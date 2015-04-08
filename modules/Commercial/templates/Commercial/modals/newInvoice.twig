@@ -5,9 +5,8 @@
             <h3>{% trans %}New invoice{% endtrans %}</h3>
         </div>
         <div class="modal-body">
-
              {{ forms.date('validUntil', 'Payment deadline'|trans, sellingDocument.invoices|length ? sellingDocument.invoices[0].paymentDateLimit : invoiceValidUntil) }}
-             {{ forms.select('soldType', 'Payment mode'|trans, soldTypeList, null, 'code', 'label') }}
+             {{ forms.select('soldType', 'Payment mode'|trans, soldTypeList, sellingDocument.invoices|length ? sellingDocument.invoices[0].paymentMode.code : "TRANSFER", 'code', 'label') }}
              {{ forms.select('invoicesType', 'Invoice type'|trans, {  0 : {"value" : 'invoices', "label" : 'Invoice'|trans}, 1 : {"value" : 'credits', "label" : 'Credit note'|trans} }, "invoices", 'value', 'label') }}
         </div>
         <div class="modal-footer">

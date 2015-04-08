@@ -460,6 +460,10 @@ class CommercialProjectRepository extends \Doctrine\ORM\EntityRepository
                ->from("CommercialProject", "p")
                ->where("p.company = :company")
                ->setParameter("company", $userCompany);
+
+            if ($searchForm->getCustomerUser()) {
+                $qb->andWhere("p.customerUser = :customerUserId")->setParameter('customerUserId', $searchForm->getCustomerUser());
+            }
             
             switch($searchForm->getStatus()) {
                 case Igestis\Modules\Commercial\Forms\projectSearchForm::STATUS_CLOSED:
@@ -469,6 +473,23 @@ class CommercialProjectRepository extends \Doctrine\ORM\EntityRepository
                     $qb->andWhere("p.closed=0");
                     break;
             }
+        } catch (\Exception $e) {
+            throw $e;
+        }
+        
+        return $qb->getQuery()->getResult();
+    }
+
+
+    public function findByCustomer(\CoreUsers $customerUser)
+    {
+        try {
+            $userCompany = \IgestisSecurity::init()->user->getCompany();
+            $qb = $this->_em->createQueryBuilder();
+            $qb->select("p")
+               ->from("CommercialProject", "p")
+               ->where("p.customerUser = :customerUser")
+               ->setParameter("customerUser", $customerUser);
         } catch (\Exception $e) {
             throw $e;
         }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 igestis-commercial (3.0.5) testing; urgency=medium
 
   * Fix: issue from client page, can now display invoices.
@@ -15,6 +16,20 @@ igestis-commercial (3.0.3) testing; urgency=medium
   * Fix regression : replaced the is_email() call by the new \Igestis\Utils\FormatChecker::isEmail() one
 
  -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 24 Mar 2015 10:07:53 +0100
+=======
+igestis-commercial (3.0.3) testing; urgency=medium
+
+  * Feature #3 : new pages for client.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Fri, 03 Apr 2015 00:17:27 +0200
+
+igestis-commercial (3.0.2) testing; urgency=medium
+
+  * Feature: new config.ini for configuration file.
+  * Bug: by default, all system files goes in the data folder.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 10 Mar 2015 21:52:55 +0100
+>>>>>>> e13a051e24f76839be748c5a6aa2d92547fd0bcf
 
 igestis-commercial (3.0.1) testing; urgency=medium
 

@@ -98,7 +98,34 @@ igestisCommercial.support.duplicate = function(interventionSource, autoAssocUser
 }
 
 
-igestisCommercial.support.init = function() {
+igestisCommercial.support.init = function(options) {
+    igestisCommercial.support.options = {
+        getCustomerProjectUrl: ''
+    };
+
+    $.extend(igestisCommercial.support.options, options);
+
+
+    $(function() {
+        $('#form_data [name=customerUser]').on("change", function(e) {
+            var getCustomerProjectUrl = igestisCommercial.support.options.getCustomerProjectUrl;
+
+            $.ajax({
+                dataType: "json",
+                url: getCustomerProjectUrl + e.val,
+                success: function(jsonData) {
+                    $('#form_data [name=project] option').remove();
+                    $('#form_data [name=project]').append("<option></option>");
+                    for (var i = jsonData.length - 1; i >= 0; i--) {
+                        $('#form_data [name=project]').append('<option value="' + jsonData[i].id + '">' + jsonData[i].text + '</option>');
+                    };
+
+                    $('#form_data [name=project]').select2({ allowClear: true });
+                }
+            });
+        });
+    })
+
     $(function() {
        // Initialize the update helper for the time set
        $("#id-startTime, #id-endTime, #id-pause, #id-period").bind("keyup input paste", function() {

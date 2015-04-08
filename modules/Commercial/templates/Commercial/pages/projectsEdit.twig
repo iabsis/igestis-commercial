@@ -28,38 +28,38 @@
                     {{ forms.input('initialTimeSold', 'Initial time sold'|trans, project.initialTimeSoldFormatted) }}
                     {{ forms.switchbox('closed', "Project status"|trans, project.closed, null, null, null, "Closed"|trans, "Opened"|trans) }}
                 </div>
-                <div class="span4">                    
+                <div class="span4">
                     <div id="customer-informations">
                         <legend>{% trans %}Customer details{% endtrans %}</legend>
                         <div class="customer-name"><strong>{{ project.customerUser.userLabel }}</strong></div>
                         <div class="customer-address1">{{ project.customerUser.mainContact.address1 }}</div>
                         <div class="customer-address2">{{ project.customerUser.mainContact.address2 }}</div>
                         <div class="customer-city">{{ project.customerUser.mainContact.postalCode }} {{ project.customerUser.mainContact.city }}</div>
-                        <div class="customer-tel">{% trans %}Phone{% endtrans %} : {{ project.customerUser.mainContact.phone1 }}</div>                        
+                        <div class="customer-tel">{% trans %}Phone{% endtrans %} : {{ project.customerUser.mainContact.phone1 }}</div>
                     </div>
 
-                    <legend>{% trans %}Project resume{% endtrans %}</legend>
+                    <legend>{% trans %}Project summary{% endtrans %}</legend>
                     <div id="totals-section">
                         {% include 'Commercial/ajax/ProjectEditTotals.twig' %}
                     </div>
                 </div>
-                
+
             </div>
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
                 <input class="btn" type="button" value="{% trans %}Cancel{% endtrans %}" onclick="javascript:history.go(-1);return true;">
             </div>
         </fieldset>
-    </form>        
+    </form>
 </div>
 
 <div class="row-fluid">
-    
+
     {# First column, first line #}
     <div class="span6" id="CommercialTableDiv">
         {% include 'Commercial/ajax/ProjectEditCommercialDocumentTableDiv.twig' %}
     </div>
-    
+
     {# Second column, first line #}
     <div class="span6" id="InterventionTableDiv">
         {% include 'Commercial/ajax/ProjectEditInterventionTableDiv.twig' %}
@@ -68,7 +68,7 @@
 
 
 <div class="row-fluid">
-    
+
     {# First column, second line #}
     <div class="span6">
         <legend>{% trans %}External documents{% endtrans %}</legend>
@@ -83,12 +83,12 @@
         <div id="free-documents-errors"></div>
         <div id="FreeDocumentTableDiv">{% include 'Commercial/ajax/ProjectEditFreeDocumentTableDiv.twig' %}</div>
     </div>
-    
+
     {# Second column, second line #}
-    <div class="span6" id="BuyingInvoiceTableDiv">        
+    <div class="span6" id="BuyingInvoiceTableDiv">
         {% include 'Commercial/ajax/ProjectEditBuyingInvoiceTableDiv.twig' %}
     </div>
-    
+
 </div>
 
 {# Modal contenair for the commercial document selection #}
@@ -193,7 +193,7 @@
     igestisCommercial.editPopover = null;
     igestisCommercial.initPopover = function() {
         $(".popover").remove();
-        igestisCommercial.editPopover = $('.update-credit-time').popover({ 
+        igestisCommercial.editPopover = $('.update-credit-time').popover({
             html : true,
             container: "body",
             placement:"top",
@@ -214,7 +214,7 @@
 
             $(".popover input[name=timeCredit]").val(time);
             $(".popover input[name=timeCreditId]").val(rowId);
-            
+
         });
     };
 
@@ -225,10 +225,10 @@
         igestisCommercial.initPopover();
         igestisCommercial.common.colorize();
     });
-    
+
     var unlink_commercial_document = function(documentId) {
         bootbox.confirm("{% trans %}Are you sure that you to remove this commercial document from this project ?{% endtrans %}", "{% trans %}No{% endtrans %}", "{% trans %}Yes{% endtrans %}", function(result) {
-            
+
             if(result) {
             $.ajax({
                 url: "{{ url('commercial_project_unlink_commercial_document', {"ProjectId" : project.id, "CommercialDocumentId":''}) }}" + documentId,
@@ -238,16 +238,16 @@
                     igestisInitTableHover();
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    bootbox.alert(jqXHR.responseText);   
+                    bootbox.alert(jqXHR.responseText);
                 }
             });
         }
         });
     };
-    
+
     var unlink_intervention = function(InterventionId) {
         bootbox.confirm("{% trans %}Are you sure that you to remove this intervention from this project ?{% endtrans %}", "{% trans %}No{% endtrans %}", "{% trans %}Yes{% endtrans %}", function(result) {
-            
+
             if(result) {
             $.ajax({
                 url: "{{ url('commercial_project_unlink_intervention', {"ProjectId" : project.id, "InterventionId":''}) }}" + InterventionId,
@@ -257,16 +257,16 @@
                     igestisInitTableHover();
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    bootbox.alert(jqXHR.responseText);   
+                    bootbox.alert(jqXHR.responseText);
                 }
             });
         }
         });
     };
-    
+
     var unlink_buying_invoice = function(BuyingInvoiceId) {
         bootbox.confirm("{% trans %}Are you sure that you to remove this intervention from this buying invoice ?{% endtrans %}", "{% trans %}No{% endtrans %}", "{% trans %}Yes{% endtrans %}", function(result) {
-            
+
             if(result) {
             $.ajax({
                 url: "{{ url('commercial_project_unlink_buying_invoice', {"ProjectId" : project.id, "BuyingInvoiceId":''}) }}" + BuyingInvoiceId,
@@ -276,16 +276,16 @@
                     igestisInitTableHover();
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    bootbox.alert(jqXHR.responseText);   
+                    bootbox.alert(jqXHR.responseText);
                 }
             });
         }
         });
     };
-    
+
     var unlink_free_document = function(documentId) {
         bootbox.confirm("{% trans %}Are you sure that you to remove this commercial document from this project ?{% endtrans %}", "{% trans %}No{% endtrans %}", "{% trans %}Yes{% endtrans %}", function(result) {
-            
+
             if(result) {
             $.ajax({
                 url: "{{ url('commercial_project_unlink_free_document', {"ProjectId" : project.id, "FreeDocumentId":''}) }}" + documentId,
@@ -295,7 +295,7 @@
                     igestisInitTableHover();
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    bootbox.alert(jqXHR.responseText);   
+                    bootbox.alert(jqXHR.responseText);
                 }
             });
         }

@@ -16,11 +16,11 @@ class balanceController extends \IgestisController {
             'customersList' => $this->_em->getRepository("CommercialViewUserSold")->findAll(true)
         ));
     }
-    
+
     public function detailsAction($UserId) {
         if(!$this->_em->find("CoreUsers", $UserId)) {
             $this->context->throw404error();
-        }       
+        }
 
         $this->context->render("Commercial/pages/balanceDetails.twig", array(
             'bankAssocs' => $this->_em->getRepository("CommercialViewBankAssocDocs")->findBy(array("user" => $UserId)),
@@ -28,11 +28,11 @@ class balanceController extends \IgestisController {
             'userSold' => $this->_em->getRepository("CommercialViewUserSold")->find($UserId)
         ));
     }
-    
-    
+
+
     public function paidDocumentAction() {
         $ajaxResponse = new \Igestis\Ajax\AjaxResult();
-        
+
         try {
             switch($_POST['type']) {
                 case "selling_document" :
@@ -42,22 +42,22 @@ class balanceController extends \IgestisController {
                     $document = $this->_em->find("CommercialProviderInvoice", $_POST['documentId']);
                     break;
             }
-            
+
             if(!$document) {
                 throw new \Exception(\Igestis\I18n\Translate::_("Document not found"));
             }
-            
+
             if($_POST['paid'] == 1) {
                 $document->setPaid(true);
             }
             else {
                 $document->setPaid(false);
             }
-            
+
             $this->_em->persist($document);
             $this->_em->flush();
 
-                    
+
             $ajaxResponse->addWizz(\Igestis\I18n\Translate::_("The paid status has been updated"), \wizz::$WIZZ_SUCCESS)
                 ->setSuccessful("ok")
                 ->render();
@@ -69,6 +69,6 @@ class balanceController extends \IgestisController {
 
 
 
-        
+
     }
 }

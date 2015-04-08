@@ -133,13 +133,25 @@ class providerInvoicesController extends \IgestisController {
      * 0 => Inline loading
      * 1 => Forced download
      */
-    public function downloadAction($Id, $forceDl) {      
+    public function downloadAction($Id, $forceDl) {
+        $currentUserId = $this->context->security->user->getId();
+        $isEmployee = ($this->context->security->user->getUserType() == \CoreUsers::USER_TYPE_EMPLOYEE);
+        $companyConfig = $this->_em->getRepository("CommercialCompanyConfig")->getCompanyConfig();
          
-         $invoice = $this->_em->getRepository("CommercialProviderInvoice")->find($Id);
-         if(!$invoice) $this->context->throw404error();
-         $filename = ConfigModuleVars::providersInvoicesFolder() . "/" . $invoice->getInvoicePath();
-         if(!is_file($filename) || !is_readable($filename)) $this->context->throw404error ();
-         $this->context->renderFile($filename, $forceDl);
+        $invoice = $this->_em->getRepository("CommercialProviderInvoice")->find($Id);
+
+        if(!$invoice || (!$isEmployee && $invoice->getProject()->getCustomerUser()->getId() != $currentUserId)) {
+            $this->context->throw404error();
+        }
+
+        // If not employee and the free documents displays in disabled in general configuration
+        if (!$isEmployee && !$companyConfig->getProjectShowDocuments()) {
+            $this->context->throw404error();
+        }
+
+        $filename = ConfigModuleVars::providersInvoicesFolder() . "/" . $invoice->getInvoicePath();
+        if(!is_file($filename) || !is_readable($filename)) $this->context->throw404error ();
+        $this->context->renderFile($filename, $forceDl);
     }
     
     public function addAmountAction($ProviderInvoiceId) {

@@ -12,7 +12,7 @@ class ConfigControllers extends \IgestisConfigController {
      */
     public static function get() {
         return  array(
-            
+
             /***************** Section to manage the accounting ***************************************************************/
             array(
                 'id' => 'commercial_accounting_index',
@@ -24,7 +24,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'indexAction',
                 'Access' => array('COMMERCIAL:ADMIN')
             ),
-            
+
             array(
                 'id' => 'commercial_vat_accounting_update',
                 'Parameters' => array(
@@ -35,7 +35,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'saveVatAccountingAction',
                 'Access' => array('COMMERCIAL:ADMIN')
             ),
-            
+
             array(
                 'id' => 'commercial_purchasing_account_new',
                 'Parameters' => array(
@@ -46,7 +46,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'purchasingAccountNewAction',
                 'Access' => array('COMMERCIAL:ADMIN')
             ),
-            
+
             array(
                 'id' => 'commercial_selling_account_new',
                 'Parameters' => array(
@@ -57,7 +57,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'sellingAccountNewAction',
                 'Access' => array('COMMERCIAL:ADMIN')
             ),
-            
+
             array(
                 'id' => 'commercial_purchasing_account_edit',
                 'Parameters' => array(
@@ -69,7 +69,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'purchasingAccountEditAction',
                 'Access' => array('COMMERCIAL:ADMIN')
             ),
-            
+
             array(
                 'id' => 'commercial_selling_account_edit',
                 'Parameters' => array(
@@ -81,7 +81,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'sellingAccountEditAction',
                 'Access' => array('COMMERCIAL:ADMIN')
             ),
-            
+
             array(
                 'id' => 'commercial_purchasing_account_delete',
                 'Parameters' => array(
@@ -94,7 +94,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Access' => array('COMMERCIAL:ADMIN'),
                 'CsrfProtection' => true
             ),
-            
+
             array(
                 'id' => 'commercial_selling_account_delete',
                 'Parameters' => array(
@@ -107,7 +107,19 @@ class ConfigControllers extends \IgestisConfigController {
                 'Access' => array('COMMERCIAL:ADMIN'),
                 'CsrfProtection' => true
             ),
-            
+
+            /***************** Manage the configurations of the company *****************************************************/
+            array(
+                'id' => 'commercial_project_parameters_config',
+                'Parameters' => array(
+                    'Module' => 'Commercial',
+                    'Action' => 'project_parameters_config'
+                ),
+                'Controller' => '\Igestis\Modules\Commercial\projectParametersController',
+                'Action' => 'editAction',
+                'Access' => array('COMMERCIAL:ADMIN')
+            ),
+
             /***************** Manage the configurations of the company *****************************************************/
             array(
                 'id' => 'commercial_parameters_config',
@@ -119,7 +131,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'editAction',
                 'Access' => array('COMMERCIAL:ADMIN')
             ),
-            
+
             /***************** Manage the articles database *****************************************************************/
             array(
                 'id' => 'commercial_articles_index',
@@ -130,7 +142,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\ArticlesController',
                 'Action' => 'indexAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),            
+            ),
             array(
                 'id' => 'commercial_articles_edit',
                 'Parameters' => array(
@@ -164,8 +176,8 @@ class ConfigControllers extends \IgestisConfigController {
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL'),
                 'CsrfProtection' => true
             ),
-            
-            
+
+
             /***************** Manage the taxe rates database **************************************************************/
             array(
                 'id' => 'commercial_taxe_rates_index',
@@ -176,7 +188,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\taxeRatesController',
                 'Action' => 'indexAction',
                 'Access' => array('COMMERCIAL:ADMIN')
-            ),            
+            ),
             array(
                 'id' => 'commercial_taxe_rates_edit',
                 'Parameters' => array(
@@ -210,7 +222,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Access' => array('COMMERCIAL:ADMIN'),
                 'CsrfProtection' => true
             ),
-            
+
             /***************** Manage the commercialprojects *****************************************************************/
             array(
                 'id' => 'commercial_project_index',
@@ -221,7 +233,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\projectsController',
                 'Action' => 'indexAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),  
+            ),
             array(
                 'id' => 'commercial_project_new',
                 'Parameters' => array(
@@ -231,7 +243,19 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\projectsController',
                 'Action' => 'newAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),  
+            ),
+            array(
+                'id' => 'commercial_project_for_customer',
+                'Parameters' => array(
+                    'Module' => 'Commercial',
+                    'Action' => 'customer_projects',
+                    'customerId' => '{VAR}[0-9]+'
+                ),
+                'Controller' => '\Igestis\Modules\Commercial\projectsController',
+                'Action' => 'customerProjectsAction',
+                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
+            ),
+
             array(
                 'id' => 'commercial_project_edit',
                 'Parameters' => array(
@@ -242,7 +266,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\projectsController',
                 'Action' => 'editAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),  
+            ),
             array(
                 'id' => 'commercial_project_update_time_credit',
                 'Parameters' => array(
@@ -252,7 +276,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\projectsController',
                 'Action' => 'editTimeCreditAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ), 
+            ),
             array(
                 'id' => 'commercial_project_del',
                 'Parameters' => array(
@@ -264,8 +288,8 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'delAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL'),
                 'CsrfProtection' => true
-            ),  
-            
+            ),
+
             array(
                 'id' => 'commercial_project_link_commercial_document',
                 'Parameters' => array(
@@ -276,8 +300,8 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\projectsController',
                 'Action' => 'linkCommercialDocumentAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),  
-            
+            ),
+
             array(
                 'id' => 'commercial_project_unlink_commercial_document',
                 'Parameters' => array(
@@ -289,8 +313,8 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\projectsController',
                 'Action' => 'unlinkCommercialDocumentAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ), 
-            
+            ),
+
             array(
                 'id' => 'commercial_project_link_intervention',
                 'Parameters' => array(
@@ -301,8 +325,8 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\projectsController',
                 'Action' => 'linkInterventionAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),  
-            
+            ),
+
             array(
                 'id' => 'commercial_project_unlink_intervention',
                 'Parameters' => array(
@@ -314,8 +338,8 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\projectsController',
                 'Action' => 'unlinkInterventionAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ), 
-            
+            ),
+
             array(
                 'id' => 'commercial_project_link_buying_invoice',
                 'Parameters' => array(
@@ -326,8 +350,8 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\projectsController',
                 'Action' => 'linkBuyingInvoiceAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),  
-            
+            ),
+
             array(
                 'id' => 'commercial_project_unlink_buying_invoice',
                 'Parameters' => array(
@@ -339,8 +363,8 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\projectsController',
                 'Action' => 'unlinkBuyingInvoiceAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ), 
-            
+            ),
+
             array(
                 'id' => 'commercial_project_link_free_document',
                 'Parameters' => array(
@@ -351,7 +375,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\projectsController',
                 'Action' => 'linkFreeDocumentAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),  
+            ),
             array(
                 'id' => 'commercial_free_document_download',
                 'Parameters' => array(
@@ -362,8 +386,8 @@ class ConfigControllers extends \IgestisConfigController {
                 ),
                 'Controller' => '\Igestis\Modules\Commercial\projectsController',
                 'Action' => 'downloadAction',
-                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),             
+                'Access' => array('AUTHENTICATED')
+            ),
             array(
                 'id' => 'commercial_project_refresh_free_documents',
                 'Parameters' => array(
@@ -374,8 +398,8 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\projectsController',
                 'Action' => 'refreshFreeDocumentsAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ), 
-            
+            ),
+
             array(
                 'id' => 'commercial_project_unlink_free_document',
                 'Parameters' => array(
@@ -387,7 +411,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\projectsController',
                 'Action' => 'unlinkFreeDocumentAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ), 
+            ),
             array(
                 'id' => 'commercial_project_edit_free_document',
                 'Parameters' => array(
@@ -398,9 +422,9 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\projectsController',
                 'Action' => 'editFreeDocumentAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ), 
-            
-            
+            ),
+
+
             /***************** Manage the selling documents *****************************************************************/
             array(
                 'id' => 'commercial_selling_document_index',
@@ -411,7 +435,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\sellingDocumentsController',
                 'Action' => 'indexAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),  
+            ),
             array(
                 'id' => 'commercial_selling_document_new',
                 'Parameters' => array(
@@ -421,7 +445,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\sellingDocumentsController',
                 'Action' => 'newAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),  
+            ),
             array(
                 'id' => 'commercial_selling_document_edit',
                 'Parameters' => array(
@@ -454,7 +478,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\sellingDocumentsController',
                 'Action' => 'newArticleAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ), 
+            ),
             array(
                 'id' => 'commercial_selling_delete_article',
                 'Parameters' => array(
@@ -465,8 +489,8 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\sellingDocumentsController',
                 'Action' => 'deleteArticleAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL'),
-            ), 
-            
+            ),
+
             /**************************************************************/
             array(
                 'id' => 'commercial_estimate_new',
@@ -479,7 +503,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'newAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
             ),
-            
+
             array(
                 'id' => 'commercial_estimate_mail',
                 'Parameters' => array(
@@ -491,7 +515,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'mailAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
             ),
-            
+
             array(
                 'id' => 'commercial_invoice_mail',
                 'Parameters' => array(
@@ -503,7 +527,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'mailAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
             ),
-            
+
             array(
                 'id' => 'commercial_invoice_new',
                 'Parameters' => array(
@@ -514,8 +538,8 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\invoicesController',
                 'Action' => 'newAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ), 
-            
+            ),
+
             array(
                 'id' => 'commercial_estimate_dl_doc',
                 'Parameters' => array(
@@ -526,9 +550,9 @@ class ConfigControllers extends \IgestisConfigController {
                 ),
                 'Controller' => '\Igestis\Modules\Commercial\estimatesController',
                 'Action' => 'downloadAction',
-                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),  
-            
+                'Access' => array('AUTHENTICATED')
+            ),
+
             array(
                 'id' => 'commercial_invoice_dl_doc',
                 'Parameters' => array(
@@ -539,9 +563,9 @@ class ConfigControllers extends \IgestisConfigController {
                 ),
                 'Controller' => '\Igestis\Modules\Commercial\invoicesController',
                 'Action' => 'downloadAction',
-                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL', 'COMMERCIAL:COMP')
-            ),  
-            
+                'Access' => array('AUTHENTICATED')
+            ),
+
             array(
                 'id' => 'commercial_reorder_article',
                 'Parameters' => array(
@@ -552,8 +576,8 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\sellingDocumentsController',
                 'Action' => 'reorderArticleAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ), 
-            
+            ),
+
             array(
                 'id' => 'commercial_document_search_article',
                 'Parameters' => array(
@@ -564,9 +588,9 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\sellingDocumentsController',
                 'Action' => 'searchArticlesAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),  
-            
-            
+            ),
+
+
             /*************** Manage the interventions ************************************************************************/
             array(
                 'id' => 'commercial_interventions_index',
@@ -619,7 +643,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\interventionsController',
                 'Action' => 'showAction',
                 'Access' => array('AUTHENTICATED')
-            ),  
+            ),
             array(
                 'id' => 'commercial_interventions_del',
                 'Parameters' => array(
@@ -630,7 +654,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\interventionsController',
                 'Action' => 'delAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),              
+            ),
             array(
                 'id' => 'commercial_interventions_dl_doc',
                 'Parameters' => array(
@@ -642,9 +666,9 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\interventionsController',
                 'Action' => 'downloadAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),  
-            
-            
+            ),
+
+
             /*************** Manage the bank accounts ************************************************************************/
             array(
                 'id' => 'commercial_bank_index',
@@ -655,7 +679,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\bankAccountController',
                 'Action' => 'indexAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),  
+            ),
 
             array(
                 'id' => 'commercial_bank_account_new',
@@ -666,7 +690,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\bankAccountController',
                 'Action' => 'newAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ), 
+            ),
             array(
                 'id' => 'commercial_bank_account_del',
                 'Parameters' => array(
@@ -677,7 +701,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\bankAccountController',
                 'Action' => 'delAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ), 
+            ),
             array(
                 'id' => 'commercial_bank_account_edit',
                 'Parameters' => array(
@@ -688,8 +712,8 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\bankAccountController',
                 'Action' => 'editAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),             
-                
+            ),
+
             /*************** Manage the bank accounts import *****************************************************************/
             array(
                 'id' => 'commercial_bank_account_import_result',
@@ -700,7 +724,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\bankAccountController',
                 'Action' => 'importResultAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ), 
+            ),
             array(
                 'id' => 'commercial_bank_account_import_result_show',
                 'Parameters' => array(
@@ -721,7 +745,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'importResultValidationAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
             ),
-                
+
             /*************** Manage the bank operations ************************************************************************/
             array(
                 'id' => 'commercial_operations_index',
@@ -755,7 +779,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\bankOperationController',
                 'Action' => 'editAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),            
+            ),
             array(
                 'id' => 'commercial_bank_operation_new',
                 'Parameters' => array(
@@ -776,7 +800,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\providerInvoicesController',
                 'Action' => 'indexAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ),            
+            ),
             array(
                 'id' => 'commercial_provider_invoices_edit',
                 'Parameters' => array(
@@ -820,8 +844,8 @@ class ConfigControllers extends \IgestisConfigController {
                 ),
                 'Controller' => '\Igestis\Modules\Commercial\providerInvoicesController',
                 'Action' => 'downloadAction',
-                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL', 'COMMERCIAL:COMP')
-            ), 
+                'Access' => array('AUTHENTICATED')
+            ),
             array(
                 'id' => 'commercial_provider_invoices_add_amount',
                 'Parameters' => array(
@@ -833,7 +857,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'addAmountAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
             ),
-            
+
             array(
                 'id' => 'commercial_provider_invoices_edit_amount',
                 'Parameters' => array(
@@ -845,7 +869,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'editAmountAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
             ),
-            
+
             array(
                 'id' => 'commercial_provider_invoices_del_amount',
                 'Parameters' => array(
@@ -856,8 +880,8 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\providerInvoicesController',
                 'Action' => 'delAmountAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ), 
-            
+            ),
+
             array(
                 'id' => 'commercial_provider_invoices_refresh',
                 'Parameters' => array(
@@ -867,7 +891,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\providerInvoicesController',
                 'Action' => 'refreshAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-            ), 
+            ),
             /***************** Manage the balance *****************************************************************/
             array(
                 'id' => 'commercial_balance_index',
@@ -900,7 +924,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'paidDocumentAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL', 'COMMERCIAL:COMP')
             ),
-            
+
             /***************** Manage the invoices export *******************************************************/
             array(
                 'id' => 'commercial_export_index',
@@ -912,7 +936,7 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'indexAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:COMP')
             ),
-            
+
             array(
                 'id' => 'commercial_export_generate',
                 'Parameters' => array(
@@ -923,8 +947,8 @@ class ConfigControllers extends \IgestisConfigController {
                 'Action' => 'exportGenerateAction',
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:COMP')
             ),
-            
-            
+
+
             /**************** Customer account ******************************************************************/
             array(
                 'id' => 'commercial_my_account_selling_document_index',
@@ -935,8 +959,8 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\sellingDocumentsController',
                 'Action' => 'myAccountIndexAction',
                 'Access' => array('AUTHENTICATED')
-            ),  
-            
+            ),
+
             array(
                 'id' => 'commercial_my_account_interventions_index',
                 'Parameters' => array(
@@ -946,9 +970,32 @@ class ConfigControllers extends \IgestisConfigController {
                 'Controller' => '\Igestis\Modules\Commercial\interventionsController',
                 'Action' => 'myAccountIndexAction',
                 'Access' => array('AUTHENTICATED')
-            ),  
-            
-            
+            ),
+
+            array(
+                'id' => 'commercial_my_account_project_index',
+                'Parameters' => array(
+                    'Module' => 'Commercial',
+                      'Action' => 'my_account_project_index'
+                ),
+                'Controller' => '\Igestis\Modules\Commercial\projectsController',
+                'Action' => 'myAccountIndexAction',
+                'Access' => array('AUTHENTICATED')
+            ),
+
+            array(
+                'id' => 'commercial_project_show',
+                'Parameters' => array(
+                    'Module' => 'Commercial',
+                    'Action' => 'project_show',
+                    'Id' => '{VAR}[0-9]+',
+                ),
+                'Controller' => '\Igestis\Modules\Commercial\projectsController',
+                'Action' => 'showAction',
+                'Access' => array('AUTHENTICATED')
+            ),
+
+
          );
     }
 }

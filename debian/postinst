@@ -7,6 +7,20 @@ package_name=igestis-commercial
 
 . /usr/share/debconf/confmodule
 
+CONFIG="/etc/igestis/config.ini"
+
+get_value_global_vars()
+{
+
+grep "^$1[[:space:]]*=.*" $CONFIG | \
+  cut -d= -f 2 | \
+  cut -d" " -f 2 | \
+  sed 's|"||g'
+
+}
+
+CACHE_FOLDER=$(get_value_global_vars CACHE_FOLDER)
+DATA_FOLDER=$(get_value_global_vars DATA_FOLDER)
 
 #DEBHELPER#
 
@@ -45,7 +59,6 @@ case "$1" in
             fi
 
 
-	CACHE_FOLDER="/var/cache/igestis/"
 
 	## We setup the cache folder to the right location
 	mkdir -p $CACHE_FOLDER
@@ -60,9 +73,15 @@ case "$1" in
 	chown www-data -R $CACHE_FOLDER
 	chmod 700 -R $CACHE_FOLDER
 
-	mkdir -p /usr/share/igestis/documents/Commercial/
-	chown www-data -R /usr/share/igestis/documents/
-	chmod 700 -R /usr/share/igestis/documents/
+	# Create data folder
+	mkdir -p $DATA_FOLDER/Commercial/invoices
+	mkdir -p $DATA_FOLDER/Commercial/providersInvoices
+	mkdir -p $DATA_FOLDER/Commercial/quotations
+	mkdir -p $DATA_FOLDER/Commercial/freeDocuments
+	mkdir -p $DATA_FOLDER/Commercial/interventions
+
+	chown www-data -R $DATA_FOLDER
+	chmod 700 -R $DATA_FOLDER
 
 	# Remove setup install 
 	rm -rf /usr/share/igestis/install

@@ -114,6 +114,26 @@ class ConfigInitModule implements \Igestis\Interfaces\ConfigMenuInterface, \Iges
         		\Igestis\I18n\Translate::_("Export", ConfigModuleVars::textDomain()),
         		"commercial_export_index"
         );
+
+        if ($context->security->user && $context->security->user->getUserType() != \CoreUsers::USER_TYPE_EMPLOYEE) {
+            $menu->addItem(
+                \Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+                \Igestis\I18n\Translate::_("My projects", ConfigModuleVars::textDomain()),
+                "commercial_my_account_project_index"
+            );
+
+            $menu->addItem(
+                \Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+                \Igestis\I18n\Translate::_("My interventions", ConfigModuleVars::textDomain()),
+                "commercial_my_account_interventions_index"
+            );
+
+            $menu->addItem(
+                \Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+                \Igestis\I18n\Translate::_("My commercial documents", ConfigModuleVars::textDomain()),
+                "commercial_my_account_selling_document_index"
+            );
+        }
         
     }
 
@@ -194,7 +214,11 @@ class ConfigInitModule implements \Igestis\Interfaces\ConfigMenuInterface, \Iges
                 \Igestis\I18n\Translate::_("Administration", ConfigModuleVars::textDomain()), 
                 \Igestis\I18n\Translate::_("Accounting", ConfigModuleVars::textDomain()), 
                 "commercial_accounting_index");
-        
+        $sidebar->addItem(
+                \Igestis\I18n\Translate::_("Administration", ConfigModuleVars::textDomain()), 
+                \Igestis\I18n\Translate::_("Project parameters", ConfigModuleVars::textDomain()), 
+                "commercial_project_parameters_config");  
+
         $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Administration", ConfigModuleVars::textDomain()), 
                 \Igestis\I18n\Translate::_("Commercial parameters", ConfigModuleVars::textDomain()), 
