@@ -27,7 +27,7 @@
 		                {% elseif row.status == 8 %} <strong>({% trans %}Credit{% endtrans %})</strong>
 		                {% endif %}
                 </td>
-                <td>{{ row.date|date("d/m/Y") }}</td>
+                <td>{{ row.creationDate|date("d/m/Y") }}</td>
                 <td>{{ row.amountDf|number_format(2) }}</td>
                 <td><a href="javascript:;" class="update-credit-time" data-time-credit="{{ row.creditTime }}" data-time-credit-id="{{ row.id }}">{{ row.creditTime }}</a></td>
                 <td>

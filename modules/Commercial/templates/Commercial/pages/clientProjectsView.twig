@@ -70,7 +70,7 @@
                                 {% elseif row.status == 8 %} <strong>({% trans %}Credit{% endtrans %})</strong>
                                 {% endif %}
                             </td>
-                            <td>{{ row.date|date("d/m/Y") }}</td>
+                            <td>{{ row.creationDate|date("d/m/Y") }}</td>
                             <td>{{ row.amountDf|number_format(2) }}</td>
                             <td>{{ row.creditTime }}</td>
                             <td>
@@ -78,9 +78,13 @@
                                     <a class="btn btn-small" href="{{ url('commercial_estimate_dl_doc', {"Id":row.estimates.last.Id, "ForceDl" : 1}) }}">
                                        <i class="icon-download-alt"></i> {% trans %}Download the estimate{% endtrans %}
                                     </a>
-                                {% else %}
+                                {% elseif row.status == 4 %}
                                     <a class="btn btn-small" href="{{ url('commercial_invoice_dl_doc', {"Id":row.invoices.last.Id, "ForceDl" : 1}) }}">
                                        <i class="icon-download-alt"></i> {% trans %}Download the invoice{% endtrans %}
+                                    </a>
+                                {% elseif row.status == 8 %}
+                                    <a class="btn btn-small" href="{{ url('commercial_invoice_dl_doc', {"Id":row.invoices.last.Id, "ForceDl" : 1}) }}">
+                                       <i class="icon-download-alt"></i> {% trans %}Download the credit{% endtrans %}
                                     </a>
                                 {% endif %}
                             </td>
@@ -96,7 +100,7 @@
 
           <legend>{% trans %}Linked interventions{% endtrans %}</legend>
           {% import "table.twig" as table_data %}
-          {{ table_data.datatable() }}  
+          {{ table_data.datatable() }}
 
           <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-condensed table-striped table-hover" id="table_data">
               <thead>

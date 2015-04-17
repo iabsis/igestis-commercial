@@ -19,8 +19,8 @@
                     {% elseif row.status == 8 %}{% trans %}Credit{% endtrans %}
                     {% endif %}</td>
                <td>{{ row.description }}</td>
-               <td>{{ row.date|date("d/m/Y") }}</td>
-               <td>{{ row.amountDf|number_format(2) }}</td>                            
+               <td>{{ row.creationDate|date("d/m/Y") }}</td>
+               <td>{{ row.amountDf|number_format(2) }}</td>
            </tr>
      {% endfor %}
    </tbody>

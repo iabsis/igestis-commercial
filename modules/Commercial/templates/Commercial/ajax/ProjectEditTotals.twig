@@ -3,10 +3,12 @@
         <td>{% trans %}Total commercial docs{% endtrans %}</td>
         <td><span id="tot-comm-doc" data-negative-positive-auto-class="true">{{ project.totCommercialDoc|number_format(2) }}</span></td>
     </tr>
+    {% if rights.projectShowBuyingInvoices %}
     <tr>
         <td>{% trans %}Total buying invoices{% endtrans %}</td>
         <td><span id="tot-buying-invoice" data-negative-positive-auto-class="true">{{ project.totBuyingInvoices|number_format(2) }}</span></td>
     </tr>
+    {% endif %}
     <tr>
         <td>{% trans %}Total intervention time{% endtrans %}</td>
         <td><span id="tot-support-intervention" data-negative-positive-auto-class="true">{{ project.totSupportIntervention }}</span></td>
@@ -20,4 +22,3 @@
         <td><span id="remaining-credit-time" data-negative-positive-auto-class="true">{{ project.remainingCreditTime }}</span></td>
     </tr>
 </table>
-
