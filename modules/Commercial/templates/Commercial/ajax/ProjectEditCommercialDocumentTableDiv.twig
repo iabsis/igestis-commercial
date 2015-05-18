@@ -31,6 +31,9 @@
                 <td>{{ row.amountDf|number_format(2) }}</td>
                 <td><a href="javascript:;" class="update-credit-time" data-time-credit="{{ row.creditTime }}" data-time-credit-id="{{ row.id }}">{{ row.creditTime }}</a></td>
                 <td>
+                    <a href="javascript:;" onclick="javascript:create_or_duplicate_document('{{ row.id }}', '{{ project.id }}');" class="btn btn-mini a-visible-line-on-over">
+                        <i class="icon-edit"></i> Dupliquer                    
+                    </a>
                 	<a href="{{ url('commercial_selling_document_edit', {'Id':row.id}) }}" class="btn btn-mini a-visible-line-on-over">
                         <i class="icon-eye"></i> {% trans %}Details{% endtrans %}
                     </a>
