@@ -150,6 +150,7 @@ class projectsController extends \IgestisController
         if($this->request->IsPost()) {
             // Create the new commercial document
             $parser = new \IgestisFormParser();
+            $project->setClosed(false);
             $project = $parser->FillEntityFromForm($project, $_POST);
 
             try {
