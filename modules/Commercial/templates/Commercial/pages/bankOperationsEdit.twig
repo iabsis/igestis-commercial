@@ -214,13 +214,13 @@
                     });
                }
                else {
-                   var balance = $("#operationAmount").val();
+                   var balance = parseFloat($("#operationAmount").val().replace(',', '.')).toFixed(2);
                    var assocs = 0;
                    
                    if($('#sameAmountsInvoices').length) {
                        $('input[type=checkbox]', $('#sameAmountsInvoices').dataTable().fnGetNodes()).each(function() {
                             if(!$(this).is(":checked")) return;
-                            assocs += parseFloat($(this).data("amount"));
+                            assocs += parseFloat($(this).data("amount").replace(',', '.'));
                        });
                    }
                    
@@ -229,6 +229,7 @@
                        assocs += (isNaN(val) ? 0 : val);
                    });
                    
+                   assocs = assocs.toFixed(2);
                    if(balance - assocs !== 0) {
                        bootbox.confirm("{% trans %}The assigned amounts does not match the operation amount. Do you want to validate anyway ?{% endtrans %}", "{% trans %}No{% endtrans %}", "{% trans %}Yes{% endtrans %}", function(result) {
                            if(result) action();
