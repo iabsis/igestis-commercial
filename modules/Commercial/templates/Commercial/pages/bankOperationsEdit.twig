@@ -214,13 +214,13 @@
                     });
                }
                else {
-                   var balance = parseFloat($("#operationAmount").val().replace(',', '.')).toFixed(2);
+                   var balance = parseFloat(("" + $("#operationAmount").val()).replace(',', '.')).toFixed(2);
                    var assocs = 0;
                    
                    if($('#sameAmountsInvoices').length) {
                        $('input[type=checkbox]', $('#sameAmountsInvoices').dataTable().fnGetNodes()).each(function() {
                             if(!$(this).is(":checked")) return;
-                            assocs += parseFloat($(this).data("amount").replace(',', '.'));
+                            assocs += parseFloat(("" + $(this).data("amount")).replace(',', '.'));
                        });
                    }
                    
