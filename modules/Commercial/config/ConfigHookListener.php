@@ -18,6 +18,12 @@ class ConfigHookListener implements \Igestis\Interfaces\HookListenerInterface  {
                 $params->set("replacements", $replacements);
                 break;
             
+            case "command" :
+                /** @var \Symfony\Component\Console\Application() $commandApplication */
+                $params->get("application")->add(new Command\CommercialImportArticlesCommand());
+                $params->get("application")->add(new Command\CommercialDeleteImportArticlesCommand());
+                break;
+
             default:
                 break;
         }

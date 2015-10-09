@@ -123,6 +123,16 @@ class CommercialArticle
      */
     private $categoryLabel;
 
+    /**
+     * @var CommercialImportArticles
+     *
+     * @ManyToOne(targetEntity="CommercialImportArticles")
+     * @JoinColumns({
+     *   @JoinColumn(name="import_id", referencedColumnName="id")
+     * })
+     */
+    private $import;
+
     public function __construct()
     {
         $this->categoryLabel = new \Doctrine\Common\Collections\ArrayCollection();
@@ -460,6 +470,69 @@ class CommercialArticleRepository extends \Doctrine\ORM\EntityRepository {
         $result = parent::find($id, $lockMode, $lockVersion);
         if(!$result || $result->getCompany()->getId() != \IgestisSecurity::init()->user->getCompany()->getId()) return null;
         return $result;
+    }
+
+    public function articlesDatatableResults(\IgestisFormRequest $request, $fromSellingInvoice = false)
+    {
+        $userCompany = \IgestisSecurity::init()->user->getCompany();
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select("COUNT(a)")
+           ->from("CommercialArticle", "a")
+           ->where("a.company = :company")
+           ->setParameter("company", $userCompany);
+
+
+        if ($request->getGet("sSearch")) {
+            $qb
+                ->andWhere("(a.designation like :query or a.description like :query or a.companyRef like :query or a.manufacturerRef like :query)")
+                ->setParameter("query", "%".$request->getGet("sSearch")."%");
+        }
+
+        $nbResults = $qb->getQuery()->getSingleScalarResult();
+        $qb->select("a");
+
+        $output = new \Igestis\DataTables\AjaxDatatableOutput($request, $qb, $nbResults);
+        $fieldsList = new \Igestis\DataTables\AjaxDatatableSorting();
+
+        if ($fromSellingInvoice) {
+            $fieldsList->addField("a.id");
+            $fieldsList->addField("a.companyRef");
+            $fieldsList->addField("a.designation");
+            $fieldsList->addField("a.sellingPriceDf");
+
+            $output->sortingManager($fieldsList);
+            $results = $qb->getQuery()->getResult();
+            foreach ($results as $currentResult) {
+                $output->addRow(array(
+                    $currentResult->getId(),
+                    $currentResult->getCompanyRef(),
+                    $currentResult->getDesignation(),
+                    $currentResult->getSellingPriceDf(),
+                ));
+            }
+        } else {
+            $fieldsList->addField("a.companyRef");
+            $fieldsList->addField("a.designation");
+            $fieldsList->addField("a.purchasingPriceDf");
+            $fieldsList->addField("a.sellingPriceDf");
+            $fieldsList->addField("a.id");
+
+            $output->sortingManager($fieldsList);
+            $results = $qb->getQuery()->getResult();
+            foreach ($results as $currentResult) {
+                $output->addRow(array(
+                    $currentResult->getCompanyRef(),
+                    $currentResult->getDesignation(),
+                    $currentResult->getPurchasingPriceDf(),
+                    $currentResult->getSellingPriceDf(),
+                    $currentResult->getId(),
+                ));
+            }
+        }
+        
+        
+        
+        return $output->output();
     }
 
 }

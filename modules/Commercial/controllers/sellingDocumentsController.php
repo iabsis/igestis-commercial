@@ -256,9 +256,7 @@ class sellingDocumentsController extends \IgestisController {
         else {
             if(!$sellingDocument) $this->context->throw404error ();
 
-            $this->context->render("Commercial/ajax/ModalCommercialDocumentSearchArticle.twig", array(
-                "articlesList" => $this->_em->getRepository("CommercialArticle")->findAll()
-            ));
+            $this->context->render("Commercial/ajax/ModalCommercialDocumentSearchArticle.twig", array());
         }
     }
 

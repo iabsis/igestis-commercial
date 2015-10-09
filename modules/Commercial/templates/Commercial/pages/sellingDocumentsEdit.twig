@@ -331,6 +331,7 @@ igestisCommercial.sellingDocument.init({
     reorderingLink: '{{ url('commercial_reorder_article', {documentId : sellingDocument.id}) }}'
 });
 
+
 $("#commercial-document-search-article-modal button[type=submit]").unbind("click").bind("click", function() {
     var $modal = $(this).parents(".modal");
     var $form = $modal.find("form");
@@ -363,6 +364,28 @@ $("#commercial-document-search-article-modal button[type=submit]").unbind("click
 $(function(){
     $('body').on('hidden', '.modal', function () {
         $(this).removeData('modal');
+    });
+
+    $('body').on('shown', '#commercial-document-search-article-modal', function () {
+        IgestisSimpleDataTable($("#articlesListTable"), {
+            "bProcessing": true,
+            "bServerSide": true,
+            "sAjaxSource": "{{ url('commercial_articles_search_from_selling_invoice') }}",
+            "aoColumns" : [
+                {"bSortable": false}, // id
+                null, // ref
+                null, // designation
+                null, // Selling price
+                
+            ],
+            "aaSorting" : [[2, "desc"]],
+            "fnRowCallback" : function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+                // Generate buttons  
+                $("td:eq(0)", nRow).html(
+                  '<input type="text" size="5" style="width: auto;" placeholder="0" name="selected-' + aData[0] + '" value="">'
+                );
+            }
+        });
     });
 
     $("#form_data").validate({

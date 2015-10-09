@@ -144,6 +144,26 @@ class ConfigControllers extends \IgestisConfigController {
                 'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
             ),
             array(
+                'id' => 'commercial_articles_search',
+                'Parameters' => array(
+                    'Module' => 'Commercial',
+                    'Action' => 'articles_search'
+                ),
+                'Controller' => '\Igestis\Modules\Commercial\ArticlesController',
+                'Action' => 'searchAction',
+                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
+            ),
+            array(
+                'id' => 'commercial_articles_search_from_selling_invoice',
+                'Parameters' => array(
+                    'Module' => 'Commercial',
+                    'Action' => 'articles_search_from_selling_document'
+                ),
+                'Controller' => '\Igestis\Modules\Commercial\ArticlesController',
+                'Action' => 'searchFromSellingInvoiceAction',
+                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
+            ),
+            array(
                 'id' => 'commercial_articles_edit',
                 'Parameters' => array(
                     'Module' => 'Commercial',

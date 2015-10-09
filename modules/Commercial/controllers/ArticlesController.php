@@ -13,9 +13,31 @@ class ArticlesController extends \IgestisController {
      */
     public function indexAction() {
         $this->context->render("Commercial/pages/articlesList.twig", array(
-            'data_table' =>  $this->_em->getRepository("CommercialArticle")->findAll()
+            'data_table' =>  null, //$this->_em->getRepository("CommercialArticle")->findAll()
         ));
     }
+
+    public function searchAction()
+    {
+        
+        $jsonArticlesList = $this->context->entityManager->getRepository("CommercialArticle")->articlesDatatableResults(
+            $this->request
+        );
+
+        die($jsonArticlesList);
+    }
+
+    public function searchFromSellingInvoiceAction()
+    {
+        $jsonArticlesList = $this->context->entityManager->getRepository("CommercialArticle")->articlesDatatableResults(
+            $this->request,
+            true
+        );
+
+        die($jsonArticlesList);
+    }
+    
+
     
 
     /**
