@@ -30,15 +30,16 @@
                 null, // Designation
                 null, // Buying price
                 null, // Selling price
+                null, // Import name
                 {"bSortable": false}, // Id
                 
             ],
-            "aaSorting" : [[2, "desc"]],
+            "aaSorting" : [[1, "asc"]],
             "fnRowCallback" : function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
                 // Generate buttons  
                 
-                $("td:eq(4)", nRow).html(
-                    '<a class="btn btn-default" href="{{ editUrl }}'+ aData[4] + '"><i class="icon-eye-open"></i> View file</a>'
+                $("td:eq(5)", nRow).html(
+                    '<a class="btn btn-default" href="{{ editUrl }}'+ aData[5] + '"><i class="icon-edit"></i> Edit</a>'
                 ); 
             }
         });
@@ -60,6 +61,7 @@
             <th>{% trans %}Designation{% endtrans %}</th>
             <th>{% trans %}Purchasing price{% endtrans %}</th>
             <th>{% trans %}Selling price{% endtrans %}</th>
+            <th>{% trans %}Import name{% endtrans %}</th>
             <th>{% trans %}Actions{% endtrans %}</th>
         </tr>
     </thead>

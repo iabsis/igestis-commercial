@@ -419,6 +419,11 @@ class CommercialArticle
     public function ereaseCategories() {
         $this->categoryLabel->clear();
     }
+
+    public function getImport()
+    {
+        return $this->import;
+    }
     
     /**
      * @PrePersist
@@ -478,18 +483,19 @@ class CommercialArticleRepository extends \Doctrine\ORM\EntityRepository {
         $qb = $this->_em->createQueryBuilder();
         $qb->select("COUNT(a)")
            ->from("CommercialArticle", "a")
+           ->leftJoin("a.import", "i")
            ->where("a.company = :company")
            ->setParameter("company", $userCompany);
 
 
         if ($request->getGet("sSearch")) {
             $qb
-                ->andWhere("(a.designation like :query or a.description like :query or a.companyRef like :query or a.manufacturerRef like :query)")
+                ->andWhere("(a.designation like :query or a.description like :query or a.companyRef like :query or a.manufacturerRef like :query or i.importLabel like :query)")
                 ->setParameter("query", "%".$request->getGet("sSearch")."%");
         }
 
         $nbResults = $qb->getQuery()->getSingleScalarResult();
-        $qb->select("a");
+        $qb->select("a, i");
 
         $output = new \Igestis\DataTables\AjaxDatatableOutput($request, $qb, $nbResults);
         $fieldsList = new \Igestis\DataTables\AjaxDatatableSorting();
@@ -515,6 +521,7 @@ class CommercialArticleRepository extends \Doctrine\ORM\EntityRepository {
             $fieldsList->addField("a.designation");
             $fieldsList->addField("a.purchasingPriceDf");
             $fieldsList->addField("a.sellingPriceDf");
+            $fieldsList->addField("i.importLabel");
             $fieldsList->addField("a.id");
 
             $output->sortingManager($fieldsList);
@@ -525,6 +532,7 @@ class CommercialArticleRepository extends \Doctrine\ORM\EntityRepository {
                     $currentResult->getDesignation(),
                     $currentResult->getPurchasingPriceDf(),
                     $currentResult->getSellingPriceDf(),
+                    $currentResult->getImport() ? $currentResult->getImport()->getImportLabel() : '',
                     $currentResult->getId(),
                 ));
             }
