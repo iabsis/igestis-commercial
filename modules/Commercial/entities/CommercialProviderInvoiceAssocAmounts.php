@@ -284,7 +284,7 @@ class CommercialProviderInvoiceAssocAmountsRepository extends Doctrine\ORM\Entit
         
     }
     
-    public function find($id, $lockMode = \Doctrine\DBAL\LockMode::NONE, $lockVersion = null) {
+    public function find($id, $lockMode = null, $lockVersion = null) {
         $result = parent::find($id, $lockMode, $lockVersion);
         if(!$result || $result->getPurchaseInvoice()->getCompany()->getId() != \IgestisSecurity::init()->user->getCompany()->getId()) return null;
         return $result;

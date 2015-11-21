@@ -56,7 +56,7 @@ class CommercialImportArticles
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      *
-     * @OneToMany(targetEntity="CommercialArticle", mappedBy="import_id", cascade={"persist", "update"})
+     * @OneToMany(targetEntity="CommercialArticle", mappedBy="import_id", cascade={"persist"})
      * 
      */
     private $articles;
@@ -245,7 +245,7 @@ class CommercialImportArticlesRepository extends \Doctrine\ORM\EntityRepository 
         
     }
     
-    public function find($id, $lockMode = \Doctrine\DBAL\LockMode::NONE, $lockVersion = null) {
+    public function find($id, $lockMode = null, $lockVersion = null) {
         $result = parent::find($id, $lockMode, $lockVersion);
         if(!$result || $result->getCompany()->getId() != \IgestisSecurity::init()->user->getCompany()->getId()) return null;
         return $result;

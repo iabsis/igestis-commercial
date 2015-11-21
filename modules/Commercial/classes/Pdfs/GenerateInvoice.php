@@ -45,12 +45,12 @@ class GenerateInvoice extends GenerateCommercialDocument {
     
     /**
      * 
-     * @param \EntityManager $entityManager
+     * @param \Doctrine\ORM\EntityManager $entityManager
      * @param \CommercialCommercialDocument $document
      * @param Igestis\Modules\Keytours\HtmlRendererInterface $htmlRenderer
      * @param string $htmlRendererFile
      */
-    public function __construct(\EntityManager $entityManager, \CommercialCommercialDocument $document = null, $htmlRenderer = null, $htmlRendererFile = null) {
+    public function __construct(\Doctrine\ORM\EntityManager $entityManager, \CommercialCommercialDocument $document = null, $htmlRenderer = null, $htmlRendererFile = null) {
         parent::__construct($entityManager, $document, $htmlRenderer, $htmlRendererFile);
         $this->document = $document;
         $this->saveMode(true);

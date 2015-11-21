@@ -68,11 +68,11 @@ abstract class GenerateCommercialDocument {
     
     /**
      * 
-     * @param \EntityManager $entityManager
+     * @param \Doctrine\ORM\EntityManager $entityManager
      * @param type $src
      * @param HtmlRendererInterface $htmlRender Renderer for the html
      */
-    public function __construct(\EntityManager $entityManager, $src = null, $htmlRenderer=null, $htmlRendererFile=null) {
+    public function __construct(\Doctrine\ORM\EntityManager $entityManager, $src = null, $htmlRenderer=null, $htmlRendererFile=null) {
         ini_set ('max_execution_time', 0);
         ini_set('memory_limit', '512M');
         $this->entityManager = $entityManager;

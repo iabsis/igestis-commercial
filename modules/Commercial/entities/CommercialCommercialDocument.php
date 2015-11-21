@@ -167,6 +167,8 @@ class CommercialCommercialDocument
         $this->articles = new Doctrine\Common\Collections\ArrayCollection();
         $this->invoices = new Doctrine\Common\Collections\ArrayCollection();
         $this->estimates = new Doctrine\Common\Collections\ArrayCollection();
+
+        $this->creationDate = new \DateTime();
         
         if($cloneFrom) {
             foreach($cloneFrom->getArticles() as $article) {
@@ -663,7 +665,7 @@ class CommercialCommercialDocumentRepository extends \Doctrine\ORM\EntityReposit
         
     }
     
-    public function find($id, $lockMode = \Doctrine\DBAL\LockMode::NONE, $lockVersion = null) {
+    public function find($id, $lockMode = null, $lockVersion = null) {
         $result = parent::find($id, $lockMode, $lockVersion);
         if(!$result || $result->getCompany()->getId() != \IgestisSecurity::init()->user->getCompany()->getId()) return null;
         return $result;

@@ -157,7 +157,7 @@ class CommercialFreeDocument
 
 class CommercialFreeDocumentRepository extends \Doctrine\ORM\EntityRepository {
 
-    public function find($id, $lockMode = \Doctrine\DBAL\LockMode::NONE, $lockVersion = null) {
+    public function find($id, $lockMode = null, $lockVersion = null) {
         $result = parent::find($id, $lockMode, $lockVersion);
         
         if(!$result || $result->getProject()->getCompany()->getId() != \IgestisSecurity::init()->user->getCompany()->getId()) return null;
