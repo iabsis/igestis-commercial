@@ -7,27 +7,30 @@
  */
 namespace Igestis\Modules\Commercial;
 
-class ConfigHookListener implements \Igestis\Interfaces\HookListenerInterface  {
-    public static function listen($HookName, \Igestis\Types\HookParameters $params = null) {
-        switch ($HookName) {           
-            case "finalRendering" :
+class ConfigHookListener implements \Igestis\Interfaces\HookListenerInterface
+{
+    public static function listen($HookName, \Igestis\Types\HookParameters $params = null)
+    {
+        switch ($HookName) {
+            case "finalRendering":
                 $replacements = $params->get("replacements");
-                if(!isset($replacements['customersList'])) {
+                if (!isset($replacements['customersList'])) {
                     $replacements['customersList'] = \Application::getInstance()->entityManager->getRepository("CoreUsers")->findAll(false);
                 }
                 $params->set("replacements", $replacements);
                 break;
-            
-            case "command" :
+
+            case "command":
                 /** @var \Symfony\Component\Console\Application() $commandApplication */
                 $params->get("application")->add(new Command\CommercialImportArticlesCommand());
                 $params->get("application")->add(new Command\CommercialDeleteImportArticlesCommand());
+                $params->get("application")->add(new Command\CommercialImportProvidersInvoicesCommand());
                 break;
 
             default:
                 break;
         }
-        
+
         return false;
     }
 }

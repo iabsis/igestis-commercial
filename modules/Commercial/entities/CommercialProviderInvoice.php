@@ -46,14 +46,14 @@ class CommercialProviderInvoice
      * @Column(name="invoice_path", type="string", length=100)
      */
     private $invoicePath;
-    
+
     /**
      * @var boolean $paid
      *
      * @Column(name="paid", type="boolean")
      */
     private $paid;
-    
+
     /**
      * @var string $fileMd5Hash hash of the file to check if the same one has already been uploaded
      *
@@ -99,20 +99,20 @@ class CommercialProviderInvoice
      * })
      */
     private $project;
-    
+
     /**
      * @var Doctrine\Common\Collections\ArrayCollection()
-     * 
+     *
      * @OneToMany(targetEntity="CommercialProviderInvoiceAssocAmounts", mappedBy="purchaseInvoice", cascade={"all"})
      */
     private $amounts;
-    
+
     /**
      * Tell if the provider invoice is still editable or already exported
-     * @var bool 
+     * @var bool
      */
     private $locked;
-    
+
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection List  of the associated rows
      * @OneToMany(targetEntity="CommercialBankAssocOperations", mappedBy="providerInvoice", cascade={"all"}, orphanRemoval=true)
@@ -120,7 +120,7 @@ class CommercialProviderInvoice
     private $bankAssocs;
 
     private $changed;
-    
+
     public function __construct() {
         $this->exported = false;
         $this->amounts = new Doctrine\Common\Collections\ArrayCollection();
@@ -139,7 +139,7 @@ class CommercialProviderInvoice
         $amount->setPurchaseInvoice($this);
         return $this;
     }
-    
+
     /**
      * Remove the amount from the provider invoice
      * @param \CommercialProviderInvoiceAssocAmounts $amount
@@ -150,7 +150,7 @@ class CommercialProviderInvoice
         $this->amounts->removeElement($amount);
         return  $this;
     }
-    
+
     /**
      * List of amounts associated to the invoice
      * @return Doctrine\Common\Collections\ArrayCollection
@@ -175,7 +175,7 @@ class CommercialProviderInvoice
     /**
      * Get invoiceDate
      *
-     * @return date 
+     * @return date
      */
     public function getInvoiceDate()
     {
@@ -198,13 +198,13 @@ class CommercialProviderInvoice
     /**
      * Get invoiceNum
      *
-     * @return string 
+     * @return string
      */
     public function getInvoiceNum()
     {
         return $this->invoiceNum;
     }
-    
+
     /**
      * Set paid
      *
@@ -220,7 +220,7 @@ class CommercialProviderInvoice
     /**
      * Get paid
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPaid()
     {
@@ -243,7 +243,7 @@ class CommercialProviderInvoice
     /**
      * Get invoicePaymentType
      *
-     * @return string 
+     * @return string
      */
     public function getInvoicePaymentType()
     {
@@ -266,7 +266,7 @@ class CommercialProviderInvoice
     /**
      * Get exported
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getExported()
     {
@@ -289,7 +289,7 @@ class CommercialProviderInvoice
     /**
      * Get invoicePath
      *
-     * @return string 
+     * @return string
      */
     public function getInvoicePath()
     {
@@ -299,7 +299,7 @@ class CommercialProviderInvoice
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -323,7 +323,7 @@ class CommercialProviderInvoice
         else {
             //$this->bankAssocs->clear();
         }
-        
+
         $this->providerUser = $providerUser;
         return $this;
     }
@@ -331,15 +331,15 @@ class CommercialProviderInvoice
     /**
      * Get providerUser
      *
-     * @return \CoreUsers 
+     * @return \CoreUsers
      */
     public function getProviderUser()
     {
         return $this->providerUser;
     }
-    
+
     /**
-     * 
+     *
      * @return string
      */
     public function getFileMd5Hash() {
@@ -347,7 +347,7 @@ class CommercialProviderInvoice
     }
 
     /**
-     * 
+     *
      * @param string $fileMd5Hash
      * @return \CommercialProviderInvoice
      */
@@ -356,7 +356,7 @@ class CommercialProviderInvoice
         return $this;
     }
 
-    
+
     /**
      * Set company
      *
@@ -373,7 +373,7 @@ class CommercialProviderInvoice
     /**
      * Get company
      *
-     * @return CoreCompanies 
+     * @return CoreCompanies
      */
     public function getCompany()
     {
@@ -395,7 +395,7 @@ class CommercialProviderInvoice
                 $this->project->removeProviderInvoice($this);
             }
         }
-        $this->project = $project;        
+        $this->project = $project;
         return $this;
     }
 
@@ -409,13 +409,13 @@ class CommercialProviderInvoice
     /**
      * Get project
      *
-     * @return CommercialProject 
+     * @return CommercialProject
      */
     public function getProject()
     {
         return $this->project;
     }
-    
+
     /**
      * @PostLoad
      */
@@ -423,32 +423,32 @@ class CommercialProviderInvoice
         $this->locked = (bool)$this->exported;
         $this->changed = false;
     }
-    
+
     /**
      * @PrePersist
      * @PreUpdate
      */
-    public function prePersist() {   
+    public function prePersist() {
         // Check if another provider invoice has already the same  reference
         $_em = \Application::getEntityMaanger();
-        
+
         if($this->changed && $_em->getRepository("CommercialProviderInvoice")->findOtherProviderInvoiceWithSameReference($this)) {
             throw new \Exception(\Igestis\I18n\Translate::_("This provider invoice number already exists"));
         }
-        
+
         if($this->changed && $this->locked) throw new \Exception(\Igestis\I18n\Translate::_("This invoice is in read only mode. It has already been exported"));
-        
+
         // Setting company
         if($this->company == null) {
             $this->company = \IgestisSecurity::init()->user->getCompany();
-        }        
-        
+        }
+
         if(count($this->bankAssocs) && !$this->paid) {
             throw new \Exception(Igestis\I18n\Translate::_("This document is associated to one or more bank operation. You cannot change the payment status"));
-        } 
-      
+        }
+
         //exit;
-    }    
+    }
     /**
      * @PreRemove
      */
@@ -456,7 +456,7 @@ class CommercialProviderInvoice
         if(count($this->bankAssocs)) throw new \Exception(\Igestis\I18n\Translate::_("This invoice is already linked to a bank operation"));
         if($this->locked) throw new \Exception(\Igestis\I18n\Translate::_("This invoice is in read only mode. It has already been exported"));
     }
-    
+
     public function getAmountDf() {
         $totDf = 0;
         foreach ($this->amounts as $amount) {
@@ -464,7 +464,7 @@ class CommercialProviderInvoice
         }
         return $totDf;
     }
-    
+
     public function getAmountTi() {
         $totTi = 0;
         foreach ($this->amounts as $amount) {
@@ -472,14 +472,14 @@ class CommercialProviderInvoice
         }
         return $totTi;
     }
-    
-    
+
+
     public function export() {
         $companyVatAccounting = \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::getVatAccountig();
         $this->setExported(true);
         $string = "";
         $totTaxes = 0;
-        
+
         foreach ($this->amounts as $amount) {
             if(!isset($exportableData[$amount->getAccountNumber()])) {
                 $exportableData[$amount->getAccountNumber()] = array(
@@ -495,100 +495,100 @@ class CommercialProviderInvoice
             $exportableData[$amount->getAccountNumber()]["articleDf"] += $amount->getAmountDf();
             $exportableData[$amount->getAccountNumber()]["articleTi"] += $amount->getAmountTi();
             $exportableData[$amount->getAccountNumber()]["articleTaxes"] += $amount->getTaxes();
-            
+
             $totTaxes += $amount->getTaxes();
         }
-        
+
         $totTi = 0;
         $lastCurrentData = null;
         /*
         foreach($this->amounts as $amount) {
             $amount->saveAccountNumber();
-            
+
             $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
                 $this->id,
-                \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING, 
+                \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING,
                 $this->getProviderUser()->getAccountCode(),
                 $amount->getTaxAccountingNumber($companyVatAccounting->getBuyingVatAccount()),
                 $amount->getAccountNumber(),
-                $this->invoiceNum, 
+                $this->invoiceNum,
                 $this->invoiceDate,
-                $amount->getAmountDf(), 
-                0, 
+                $amount->getAmountDf(),
+                0,
                 0,
                 $this->getProviderUser()->getUserLabel()
             );
-            
+
             $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
                 $this->id,
-                \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING, 
+                \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING,
                 $this->getProviderUser()->getAccountCode(),
                 $amount->getTaxAccountingNumber($companyVatAccounting->getBuyingVatAccount()),
                 $amount->getAccountNumber(),
-                $this->invoiceNum, 
+                $this->invoiceNum,
                 $this->invoiceDate,
-                0, 
-                $amount->getAmountTi(), 
+                0,
+                $amount->getAmountTi(),
                 0,
                 $this->getProviderUser()->getUserLabel()
             );
-            
+
             $totTaxes += $amount->getTaxes();
         }
         */
         foreach ($exportableData as $accountingNumber => $currentData) {
             $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
                 $this->id,
-                \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING, 
+                \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING,
                 $this->getProviderUser()->getAccountCode(),
                 $currentData['taxAccountingNumber'],
                 $accountingNumber,
-                $this->invoiceNum, 
+                $this->invoiceNum,
                 $this->invoiceDate,
-                $currentData['articleDf'], 
-                0, 
+                $currentData['articleDf'],
+                0,
                 0,
                 $this->getProviderUser()->getUserLabel()
             );
-            
+
             $totTi += $currentData['articleTi'];
             $lastCurrentData = $currentData;
-            
+
         }
-        
-        
+
+
         $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
             $this->id,
-            \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING, 
+            \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING,
             $this->getProviderUser()->getAccountCode(),
             $amount->getTaxAccountingNumber($companyVatAccounting->getBuyingVatAccount()),
             $amount->getAccountNumber(),
-            $this->invoiceNum, 
+            $this->invoiceNum,
             $this->invoiceDate,
-            0, 
-            0, 
+            0,
+            0,
             $totTaxes,
             $this->getProviderUser()->getUserLabel()
         );
-        
-        
+
+
         $string .= \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::exportLineFormatter(
             $this->id,
-            \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING, 
+            \Igestis\Modules\Commercial\EntityLogic\invoicesExportLogic::TYPE_BUYING,
             $this->getProviderUser()->getAccountCode(),
             $amount->getTaxAccountingNumber($companyVatAccounting->getBuyingVatAccount()),
             $accountingNumber,
-            $this->invoiceNum, 
+            $this->invoiceNum,
             $this->invoiceDate,
-            0, 
-            $totTi, 
+            0,
+            $totTi,
             0,
             $this->getProviderUser()->getUserLabel()
         );
-        
+
         return $string;
     }
-    
+
 }
 
 // ------------------------------------------------------------------------
@@ -607,24 +607,24 @@ class CommercialProviderInvoiceRepository extends Doctrine\ORM\EntityRepository 
         catch (\Exception $e) {
             throw $e;
         }
-        
-        return $qb->getQuery()->getResult();        
-        
+
+        return $qb->getQuery()->getResult();
+
     }
-    
+
     public function find($id, $lockMode = null, $lockVersion = null) {
         $result = parent::find($id, $lockMode, $lockVersion);
         if(!$result || $result->getCompany()->getId() != \IgestisSecurity::init()->user->getCompany()->getId()) return null;
         return $result;
     }
-    
+
     public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null) {
         $criteria['company'] = \IgestisSecurity::init()->user->getCompany();
         return parent::findBy($criteria, $orderBy, $limit, $offset);
     }
-    
+
     /**
-     * 
+     *
      * @param \Igestis\Modules\Commercial\Forms\providerInvoiceSearchForm $searchForm
      */
     public function findFromSearchForm(\Igestis\Modules\Commercial\Forms\providerInvoiceSearchForm $searchForm) {
@@ -636,7 +636,7 @@ class CommercialProviderInvoiceRepository extends Doctrine\ORM\EntityRepository 
                ->where("pi.company = :company")
                ->leftJoin("pi.amounts", "amounts")
                ->setParameter("company", $userCompany);
-            
+
             switch($searchForm->getAssigned()) {
                 case Igestis\Modules\Commercial\Forms\providerInvoiceSearchForm::ASSIGNED_NO :
                     $qb->andWhere("amounts.id is null");
@@ -644,18 +644,18 @@ class CommercialProviderInvoiceRepository extends Doctrine\ORM\EntityRepository 
                 case Igestis\Modules\Commercial\Forms\providerInvoiceSearchForm::ASSIGNED_YES :
                     $qb->andWhere("amounts.id is not null");
                     break;
-                
+
             }
         }
         catch (\Exception $e) {
             throw $e;
         }
-        
-        return $qb->getQuery()->getResult();       
+
+        return $qb->getQuery()->getResult();
     }
-    
+
     /**
-     * 
+     *
      * @param \CoreUsers $customerUser
      * @return type
      * @throws Exception
@@ -673,17 +673,17 @@ class CommercialProviderInvoiceRepository extends Doctrine\ORM\EntityRepository 
         catch (\Exception $e) {
             throw $e;
         }
-        
-        return $qb->getQuery()->getResult();   
+
+        return $qb->getQuery()->getResult();
     }
-    
+
     public function findAssociableToOperation(\CommercialBankOperation $operation) {
         try {
             $providerIds = array();
             foreach($operation->getAssocs() as $assoc) {
                 if($assoc->getProviderInvoice()) $providerIds[] = $assoc->getProviderInvoice ();
             }
-            
+
             $userCompany = \IgestisSecurity::init()->user->getCompany();
             $qb = $this->_em->createQueryBuilder();
             $qb->select("pi")
@@ -694,7 +694,7 @@ class CommercialProviderInvoiceRepository extends Doctrine\ORM\EntityRepository 
                ->setParameter("company", $userCompany)
                ->having("SUM(amounts.amountTi) = :totalTi")
                ->setParameter("totalTi", -1 * $operation->getOperationAmount());
-            
+
             if(count($providerIds)) {
                 $qb->orWhere('pi.id in (:providersIds)')
                    ->orHaving('pi.id in (:providersIds)')
@@ -705,21 +705,21 @@ class CommercialProviderInvoiceRepository extends Doctrine\ORM\EntityRepository 
         catch (\Exception $e) {
             throw $e;
         }
-        
-        return $qb->getQuery()->getResult();       
+
+        return $qb->getQuery()->getResult();
     }
-    
+
     public function findOtherProviderInvoiceWithSameReference(\CommercialProviderInvoice $providerInvoice) {
         try {
             $userCompany = \IgestisSecurity::init()->user->getCompany();
             $qb = $this->_em->createQueryBuilder();
             $qb->select("pi")
                ->from("CommercialProviderInvoice", "pi")
-               ->where("pi.company = :company")               
-               ->andWhere("pi.invoiceNum = :invoiceNum")               
+               ->where("pi.company = :company")
+               ->andWhere("pi.invoiceNum = :invoiceNum")
                ->setParameter("invoiceNum", $providerInvoice->getInvoiceNum())
                ->setParameter("company", $userCompany);
-            
+
             if($providerInvoice->getId()) {
                 $qb->andWhere("pi.id != :invoiceId")->setParameter("invoiceId", $providerInvoice->getId());
             }
@@ -727,8 +727,8 @@ class CommercialProviderInvoiceRepository extends Doctrine\ORM\EntityRepository 
         catch (\Exception $e) {
             throw $e;
         }
-        
-        return $qb->getQuery()->getOneOrNullResult();        
+
+        return $qb->getQuery()->getOneOrNullResult();
     }
 
 }

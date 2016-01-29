@@ -4,10 +4,8 @@ build-stamp
 configure-stamp
 debian/igestis-commercial
 .project
-<<<<<<< HEAD
 .settings*
 .buildpath
-=======
 .settings
 .remote-sync.json
->>>>>>> e13a051e24f76839be748c5a6aa2d92547fd0bcf
+.sync-config.cson
