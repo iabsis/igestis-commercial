@@ -1,3 +1,9 @@
+igestis-commercial (3.1.7) testing; urgency=medium
+
+  * New command to import provider invoices.
+
+ -- Olivier Bitsch <olivierb@olivier-debian.iabsis.local>  Fri, 29 Jan 2016 14:37:12 +0100
+
 igestis-commercial (3.1.6) testing; urgency=medium
 
   * Fix to use latest igestis version.
