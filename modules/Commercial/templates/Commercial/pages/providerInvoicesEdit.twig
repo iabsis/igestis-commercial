@@ -18,14 +18,14 @@
                   {{ forms.select('soldType', 'Payment mode'|trans, soldTypeList, providerInvoice.invoicePaymentType.code, 'code', 'label') }}
                   {{ forms.input('invoiceNum', 'Invoice number'|trans, providerInvoice.invoiceNum) }}
                   {{ forms.date('invoiceDate', 'Invoice date'|trans, providerInvoice.invoiceDate) }}
- 
+
                   <legend>{% trans %}Document amounts{% endtrans %}</legend>
-                  
+
                   <div id="ProviderInvoicesEditAmountTableDiv" style="text-align: center;">
                     {% include 'Commercial/ajax/ProviderInvoicesEditAmountTableDiv.twig' %}
                   </div>
-                  
-                  
+
+
                   <div class="form-actions">
                       <button type="submit" class="btn btn-primary">{% trans %}Save changes{% endtrans %}</button>
                       <input class="btn cancel" type="button" value="{% trans %}Cancel{% endtrans %}" onclick="javascript:history.go(-1);return true;">
@@ -57,7 +57,7 @@
         </div>
     </form>
 </div>
-        
+
 <div id="provider-invoice-already-exist-modal" class="modal hide fade">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -82,7 +82,7 @@
     igestisCommercial.editPopover = null;
     igestisCommercial.initPopover = function() {
         $(".popover").remove();
-        igestisCommercial.editPopover = $('.edit-amount-btn').popover({ 
+        igestisCommercial.editPopover = $('.edit-amount-btn').popover({
             html : true,
             container: "#sidebar",
             placement:"top",
@@ -102,21 +102,22 @@
                 $("#add-project-content form").attr("action", $(self).data("url"));
                 igestisCommercial.refreshAjaxForm();
                 igestisCommercial.testAddEditForm();
+
             });
         });
     };
-    
+
     $(function() {
         $("#add-new-or-edit-amount").removeAttr("id");
-        igestisCommercial.providerInvoices.init({        
+        igestisCommercial.providerInvoices.init({
             amountDeleteLink : '{{ url('commercial_provider_invoices_del_amount', {Id:''} ) }}'
         });
         igestisCommercial.initPopover();
         {% if providerInvoice.isLocked %}igestisLockPage('{{ 'This invoice is in read only mode. It has already been exported'|trans|escape('js') }}');{% endif %}
     });
-    
-    
-    
+
+
+
     $(document).ready(function(){
                 $("#form_data").validate({
                         ignore: "input[type='text']:hidden",
@@ -150,8 +151,8 @@
                         }
                 });
         });
-        
-        
+
+
         igestisCommercial.testAddEditForm = function() {
             $("#add-new-or-edit-amount").submit(function(e) {
                 e.preventDefault();
@@ -177,7 +178,7 @@
                              depends:function() {
                                  return !$('#id-taxes').val();
                              }
-                         }                    
+                         }
                      }
                  },
                  errorClass: "help-inline",
@@ -198,30 +199,30 @@
                          if(parseFloat($('#id-amountTi').val()).toFixed(2) !== parseFloat(parseFloat($('#id-amountDf').val()) + parseFloat($('#id-taxes').val())).toFixed(2)) {
                              var errors = {
                                  taxes: '{{ "Set only one of the two fields"|trans|e('js') }}',
-                                 amountDf: '{{ "Set only one of the two fields"|trans|e('js') }}'    
+                                 amountDf: '{{ "Set only one of the two fields"|trans|e('js') }}'
                              };
                              this.showErrors(errors);
                              return;
-                         }                    
+                         }
                      }
                      form.submit();
-                     $(".popover").find("button, a").addClass("disabled").attr("disabled", "disabled").unbind("click").bind("click", function(e) { 
-                        e.preventDefault(); 
+                     $(".popover").find("button, a").addClass("disabled").attr("disabled", "disabled").unbind("click").bind("click", function(e) {
+                        e.preventDefault();
                      });
                  },
                  messages: {
                      taxes: '{{ "Set taxes or amount without taxes"|trans|e('js') }}',
                      amountDf: '{{ "Set taxes or amount without taxes"|trans|e('js') }}'
                  }
-             }); 
+             });
         };
-        
+
         var delete_current_invoice = function() {
             bootbox.confirm("{% trans %}Are you sure that you want to delete this provider's invoice ?{% endtrans %}", "{% trans %}No{% endtrans %}", "{% trans %}Yes{% endtrans %}", function(result) {
                 if(result) window.location.href="{{ url('commercial_provider_invoices_del', {"Id":providerInvoice.id}) }}";
             });
         };
-        
+
 </script>
 
 

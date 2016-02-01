@@ -5,7 +5,7 @@
 
 var igestisCommercial = function() {
    var _public = {};
-   
+
    _public.documents = {};
    _public.support = {};
    _public.common = {};
@@ -13,7 +13,7 @@ var igestisCommercial = function() {
    _public.bank = {};
    _public.sellingDocument = {};
    _public.providerInvoices = {};
-   
+
    return _public;
 }();
 
@@ -39,9 +39,9 @@ igestisCommercial.common.TtI = function(time) {
     if(!time_format.test(time)) {
         return 0;
     }
-    
+
     var period = time.split(":");
-    return (parseInt(period[0], 10) * 60) + parseInt(period[1], 10); 
+    return (parseInt(period[0], 10) * 60) + parseInt(period[1], 10);
 };
 
 /**
@@ -56,7 +56,7 @@ igestisCommercial.common.ItT = function(time) {
     minutes = time % 60;
     if(heures<10) heures = "0" + heures;
     if(minutes<10) minutes = "0" + minutes;
-    
+
     return heures + ":" + minutes;
 };
 
@@ -76,12 +76,12 @@ igestisCommercial.support.updateTimes = function($field) {
             var duree = igestisCommercial.common.TtI(end.value) - igestisCommercial.common.TtI(time.value);
             if(duree < 0) duree = 1440 + duree;
             duree -= igestisCommercial.common.TtI(pause.value);
-            period.value = igestisCommercial.common.ItT(duree);        
+            period.value = igestisCommercial.common.ItT(duree);
             break;
         case "period" : // Durée met à jour la fin
             var fin = igestisCommercial.common.TtI(time.value) + igestisCommercial.common.TtI(period.value) + igestisCommercial.common.TtI(pause.value);
             if( (fin) >1440) fin -= 1440;
-            end.value = igestisCommercial.common.ItT(fin); 
+            end.value = igestisCommercial.common.ItT(fin);
             break;
     }
 };
@@ -144,12 +144,12 @@ igestisCommercial.bank.startImport = function() {
 			return;
 		}
 	});
-	
+
 	if(error) return ;
-	
+
 	var operationsData = igestisCommercial.bank.pageValues.oOperationTable.$('input').serialize();
 	var accountsData = igestisCommercial.bank.pageValues.oBankTable.$('input').serialize();
-	
+
 	var dataToSend = '';
 	if(operationsData) dataToSend += operationsData;
 	if(accountsData) dataToSend += "&" + accountsData;
@@ -160,26 +160,26 @@ igestisCommercial.bank.startImport = function() {
 };
 
 igestisCommercial.bank.init = function(pageValues) {
-	
+
 	igestisCommercial.bank.pageValues = pageValues;
 	igestisCommercial.bank.pageValues.oOperationTable.$('tr').unbind('click').bind('click', function() {
 		var $checkbox = $(this).find('input[type=checkbox]:not(:disabled)');
 		$checkbox.attr("checked", !$checkbox.attr("checked"));
 	});
 	return;
-	
+
 	$(".auto-check > tbody > tr").unbind('click').bind('click', function() {
 		var $checkbox = $(this).find('input[type=checkbox]');
 		$checkbox.attr("checked", !$checkbox.attr("checked"));
 	});
-	
+
 	$(".auto-check > tbody input").unbind('click').bind('click', function(e) {
 		e.stopPropagation();
 	});
 };
 
 /**
- * 
+ *
  * @param {type} options
  * @returns {undefined}
  */
@@ -188,13 +188,13 @@ igestisCommercial.sellingDocument.init = function(options) {
         deleteLink : "",
         reorderingLink : ""
     } ;
-    
+
     $.extend(igestisCommercial.sellingDocument.options, options);
-    
+
     igestisCommercial.sellingDocument.initTable();
-    
+
     $(function() {
-       $('#SendInvoice textarea, #SendQuotation textarea').wysihtml5(); 
+       $('#SendInvoice textarea, #SendQuotation textarea').wysihtml5();
     });
 };
 
@@ -212,7 +212,7 @@ igestisCommercial.sellingDocument.initTable = function() {
                 { "bVisible": false, "aTargets": [ 0 ] },
                 { "sWidth": '45%', "aTargets": [ 3 ] }
             ]
-        }).rowReordering({ 
+        }).rowReordering({
             sURL:igestisCommercial.sellingDocument.options.reorderingLink
         });
     });
@@ -231,11 +231,11 @@ igestisCommercial.sellingDocument.deleteItem = function(itemId) {
                     igestisParseJsonAjaxResult(result);
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    bootbox.alert(jqXHR.responseText);   
+                    bootbox.alert(jqXHR.responseText);
                 }
             });
         }
-         
+
     });
 };
 
@@ -246,9 +246,9 @@ igestisCommercial.sellingDocument.newArticle = function () {
 
 igestisCommercial.sellingDocument.editArticle = function (articleId) {
     igestisCommercial.sellingDocument.resetArticleModal();
-    
+
     var articleDatas = $("#tr-article-" + articleId).data('article');
-    
+
     $("#id-itemRef").val(articleDatas.itemRef);
     $('#id-taxRate.select2').select2().select2('val', articleDatas.taxRate);
     $("#id-itemLabel").val(articleDatas.itemLabel);
@@ -257,9 +257,9 @@ igestisCommercial.sellingDocument.editArticle = function (articleId) {
     $("#id-purchasingDfUnitPrice").val(articleDatas.purchasingDfUnitPrice);
     $("#id-quantityArticle").val(articleDatas.quantityArticle);
     $('#id-sellingAccount').select2().select2('val', articleDatas.sellingAccount);
-    
+
     igestisCommercial.sellingDocument.calculateTotalPrice();
-    
+
     $("#modal-article-id").val(articleId);
     $("#new-item").modal("show");
 };
@@ -268,9 +268,9 @@ igestisCommercial.sellingDocument.resetArticleModal = function() {
     $("#new-item input[type!='submit'], #new-item textarea").not("#id-taxRate").val('');
     igestisCommercial.sellingDocument.calculateTotalPrice();
     $('#id-sellingAccount').select2().select2('val', '');
-    
+
     if($('#id-taxRate.select2').select2().length > 1) $('#id-taxRate.select2').select2().select2('val', '');
-    
+
     $("#id-sellingDfUnitPrice, #id-quantityArticle, #id-purchasingDfUnitPrice").unbind("keyup").bind("keyup", function() {
         igestisCommercial.sellingDocument.calculateTotalPrice();
     });
@@ -283,7 +283,7 @@ igestisCommercial.sellingDocument.calculateTotalPrice = function() {
     if(isNaN(earningPrice)) {
         earningPrice = 0;
     }
-    
+
     $("#id-totSellPriceArticleTi").val(totalPrice.toFixed(2));
     $("#id-totEarningPriceArticleTi").val(earningPrice.toFixed(2));
 };
@@ -319,13 +319,13 @@ igestisCommercial.projects.init = function(options) {
     igestisCommercial.projects.options = {
         freeDocumentRefreshLink : ""
     } ;
-    
+
     $.extend(igestisCommercial.projects.options, options);
-    
+
     $('body').on('hidden', '.modal', function () {
         $(this).removeData('modal');
     });
-   
+
     $("#project-link-buying-invoice-modal button[type=submit], #project-link-commercial-document-modal button[type=submit], #project-link-intervention-modal button[type=submit]").unbind("click").bind("click", function() {
         var $modal = $(this).parents(".modal");
         var $form = $modal.find("form");
@@ -344,7 +344,7 @@ igestisCommercial.projects.init = function(options) {
 
               },
               error: function(jqXHR, textStatus, errorThrown) {
-                  bootbox.alert(jqXHR.responseText);   
+                  bootbox.alert(jqXHR.responseText);
               },
               complete: function() {
                  $modal.modal("hide");
@@ -364,7 +364,7 @@ igestisCommercial.projects.refreshFreeDocuments = function(e, data) {
         }
     }
 
-    
+
     $.ajax({
         url: igestisCommercial.projects.options.freeDocumentRefreshLink,
         dataType:'json', //type json
@@ -375,7 +375,7 @@ igestisCommercial.projects.refreshFreeDocuments = function(e, data) {
 
         },
         error: function(jqXHR, textStatus, errorThrown) {
-            bootbox.alert(jqXHR.responseText);   
+            bootbox.alert(jqXHR.responseText);
         },
         complete: function() {
            igestisInitTableHover();
@@ -384,25 +384,25 @@ igestisCommercial.projects.refreshFreeDocuments = function(e, data) {
 };
 
 igestisCommercial.providerInvoices.init = function(options) {
-    
+
     igestisCommercial.providerInvoices.options = {
         amountDeleteLink : "",
         refreshInvoicesListLink : ""
     } ;
-    
+
     $.extend(igestisCommercial.providerInvoices.options, options);
-    
+
     $('body').on('hidden', '.modal', function () {
         $(this).removeData('modal');
     });
-    
+
     $('body').on('shown', '.modal', function () {
         $(this).find("select.select2").select2({
             allowClear: true
         });
     });
-    
-    
+
+
 };
 
 igestisCommercial.providerInvoices.refreshInvoicesList = function() {
@@ -418,10 +418,10 @@ igestisCommercial.providerInvoices.refreshInvoicesList = function() {
             IgestisInitTable('#table_data');
         },
         error: function(jqXHR, textStatus, errorThrown) {
-            bootbox.alert(jqXHR.responseText);   
+            bootbox.alert(jqXHR.responseText);
         },
         complete: function() {
-           
+
         }
    });
 };
@@ -438,7 +438,7 @@ igestisCommercial.providerInvoices.deleteAmount = function(amountId) {
                     igestisInitTableHover();
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    bootbox.alert(jqXHR.responseText);   
+                    bootbox.alert(jqXHR.responseText);
                 }
             });
         }
@@ -451,20 +451,25 @@ igestisCommercial.refreshAjaxForm = function() {
     $(".ajax-emulation-validation-iframe").remove();
     $(".ajax-emulation-validation").each(function() {
       var iframeName = "ajax-emulation-validation-iframe-" + (++id);
-      var $iframe = $('<iframe id="' + iframeName + '" name="' + iframeName + '" class="ajax-emulation-validation-iframe"></iframe>');      
+      var $iframe = $('<iframe id="' + iframeName + '" name="' + iframeName + '" class="ajax-emulation-validation-iframe"></iframe>');
       $(this).attr("target", $iframe.attr("id"));
       $(this).append($iframe);
-      
-      $iframe.on("load", function() { 
+
+      $iframe.on("load", function() {
           var $modal = $("#igestis-waiting-msg");
           if($modal.length !== 0)  {
               $modal.modal("hide");
           }
-          // Manage the result 
+          // Manage the result
           var jsonData = $.parseJSON($(this).contents().find("body").text());
           if(jsonData !== null) igestisParseJsonAjaxResult(jsonData);
       });
-      
+
+   });
+   
+   $("select.select2").select2({
+       placeholder: translations.chooseavalue,
+       allowClear: true
    });
 };
 
@@ -478,5 +483,5 @@ igestisCommercial.checkUncheckAll = function(field) {
         $('input[type=checkbox]', $('#table_data').dataTable().fnGetNodes()).attr("checked", "checked");
         $(field).data("checked", true);
     }
-    
+
 };

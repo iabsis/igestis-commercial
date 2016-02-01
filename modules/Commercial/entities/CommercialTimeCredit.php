@@ -24,12 +24,13 @@ class CommercialTimeCredit
      * })
      */
     private $commercialDocument;
-    
+
     /**
-     * 
+     *
      * @param \CoreCompanies $company
      */
-    public function __construct(\CommercialCommercialDocument $document, $time=0) {
+    public function __construct(\CommercialCommercialDocument $document, $time = 0)
+    {
         $this->creditMinutes = $time;
         $this->commercialDocument = $document;
     }
@@ -38,36 +39,46 @@ class CommercialTimeCredit
      * Return the credit time
      * @return [type] [description]
      */
-    public function getCreditMinutes() {
+    public function getCreditMinutes()
+    {
         return $this->creditMinutes;
     }
     /**
      * Set the credit time
      * @param [type] $creditHours [description]
      */
-    public function setCreditMinutes($creditMinutes) {
+    public function setCreditMinutes($creditMinutes)
+    {
 
         if ($creditMinutes == (string)(int)$creditMinutes) {
             $this->creditMinutes = $creditMinutes;
-        }
-        else {
-            if (preg_match("/^[0-9]+\:[0-9]+(\:[0-9]+)?$/", $creditMinutes)) {
+        } else {
+            if (preg_match("/^-?[0-9]+\:[0-9]+(\:[0-9]+)?$/", $creditMinutes)) {
                 $aTime = explode(":", $creditMinutes);
-                $this->creditMinutes = $aTime[0] * 60 + $aTime[1];
+                $this->creditMinutes = $aTime[0] * 60;
+                if ($this->creditMinutes < 0) {
+                    $this->creditMinutes -= $aTime[1];
+                } else {
+                    $this->creditMinutes += $aTime[1];
+                }
             }
         }
-        
+
         return $this;
     }
 
-    public static function getTimeString($intTime) {
+    public static function getTimeString($intTime)
+    {
+        $negative = ($intTime < 0);
+        $intTime = abs($intTime);
         $hours = (int)($intTime / 60);
         $minutes = $intTime % 60;
 
-        return $hours . ":" . ($minutes < 10 ? "0" : "") . $minutes;
+        return ($negative ? '-' : '') . $hours . ":" . ($minutes < 10 ? "0" : "") . $minutes;
     }
 
-    public function getCreditMinutesAsString() {
+    public function getCreditMinutesAsString()
+    {
         return self::getTimeString($this->creditMinutes);
     }
 
@@ -75,7 +86,8 @@ class CommercialTimeCredit
      * Get the linked commercial document
      * @return [type] [description]
      */
-    public function getCommercialDocument() {
+    public function getCommercialDocument()
+    {
         return $this->commercialDocument;
     }
 
@@ -83,12 +95,14 @@ class CommercialTimeCredit
      * Set the linked commercial document
      * @param [type] $commercialDocument [description]
      */
-    public function setCommercialDocument($commercialDocument) {
+    public function setCommercialDocument($commercialDocument)
+    {
         $this->commercialDocument = $commercialDocument;
         return $this;
     }
 
-    public function __toString() {
+    public function __toString()
+    {
         return $this->getCreditMinutesAsString();
     }
 }
@@ -96,26 +110,26 @@ class CommercialTimeCredit
 // -----------------------------------------------------------
 
 /**
-* 
+*
 */
 class CommercialTimeCreditRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getLinkedTimeCredit(CommercialCommercialDocument $commercialDocument) {
+    public function getLinkedTimeCredit(CommercialCommercialDocument $commercialDocument)
+    {
         try {
             $qb = $this->_em->createQueryBuilder();
             $qb->select("tc")
                ->from("CommercialTimeCredit", "tc")
                ->where("tc.commercialDocument = :commercialDocument")
                ->setParameter("commercialDocument", $commercialDocument);
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             throw $e;
         }
-        
-        $linkedCommercialTimeCredit = $qb->getQuery()->getOneOrNullResult();  
+
+        $linkedCommercialTimeCredit = $qb->getQuery()->getOneOrNullResult();
         if ($linkedCommercialTimeCredit === null) {
             $linkedCommercialTimeCredit = new CommercialTimeCredit($commercialDocument);
-        } 
+        }
 
         return $linkedCommercialTimeCredit;
     }
