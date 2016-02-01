@@ -1,3 +1,13 @@
+igestis-commercial (3.1.8) UNRELEASED; urgency=medium
+
+  [ Olivier Bitsch ]
+  * * Fix language generation.
+
+  [ Gilles Hemmerlé ]
+  * * Fix issue that prevented select menu to be displayed when adding an amount in purchase invoices * Added the possibility to set a negative credit time in projects * Added js control to improve user experience when filling the time credit in projects
+
+ -- Olivier Bitsch <olivier.bitsch@gmail.com>  Mon, 01 Feb 2016 11:53:37 +0100
+
 igestis-commercial (3.1.7) testing; urgency=medium
 
   * New command to import provider invoices.
