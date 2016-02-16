@@ -152,6 +152,17 @@
                 });
         });
 
+        jQuery.validator.addMethod("nonZero", function (value, element) {
+            var fieldValue = parseFloat(value);
+            valid = true;
+            if (Math.abs(fieldValue) < 0.009 || isNaN(Math.abs(fieldValue))) {
+                valid = false;
+            }
+
+            return this.optional( element ) ||  valid;
+        }, "Couldn't be zero");
+
+
 
         igestisCommercial.testAddEditForm = function() {
             $("#add-new-or-edit-amount").submit(function(e) {
@@ -159,27 +170,28 @@
             }).validate({
                  ignore: "input[type='text']:hidden",
                  rules:{
-                     purchasingAccount:{
-                             required:true
-                     },
-                     amountTi:{
-                             required:true
-                     },
-                     taxes: {
+                    purchasingAccount:{
+                        required:true
+                    },
+                    amountTi:{
+                        required:true,
+                        nonZero: true,
+                    },
+                    taxes: {
                          required: {
                              depends:function() {
                                  return !$('#id-amountDf').val();
                              }
                          }
-
-                     },
-                     amountDf: {
+                    },
+                    amountDf: {
+                         nonZero: true,
                          required: {
                              depends:function() {
                                  return !$('#id-taxes').val();
                              }
                          }
-                     }
+                    }
                  },
                  errorClass: "help-inline",
                  errorElement: "span",
@@ -206,9 +218,10 @@
                          }
                      }
                      form.submit();
-                     $(".popover").find("button, a").addClass("disabled").attr("disabled", "disabled").unbind("click").bind("click", function(e) {
+                     $(".popover").find("button, a").addClass("disabled").attr("disabled", "disabled");
+                     /*.unbind("click").bind("click", function(e) {
                         e.preventDefault();
-                     });
+                    });*/
                  },
                  messages: {
                      taxes: '{{ "Set taxes or amount without taxes"|trans|e('js') }}',

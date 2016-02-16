@@ -59,23 +59,23 @@ class CommercialProviderInvoiceAssocAmounts
      * })
      */
     private $purchasingAccount;
-    
+
     /**
      * @var string $accountNumber
      *
      * @Column(name="account_number", type="string")
      */
     private $accountNumber;
-    
+
     /**
      * @var string $taxAccountingNumber
      *
      * @Column(name="tax_accounting_number", type="string")
      */
     private $taxAccountingNumber;
-    
+
     /**
-     * 
+     *
      * @return string
      */
     public function getTaxAccountingNumber($defaultAccount = "") {
@@ -86,7 +86,7 @@ class CommercialProviderInvoiceAssocAmounts
     }
 
     /**
-     * 
+     *
      * @param string $taxAccountingNumber
      * @return \CommercialProviderInvoiceAssocAmounts
      */
@@ -96,15 +96,15 @@ class CommercialProviderInvoiceAssocAmounts
     }
 
     /**
-     * 
+     *
      * @return string
      */
-    public function getAccountNumber() {        
+    public function getAccountNumber() {
         return $this->accountNumber;
     }
 
     /**
-     * 
+     *
      * @param string $accountNumber
      * @return \CommercialProviderInvoiceAssocAmounts
      */
@@ -112,14 +112,14 @@ class CommercialProviderInvoiceAssocAmounts
         $this->accountNumber = $accountNumber;
         return $this;
     }
-    
+
     public function saveAccountNumber() {
         if(!$this->accountNumber) {
             $this->accountNumber = $this->getPurchasingAccount()->getAccountNumber();
         }
     }
 
-    
+
     /**
      * Set amountDf
      *
@@ -136,7 +136,7 @@ class CommercialProviderInvoiceAssocAmounts
     /**
      * Get amountDf
      *
-     * @return decimal 
+     * @return decimal
      */
     public function getAmountDf()
     {
@@ -159,7 +159,7 @@ class CommercialProviderInvoiceAssocAmounts
     /**
      * Get amountTi
      *
-     * @return decimal 
+     * @return decimal
      */
     public function getAmountTi()
     {
@@ -182,7 +182,7 @@ class CommercialProviderInvoiceAssocAmounts
     /**
      * Get taxes
      *
-     * @return decimal 
+     * @return decimal
      */
     public function getTaxes()
     {
@@ -192,7 +192,7 @@ class CommercialProviderInvoiceAssocAmounts
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -214,7 +214,7 @@ class CommercialProviderInvoiceAssocAmounts
     /**
      * Get purchaseInvoice
      *
-     * @return CommercialProviderInvoice 
+     * @return CommercialProviderInvoice
      */
     public function getPurchaseInvoice()
     {
@@ -236,33 +236,51 @@ class CommercialProviderInvoiceAssocAmounts
     /**
      * Get purchasingAccount
      *
-     * @return CommercialPurchasingAccount 
+     * @return CommercialPurchasingAccount
      */
     public function getPurchasingAccount()
     {
         return $this->purchasingAccount;
     }
-    
+
     /**
      * @PrePersist
      * @PreUpdate
      * @PreRemove
      */
-    public function prePersistOrRemove() {   
- 
-        if(round((float)$this->getAmountTi(), 2) != round((float)($this->getAmountDf() + $this->getTaxes()), 2)) {      
-            
+    public function prePersistOrRemove()
+    {
+        if ($this->getAmountDf() == 0) {
+            throw new \Exception(\Igestis\I18n\Translate::_("The duty free amount can't be 0"));
+        }
+
+        $amountDf = abs($this->getAmountDf());
+        $amountTi = abs($this->getAmountTi());
+        $amountTaxes = abs($this->getTaxes());
+
+        if ($amountDf != 0 && $amountTi < $amountDf) {
+            throw new \Exception(\Igestis\I18n\Translate::_("The duty free amount must be lower than the taxes included price."));
+        }
+
+        if ($amountTaxes != 0 && $amountTi < $amountTaxes) {
+            throw new \Exception(\Igestis\I18n\Translate::_("The taxes amount must be lower than the taxes included price."));
+        }
+
+
+        if (round((float)$this->getAmountTi(), 2) != round((float)($this->getAmountDf() + $this->getTaxes()), 2))
+        {
+
             throw new Exception(sprintf(\Igestis\I18n\Translate::_("The amount tax free (%s), amount taxes included (%s) and taxes (%s) does not match"),
                 $this->getAmountDf(),
                 $this->getAmountTi(),
                 $this->getTaxes()
             ));
         }
-        
+
         if($this->purchaseInvoice->isLocked()) throw new \Exception(\Igestis\I18n\Translate::_("This invoice is in read only mode. It has already been exported"));
-        
+
     }
-    
+
 }
 
 class CommercialProviderInvoiceAssocAmountsRepository extends Doctrine\ORM\EntityRepository {
@@ -279,11 +297,11 @@ class CommercialProviderInvoiceAssocAmountsRepository extends Doctrine\ORM\Entit
         catch (\Exception $e) {
             throw $e;
         }
-        
-        return $qb->getQuery()->getResult();        
-        
+
+        return $qb->getQuery()->getResult();
+
     }
-    
+
     public function find($id, $lockMode = null, $lockVersion = null) {
         $result = parent::find($id, $lockMode, $lockVersion);
         if(!$result || $result->getPurchaseInvoice()->getCompany()->getId() != \IgestisSecurity::init()->user->getCompany()->getId()) return null;
