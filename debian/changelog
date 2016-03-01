@@ -8,6 +8,8 @@ igestis-commercial (3.1.8) testing; urgency=medium
   * Added the possibility to set a negative credit time in projects
   * Added js control to improve user experience when filling the time credit in projects
 
+  [ Olivier Bitsch ]
+
  -- Olivier Bitsch <olivier.b@iabsis.com>  Mon, 01 Feb 2016 11:53:37 +0100
 
 igestis-commercial (3.1.7) testing; urgency=medium
