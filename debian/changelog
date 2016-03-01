@@ -1,3 +1,9 @@
+igestis-commercial (3.1.9) testing; urgency=medium
+
+  * Small fixes for buying invoices #7
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 01 Mar 2016 14:50:36 +0100
+
 igestis-commercial (3.1.8) testing; urgency=medium
 
   [ Olivier Bitsch ]
