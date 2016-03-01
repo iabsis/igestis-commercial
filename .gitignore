@@ -9,3 +9,4 @@ debian/igestis-commercial
 .settings
 .remote-sync.json
 .sync-config.cson
+debian/igestis-commercial.substvars
