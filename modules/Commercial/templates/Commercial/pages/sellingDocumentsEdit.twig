@@ -330,7 +330,12 @@
             <h3>{% trans %}Send invoice by mail{% endtrans %}</h3>
         </div>
         <div class="modal-body">
-            {{ forms.input('email', 'Customer email'|trans, sellingDocument.customerUser.mainContact.email) }}
+            {% set listOfEmails = [] %}
+            {% for contact in sellingDocument.customerUser.contacts %}
+                {% set listOfEmails = listOfEmails|merge([contact.email]) %}
+            {% endfor %}
+            {{ forms.tagfield('email', 'Customer email'|trans, listOfEmails, [sellingDocument.customerUser.mainContact.email]) }}
+            
             <textarea name="content" class="textarea" placeholder="Enter text ..." style="width: 510px; height: 200px">{{ companyConfig.mailInvoice }}</textarea>
         </div>
         <div class="modal-footer">
@@ -347,7 +352,11 @@
             <h3>{% trans %}Send estimate by mail{% endtrans %}</h3>
         </div>
         <div class="modal-body">
-            {{ forms.input('email', 'Customer email'|trans, sellingDocument.customerUser.mainContact.email) }}
+            {% set listOfEmails = [] %}
+            {% for contact in sellingDocument.customerUser.contacts %}
+                {% set listOfEmails = listOfEmails|merge([contact.email]) %}
+            {% endfor %}
+            {{ forms.tagfield('email', 'Customer email'|trans, listOfEmails, [sellingDocument.customerUser.mainContact.email]) }}
             <textarea name="content" class="textarea" placeholder="Enter text ..." style="width: 510px; height: 200px">{{ companyConfig.mailEstimate }}</textarea>
         </div>
         <div class="modal-footer">
