@@ -194,7 +194,21 @@ igestisCommercial.sellingDocument.init = function(options) {
     igestisCommercial.sellingDocument.initTable();
 
     $(function() {
-       $('#SendInvoice textarea, #SendQuotation textarea').wysihtml5();
+        $('#SendInvoice textarea, #SendQuotation textarea').wysihtml5();
+
+        $("#generate-delivery-form, #generate-purchase-order").on("click", function() {
+            var self = $(this);
+            bootbox.confirm(self.data("confirmMessage"), function(result) {
+                if (result == true) {
+                    window.location.href = self.data("href");
+                }
+            });
+        });
+
+
+
+
+        
     });
 };
 
@@ -292,6 +306,7 @@ igestisCommercial.sellingDocument.calculateTotalPrice = function() {
 igestisCommercial.sellingDocument.generateQuote = function() {
     $("#new-estimatte-modal").modal('show');
 };
+
 
 igestisCommercial.sellingDocument.generateInvoice = function() {
     $("#new-invoice-modal").modal('show');

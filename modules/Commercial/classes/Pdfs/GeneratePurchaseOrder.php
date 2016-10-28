@@ -9,27 +9,16 @@ use \Igestis\Modules\Commercial\ConfigModuleVars;
  *
  * @author Gilles Hemmerlé
  */
-class GenerateEstimate extends GenerateCommercialDocument {
+class GeneratePurchaseOrder extends GenerateCommercialDocument {
     
     private $document;
     
     /**
      *
-     * @var \CommercialEstimate 
+     * @var \CommercialPurchaseOrder 
      */
-    private $commercialEstimate;
+    private $commercialPurchaseOrder;
     
-    /**
-     *
-     * @var \DateTime $estimateDate
-     */
-    private $estimateDate;
-    
-    /**
-     *
-     * @var \DateTime $validUntil
-     */
-    private $validUntil;
     
     /**
      * 
@@ -42,76 +31,38 @@ class GenerateEstimate extends GenerateCommercialDocument {
         parent::__construct($entityManager, $document, $htmlRenderer, $htmlRendererFile);
         $this->document = $document;
         $this->saveMode(true);
-    }
+    }    
     
     /**
      * 
-     * @return \DateTime
-     */
-    public function getEstimateDate() {
-        return $this->estimateDate;
-    }
-
-    /**
-     * 
-     * @param \DateTime $estimateDate
-     * @return \Igestis\Modules\Commercial\Pdfs\GenerateEstimate
-     */
-    public function setEstimateDate(\DateTime $estimateDate) {
-        $this->estimateDate = $estimateDate;
-        return $this;
-    }
-
-    /**
-     * 
-     * @return \DateTime
-     */
-    public function getValidUntil() {
-        return $this->validUntil;
-    }
-
-    /**
-     * 
-     * @param \DateTime $validUntil
-     * @return \Igestis\Modules\Commercial\Pdfs\GenerateEstimate
-     */
-    public function setValidUntil(\DateTime $validUntil) {
-        $this->validUntil = $validUntil;
-        return $this;
-    }
-
-    
-    /**
-     * 
-     * @return \Igestis\Modules\Commercial\Pdfs\GenerateEstimate
+     * @return \Igestis\Modules\Commercial\Pdfs\GeneratePurchaseOrder
      */
     public function generate() {
         
         $autoIncrement = $this->entityManager->getRepository("CommercialAutoIncrement")->find($this->document->getCompany()->getId());
-        if($autoIncrement == null) $autoIncrement = new \CommercialAutoIncrement($this->document->getCompany());
 
+        if($autoIncrement == null) {
+            $autoIncrement = new \CommercialAutoIncrement($this->document->getCompany());
+        }
 
+        // Create the purchase order object
+        $this->commercialPurchaseOrder = new \CommercialPurchaseOrder($this->document);
         
-        
-        // Create the estimate object
-        $this->commercialEstimate = new \CommercialEstimate($this->document);
-        
-        $this->commercialEstimate->setDateEstimate($this->estimateDate)
-                                 ->setValidUntil($this->validUntil)
-                                 ->setEstimationNumber($autoIncrement->getNextEstimateId())
-                                 ->setPathPdfFile('');
-        
-        $autoIncrement->incrementEstimateId();
+        $this->commercialPurchaseOrder
+             ->setPathPdfFile('')
+             ->setPoNumber($autoIncrement->getNextPurchaseOrderId());
+
+        $autoIncrement->incrementPurchaseOrderId();
 
         $hook = \Igestis\Utils\Hook::getInstance();
         $hookParameters = new \Igestis\Types\HookParameters();
         $hookParameters->set('entityManager', $this->entityManager);
         $hookParameters->set('commercialAutoIncrement', $autoIncrement);
-        $hook->callHook("afterEstimateAutoIncrement", $hookParameters);
-
+        $hook->callHook("afterPurchaseOrderAutoIncrement", $hookParameters);
+        
         if($this->saveMode) {
-            $this->entityManager->persist($autoIncrement);
-            $this->entityManager->persist($this->commercialEstimate);
+            if($autoIncrement) $this->entityManager->persist($autoIncrement);
+            $this->entityManager->persist($this->commercialPurchaseOrder);
             $this->entityManager->flush();
         }
         
@@ -127,14 +78,14 @@ class GenerateEstimate extends GenerateCommercialDocument {
         $this->tcpdfObject->SetHeaderMargin(PDF_MARGIN_HEADER);
         $this->tcpdfObject->SetFooterMargin(PDF_MARGIN_FOOTER);
         // set auto page breaks
-        $this->tcpdfObject->SetAutoPageBreak(TRUE, 70);
+        $this->tcpdfObject->SetAutoPageBreak(TRUE, 40);
         
         $this->addReplacements(
             array(
-                "commercialEstimate" => $this->commercialEstimate,
+                'commercialPurchaseOrder' => $this->commercialPurchaseOrder,
                 "numPage" => $this->tcpdfObject->getAliasNumPage(),
                 "nbPages" => $this->tcpdfObject->getAliasNbPages(),
-                "companyConfig" => $this->entityManager->getRepository('CommercialCompanyConfig')->find($this->commercialEstimate->getCommercialDocument()->getCompany()->getId())
+                "companyConfig" => $this->entityManager->getRepository('CommercialCompanyConfig')->find($this->commercialPurchaseOrder->getCommercialDocument()->getCompany()->getId())
             )
         );
         //Define and run Header and Footer settings.
@@ -165,26 +116,26 @@ class GenerateEstimate extends GenerateCommercialDocument {
     public function show($filename = 'fichier.pdf', $mode = 'D') {
         if($this->saveMode) {
             // Create quotation root folder if not exist
-            if(!is_dir(ConfigModuleVars::quotationsFolder())) {
-                if(!mkdir(ConfigModuleVars::quotationsFolder())) {
-                    throw new \Exception(sprintf(\Igestis\I18n\Translate::_("Unable to create the estimate folder '%s'"), ConfigModuleVars::quotationsFolder()));
+            if(!is_dir(ConfigModuleVars::PurchaseOrderFolder())) {
+                if(!mkdir(ConfigModuleVars::PurchaseOrderFolder())) {
+                    throw new \Exception(sprintf(\Igestis\I18n\Translate::_("Unable to create the purchase order folder '%s'"), ConfigModuleVars::PurchaseOrderFolder()));
                 }
             }
             
             // Create the quotation folder for the needed company if not exist
-            $companyQuotationFolder = ConfigModuleVars::quotationsFolder() . "/" . $this->document->getCompany()->getId();
-            if(!is_dir($companyQuotationFolder)) {
-                if(!mkdir($companyQuotationFolder)) {
-                    throw new \Exception(sprintf(\Igestis\I18n\Translate::_("Unable to create the estimate folder '%s'"), $companyQuotationFolder));
+            $companyPurchaseOrderFolder = ConfigModuleVars::PurchaseOrderFolder() . "/" . $this->document->getCompany()->getId();
+            if(!is_dir($companyPurchaseOrderFolder)) {
+                if(!mkdir($companyPurchaseOrderFolder)) {
+                    throw new \Exception(sprintf(\Igestis\I18n\Translate::_("Unable to create the purchase order folder '%s'"), $companyPurchaseOrderFolder));
                 }
             }
             
-            $filename = $companyQuotationFolder . "/" . $this->commercialEstimate->getEstimationNumber() . ".pdf";
+            $filename = $companyPurchaseOrderFolder . "/" . $this->commercialPurchaseOrder->getPoNumber() . ".pdf";
             //$mode = "FD";
             
             $fileInfos = pathinfo($filename);  
-            $this->commercialEstimate->setPathPdfFile($fileInfos['basename']);
-            $this->entityManager->persist($this->commercialEstimate);
+            $this->commercialPurchaseOrder->setPathPdfFile($fileInfos['basename']);
+            $this->entityManager->persist($this->commercialPurchaseOrder);
             $this->entityManager->flush();
         }
         

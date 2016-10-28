@@ -1,6 +1,3 @@
-;DO NOT UPDATE THIS FILE, IF YOU WANT TO OVERWRITE THESE VALUES PLEASE UPDATE THE config.ini FILE
-
-
 ;Folder where invoices pdf will be saved (without the slah prefix, this is related to the core DATA_FOLDER target)
 INVOICES_FOLDER = "Commercial/invoices"
 

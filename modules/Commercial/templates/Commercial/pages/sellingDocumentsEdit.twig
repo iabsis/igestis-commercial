@@ -169,6 +169,36 @@
                         <i class="icon-download-alt"></i> {% trans %}Download the estimate{% endtrans %}
                       </a>
                     </li>
+                    <li>
+                         {# Show the commercial delivery document #}
+                        <a id="generate-delivery-form" href="javascript:;" data-href="{{ url('commercial_delivery_form_update', {"sellingDocumentId":sellingDocument.id} ) }}" data-confirm-message="{% trans %}Do you really want to generate the delivery form ?{% endtrans %}">
+                            <i class="icon-file"></i> {% trans %}Generate delivery document{% endtrans %}
+                        </a>
+                    </li>
+                    
+                    {% if (sellingDocument.deliveryForms|length) %}
+                        <li>
+                            <a href="{{ url('commercial_delivery_document_dl_doc', {"Id":sellingDocument.deliveryForms.last.Id, "ForceDl" : 1}) }}">
+                            <i class="icon-download-alt"></i> {% trans %}Download the delivery document{% endtrans %}
+                          </a>
+                        </li>
+                    {% endif %}
+                    
+                    <li>
+                         {# Show the commercial purchase order #}
+                        <a id="generate-purchase-order" href="javascript:;" data-href="{{ url('commercial_purchase_order_update', {"sellingDocumentId":sellingDocument.id} ) }}" data-confirm-message="{% trans %}Do you really want to generate the purchase order ?{% endtrans %}">
+                            <i class="icon-file"></i> {% trans %}Generate purchase order{% endtrans %}
+                        </a>
+                    </li>
+                    
+                    {% if (sellingDocument.purchaseOrders|length) %}
+                        <li>
+                            <a href="{{ url('commercial_purchase_order_document_dl_doc', {"Id":sellingDocument.purchaseOrders.last.Id, "ForceDl" : 1}) }}">
+                            <i class="icon-download-alt"></i> {% trans %}Download the purchase order{% endtrans %}
+                          </a>
+                        </li>
+                    {% endif %}
+
                   </ul>
                 </div>
 
@@ -223,6 +253,7 @@
                        </a>
                      </li>
                      {% endif %}
+                     
                      <li>
                        <a href="#SendInvoice" data-toggle="modal">
                          <i class="icon-envelope"></i> {% trans %}Send the invoice by email{% endtrans %}
@@ -237,6 +268,9 @@
                  </div>
 
             {% endif %}
+
+
+
           </div>
         </div>
         {% if not (sellingDocument.invoices[0].exported or sellingDocument.invoices[0].paid) %}

@@ -67,53 +67,70 @@ class ConfigInitModule implements \Igestis\Interfaces\ConfigMenuInterface, \Iges
          * - Le nom de l'entrée dans le menu (ici on crée l'entrée tickets dans le menu Modules)
          * - La route à lancer
          */
-        $menu->addItem(
+
+        if (ConfigModuleVars::showMenuProjects()) {
+            $menu->addItem(
                 \Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("Projects", ConfigModuleVars::textDomain()),
                 "commercial_project_index"
-        );
+            );
+        }
+        
+        if (ConfigModuleVars::showMenuSalesDocuments()) {
+            $menu->addItem(
+            		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+            		\Igestis\I18n\Translate::_("Sales documents", ConfigModuleVars::textDomain()),
+            		"commercial_selling_document_index"
+            );
+        }
 
-        $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
-        		\Igestis\I18n\Translate::_("Sales documents", ConfigModuleVars::textDomain()),
-        		"commercial_selling_document_index"
-        );
+        if (ConfigModuleVars::showMenuPurchasesInvoices()) {
+            $menu->addItem(
+            		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+            		\Igestis\I18n\Translate::_("Purchases invoices", ConfigModuleVars::textDomain()),
+            		"commercial_provider_invoices_index"
+            );
+        }
 
-        $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
-        		\Igestis\I18n\Translate::_("Purchases invoices", ConfigModuleVars::textDomain()),
-        		"commercial_provider_invoices_index"
-        );
+        if (ConfigModuleVars::showMenuArticlesDb()) {
+            $menu->addItem(
+            		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+            		\Igestis\I18n\Translate::_("Articles database", ConfigModuleVars::textDomain()),
+            		"commercial_articles_index"
+            );
+        }
 
-        $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
-        		\Igestis\I18n\Translate::_("Articles database", ConfigModuleVars::textDomain()),
-        		"commercial_articles_index"
-        );
+        if (ConfigModuleVars::showMenuInterventions()) {
+            $menu->addItem(
+            		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+            		\Igestis\I18n\Translate::_("Interventions", ConfigModuleVars::textDomain()),
+            		"commercial_interventions_index"
+            );
+        }
 
-        $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
-        		\Igestis\I18n\Translate::_("Interventions", ConfigModuleVars::textDomain()),
-        		"commercial_interventions_index"
-        );
+        if (ConfigModuleVars::showMenuUsersBalance()) {
+            $menu->addItem(
+            		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+            		\Igestis\I18n\Translate::_("Users balance", ConfigModuleVars::textDomain()),
+            		"commercial_balance_index"
+            );
+        }
 
-        $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
-        		\Igestis\I18n\Translate::_("Users balance", ConfigModuleVars::textDomain()),
-        		"commercial_balance_index"
-        );
+        if (ConfigModuleVars::showMenuBankAccounts()) {
+            $menu->addItem(
+            		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+            		\Igestis\I18n\Translate::_("Bank accounts", ConfigModuleVars::textDomain()),
+            		"commercial_bank_index"
+            );
+        }
 
-        $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
-        		\Igestis\I18n\Translate::_("Bank accounts", ConfigModuleVars::textDomain()),
-        		"commercial_bank_index"
-        );
-
-        $menu->addItem(
-        		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
-        		\Igestis\I18n\Translate::_("Export", ConfigModuleVars::textDomain()),
-        		"commercial_export_index"
-        );
+        if (ConfigModuleVars::showMenuExport()) {
+            $menu->addItem(
+            		\Igestis\I18n\Translate::_("Commercial", ConfigModuleVars::textDomain()),
+            		\Igestis\I18n\Translate::_("Export", ConfigModuleVars::textDomain()),
+            		"commercial_export_index"
+            );
+        }
 
         if ($context->security->user && $context->security->user->getUserType() != \CoreUsers::USER_TYPE_EMPLOYEE) {
             $menu->addItem(
@@ -144,85 +161,129 @@ class ConfigInitModule implements \Igestis\Interfaces\ConfigMenuInterface, \Iges
      */
     public static function sidebarSet(\Application $context, \IgestisSidebar &$sidebar) {
 
-        $sidebar->addItem(
+
+        if (ConfigModuleVars::showSubmenuNewIntervention()) {
+            $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Quick links", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("New intervention", ConfigModuleVars::textDomain()),
-                "commercial_interventions_new");
-
-        $sidebar->addItem(
+                "commercial_interventions_new"
+            );
+        }
+        if (ConfigModuleVars::showSubmenuNewCommercialElement()) {
+            $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Quick links", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("New commercial element", ConfigModuleVars::textDomain()),
                 new \Igestis\Types\SidebarJavascriptOnClick("create_or_duplicate_document(null);", null),
                 false,
                 array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-                );
-
-        $sidebar->addItem(
+            );
+        }
+        
+        if (ConfigModuleVars::showSubmenuNewProject()) {
+            $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Quick links", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("New project", ConfigModuleVars::textDomain()),
                 new \Igestis\Types\SidebarJavascriptOnClick("create_or_duplicate_project(null);", null),
                 false,
                 array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
-                );
-
-        $sidebar->addItem(
+            );
+        }
+        
+        if (ConfigModuleVars::showSubmenuProjects()) {
+            $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("Projects", ConfigModuleVars::textDomain()),
-                "commercial_project_index");
-
-        $sidebar->addItem(
+                "commercial_project_index"
+            );
+        }
+        
+        if (ConfigModuleVars::showSubmenuSalesDocuments()) {
+            $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("Sales documents", ConfigModuleVars::textDomain()),
-                "commercial_selling_document_index");
-
-        $sidebar->addItem(
+                "commercial_selling_document_index"
+            );
+        }
+        
+        if (ConfigModuleVars::showSubmenuPurchasesInvoices()) {
+            $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("Purchases invoices", ConfigModuleVars::textDomain()),
-                "commercial_provider_invoices_index");
-
-        $sidebar->addItem(
+                "commercial_provider_invoices_index"
+            );
+        }
+        
+        if (ConfigModuleVars::showSubmenuArticlesDatabase()) {
+            $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("Articles database", ConfigModuleVars::textDomain()),
-                "commercial_articles_index");
-
-        $sidebar->addItem(
+                "commercial_articles_index"
+            );
+        }
+        
+        if (ConfigModuleVars::showSubmenuInterventions()) {
+            $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("Interventions", ConfigModuleVars::textDomain()),
-                "commercial_interventions_index");
-
-        $sidebar->addItem(
+                "commercial_interventions_index"
+            );
+        }
+        
+        if (ConfigModuleVars::showSubmenuUsersBalance()) {
+            $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("Users balance", ConfigModuleVars::textDomain()),
-                "commercial_balance_index");
-
-        $sidebar->addItem(
+                "commercial_balance_index"
+            );
+        }
+        
+        if (ConfigModuleVars::showSubmenuBankAccounts()) {
+            $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("Bank accounts", ConfigModuleVars::textDomain()),
-                "commercial_bank_index");
-
-        $sidebar->addItem(
+                "commercial_bank_index"
+            );
+        }
+        
+        if (ConfigModuleVars::showSubmenuExport()) {
+            $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Navigation", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("Export", ConfigModuleVars::textDomain()),
-                "commercial_export_index");
-
-        $sidebar->addItem(
+                "commercial_export_index"
+            );
+        }
+        
+        if (ConfigModuleVars::showSubmenuTaxeRates()) {
+            $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Administration", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("Taxe rates", ConfigModuleVars::textDomain()),
-                "commercial_taxe_rates_index");
-
-        $sidebar->addItem(
+                "commercial_taxe_rates_index"
+            );
+        }
+        
+        if (ConfigModuleVars::showSubmenuAccounting()) {
+            $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Administration", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("Accounting", ConfigModuleVars::textDomain()),
-                "commercial_accounting_index");
-        $sidebar->addItem(
+                "commercial_accounting_index"
+            );
+        }
+        
+        if (ConfigModuleVars::showSubmenuProjectParameters()) {
+            $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Administration", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("Project parameters", ConfigModuleVars::textDomain()),
-                "commercial_project_parameters_config");
-
-        $sidebar->addItem(
+                "commercial_project_parameters_config"
+            );
+        }
+        
+        if (ConfigModuleVars::showSubmenuCommercialParameters()) {
+            $sidebar->addItem(
                 \Igestis\I18n\Translate::_("Administration", ConfigModuleVars::textDomain()),
                 \Igestis\I18n\Translate::_("Commercial parameters", ConfigModuleVars::textDomain()),
-                "commercial_parameters_config");
+                "commercial_parameters_config"
+            );
+        }
 
     }
 }
