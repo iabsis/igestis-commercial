@@ -1,3 +1,10 @@
+igestis-commercial (3.1.10-2) testing; urgency=medium
+
+  * Added purchase order and delivery form generation.
+  * Feature to disable menu entry from config.ini.
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Fri, 28 Oct 2016 15:13:30 +0200
+
 igestis-commercial (3.1.9) testing; urgency=medium
 
   * Small fixes for buying invoices #7
