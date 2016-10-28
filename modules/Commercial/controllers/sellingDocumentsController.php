@@ -80,6 +80,9 @@ class sellingDocumentsController extends \IgestisController {
                     if(!$project) throw new \Exception(\Igestis\I18n\Translate::_("Unknown project"));
                     $document->setProject($project)->setCustomerUser($project->getCustomerUser());
                 }
+
+                //throw new \Exception(\Igestis\Utils\Dump::get($document));
+                
                 $this->context->entityManager->persist($document);
                 $this->context->entityManager->flush();
                 // Show wizz to article the document update

@@ -71,16 +71,20 @@ class invoicesController extends \IgestisController {
      * @param type $estimateId Id of the estimate to send to the customer
      */
     public function mailAction($invoiceId) {
-        
         // Create ajax response
         $ajaxRender = new \Igestis\Ajax\AjaxResult();     
         $ajaxRender->addScript('$("#SendInvoice").modal("hide");');
         
-        // Get recipient from the POST form
         $email = $this->request->getPost("email");
-        if(!\Igestis\Utils\FormatChecker::isEmail($email)) {
-            $ajaxRender->addWizz(\Igestis\I18n\Translate::_("Please provide a valid email address"), \wizz::$WIZZ_ERROR)
-                       ->setError(\Igestis\I18n\Translate::_("Please rensign a well formed recipient"));
+        $emails = explode(",", $email);
+
+        
+
+        foreach ($emails as $currentEmail) {
+            if(!\Igestis\Utils\FormatChecker::isEmail($currentEmail)) {
+                $ajaxRender->addWizz(\Igestis\I18n\Translate::_("Please provide a valid email address") . " : " . $currentEmail, \wizz::$WIZZ_ERROR)
+                           ->setError(\Igestis\I18n\Translate::_("Please provide a valid email address") . " : " . $currentEmail);
+            }
         }
         
         // Retrieve the estimate entity
@@ -97,6 +101,11 @@ class invoicesController extends \IgestisController {
 
             $html = $this->request->getPost('content');
             $company = $this->context->security->user->getCompany();
+
+            if (!\Igestis\Utils\FormatChecker::isEmail($company->getEmail())) {
+                throw new \Exception(\Igestis\I18n\Translate::_("Please set a valid email address for your company"));
+            }
+            
             $message
                 // Give the message a subject
                 ->setSubject(\Igestis\I18n\Translate::_("Your invoice"))
@@ -104,7 +113,7 @@ class invoicesController extends \IgestisController {
                 ->setFrom(array($company->getEmail() => $company->getName()))
                 ->setBcc(array($company->getEmail() => $company->getName()))
                 // Set the To addresses with an associative array
-                ->setTo($email)
+                ->setTo($emails)
                 // And optionally an alternative body
                 ->addPart($html, 'text/html')
                 // Attech the quotation pdf
