@@ -1,0 +1,98 @@
+ALTER TABLE  `COMMERCIAL_AUTO_INCREMENT` ADD  `next_purchase_order_id` MEDIUMINT NOT NULL DEFAULT  '1',
+ADD  `next_delivery_form_id` MEDIUMINT NOT NULL DEFAULT  '1';
+
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_DELIVERY_FORM` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `commercial_document_id` mediumint(9) NOT NULL,
+  `delivery_form_number` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  `document_date` date NOT NULL,
+  `tax_num_customer` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `path_pdf_file` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+  `invoice_total_DF` decimal(10,2) NOT NULL,
+  `invoice_total_TI` decimal(10,2) NOT NULL,
+  `project_id` mediumint(9) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `commercial_document_id` (`commercial_document_id`),
+  KEY `project_id` (`project_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_DELIVERY_FORM_ARTICLE` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `is_group` tinyint(1) NOT NULL,
+  `item_label` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `item_ref` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `purchasing_DF_unit_price` decimal(10,2) DEFAULT NULL,
+  `selling_DF_unit_price` decimal(10,2) NOT NULL,
+  `tax_rate` decimal(10,3) DEFAULT NULL,
+  `amount_tax` decimal(10,2) DEFAULT NULL,
+  `quantity_article` decimal(10,3) DEFAULT NULL,
+  `tot_sell_price_article_DF` decimal(10,2) DEFAULT NULL,
+  `tot_sell_price_article_TI` decimal(10,2) DEFAULT NULL,
+  `comment` text COLLATE utf8_unicode_ci,
+  `accounting_label` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `accounting_number` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `delivery_form` mediumint(9) NOT NULL,
+  `parent_id` mediumint(9) DEFAULT NULL,
+  `article_order` tinyint(4) NOT NULL,
+  `tax_accounting_number` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `delivery_form_item` (`delivery_form`),
+  KEY `parent_item` (`parent_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_PURCHASE_ORDER` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `commercial_document_id` mediumint(9) NOT NULL,
+  `po_number` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  `document_date` date NOT NULL,
+  `tax_num_customer` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `path_pdf_file` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+  `document_total_DF` decimal(10,2) NOT NULL,
+  `document_total_TI` decimal(10,2) NOT NULL,
+  `project_id` mediumint(9) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `commercial_document_id` (`commercial_document_id`),
+  KEY `project_id` (`project_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `COMMERCIAL_PURCHASE_ORDER_ARTICLE` (
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `is_group` tinyint(1) NOT NULL,
+  `item_label` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `item_ref` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `purchasing_DF_unit_price` decimal(10,2) DEFAULT NULL,
+  `selling_DF_unit_price` decimal(10,2) NOT NULL,
+  `tax_rate` decimal(10,3) DEFAULT NULL,
+  `amount_tax` decimal(10,2) DEFAULT NULL,
+  `quantity_article` decimal(10,3) DEFAULT NULL,
+  `tot_sell_price_article_DF` decimal(10,2) DEFAULT NULL,
+  `tot_sell_price_article_TI` decimal(10,2) DEFAULT NULL,
+  `comment` text COLLATE utf8_unicode_ci,
+  `accounting_label` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `accounting_number` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `purchase_order` mediumint(9) NOT NULL,
+  `parent_id` mediumint(9) DEFAULT NULL,
+  `article_order` tinyint(4) NOT NULL,
+  `tax_accounting_number` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `purchase_order_item` (`purchase_order`),
+  KEY `parent_item` (`parent_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+ALTER TABLE `COMMERCIAL_DELIVERY_FORM`
+  ADD CONSTRAINT `COMMERCIAL_DELIVERY_FORM_ibfk_2` FOREIGN KEY (`project_id`) REFERENCES `COMMERCIAL_PROJECT` (`id`),
+  ADD CONSTRAINT `COMMERCIAL_DELIVERY_FORM_ibfk_3` FOREIGN KEY (`commercial_document_id`) REFERENCES `COMMERCIAL_COMMERCIAL_DOCUMENT` (`id`);
+
+ALTER TABLE `COMMERCIAL_DELIVERY_FORM_ARTICLE`
+  ADD CONSTRAINT `COMMERCIAL_DELIVERY_FORM_ARTICLE_ibfk_2` FOREIGN KEY (`parent_id`) REFERENCES `COMMERCIAL_DELIVERY_FORM_ARTICLE` (`id`),
+  ADD CONSTRAINT `COMMERCIAL_DELIVERY_FORM_ARTICLE_ibfk_1` FOREIGN KEY (`delivery_form`) REFERENCES `COMMERCIAL_DELIVERY_FORM` (`id`);
+
+ALTER TABLE `COMMERCIAL_PURCHASE_ORDER`
+  ADD CONSTRAINT `COMMERCIAL_PURCHASE_ORDER_ibfk_1` FOREIGN KEY (`commercial_document_id`) REFERENCES `COMMERCIAL_COMMERCIAL_DOCUMENT` (`id`),
+  ADD CONSTRAINT `COMMERCIAL_PURCHASE_ORDER_ibfk_3` FOREIGN KEY (`project_id`) REFERENCES `COMMERCIAL_PROJECT` (`id`);
+
+ALTER TABLE `COMMERCIAL_PURCHASE_ORDER_ARTICLE`
+  ADD CONSTRAINT `COMMERCIAL_PURCHASE_ORDER_ARTICLE_ibfk_2` FOREIGN KEY (`parent_id`) REFERENCES `COMMERCIAL_PURCHASE_ORDER_ARTICLE` (`id`),
+  ADD CONSTRAINT `COMMERCIAL_PURCHASE_ORDER_ARTICLE_ibfk_1` FOREIGN KEY (`purchase_order`) REFERENCES `COMMERCIAL_PURCHASE_ORDER` (`id`);

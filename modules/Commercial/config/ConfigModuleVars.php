@@ -105,6 +105,24 @@ class ConfigModuleVars
     }
 
     /**
+     * Return the delivery form pdf folder
+     * @return string delivery form pdf folder
+     */
+    public static function deliveryFormFolder()
+    {
+        return self::dataFolder(self::$params['DELIVERY_FORM_FOLDER']);
+    }
+
+    /**
+     * Return the purchase orders pdf folder
+     * @return string purchase orders pdf folder
+     */
+    public static function purchaseOrderFolder()
+    {
+        return self::dataFolder(self::$params['PURCHASE_ORDER_FOLDER']);
+    }
+
+    /**
      * Return the providers invoices pdf folder
      * @return string Providers invoices pdf folder
      */
@@ -139,4 +157,97 @@ class ConfigModuleVars
     {
         return self::dataFolder(self::$params['INTERVENTIONS_DOCUMENT_FOLDER']);
     }
+
+    public function showMenuProjects() {
+        return self::$params['MENU_PROJECTS'];
+    }
+
+    public function showMenuSalesDocuments() {
+        return self::$params['MENU_SALES_DOCUMENTS'];
+    }
+
+    public function showMenuPurchasesInvoices() {
+        return self::$params['MENU_PURCHASES_INVOICES'];
+    }
+
+    public function showMenuArticlesDb() {
+        return self::$params['MENU_ARTICLES_DB'];
+    }
+
+    public function showMenuInterventions() {
+        return self::$params['MENU_INTERVENTIONS'];
+    }
+
+    public function showMenuUsersBalance() {
+        return self::$params['MENU_USERS_BALANCE'];
+    }
+
+    public function showMenuBankAccounts() {
+        return self::$params['MENU_BANK_ACCOUNTS'];
+    }
+
+    public function showMenuExport() {
+        return self::$params['MENU_EXPORT'];
+    }
+
+    public function showSubmenuNewIntervention() {
+        return self::$params['SUBMENU_NEW_INTERVENTION'];
+    }
+
+    public function showSubmenuNewCommercialElement() {
+        return self::$params['SUBMENU_NEW_COMMERCIAL_ELEMENT'];
+    }
+
+    public function showSubmenuNewProject() {
+        return self::$params['SUBMENU_NEW_PROJECT'];
+    }
+
+    public function showSubmenuProjects() {
+        return self::$params['SUBMENU_PROJECTS'];
+    }
+
+    public function showSubmenuSalesDocuments() {
+        return self::$params['SUBMENU_SALES_DOCUMENTS'];
+    }
+
+    public function showSubmenuPurchasesInvoices() {
+        return self::$params['SUBMENU_PURCHASES_INVOICES'];
+    }
+
+    public function showSubmenuArticlesDatabase() {
+        return self::$params['SUBMENU_ARTICLES_DATABASE'];
+    }
+
+    public function showSubmenuInterventions() {
+        return self::$params['SUBMENU_INTERVENTIONS'];
+    }
+
+    public function showSubmenuUsersBalance() {
+        return self::$params['SUBMENU_USERS_BALANCE'];
+    }
+
+    public function showSubmenuBankAccounts() {
+        return self::$params['SUBMENU_BANK_ACCOUNTS'];
+    }
+
+    public function showSubmenuExport() {
+        return self::$params['SUBMENU_EXPORT'];
+    }
+
+    public function showSubmenuTaxeRates() {
+        return self::$params['SUBMENU_TAXE_RATES'];
+    }
+
+    public function showSubmenuAccounting() {
+        return self::$params['SUBMENU_ACCOUNTING'];
+    }
+
+    public function showSubmenuProjectParameters() {
+        return self::$params['SUBMENU_PROJECT_PARAMETERS'];
+    }
+
+    public function showSubmenuCommercialParameters() {
+        return self::$params['SUBMENU_COMMERCIAL_PARAMETERS'];
+    }
+
 }

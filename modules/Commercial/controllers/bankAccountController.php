@@ -173,8 +173,7 @@ class bankAccountController extends \IgestisController {
         if(!$account) $this->context->throw404error();
         
         // If the form has been received, manage the form...
-        if ($this->request->IsPost()) {       
-            Dump::show($account);
+        if ($this->request->IsPost()) {
             // Set the new datas to the entity
             $parser = new \IgestisFormParser();
             $account = $parser->FillEntityFromForm($account, $_POST); 

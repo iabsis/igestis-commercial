@@ -11,7 +11,58 @@ class ConfigControllers extends \IgestisConfigController {
      * @return Array Liste des routes de ce module
      */
     public static function get() {
-        return  array(
+        return  array(            
+            array(
+                'id' => 'commercial_delivery_form_update',
+                'Parameters' => array(
+                    'Module' => 'Commercial',
+                    'Action' => 'delivery_form_update',
+                    'sellingDocumentId' => '{VAR}[0-9]+'
+                ),
+                'Controller' => '\Igestis\Modules\Commercial\DeliveryFormController',
+                'Action' => 'updateAction',
+                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
+            ),
+
+            array(
+                'id' => 'commercial_delivery_document_dl_doc',
+                'Parameters' => array(
+                    'Module' => 'Commercial',
+                    'Action' => 'delivery_document_dl_doc',
+                    'Id' => '{VAR}[0-9]+',
+                    'ForceDl' => '{VAR}[0-1]{1}',
+                ),
+                'Controller' => '\Igestis\Modules\Commercial\DeliveryFormController',
+                'Action' => 'downloadAction',
+                'Access' => array('AUTHENTICATED')
+            ),
+
+
+            array(
+                'id' => 'commercial_purchase_order_update',
+                'Parameters' => array(
+                    'Module' => 'Commercial',
+                    'Action' => 'purchase_order_update',
+                    'sellingDocumentId' => '{VAR}[0-9]+'
+                ),
+                'Controller' => '\Igestis\Modules\Commercial\PurchaseOrderController',
+                'Action' => 'updateAction',
+                'Access' => array('COMMERCIAL:ADMIN', 'COMMERCIAL:EMPL')
+            ),
+
+            array(
+                'id' => 'commercial_purchase_order_document_dl_doc',
+                'Parameters' => array(
+                    'Module' => 'Commercial',
+                    'Action' => 'purchase_order_document_dl_doc',
+                    'Id' => '{VAR}[0-9]+',
+                    'ForceDl' => '{VAR}[0-1]{1}',
+                ),
+                'Controller' => '\Igestis\Modules\Commercial\PurchaseOrderController',
+                'Action' => 'downloadAction',
+                'Access' => array('AUTHENTICATED')
+            ),
+
 
             /***************** Section to manage the accounting ***************************************************************/
             array(

@@ -140,6 +140,23 @@ class CommercialCommercialDocument
     private $estimates;
 
     /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     * 
+     * @OneToMany(targetEntity="CommercialDeliveryForm", mappedBy="commercialDocument", cascade={"all"})
+     * @OrderBy({"id" = "ASC"})
+     */
+    private $deliveryForms;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     * 
+     * @OneToMany(targetEntity="CommercialPurchaseOrder", mappedBy="commercialDocument", cascade={"all"})
+     * @OrderBy({"id" = "ASC"})
+     */
+    private $purchaseOrders;
+
+
+    /**
      * @var CommercialTimeCredit
      * @OneToOne(targetEntity="CommercialTimeCredit", mappedBy="commercialDocument")
      */
@@ -167,6 +184,8 @@ class CommercialCommercialDocument
         $this->articles = new Doctrine\Common\Collections\ArrayCollection();
         $this->invoices = new Doctrine\Common\Collections\ArrayCollection();
         $this->estimates = new Doctrine\Common\Collections\ArrayCollection();
+        $this->deliveryForms = new Doctrine\Common\Collections\ArrayCollection();
+        $this->purchaseOrders = new Doctrine\Common\Collections\ArrayCollection();
 
         $this->creationDate = new \DateTime();
         
@@ -541,6 +560,54 @@ class CommercialCommercialDocument
     {
         return $this->company;
     }
+
+    /**
+     * Gets the value of DeliveryForms.
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getDeliveryForms()
+    {
+        return $this->deliveryForms;
+    }
+
+    /**
+     * Sets the value of DeliveryForms.
+     *
+     * @param \Doctrine\Common\Collections\ArrayCollection $DeliveryForms the delivery documents
+     *
+     * @return self
+     */
+    public function setDeliveryForms(\Doctrine\Common\Collections\ArrayCollection $DeliveryForms)
+    {
+        $this->deliveryForms = $DeliveryForms;
+
+        return $this;
+    }
+
+    /**
+     * Gets the value of purchaseOrders.
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getPurchaseOrders()
+    {
+        return $this->purchaseOrders;
+    }
+
+    /**
+     * Sets the value of purchaseOrders.
+     *
+     * @param \Doctrine\Common\Collections\ArrayCollection $purchaseOrders the purchase orders
+     *
+     * @return self
+     */
+    public function setPurchaseOrders(\Doctrine\Common\Collections\ArrayCollection $purchaseOrders)
+    {
+        $this->purchaseOrders = $purchaseOrders;
+
+        return $this;
+    }
     
     /**
      * Add a new article to the list
@@ -776,4 +843,5 @@ class CommercialCommercialDocumentRepository extends \Doctrine\ORM\EntityReposit
         return $qb->getQuery()->getResult();   
     }
 
+    
 }
